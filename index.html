@@ -912,11 +912,9 @@ function formatCard(el){let v=el.value.replace(/\D/g,'').substring(0,16);el.valu
 function formatExpiry(el){let v=el.value.replace(/\D/g,'').substring(0,4);if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2);el.value=v;}
  
 async function processPayment(){
-  const email=document.getElementById('pt-email').value;
-  if(!email||!email.includes('@')){alert('გთხოვ შეიყვანე ელ-ფოსტა');return;}
   const btn=document.getElementById('pay-btn');
-  btn.textContent='…'; btn.disabled=true;
-  await sleep(600);
+  if(btn){btn.textContent='…'; btn.disabled=true;}
+  await sleep(300);
   showStep('step-3');
   setDot(2,'done');setDot(3,'active');setLine(2,true);
   await animateLoading();
