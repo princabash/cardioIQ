@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'static site'",
+  "public": true,
+  "rewrites": [
+    {
+      "source": "/.netlify/functions/(.*)",
+      "destination": "/api/$1"
+    }
+  ],
+  "functions": {
+    "api/generate-report.js": {
+      "memory": 256,
+      "maxDuration": 60
+    }
+  }
+}
