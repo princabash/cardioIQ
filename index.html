@@ -970,7 +970,7 @@ Generate a realistic, clinically meaningful CardioIQ report. Include plausible v
   try{
     const res=await fetch('/.netlify/functions/generate-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system,user})});
     const data=await res.json();
-    if(data.error){reportText='Error: '+data.error+(data.detail?'\n'+data.detail:'');}else{reportText=data.content?.[0]?.text||'No content returned. Status: '+res.status;}
+    if(data.error){reportText='Error: '+JSON.stringify(data.error)+(data.detail?'\nDetail: '+JSON.stringify(data.detail):'')+(data.type?'\nType: '+data.type:'');}else if(data.content){reportText=data.content[0].text;}else{reportText='Unexpected response: '+JSON.stringify(data).substring(0,300);}
   }catch(e){
     reportText='Connection error: '+e.message;
   }
