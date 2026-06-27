@@ -1,9 +1,6 @@
 const https = require('https');
  
 exports.handler = async function(event, context) {
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, body: 'Method Not Allowed' };
-  }
  
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -15,22 +12,27 @@ exports.handler = async function(event, context) {
     return { statusCode: 200, headers, body: '' };
   }
  
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method Not Allowed' }) };
+  }
+ 
   try {
     const body = JSON.parse(event.body);
     const { system, user } = body;
  
     if (!system || !user) {
-      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing prompts' }) };
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing system or user prompt' }) };
     }
  
     const apiKey = process.env.ANTHROPIC_API_KEY;
+ 
     if (!apiKey) {
-      return { statusCode: 500, headers, body: JSON.stringify({ error: 'API key not configured' }) };
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'ANTHROPIC_API_KEY not set in environment variables' }) };
     }
  
     const payload = JSON.stringify({
       model: 'claude-sonnet-4-6',
-      max_tokens: 1000,
+      max_tokens: 4000,
       system: system,
       messages: [{ role: 'user', content: user }]
     });
@@ -51,11 +53,12 @@ exports.handler = async function(event, context) {
         res.on('data', chunk => data += chunk);
         res.on('end', () => resolve({ status: res.statusCode, body: data }));
       });
-      req.on('error', reject);
+      req.on('error', (e) => reject(e));
       req.write(payload);
       req.end();
     });
  
+    // Return whatever Anthropic sent back
     return {
       statusCode: result.status,
       headers,
@@ -66,7 +69,7 @@ exports.handler = async function(event, context) {
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: err.message })
+      body: JSON.stringify({ error: 'Function error: ' + err.message })
     };
   }
 };
