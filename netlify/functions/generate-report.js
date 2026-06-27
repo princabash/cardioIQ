@@ -21,18 +21,17 @@ exports.handler = async function(event, context) {
     const { system, user } = body;
  
     if (!system || !user) {
-      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing system or user prompt' }) };
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing prompts' }) };
     }
  
     const apiKey = process.env.ANTHROPIC_API_KEY;
- 
     if (!apiKey) {
-      return { statusCode: 500, headers, body: JSON.stringify({ error: 'ANTHROPIC_API_KEY not set in environment variables' }) };
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'ANTHROPIC_API_KEY not set' }) };
     }
  
     const payload = JSON.stringify({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 2000,
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 1500,
       system: system,
       messages: [{ role: 'user', content: user }]
     });
@@ -58,18 +57,9 @@ exports.handler = async function(event, context) {
       req.end();
     });
  
-    // Return whatever Anthropic sent back
-    return {
-      statusCode: result.status,
-      headers,
-      body: result.body
-    };
+    return { statusCode: result.status, headers, body: result.body };
  
   } catch (err) {
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: 'Function error: ' + err.message })
-    };
+    return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
   }
 };
