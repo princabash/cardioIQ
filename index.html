@@ -1033,7 +1033,7 @@ Plan: ${selectedPlan}.
 Generate a realistic, clinically meaningful CardioIQ report. Include plausible values for ApoB, LDL-C, HDL-C, Triglycerides, hs-CRP, Fasting Insulin, HbA1c, Lp(a), Cystatin C, Homocysteine. Show the contrast between standard “normal” and longevity “optimal” for each biomarker. Consider BMI, waist circumference, family history, and medications in your risk assessment.${selectedPlan==='premium'?' Include Dutch Lipid Clinic Network FH score and medication/supplement guidance.':''}`;
  
   try{
-    const res=await fetch('/.netlify/functions/generate-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system,user})});
+    const res=await fetch('/api/generate-report,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system,user})});
     const data=await res.json();
     if(data.error){reportText='Error: '+JSON.stringify(data.error)+(data.detail?'\nDetail: '+JSON.stringify(data.detail):'')+(data.type?'\nType: '+data.type:'');}else if(data.content){reportText=data.content[0].text;}else{reportText='Unexpected response: '+JSON.stringify(data).substring(0,300);}
   }catch(e){
