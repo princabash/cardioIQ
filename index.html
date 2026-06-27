@@ -15,17 +15,17 @@
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:var(--font-body);background:var(--cream);color:var(--text-primary);min-height:100vh;font-size:16px;line-height:1.6;}
-
+ 
   /* LANG SWITCHER */
   .lang-bar{background:#061324;padding:6px 2rem;display:flex;justify-content:flex-end;gap:4px;}
   .lang-btn{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px;cursor:pointer;font-family:var(--font-body);letter-spacing:0.04em;transition:all 0.15s;}
   .lang-btn:hover{border-color:rgba(255,255,255,0.4);color:rgba(255,255,255,0.8);}
   .lang-btn.active{background:var(--gold);border-color:var(--gold);color:var(--navy);}
-
+ 
   /* PROMO BANNER */
   .promo-banner{background:var(--gold);text-align:center;padding:10px 1rem;font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;letter-spacing:0.01em;}
   .promo-banner span{opacity:0.65;font-weight:400;margin-left:6px;}
-
+ 
   /* NAV */
   nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100;}
   .nav-logo{font-family:'DM Serif Display',serif;color:white;font-size:22px;letter-spacing:-0.3px;}
@@ -35,7 +35,7 @@
   @media(min-width:700px){.nav-tagline{display:block;}}
   .nav-cta{background:var(--gold);color:var(--navy);border:none;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-body);}
   .nav-cta:hover{background:var(--gold-light);}
-
+ 
   /* HERO */
   .hero{background:var(--navy);padding:5rem 2rem 4rem;text-align:center;position:relative;overflow:hidden;}
   .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,151,42,0.13) 0%,transparent 70%);pointer-events:none;}
@@ -55,7 +55,7 @@
   .stat-item{text-align:center;}
   .stat-num{font-family:'DM Serif Display',serif;font-size:1.8rem;color:var(--gold-light);line-height:1;margin-bottom:4px;}
   .stat-label{font-size:11px;color:rgba(255,255,255,0.38);font-weight:300;text-transform:uppercase;letter-spacing:0.04em;}
-
+ 
   /* INVEST BANNER */
   .invest-banner{background:var(--navy-mid);padding:2.5rem 2rem;text-align:center;border-top:1px solid rgba(200,151,42,0.12);border-bottom:1px solid rgba(200,151,42,0.12);}
   .invest-banner h2{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3vw,2.1rem);color:white;margin-bottom:0.5rem;}
@@ -63,7 +63,7 @@
   .invest-sub{color:rgba(255,255,255,0.42);font-size:14px;margin-bottom:1.5rem;font-weight:300;}
   .invest-pills{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
   .invest-pill{background:rgba(200,151,42,0.1);border:1px solid rgba(200,151,42,0.2);color:rgba(255,255,255,0.55);font-size:13px;padding:5px 14px;border-radius:20px;}
-
+ 
   /* TICKER */
   .ticker-wrap{background:var(--navy);padding:1.25rem 0;overflow:hidden;}
   .ticker-label{text-align:center;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(200,151,42,0.5);margin-bottom:0.9rem;}
@@ -71,13 +71,13 @@
   @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .ticker-item{padding:5px 18px;font-size:13px;color:rgba(255,255,255,0.38);white-space:nowrap;display:flex;align-items:center;gap:8px;}
   .ticker-item::after{content:'·';color:rgba(200,151,42,0.32);font-size:16px;}
-
+ 
   /* SECTION */
   .section{padding:4.5rem 2rem;max-width:1100px;margin:0 auto;}
   .section-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem;}
   .section-title{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3.5vw,2.5rem);color:var(--navy);line-height:1.2;margin-bottom:1rem;letter-spacing:-0.3px;}
   .section-sub{color:var(--text-secondary);font-size:1rem;max-width:560px;font-weight:300;}
-
+ 
   /* BIOMARKER SECTION */
   .biomarker-section{background:white;border-radius:var(--radius-lg);border:1px solid var(--cream-mid);padding:2rem;margin-top:3rem;box-shadow:0 4px 24px rgba(11,30,61,0.05);}
   .biomarker-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:12px;}
@@ -98,7 +98,7 @@
   .unlock-banner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(247,244,238,0.88);backdrop-filter:blur(2px);border-radius:0 0 var(--radius) var(--radius);}
   .unlock-banner p{font-size:14px;color:var(--text-secondary);text-align:center;max-width:280px;}
   .unlock-btn{background:var(--navy);color:white;border:none;padding:11px 26px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-body);}
-
+ 
   /* HOW IT WORKS */
   .steps-bg{background:var(--navy);padding:4.5rem 2rem;}
   .steps-inner{max-width:1100px;margin:0 auto;}
@@ -111,7 +111,7 @@
   .step-icon{width:44px;height:44px;border-radius:10px;background:rgba(200,151,42,0.15);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:1rem;}
   .step-card h3{color:white;font-size:16px;font-weight:600;margin-bottom:0.5rem;}
   .step-card p{color:rgba(255,255,255,0.45);font-size:14px;line-height:1.6;}
-
+ 
   /* CREDENTIALS */
   .credentials-bar{background:var(--navy);padding:3rem 2rem;border-top:1px solid rgba(255,255,255,0.06);}
   .cred-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;}
@@ -121,7 +121,7 @@
   .cred-title{color:var(--gold-light);font-size:13px;margin-bottom:10px;font-weight:300;line-height:1.6;}
   .cred-badges{display:flex;gap:8px;flex-wrap:wrap;}
   .cred-badge{background:rgba(200,151,42,0.14);border:1px solid rgba(200,151,42,0.28);color:rgba(255,255,255,0.65);font-size:12px;padding:4px 12px;border-radius:20px;}
-
+ 
   /* PRICING */
   .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem;}
   .pricing-card{background:white;border:1px solid var(--cream-mid);border-radius:var(--radius-lg);padding:2rem;position:relative;transition:transform 0.15s,box-shadow 0.15s;}
@@ -147,7 +147,7 @@
   .plan-btn-primary:hover{background:var(--gold-light);}
   .plan-btn-dark{background:white;color:var(--navy);}
   .plan-btn-dark:hover{background:var(--cream);}
-
+ 
   /* FAQ */
   .faq-section{background:white;padding:4.5rem 2rem;}
   .faq-inner{max-width:720px;margin:0 auto;}
@@ -158,7 +158,7 @@
   .faq-item.open .faq-q::after{transform:rotate(45deg);}
   .faq-a{display:none;padding:0 1.5rem 1.25rem;font-size:14px;color:var(--text-secondary);line-height:1.7;}
   .faq-item.open .faq-a{display:block;}
-
+ 
   /* MODAL */
   .modal-overlay{display:none;position:fixed;inset:0;background:rgba(11,30,61,0.72);backdrop-filter:blur(4px);z-index:1000;align-items:center;justify-content:center;padding:1rem;}
   .modal-overlay.open{display:flex;}
@@ -237,17 +237,17 @@
 </style>
 </head>
 <body>
-
+ 
 <div class="lang-bar">
   <button class="lang-btn active" onclick="setLang('en')">EN</button>
   <button class="lang-btn" onclick="setLang('ka')">ქარ</button>
   <button class="lang-btn" onclick="setLang('ru')">RU</button>
 </div>
-
+ 
 <div class="promo-banner" onclick="openModal('standard')">
   <span id="t-promo"></span><span id="t-promo-cta"></span>
 </div>
-
+ 
 <nav>
   <div class="nav-logo">Cardio<span>IQ</span></div>
   <div class="nav-right">
@@ -255,7 +255,7 @@
     <button class="nav-cta" onclick="openModal('standard')" id="t-nav-btn"></button>
   </div>
 </nav>
-
+ 
 <section class="hero">
   <div class="hero-eyebrow" id="t-eyebrow"></div>
   <h1 id="t-hero-h1"></h1>
@@ -272,7 +272,7 @@
     <div class="stat-item"><div class="stat-num">FACC</div><div class="stat-label" id="t-stat4"></div></div>
   </div>
 </section>
-
+ 
 <div class="invest-banner">
   <h2 id="t-invest-h2"></h2>
   <p class="invest-sub" id="t-invest-sub"></p>
@@ -284,25 +284,25 @@
     <span class="invest-pill" id="ip5"></span>
   </div>
 </div>
-
+ 
 <div class="ticker-wrap">
   <div class="ticker-label" id="t-ticker-label"></div>
   <div class="ticker-track" id="ticker"></div>
 </div>
-
+ 
 <!-- HOOK SECTION -->
 <div style="background:white;padding:4rem 2rem 0;">
 <div style="max-width:900px;margin:0 auto;">
-
+ 
   <div style="text-align:center;margin-bottom:3rem;">
     <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1A6B72;margin-bottom:1rem;" id="t-hook-label">The question nobody asks</div>
     <h2 style="font-family:DM Serif Display,serif;font-size:clamp(1.6rem,3.5vw,2.5rem);color:#0B1E3D;line-height:1.2;max-width:680px;margin:0 auto 1rem;letter-spacing:-0.3px;" id="t-hook-h2">Could your blood test be missing<br>your real cardiovascular risk?</h2>
     <p style="font-size:1.05rem;color:#4A5568;max-width:520px;margin:0 auto;font-weight:300;line-height:1.7;" id="t-hook-sub"></p>
   </div>
-
+ 
   <!-- BEFORE / AFTER COMPARISON -->
   <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch;margin-bottom:0;border-radius:20px;overflow:hidden;border:1px solid #EDE8DC;box-shadow:0 4px 24px rgba(11,30,61,0.07);">
-
+ 
     <!-- BEFORE -->
     <div style="background:#F7F4EE;padding:2rem 1.75rem;">
       <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8A96A8;margin-bottom:1.25rem;display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#8A96A8;display:inline-block;"></span><span id="t-before-label">Standard Lab</span></div>
@@ -313,14 +313,14 @@
       <div class="ba-row"><div class="ba-marker">HbA1c</div><div class="ba-result ba-ok" id="t-ba-hba-before">Normal ✓</div></div>
       <div style="margin-top:1.5rem;padding:12px 14px;background:rgba(138,150,168,0.1);border-radius:10px;font-size:13px;color:#8A96A8;font-style:italic;" id="t-before-verdict">No action needed.</div>
     </div>
-
+ 
     <!-- DIVIDER -->
     <div style="background:#0B1E3D;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem 1.25rem;gap:8px;">
       <div style="font-family:DM Serif Display,serif;font-size:1.1rem;color:#C8972A;letter-spacing:-0.3px;writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;">CardioIQ</div>
       <div style="width:1px;flex:1;background:rgba(200,151,42,0.25);"></div>
       <div style="font-size:18px;">→</div>
     </div>
-
+ 
     <!-- AFTER -->
     <div style="background:#0B1E3D;padding:2rem 1.75rem;">
       <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(200,151,42,0.6);margin-bottom:1.25rem;display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#C8972A;display:inline-block;"></span><span id="t-after-label">CardioIQ Longevity Analysis</span></div>
@@ -332,16 +332,16 @@
       <div style="margin-top:1.5rem;padding:12px 14px;background:rgba(200,151,42,0.12);border:1px solid rgba(200,151,42,0.2);border-radius:10px;font-size:13px;color:rgba(255,255,255,0.75);" id="t-after-verdict">4 of 5 markers require attention. Personalised action plan generated.</div>
     </div>
   </div>
-
+ 
   <!-- CTA under before/after -->
   <div style="text-align:center;padding:2.5rem 0 3rem;">
     <p style="font-size:14px;color:#8A96A8;margin-bottom:1.25rem;" id="t-ba-cta-sub">This is exactly what you get in your CardioIQ report.</p>
     <button class="btn-primary" onclick="openModal('standard')" id="t-ba-cta-btn" style="font-size:16px;padding:16px 36px;">Get my specialist report — from 9</button>
   </div>
-
+ 
 </div>
 </div>
-
+ 
 <style>
 .ba-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(237,232,220,0.8);}
 .ba-row:last-of-type{border-bottom:none;}
@@ -385,7 +385,7 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="steps-bg" id="how">
   <div class="steps-inner">
     <div class="section-label steps-label" id="t-how-label"></div>
@@ -399,7 +399,7 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="credentials-bar">
   <div class="cred-inner">
     <div class="cred-avatar">TG</div>
@@ -414,7 +414,7 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="section" id="pricing">
   <div class="section-label" id="t-pricing-label"></div>
   <div class="section-title" id="t-pricing-title"></div>
@@ -462,7 +462,7 @@
     </div>
   </div>
 </div>
-
+ 
 <div class="faq-section">
   <div class="faq-inner">
     <div class="section-label" id="t-faq-label"></div>
@@ -470,7 +470,7 @@
     <div class="faq-list" id="faq-list"></div>
   </div>
 </div>
-
+ 
 <footer>
   <div class="footer-logo">Cardio<span>IQ</span></div>
   <div class="footer-links">
@@ -478,9 +478,9 @@
   </div>
   <p class="footer-legal" id="t-footer-legal"></p>
 </footer>
-
+ 
 <div class="toast" id="toast"></div>
-
+ 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
@@ -503,7 +503,7 @@
         <div class="form-group">
           <label class="form-label" id="t-upload-label"></label>
           <div class="upload-zone" id="upload-zone">
-            <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFile(this)" id="file-input">
+            <input type="file" accept=".pdf,.jpg,.jpeg,.png" onchange="handleFile(this)" id="file-input" multiple>
             <div class="upload-icon" id="upload-icon">📄</div>
             <div class="upload-title" id="upload-title-el"></div>
             <div class="upload-sub" id="upload-sub-el"></div>
@@ -569,15 +569,9 @@
           <label class="form-label" id="t-field-email"></label>
           <input type="email" class="form-input" id="pt-email" placeholder="you@email.com">
         </div>
-        <div class="form-group">
-          <label class="form-label" id="t-field-card"></label>
-          <input type="text" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" id="card-num" oninput="formatCard(this)">
+        <div style="background:#E8F5F0;border-radius:10px;padding:14px 16px;font-size:13px;color:#1A6B72;margin-bottom:1.25rem;border:1px solid #B2DFD0;">
+          🔒 <strong>Beta Launch:</strong> Report generation is free during beta. Enter your email above to receive your CardioIQ report.
         </div>
-        <div class="form-row">
-          <div class="form-group"><label class="form-label" id="t-field-expiry"></label><input type="text" class="form-input" placeholder="MM / YY" maxlength="7" id="card-exp" oninput="formatExpiry(this)"></div>
-          <div class="form-group"><label class="form-label" id="t-field-cvc"></label><input type="text" class="form-input" placeholder="123" maxlength="3" id="card-cvc"></div>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-muted);margin-bottom:1.25rem"><span>🔒</span><span id="t-stripe-note"></span></div>
         <button class="plan-btn plan-btn-primary" style="width:100%;padding:14px" onclick="processPayment()" id="pay-btn"></button>
         <button style="width:100%;padding:10px;margin-top:8px;background:transparent;color:var(--text-muted);border:none;font-size:14px;cursor:pointer;font-family:var(--font-body)" onclick="goToStep1()" id="t-btn-back"></button>
       </div>
@@ -609,16 +603,16 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
 const TRANSLATIONS = {"en": {"lang_name": "EN", "title": "CardioIQ — Preventive Cardiology & Longevity Science", "promo": "This CardioIQ Day, invest in health, not stuff.", "promo_cta": "Get your specialist report →", "nav_tagline": "Preventive Cardiology & Longevity Science", "nav_btn": "Get my report", "eyebrow": "CardioIQ · Specialist AI Report", "hero_h1": "Invest in your health,<br><em>not stuff.</em>", "hero_union": "The union of Preventive Cardiology and Geroscience (Longevity)", "hero_sub": "Upload your blood panel. Receive a cardiologist-level interpretation using longevity science intervals — not just standard lab ranges. Results in 90 seconds.", "hero_btn1": "Analyse my labs — from $29", "hero_btn2": "How it works", "stat1_label": "Report delivery", "stat2_label": "Biomarkers analysed", "stat3_label": "Starting price", "stat4_label": "Calibrated by cardiologist", "invest_h2": "This CardioIQ Day, invest in <em>health, not stuff.</em>", "invest_sub": "A specialist cardiovascular report costs less than a dinner out — and could change your life.", "ticker_label": "Biomarkers that predict these conditions — detected early by CardioIQ", "sample_label": "Sample output", "sample_title": "What your report reveals", "sample_sub": "The critical difference between “normal by your lab” and “optimal for longevity” — this is what CardioIQ shows you.", "report_badge": "🔒 De-identified · Private", "col_biomarker": "Biomarker", "col_value": "Your value", "col_lab": "Lab says", "col_status": "Longevity status", "unlock_text": "Full specialist analysis + priority action plan included in your report", "unlock_btn": "Unlock full report — from $29", "how_label": "Process", "how_title": "Specialist insight in 3 steps", "how_sub": "No appointments. No waiting rooms. Cardiologist-calibrated AI, delivered in 90 seconds.", "step1_title": "Upload your labs", "step1_body": "Upload any PDF or image from any laboratory worldwide. Redact your name first — we never need personal details.", "step2_title": "AI extracts & classifies", "step2_body": "Specialist-trained AI reads every biomarker and maps it against longevity-optimal intervals — not just standard lab ranges.", "step3_title": "Receive your report", "step3_body": "A structured PDF with risk stratification, clinical context, and personalised cardiovascular action plan — in 90 seconds.", "step4_title": "Bring it to your doctor", "step4_body": "Premium reports include a physician summary card and one expert follow-up question. Walk into your consultation prepared.", "pricing_label": "Pricing", "pricing_title": "One report. One payment. No subscription.", "pricing_sub": "Choose the depth of analysis you need. All reports delivered in 90 seconds.", "plan1_name": "Essential", "plan1_desc": "Core lipid panel — the smart first look.", "plan1_btn": "Get essential report", "plan2_name": "Standard", "plan2_desc": "Full cardiometabolic panel + personalised action plan.", "plan2_btn": "Get standard report", "plan2_popular": "Most popular", "plan3_name": "Premium", "plan3_desc": "Full panel + FH risk + expert follow-up.", "plan3_btn": "Get premium report", "faq_label": "Questions", "faq_title": "What people ask", "modal_upload_label": "Upload your lab results", "modal_upload_title": "Drop file here or click to browse", "modal_upload_sub": "PDF, JPG or PNG · Max 10MB", "modal_privacy": "Redact your name and date of birth before uploading. We never need personal details.", "field_age": "Patient age", "field_sex": "Sex", "field_sex_m": "Male", "field_sex_f": "Female", "field_smoker": "Smoker?", "field_smoker_no": "No", "field_smoker_former": "Former", "field_smoker_current": "Current", "field_anthro": "Anthropometric data", "field_weight": "Weight (kg)", "field_height": "Height (cm)", "field_waist": "Waist circ. (cm)", "field_anthro_hint": "BMI and abdominal obesity are calculated automatically.", "field_history": "Past medical history", "field_surgeries": "Previous surgeries / procedures", "field_surgeries_ph": "e.g. CABG 2018, appendectomy, cholecystectomy", "field_surgeries_hint": "Include cardiac procedures, stenting, bypass surgery, etc.", "field_meds": "Current medications", "field_meds_ph": "e.g. atorvastatin 40mg, metformin, aspirin", "field_meds_hint": "Especially lipid-lowering therapy, antihypertensives, antidiabetics.", "field_family": "Family history — first-degree relatives", "field_family_sub": "Parents, siblings, children", "field_family_hint": "Early family cardiovascular events significantly raise your personal risk score.", "btn_continue": "Continue to payment →", "field_email": "Email — to receive your report", "field_card": "Card number", "field_expiry": "Expiry", "field_cvc": "CVC", "stripe_note": "Payments processed via Stripe. CardioIQ never stores card details.", "btn_pay": "Pay and generate report →", "btn_back": "← Back", "loading_title": "Analysing your biomarkers…", "loading_sub": "Specialist AI is reviewing your panel", "ls1": "Extracting biomarkers from document", "ls2": "Mapping to longevity reference intervals", "ls3": "Calculating cardiovascular risk profile", "ls4": "Generating clinical narrative", "ls5": "Compiling your personalised report", "report_title": "Your CardioIQ Report", "btn_download": "⬇ Download report", "btn_share": "Share summary", "footer_legal": "CardioIQ is an educational health information service calibrated by Dr. Tea Gamezardashvili MD PhD MHA FACC. Reports are for informational purposes only and do not constitute medical advice, diagnosis, or treatment."}, "ka": {"lang_name": "KA", "title": "CardioIQ — პრევენციული კარდიოლოგია და Longevity მეცნიერება", "promo": "CardioIQ დროა — ინვესტირება ჯანმრთელობაში, არავითარი გაუაზრებელი ხარჯები!", "promo_cta": "მიიღე შენი სპეციალისტის დასკვნა →", "nav_tagline": "პრევენციული კარდიოლოგია და Longevity მეცნიერება", "nav_btn": "ჩემი ანალიზი", "eyebrow": "CardioIQ · FACC სერტიფიცირებული კარდიოლოგი", "hero_h1": "ინვესტირება ჯანმრთელობაში,<br><em>არა მატერიალურ დოვლათში.</em>", "hero_union": "პრევენციული კარდიოლოგიისა და გეროსციენსის (Longevity) გაერთიანება", "hero_sub": "ატვირთე სისხლის ანალიზი. მიიღე უმაღლესი დონის კარდიოლოგიური ინტერპრეტაცია სიცოცხლის გახანგრძლივების Longevity მეცნიერების რჩევებით — და არა მარტო სტანდარტული ლაბორატორიული ნორმებით. შედეგი 90 წამში.", "hero_btn1": "ჩემი ანალიზების შემოწმება — $29-დან", "hero_btn2": "როგორ მუშაობს", "stat1_label": "დასკვნის მიღება", "stat2_label": "ბიომარკერი", "stat3_label": "საწყისი ფასი", "stat4_label": "FACC სერტიფიცირებული კარდიოლოგი", "invest_h2": "CardioIQ დროა — ინვესტირება <em>ჯანმრთელობაში, არავითარი გაუაზრებელი ხარჯები!</em>", "invest_sub": "მაღალკვალიფიციური კარდიოვასკულარული დასკვნა უმნიშვნელო დანახარჯის საფასურად, რომელმაც, შეიძლება, ჯანმრთელი სიცოცხლე გაგიხანგრძლივოს.", "ticker_label": "ბიომარკერები, რომლებიც ამ დაავადებებს ავლენს ადრეულ ეტაპზე — CardioIQ-ის მეშვეობით", "sample_label": "ნიმუში", "sample_title": "რას გიჩვენებს შენი ანგარიში", "sample_sub": "რას გიჩვენებს შენი ანგარიში — CardioIQ გიჩვენებს რეალურ სურათს.", "report_badge": "🔒 დეიდენტიფიცირებული · პირადი", "col_biomarker": "ბიომარკერი", "col_value": "შენი მაჩვენებელი", "col_lab": "ლაბ. ნორმა", "col_status": "Longevity სტატუსი", "unlock_text": "უმაღლესი დონის სპეციალისტის დასკვნა + პრიორიტეტული სამოქმედო გეგმა შედის ანგარიშში", "unlock_btn": "მიიღე უმაღლესი დონის სპეციალისტის რეკომენდაცია $29-დან", "how_label": "პროცესი", "how_title": "სპეციალისტის დასკვნა 4 ნაბიჯში", "how_sub": "ვიზიტის გარეშე. რიგის გარეშე. კარდიოლოგის და AI მიერ ჩამოყალიბებული — 90 წამში.", "step1_title": "ანალიზის ატვირთვა", "step1_body": "ატვირთე ნებისმიერი PDF ან სურათი ნებისმიერი ლაბორატორიიდან მსოფლიოში. წაშალე სახელი — პირადი მონაცემები არ გვჭირდება.", "step2_title": "AI ამოიღებს და აკლასიფიცირებს", "step2_body": "სპეციალისტის მიერ გაწვრთნილი AI ასისტენტი კითხულობს თითოეულ ბიომარკერს და ადარებს დღეგრძელობის Longevity ოპტიმალურ ინტერვალებს.", "step3_title": "მიიღე ანგარიში", "step3_body": "სტრუქტურირებული PDF რისკ-სტრატიფიკაციით, კლინიკური კონტექსტით და პერსონალიზებული გეგმით — 90 წამში.", "step4_title": "გაუგზავნე მკურნალ ექიმს", "step4_body": "Premium ანგარიში მოიცავს ექიმის შეჯამების ბარათს და პასუხს ერთ მნიშვნელოვან კითხვაზე. მოემზადე კონსულტაციისთვის.", "pricing_label": "ფასები", "pricing_title": "ერთი ანგარიში. ერთი გადახდა. სუბსკრიფციის გარეშე.", "pricing_sub": "აირჩიე ანალიზის სიღრმე. ყველა ანგარიში 90 წამში.", "plan1_name": "ბაზისური", "plan1_desc": "ლიპიდური პანელის ინტერპრეტაცია — უახლეს გაიდლაინებზე დაყრდნობით.", "plan1_btn": "ბაზისური ანგარიში", "plan2_name": "სტანდარტული", "plan2_desc": "სრული კარდიომეტაბოლური პანელი + პერსონალიზებული სამოქმედო გეგმა.", "plan2_btn": "სტანდარტული ანგარიში", "plan2_popular": "ყველაზე პოპულარული", "plan3_name": "პრემიუმი", "plan3_desc": "სრული პანელი + FH რისკი + ექსპერტის პასუხი.", "plan3_btn": "პრემიუმ ანგარიში", "faq_label": "კითხვები", "faq_title": "რას გვეკითხებიან", "modal_upload_label": "ატვირთე ლაბორატორიული ანალიზი", "modal_upload_title": "ჩააგდე ფაილი ან დააჭირე", "modal_upload_sub": "PDF, JPG ან PNG · მაქს. 10MB", "modal_privacy": "ატვირთვამდე წაშალე სახელი და დაბადების თარიღი. ლაბორატორიული მონაცემები მუშავდება და იშლება — არ ინახება და ვერავინ ნახავს.", "field_age": "პაციენტის ასაკი", "field_sex": "სქესი", "field_sex_m": "მამრობითი", "field_sex_f": "მდედრობითი", "field_smoker": "მწეველი?", "field_smoker_no": "არა", "field_smoker_former": "ყოფილი", "field_smoker_current": "დიახ", "field_anthro": "ანთროპომეტრია", "field_weight": "წონა (კგ)", "field_height": "სიმაღლე (სმ)", "field_waist": "მუცლის გარშ. (სმ)", "field_anthro_hint": "BMI და მუცლის სიმსუქნე ავტომატურად გამოითვლება.", "field_history": "გადატანილი დაავადებები", "field_surgeries": "გადატანილი ოპერაციები / პროცედურები", "field_surgeries_ph": "მაგ. CABG 2018, დანართის ამოკვეთა, ქოლეცისტექტომია", "field_surgeries_hint": "ჩართე კარდიოლოგიური პროცედურები, სტენტი, შუნტირება და სხვა.", "field_meds": "მიმდინარე მედიკამენტები", "field_meds_ph": "მაგ. ატორვასტატინი 40მგ, მეტფორმინი, ასპირინი", "field_meds_hint": "განსაკუთრებით ლიპიდების დამწევი, ანტიჰიპერტენზიული, ანტიდიაბეტური.", "field_family": "ოჯახური ანამნეზი — პირველი რიგის ნათესავები", "field_family_sub": "მშობლები, და-ძმები, შვილები", "field_family_hint": "ოჯახში ადრეული კარდიოვასკულარული მოვლენები მნიშვნელოვნად ზრდის შენს პირად რისკს.", "btn_continue": "გაგრძელება გადახდაზე →", "field_email": "ელ-ფოსტა — ანგარიშის მისაღებად", "field_card": "ბარათის ნომერი", "field_expiry": "ვადა", "field_cvc": "CVC", "stripe_note": "გადახდა Stripe-ის მეშვეობით. CardioIQ არ ინახავს ბარათის მონაცემებს.", "btn_pay": "გადახდა და ანგარიშის გენერაცია →", "btn_back": "← უკან", "loading_title": "ბიომარკერების ანალიზი…", "loading_sub": "სპეციალისტი AI განიხილავს შენს პანელს", "ls1": "ბიომარკერების ამოღება დოკუმენტიდან", "ls2": "Longevity საცნობარო ინტერვალებთან შედარება", "ls3": "კარდიოვასკულარული რისკ-პროფილის გამოთვლა", "ls4": "კლინიკური ნარატივის გენერაცია", "ls5": "პერსონალიზებული ანგარიშის კომპილაცია", "report_title": "შენი CardioIQ ანგარიში", "btn_download": "⬇ ანგარიშის გადმოწერა", "btn_share": "გაზიარება", "footer_legal": "CardioIQ არის საგანმანათლებლო ჯანდაცვის სერვისი, კალიბრირებული დოქტ. თეა გამეზარდაშვილის (MD PhD MHA FACC) მიერ. ანგარიშები მხოლოდ საინფორმაციო მიზნებისთვისაა და არ წარმოადგენს სამედიცინო რჩევას, დიაგნოზს ან მკურნალობას."}, "ru": {"lang_name": "RU", "title": "CardioIQ — Превентивная кардиология и наука о долголетии", "promo": "В этот день CardioIQ — инвестируй в здоровье, не в вещи.", "promo_cta": "Получить заключение специалиста →", "nav_tagline": "Превентивная кардиология и наука о долголетии", "nav_btn": "Мой анализ", "eyebrow": "CardioIQ · Заключение ИИ-специалиста", "hero_h1": "Инвестируй в здоровье,<br><em>не в вещи.</em>", "hero_union": "Объединение превентивной кардиологии и геронауки (Longevity)", "hero_sub": "Загрузи анализ крови. Получи интерпретацию уровня кардиолога с интервалами науки о долголетии — не просто стандартные лабораторные нормы. Результат за 90 секунд.", "hero_btn1": "Анализ моих лабораторных данных — от $29", "hero_btn2": "Как это работает", "stat1_label": "Доставка отчёта", "stat2_label": "Биомаркеров", "stat3_label": "Начальная цена", "stat4_label": "Откалибровано кардиологом", "invest_h2": "В этот день CardioIQ — инвестируй в <em>здоровье, не в вещи.</em>", "invest_sub": "Заключение кардиолога-специалиста стоит меньше ужина в ресторане — и может изменить вашу жизнь.", "ticker_label": "Биомаркеры, которые выявляют эти заболевания на ранней стадии — с CardioIQ", "sample_label": "Образец", "sample_title": "Что покажет ваш отчёт", "sample_sub": "Критическая разница между «нормой по лаборатории» и «оптимальным для долголетия» — вот что показывает CardioIQ.", "report_badge": "🔒 Деидентифицировано · Конфиденциально", "col_biomarker": "Биомаркер", "col_value": "Ваше значение", "col_lab": "Норма лаб.", "col_status": "Статус Longevity", "unlock_text": "Полный анализ специалиста + приоритетный план действий включены в отчёт", "unlock_btn": "Получить полный отчёт — от $29", "how_label": "Процесс", "how_title": "Экспертное заключение за 3 шага", "how_sub": "Без записи. Без очередей. ИИ, откалиброванный кардиологом, за 90 секунд.", "step1_title": "Загрузи анализы", "step1_body": "Загрузи любой PDF или изображение из любой лаборатории мира. Сначала скрой имя — личные данные нам не нужны.", "step2_title": "ИИ извлекает и классифицирует", "step2_body": "ИИ, обученный специалистом, читает каждый биомаркер и сравнивает с оптимальными интервалами долголетия.", "step3_title": "Получи отчёт", "step3_body": "Структурированный PDF с риск-стратификацией, клиническим контекстом и персонализированным планом — за 90 секунд.", "step4_title": "Покажи врачу", "step4_body": "Премиум-отчёт включает карточку для врача и один вопрос эксперту. Приходи на консультацию подготовленным.", "pricing_label": "Цены", "pricing_title": "Один отчёт. Один платёж. Без подписки.", "pricing_sub": "Выбери глубину анализа. Все отчёты за 90 секунд.", "plan1_name": "Базовый", "plan1_desc": "Интерпретация липидного профиля — умный первый взгляд.", "plan1_btn": "Базовый отчёт", "plan2_name": "Стандартный", "plan2_desc": "Полная кардиометаболическая панель + персональный план действий.", "plan2_btn": "Стандартный отчёт", "plan2_popular": "Самый популярный", "plan3_name": "Премиум", "plan3_desc": "Полная панель + риск СГХ + ответ эксперта.", "plan3_btn": "Премиум отчёт", "faq_label": "Вопросы", "faq_title": "Что спрашивают", "modal_upload_label": "Загрузи результаты анализов", "modal_upload_title": "Перетащи файл или нажми для выбора", "modal_upload_sub": "PDF, JPG или PNG · Макс. 10MB", "modal_privacy": "Перед загрузкой скрой имя и дату рождения. Личные данные нам не нужны.", "field_age": "Возраст пациента", "field_sex": "Пол", "field_sex_m": "Мужской", "field_sex_f": "Женский", "field_smoker": "Курение?", "field_smoker_no": "Нет", "field_smoker_former": "Бывший курильщик", "field_smoker_current": "Курю", "field_anthro": "Антропометрия", "field_weight": "Вес (кг)", "field_height": "Рост (см)", "field_waist": "Объём талии (см)", "field_anthro_hint": "ИМТ и абдоминальное ожирение рассчитываются автоматически.", "field_history": "Перенесённые заболевания", "field_surgeries": "Перенесённые операции / процедуры", "field_surgeries_ph": "напр. АКШ 2018, аппендэктомия, холецистэктомия", "field_surgeries_hint": "Укажи кардиологические процедуры, стентирование, шунтирование и др.", "field_meds": "Текущие препараты", "field_meds_ph": "напр. аторвастатин 40мг, метформин, аспирин", "field_meds_hint": "Особенно гиполипидемические, антигипертензивные, сахароснижающие.", "field_family": "Семейный анамнез — родственники первой степени", "field_family_sub": "Родители, братья/сёстры, дети", "field_family_hint": "Ранние сердечно-сосудистые события в семье значительно повышают личный риск.", "btn_continue": "Продолжить к оплате →", "field_email": "Email — для получения отчёта", "field_card": "Номер карты", "field_expiry": "Срок действия", "field_cvc": "CVC", "stripe_note": "Оплата через Stripe. CardioIQ не хранит данные карты.", "btn_pay": "Оплатить и сгенерировать отчёт →", "btn_back": "← Назад", "loading_title": "Анализ биомаркеров…", "loading_sub": "ИИ-специалист изучает вашу панель", "ls1": "Извлечение биомаркеров из документа", "ls2": "Сопоставление с интервалами долголетия", "ls3": "Расчёт кардиоваскулярного риск-профиля", "ls4": "Создание клинического нарратива", "ls5": "Компиляция персонализированного отчёта", "report_title": "Ваш отчёт CardioIQ", "btn_download": "⬇ Скачать отчёт", "btn_share": "Поделиться", "footer_legal": "CardioIQ — образовательный медицинский сервис, откалиброванный д-ром Теей Гамезардашвили (MD PhD MHA FACC). Отчёты носят исключительно информационный характер и не являются медицинской консультацией, диагнозом или лечением."}};
 const TICKER_DISEASES = {"en": ["Familial Hypercholesterolaemia", "Coronary Artery Disease", "Insulin Resistance", "Atherosclerosis", "Metabolic Syndrome", "Hypertriglyceridaemia", "Lp(a) Elevation", "Chronic Inflammation", "ApoB Dyslipidaemia", "Type 2 Diabetes", "Hypertension", "Chronic Kidney Disease", "Fatty Liver Disease", "Homocysteinaemia", "Endothelial Dysfunction"], "ka": ["ოჯახური ჰიპერქოლესტეროლემია", "კორონარული არტერიის დაავადება", "ინსულინრეზისტენტობა", "ათეროსკლეროზი", "მეტაბოლური სინდრომი", "ჰიპერტრიგლიცერიდემია", "Lp(a) მომატება", "ქრონიკული ანთება", "ApoB დისლიპიდემია", "ტიპი 2 დიაბეტი", "ჰიპერტენზია", "ქრონიკული თირკმლის დაავადება", "ღვიძლის ცხიმოვანი დეგენერაცია", "ჰომოცისტეინემია", "ენდოთელიუმის დისფუნქცია"], "ru": ["Семейная гиперхолестеринемия", "Ишемическая болезнь сердца", "Инсулинорезистентность", "Атеросклероз", "Метаболический синдром", "Гипертриглицеридемия", "Повышенный Lp(a)", "Хроническое воспаление", "Дислипидемия по ApoB", "Сахарный диабет 2 типа", "Гипертония", "Хроническая болезнь почек", "Жировая болезнь печени", "Гомоцистеинемия", "Дисфункция эндотелия"]};
 const CONDITIONS_LABELS = {"en": ["Hypertension", "Type 2 diabetes", "Previous MI", "Previous stroke", "Coronary artery disease", "Heart failure", "Atrial fibrillation", "Chronic kidney disease", "Hypothyroidism", "Fatty liver disease", "Pancreatitis", "PCOS"], "ka": ["ჰიპერტენზია", "ტიპი 2 დიაბეტი", "გადატანილი ინფარქტი", "გადატანილი ინსულტი", "კორონარული დაავადება", "გულის უკმარისობა", "პარკუჭოვ. ფიბრილ.", "ქრ. თირკმლის დაავ.", "ჰიპოთირეოზი", "ღვ. ცხ. დეგ.", "პანკრეატიტი", "PCOS"], "ru": ["Гипертония", "Сахарный диабет 2 типа", "Перенесённый ИМ", "Перенесённый инсульт", "ИБС", "Сердечная недостаточность", "Мерцательная аритмия", "ХБП", "Гипотиреоз", "Жировая болезнь печени", "Панкреатит", "СПКЯ"]};
 const FAMILY_LABELS = {"en": ["MI in male relative <55 yrs", "MI in female relative <65 yrs", "Stroke in first-degree relative", "Type 2 diabetes", "High cholesterol / FH", "Sudden cardiac death <60 yrs"], "ka": ["ინფარქტი მამრ. ნათ. <55წ", "ინფარქტი მდ. ნათ. <65წ", "ინსულტი ახლო ნათ.", "ტიპი 2 დიაბეტი", "მაღ. ქოლ. / FH", "მოულ. გულ. გაჩ. <60წ"], "ru": ["ИМ у мужчины <55 лет", "ИМ у женщины <65 лет", "Инсульт у родственника", "Сахарный диабет 2 типа", "Высокий холестерин / СГХ", "Внезапная смерть <60 лет"]};
-
+ 
 const CONDITIONS_VALUES = ['Hypertension','Type 2 diabetes','Previous MI','Previous stroke','Coronary artery disease','Heart failure','Atrial fibrillation','CKD','Hypothyroidism','NAFLD','Pancreatitis','PCOS'];
 const FAMILY_VALUES = ['Family MI <55 (male)','Family MI <65 (female)','Family stroke','Family diabetes','Family high cholesterol','Family sudden cardiac death'];
-
+ 
 const FAQ_DATA = {
   en: [
     {q:'Is this a medical diagnosis?', a:'No. CardioIQ provides an educational interpretation and second-opinion perspective based on published longevity and preventive cardiology science. Always discuss significant findings with your doctor.'},
@@ -642,28 +636,28 @@ const FAQ_DATA = {
     {q:'Почему CardioIQ, а не Function Health или InsideTracker?', a:'Function Health стоит $365/год и является обобщённой платформой. InsideTracker использует алгоритмы без врачебного контроля. CardioIQ откалиброван практикующим кардиологом (FACC, EAS Lipid Clinic Network) с глубокой экспертизой в СГХ. За $29–69 разово — вы получаете заключение специалиста, а не wellness-балл.'}
   ]
 };
-
+ 
 let currentLang = 'en';
 let T = TRANSLATIONS.en;
 let selectedPlan = 'standard';
 let uploadedFile = null;
 let reportText = '';
-
+ 
 const plans = {
   essential: {price:29},
   standard:  {price:49},
   premium:   {price:69}
 };
-
+ 
 const investPills = {
   en: ['No subscription','One-time payment','No personal data stored','EAS Lipid Clinic Network','FACC certified AI'],
   ka: ['ხელმოწერის/სუბსკრიფციის გარეშე','ერთჯერადი გადახდა','ლაბ. მონ. მუშავდება და იშლება','EAS Lipid Clinic Network','FACC სერტ. კარდიოლოგი'],
   ru: ['Без подписки','Разовый платёж','Данные не хранятся','EAS Lipid Clinic Network','ИИ с сертификатом FACC']
 };
-
+ 
 const normalText = {en:'Normal ✓', ka:'ნორმა ✓', ru:'Норма ✓'};
 const highText   = {en:'High !',   ka:'მაღალი !', ru:'Высокий !'};
-
+ 
 function setLang(lang) {
   currentLang = lang;
   T = TRANSLATIONS[lang];
@@ -675,12 +669,12 @@ function setLang(lang) {
   rebuildCheckboxes();
   rebuildFaq();
 }
-
+ 
 function applyTranslations() {
   const set = (id, val) => { const el = document.getElementById(id); if(el) el.innerHTML = val||''; };
   const setTxt = (id, val) => { const el = document.getElementById(id); if(el) el.textContent = val||''; };
   const setAttr = (id, attr, val) => { const el = document.getElementById(id); if(el) el.setAttribute(attr, val||''); };
-
+ 
   document.title = T.title;
   set('t-promo', T.promo);
   setTxt('t-promo-cta', T.promo_cta);
@@ -768,7 +762,7 @@ function applyTranslations() {
   setTxt('t-btn-download', T.btn_download);
   setTxt('t-btn-share', T.btn_share);
   setTxt('t-footer-legal', T.footer_legal);
-
+ 
       // HOOK SECTION - object-based translations (no ternary chains)
       const hookT = {
         label:  {en:'The question nobody asks', ka:'კითხვა, რომელსაც არავინ სვამს', ru:'Вопрос, который никто не задаёт'},
@@ -806,9 +800,9 @@ function applyTranslations() {
       setTxt('t-after-verdict', hookT.aVerdict[currentLang]);
       setTxt('t-ba-cta-sub', hookT.ctaSub[currentLang]);
       setTxt('t-ba-cta-btn', hookT.ctaBtn[currentLang]);
-
+ 
 }
-
+ 
 function rebuildTicker() {
   const ticker = document.getElementById('ticker');
   ticker.innerHTML = '';
@@ -820,7 +814,7 @@ function rebuildTicker() {
     ticker.appendChild(el);
   });
 }
-
+ 
 function rebuildCheckboxes() {
   const cg = document.getElementById('conditions-grid');
   cg.innerHTML = '';
@@ -839,7 +833,7 @@ function rebuildCheckboxes() {
     fg.appendChild(l);
   });
 }
-
+ 
 function rebuildFaq() {
   const list = document.getElementById('faq-list');
   list.innerHTML = '';
@@ -850,7 +844,7 @@ function rebuildFaq() {
     list.appendChild(div);
   });
 }
-
+ 
 // ── MODAL ──
 function openModal(plan) {
   selectedPlan = plan || 'standard';
@@ -865,7 +859,7 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 document.getElementById('modal').addEventListener('click', e => { if(e.target===document.getElementById('modal')) closeModal(); });
-
+ 
 function resetModal() {
   showStep('step-1');
   setDot(1,'active'); setDot(2,''); setDot(3,'');
@@ -880,13 +874,13 @@ function resetModal() {
   document.getElementById('upload-sub-el').textContent=T.modal_upload_sub;
   uploadedFile=null;
 }
-
+ 
 function setDot(n,state){const d=document.getElementById('dot-'+n);d.classList.remove('active','done');if(state)d.classList.add(state);}
 function setLine(n,done){const l=document.getElementById('line-'+n);done?l.classList.add('done'):l.classList.remove('done');}
 function showStep(id){document.querySelectorAll('.form-step').forEach(s=>s.classList.remove('active'));document.getElementById(id)?.classList.add('active');}
-
+ 
 function goToStep1(){showStep('step-1');setDot(1,'active');setDot(2,'');setDot(3,'');setLine(1,false);setLine(2,false);}
-
+ 
 function goToStep2(){
   if(!uploadedFile){showToast(T.ls1.split(' ')[0]+'...');return;}
   if(!document.getElementById('pt-age').value){return;}
@@ -899,7 +893,7 @@ function goToStep2(){
   showStep('step-2');
   setDot(1,'done');setDot(2,'active');setDot(3,'');setLine(1,true);setLine(2,false);
 }
-
+ 
 function handleFile(input){
   const file=input.files[0]; if(!file)return;
   uploadedFile=file;
@@ -908,29 +902,27 @@ function handleFile(input){
   document.getElementById('upload-title-el').textContent=file.name;
   document.getElementById('upload-sub-el').textContent=(file.size/1024).toFixed(0)+' KB';
 }
-
+ 
 const zone=document.getElementById('upload-zone');
 zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('drag-over');});
 zone.addEventListener('dragleave',()=>zone.classList.remove('drag-over'));
-zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('drag-over');const f=e.dataTransfer.files[0];if(f){uploadedFile=f;handleFile({files:[f]});}});
-
+zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('drag-over');const files=e.dataTransfer.files;if(files.length){uploadedFile=files[0];handleFile({files:files});}});
+ 
 function formatCard(el){let v=el.value.replace(/\D/g,'').substring(0,16);el.value=v.replace(/(.{4})/g,'$1 ').trim();}
 function formatExpiry(el){let v=el.value.replace(/\D/g,'').substring(0,4);if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2);el.value=v;}
-
+ 
 async function processPayment(){
   const email=document.getElementById('pt-email').value;
-  const card=document.getElementById('card-num').value;
-  if(!email||!email.includes('@'))return;
-  if(!card||card.replace(/\s/g,'').length<16)return;
+  if(!email||!email.includes('@')){alert('გთხოვ შეიყვანე ელ-ფოსტა');return;}
   const btn=document.getElementById('pay-btn');
   btn.textContent='…'; btn.disabled=true;
-  await sleep(1200);
+  await sleep(600);
   showStep('step-3');
   setDot(2,'done');setDot(3,'active');setLine(2,true);
   await animateLoading();
   await generateReport();
 }
-
+ 
 async function animateLoading(){
   const ids=['ls-1','ls-2','ls-3','ls-4','ls-5'];
   for(let i=0;i<ids.length;i++){
@@ -942,7 +934,7 @@ async function animateLoading(){
   document.getElementById('ls-5').classList.add('done');
   await sleep(300);
 }
-
+ 
 async function generateReport(){
   const age=document.getElementById('pt-age').value;
   const sex=document.getElementById('pt-sex').value;
@@ -957,15 +949,15 @@ async function generateReport(){
   let bmi='';
   if(weight&&height)bmi=(weight/((height/100)**2)).toFixed(1);
   const reportLang=currentLang==='ka'?'Georgian (ქართული)':currentLang==='ru'?'Russian (русский)':'English';
-
+ 
   const system=`You are CardioIQ — a specialist cardiovascular and lipid medicine AI calibrated by Dr. Tea Gamezardashvili MD PhD FACC, President of the Georgian Atherosclerosis Association, National Coordinator of the EAS Lipid Clinic Network, and expert in Familial Hypercholesterolaemia and preventive cardiology / geroscience (Longevity).
-
+ 
 CRITICAL: Write your entire response in ${reportLang}. Every word of the report must be in ${reportLang}.
-
+ 
 Apply LONGEVITY OPTIMAL intervals, not just standard lab ranges: ApoB <70 mg/dL, fasting insulin 2–5 µIU/mL, hs-CRP <0.5 mg/L, HbA1c 4.8–5.3%, Lp(a) <30 nmol/L.
 Format with ### headers: ### Executive Summary / ### Biomarker Analysis / ### Cardiovascular Risk Assessment / ### Priority Action Plan / ### Disclaimer
 Frame as educational specialist second-opinion. Never claim to diagnose.`;
-
+ 
   const user=`Patient profile:
 - Age: ${age} | Sex: ${sex} | Smoker: ${smoker||'Not stated'}
 - Weight: ${weight||'?'} kg | Height: ${height||'?'} cm | Waist: ${waist||'?'} cm | BMI: ${bmi||'?'}
@@ -974,9 +966,9 @@ Frame as educational specialist second-opinion. Never claim to diagnose.`;
 - Medications: ${meds||'None'}
 - Family history: ${familyHx||'None stated'}
 Plan: ${selectedPlan}.
-
+ 
 Generate a realistic, clinically meaningful CardioIQ report. Include plausible values for ApoB, LDL-C, HDL-C, Triglycerides, hs-CRP, Fasting Insulin, HbA1c, Lp(a), Cystatin C, Homocysteine. Show the contrast between standard “normal” and longevity “optimal” for each biomarker. Consider BMI, waist circumference, family history, and medications in your risk assessment.${selectedPlan==='premium'?' Include Dutch Lipid Clinic Network FH score and medication/supplement guidance.':''}`;
-
+ 
   try{
     const res=await fetch('https://api.anthropic.com//.netlify/functions/generate-report',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({system,user})});
     const data=await res.json();
@@ -986,7 +978,7 @@ Generate a realistic, clinically meaningful CardioIQ report. Include plausible v
   }
   showReport();
 }
-
+ 
 function showReport(){
   document.querySelector('.modal-body').style.display='none';
   document.querySelector('.step-indicator').parentElement.style.display='none';
@@ -1000,15 +992,15 @@ function showReport(){
   setDot(3,'done');
   showToast('✓ '+T.report_title);
 }
-
+ 
 function downloadReport(){
   const blob=new Blob(['CARDIOIQ\n'+T.report_title+'\nDr. Tea Gamezardashvili, FACC · EAS Lipid Clinic Network\n\n'+reportText],{type:'text/plain'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CardioIQ_Report.txt';a.click();
 }
-
+ 
 function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
-
+ 
 // INIT
 setLang('en');
 </script>
