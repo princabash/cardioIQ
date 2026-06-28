@@ -5,24 +5,15 @@ module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Content-Type', 'application/json');
 
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method Not Allowed' });
-  }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
 
   try {
     const { system, user } = req.body;
-
-    if (!system || !user) {
-      return res.status(400).json({ error: 'Missing prompts' });
-    }
+    if (!system || !user) return res.status(400).json({ error: 'Missing prompts' });
 
     const apiKey = process.env.ANTHROPIC_API_KEY;
-    if (!apiKey) {
-      return res.status(500).json({ error: 'ANTHROPIC_API_KEY not set' });
-    }
+    if (!apiKey) return res.status(500).json({ error: 'ANTHROPIC_API_KEY not set' });
 
     const payload = JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
