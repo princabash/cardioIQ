@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "buildCommand": "echo 'static site'",
-  "public": true,
   "rewrites": [
     {
       "source": "/.netlify/functions/(.*)",
       "destination": "/api/$1"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
     }
   ],
   "functions": {
