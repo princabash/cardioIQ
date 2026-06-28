@@ -1,34 +1,39 @@
 const https = require('https');
-exports.handler = async function(event, context) {
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Content-Type': 'application/json'
-  };
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 200, headers, body: '' };
+
+module.exports = async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Content-Type', 'application/json');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
   }
-  if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method Not Allowed' }) };
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
   }
+
   try {
-    const body = JSON.parse(event.body);
-    const { system, user } = body;
+    const { system, user } = req.body;
+
     if (!system || !user) {
-      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing prompts' }) };
+      return res.status(400).json({ error: 'Missing prompts' });
     }
+
     const apiKey = process.env.ANTHROPIC_API_KEY;
     if (!apiKey) {
-      return { statusCode: 500, headers, body: JSON.stringify({ error: 'ANTHROPIC_API_KEY not set' }) };
+      return res.status(500).json({ error: 'ANTHROPIC_API_KEY not set' });
     }
+
     const payload = JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: 1500,
       system: system,
       messages: [{ role: 'user', content: user }]
     });
+
     const result = await new Promise((resolve, reject) => {
-      const req = https.request({
+      const req2 = https.request({
         hostname: 'api.anthropic.com',
         path: '/v1/messages',
         method: 'POST',
@@ -38,17 +43,19 @@ exports.handler = async function(event, context) {
           'anthropic-version': '2023-06-01',
           'Content-Length': Buffer.byteLength(payload)
         }
-      }, (res) => {
+      }, (response) => {
         let data = '';
-        res.on('data', chunk => data += chunk);
-        res.on('end', () => resolve({ status: res.statusCode, body: data }));
+        response.on('data', chunk => data += chunk);
+        response.on('end', () => resolve({ status: response.statusCode, body: data }));
       });
-      req.on('error', (e) => reject(e));
-      req.write(payload);
-      req.end();
+      req2.on('error', reject);
+      req2.write(payload);
+      req2.end();
     });
-    return { statusCode: result.status, headers, body: result.body };
+
+    return res.status(result.status).send(result.body);
+
   } catch (err) {
-    return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
+    return res.status(500).json({ error: err.message });
   }
 };
