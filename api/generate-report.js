@@ -8,7 +8,6 @@ module.exports = async function handler(req, res) {
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
   }
-
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
@@ -33,7 +32,7 @@ module.exports = async function handler(req, res) {
     });
 
     const result = await new Promise((resolve, reject) => {
-      const req2 = https.request({
+      const apiReq = https.request({
         hostname: 'api.anthropic.com',
         path: '/v1/messages',
         method: 'POST',
@@ -48,9 +47,9 @@ module.exports = async function handler(req, res) {
         response.on('data', chunk => data += chunk);
         response.on('end', () => resolve({ status: response.statusCode, body: data }));
       });
-      req2.on('error', reject);
-      req2.write(payload);
-      req2.end();
+      apiReq.on('error', reject);
+      apiReq.write(payload);
+      apiReq.end();
     });
 
     return res.status(result.status).send(result.body);
