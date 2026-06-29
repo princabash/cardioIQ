@@ -621,14 +621,13 @@ function rebuildCheckboxes(){const cg=document.getElementById('conditions-grid')
 function rebuildFaq(){const list=document.getElementById('faq-list');list.innerHTML='';FAQ_DATA[currentLang].forEach(item=>{const div=document.createElement('div');div.className='faq-item';div.innerHTML='<div class="faq-q" onclick="this.parentElement.classList.toggle(\'open\')">'+item.q+'</div><div class="faq-a">'+item.a+'</div>';list.appendChild(div);});}
  
 function openModal(plan){
-  const urls={
-    essential:'https://cardioiq.lemonsqueezy.com/checkout/buy/55a263a9-3538-46c7-99fd-4ea42158c803',
-    standard:'https://cardioiq.lemonsqueezy.com/checkout/buy/36ed396f-48c3-4c72-b9db-227d29548b9b',
-    premium:'https://cardioiq.lemonsqueezy.com/checkout/buy/275aa729-6843-4f41-a4de-55dc080fb7d4'
-  };
-  window.open(urls[plan]||urls.standard,'_blank');
-  return;
-  selectedPlan=plan||'standard'; const names={essential:T.plan1_name,standard:T.plan2_name,premium:T.plan3_name};document.getElementById('modal-title').textContent=names[plan]||'CardioIQ';document.getElementById('modal').classList.add('open');document.body.style.overflow='hidden';resetModal();}
+  selectedPlan=plan||'standard';
+  const names={essential:T.plan1_name,standard:T.plan2_name,premium:T.plan3_name};
+  document.getElementById('modal-title').textContent=names[plan]||'CardioIQ';
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+  resetModal();
+}
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
 function resetModal(){showStep('step-1');setDot(1,'active');setDot(2,'');setDot(3,'');setLine(1,false);setLine(2,false);document.getElementById('report-screen').classList.remove('active');document.getElementById('report-screen').style.display='';document.querySelector('.modal-body').style.display='';document.querySelector('.step-indicator').parentElement.style.display='';document.getElementById('upload-zone').classList.remove('uploaded');document.getElementById('upload-icon').textContent='📄';document.getElementById('upload-title-el').textContent=T.modal_upload_title;document.getElementById('upload-sub-el').textContent=T.modal_upload_sub;uploadedFile=null;}
