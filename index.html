@@ -639,7 +639,14 @@ function goToStep1(){showStep('step-1');setDot(1,'active');setDot(2,'');setDot(3
 function goToStep2(){if(!uploadedFile){alert('Please upload your lab results (PDF or image)');return;}if(!document.getElementById('pt-age').value){alert('Please enter patient age');return;}const p=plans[selectedPlan];const names={essential:T.plan1_name,standard:T.plan2_name,premium:T.plan3_name};document.getElementById('price-summary').innerHTML='<div class="price-row"><span>'+names[selectedPlan]+'</span><span>$'+p.price+'.00</span></div><div class="price-row"><span>Processing</span><span>$0.00</span></div><div class="price-row total"><span>Total</span><span>$'+p.price+'.00</span></div>';showStep('step-2');setDot(1,'done');setDot(2,'active');setDot(3,'');setLine(1,true);setLine(2,false);}
 function handleFile(input){const file=input.files[0];if(!file)return;uploadedFile=file;document.getElementById('upload-zone').classList.add('uploaded');document.getElementById('upload-icon').textContent='✅';document.getElementById('upload-title-el').textContent=file.name;document.getElementById('upload-sub-el').textContent=(file.size/1024).toFixed(0)+' KB';}
 const zone=document.getElementById('upload-zone');zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('drag-over');});zone.addEventListener('dragleave',()=>zone.classList.remove('drag-over'));zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('drag-over');const files=e.dataTransfer.files;if(files.length){uploadedFile=files[0];handleFile({files:files});}});
- 
+ function goToCheckout(){
+  const urls={
+    essential:'https://cardioiq.lemonsqueezy.com/checkout/buy/55a263a9-3538-46c7-99fd-4ea42158c803',
+    standard:'https://cardioiq.lemonsqueezy.com/checkout/buy/36ed396f-48c3-4c72-b9db-227d29548b9b',
+    premium:'https://cardioiq.lemonsqueezy.com/checkout/buy/275aa729-6843-4f41-a4de-55dc080fb7d4'
+  };
+  window.open(urls[selectedPlan]||urls.standard,'_blank');
+}
 async function processPayment(){const btn=document.getElementById('pay-btn');if(btn){btn.textContent='…';btn.disabled=true;}await sleep(300);showStep('step-3');setDot(2,'done');setDot(3,'active');setLine(2,true);await animateLoading();await generateReport();}
 async function animateLoading(){const ids=['ls-1','ls-2','ls-3','ls-4','ls-5'];for(let i=0;i<ids.length;i++){await sleep(700);document.getElementById(ids[i]).classList.add('active');if(i>0)document.getElementById(ids[i-1]).classList.add('done');}await sleep(500);document.getElementById('ls-5').classList.add('done');await sleep(300);}
  
