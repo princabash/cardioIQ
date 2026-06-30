@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">CardioIQ</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230B1E3D'/%3E%3Ccircle cx='16' cy='16' r='12.5' fill='none' stroke='%23C8972A' stroke-width='2'/%3E%3Cpath d='M6 17 H10.5 L12.6 11 L16 22 L18.4 13 L20 17 H26' fill='none' stroke='%23F7F4EE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='22' r='2' fill='%23C8972A'/%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap');
   :root {
@@ -225,23 +226,68 @@
     [style*="writing-mode:vertical-rl"]{writing-mode:horizontal-tb!important;transform:none!important;}
     .ba-marker,.ba-marker-dark{width:90px;}
   }
+ 
+  /* === ADDED: logo, insights, number-vs-narrative, knowledge graph === */
+  .insights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3rem;}
+  .insight-card{position:relative;display:block;text-decoration:none;color:var(--text-primary);background:white;border:1px solid var(--cream-mid);border-radius:var(--radius-lg);padding:1.85rem 1.75rem 1.75rem;overflow:hidden;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;}
+  .insight-top{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold) 0%,var(--teal) 100%);}
+  .insight-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(11,30,61,0.14);border-color:var(--gold);}
+  .insight-num{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--cream-mid);line-height:1;margin-bottom:.5rem;}
+  .insight-tag{display:inline-block;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--teal);background:var(--teal-light);padding:3px 10px;border-radius:20px;margin-bottom:.9rem;}
+  .insight-card h3{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;color:var(--navy);line-height:1.35;margin-bottom:.6rem;}
+  .insight-card p{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin-bottom:1.1rem;}
+  .insight-read{font-size:13px;font-weight:700;color:var(--navy);display:inline-flex;align-items:center;gap:5px;}
+  .insight-read .arrow{transition:transform .2s ease;}
+  .insight-card:hover .insight-read .arrow{transform:translateX(4px);}
+  .insight-dark{background:var(--navy);border-color:var(--navy);}
+  .insight-dark .insight-num{color:rgba(200,151,42,0.22);}
+  .insight-dark .insight-tag{background:rgba(200,151,42,0.15);color:var(--gold-light);}
+  .insight-dark h3{color:white;}
+  .insight-dark p{color:rgba(255,255,255,0.55);}
+  .insight-dark .insight-read{color:var(--gold-light);}
+  .insight-dark:hover{border-color:var(--gold);}
+  .insight-full{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:13.5px;line-height:1.7;color:var(--text-secondary);}
+  .insight-dark .insight-full{color:rgba(255,255,255,0.72);}
+  .insight-card.expanded .insight-full{max-height:600px;margin-top:1rem;padding-top:1rem;border-top:1px solid var(--cream-mid);}
+  .insight-dark.expanded .insight-full{border-top:1px solid rgba(255,255,255,0.12);}
+  .insight-card.expanded .arrow{transform:rotate(90deg);}
+ 
+  .kg-wrap{margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.08);}
+  .kg-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,151,42,0.55);margin-bottom:1.25rem;}
+  .kg-line{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:'Inter',sans-serif;font-size:13.5px;}
+  .kg-node{padding:9px 18px;border-radius:20px;font-weight:500;border:1px solid rgba(200,151,42,0.4);color:#F0C95A;background:rgba(200,151,42,0.08);box-shadow:0 0 16px -6px rgba(200,151,42,0.4);transition:transform .2s ease,box-shadow .2s ease,background .2s ease;cursor:default;}
+  .kg-node:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 0 26px -2px rgba(200,151,42,0.7);background:rgba(200,151,42,0.16);}
+  .kg-node.kg-final{background:var(--gold);color:var(--navy);font-weight:700;}
+  .kg-sep{color:rgba(255,255,255,0.25);}
+  .step-card{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;}
+  .step-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,0.25);border-color:rgba(200,151,42,0.4);}
+  .cred-avatar{transition:transform .25s ease;}
+  .cred-avatar:hover{transform:scale(1.05) rotate(-2deg);}
 </style>
 </head>
 <body>
+ 
+<svg width="0" height="0" style="position:absolute;overflow:hidden;">
+  <symbol id="logoMark" viewBox="0 0 32 32">
+    <circle cx="16" cy="16" r="14.5" fill="none" stroke="#C8972A" stroke-width="2"/>
+    <path d="M5 17 H11 L13.4 10 L17 23 L19.6 13 L21.5 17 H27" fill="none" stroke="#F7F4EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="17" cy="23" r="2.1" fill="#C8972A"/>
+  </symbol>
+</svg>
  
 <div class="lang-bar">
   <button class="lang-btn active" onclick="setLang('en')">EN</button>
   <button class="lang-btn" onclick="setLang('ka')">ქარ</button>
   <button class="lang-btn" onclick="setLang('ru')">RU</button>
 </div>
-<div class="promo-banner" onclick="openModal('standard')">
+<div class="promo-banner" onclick="openModal('essential')">
   <span id="t-promo"></span><span id="t-promo-cta"></span>
 </div>
 <nav>
-  <div class="nav-logo">Cardio<span>IQ</span></div>
+  <div class="nav-logo" style="display:flex;align-items:center;gap:8px;"><svg width="26" height="26"><use href="#logoMark" xlink:href="#logoMark"></use></svg>Cardio<span>IQ</span></div>
   <div class="nav-right">
     <div class="nav-tagline" id="t-nav-tagline"></div>
-    <button class="nav-cta" onclick="openModal('standard')" id="t-nav-btn"></button>
+    <button class="nav-cta" onclick="openModal('essential')" id="t-nav-btn"></button>
   </div>
 </nav>
 <section class="hero">
@@ -250,7 +296,7 @@
   <p class="hero-union" id="t-hero-union"></p>
   <p class="hero-sub" id="t-hero-sub"></p>
   <div class="hero-actions">
-    <button class="btn-primary" onclick="openModal('standard')" id="t-hero-btn1"></button>
+   <button class="btn-primary" onclick="openModal('essential')" id="t-hero-btn1"></button>
     <button class="btn-ghost" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})" id="t-hero-btn2"></button>
   </div>
   <div class="hero-stats">
@@ -307,10 +353,35 @@
   </div>
   <div style="text-align:center;padding:2.5rem 0 3rem;">
     <p style="font-size:14px;color:#8A96A8;margin-bottom:1.25rem;" id="t-ba-cta-sub"></p>
-    <button class="btn-primary" onclick="openModal('standard')" id="t-ba-cta-btn" style="font-size:16px;padding:16px 36px;"></button>
+    <button class="btn-primary" onclick="openModal('essential')" id="t-ba-cta-btn"></button>
   </div>
 </div>
 </div>
+ 
+<!-- ===== NUMBER VS NARRATIVE SECTION ===== -->
+<div style="background:#F7F4EE;padding:4.5rem 2rem;">
+<div style="max-width:900px;margin:0 auto;">
+  <div style="text-align:center;margin-bottom:3rem;">
+    <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1A6B72;margin-bottom:1rem;" id="t-nvn-label"></div>
+    <h2 style="font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.5vw,2.5rem);color:#0B1E3D;line-height:1.2;max-width:680px;margin:0 auto 1rem;letter-spacing:-0.3px;" id="t-nvn-title"></h2>
+    <p style="font-size:1.05rem;color:#4A5568;max-width:560px;margin:0 auto;font-weight:300;line-height:1.7;" id="t-nvn-sub"></p>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:20px;overflow:hidden;border:1px solid #EDE8DC;box-shadow:0 4px 24px rgba(11,30,61,0.07);">
+    <div style="background:white;padding:2.5rem 2.25rem;display:flex;flex-direction:column;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8A96A8;margin-bottom:1.5rem;" id="t-nvn-left-label"></div>
+      <div style="font-family:'DM Serif Display',serif;font-size:3.4rem;color:#8A96A8;line-height:1;margin-bottom:0.75rem;">11.4%</div>
+      <div style="font-size:13px;color:#8A96A8;font-style:italic;" id="t-nvn-left-caption"></div>
+    </div>
+    <div style="background:#0B1E3D;padding:2.5rem 2.25rem;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C8972A;margin-bottom:1.5rem;" id="t-nvn-right-label"></div>
+      <p style="font-size:14.5px;line-height:1.75;color:rgba(255,255,255,0.82);" id="t-nvn-narrative"></p>
+    </div>
+  </div>
+  <p style="text-align:center;font-size:13px;color:#8A96A8;max-width:560px;margin:1.75rem auto 0;line-height:1.6;" id="t-nvn-footer"></p>
+</div>
+</div>
+<!-- ===== END NUMBER VS NARRATIVE SECTION ===== -->
+ 
 <div class="section">
   <div class="section-label" id="t-sample-label"></div>
   <div class="section-title" id="t-sample-title"></div>
@@ -331,7 +402,7 @@
       <div class="biomarker-row blur-row"><div class="biomarker-name">Lp(a)</div><div class="biomarker-value">68 nmol/L</div><div class="biomarker-ref t-normal"></div><div><span class="status-pill status-risk">✕ High Risk</span></div></div>
       <div class="biomarker-row blur-row"><div class="biomarker-name">Cystatin C</div><div class="biomarker-value">0.94 mg/L</div><div class="biomarker-ref t-normal"></div><div><span class="status-pill status-suboptimal">⚠ Sub-optimal</span></div></div>
       <div class="biomarker-row blur-row"><div class="biomarker-name">LDL-C</div><div class="biomarker-value">148 mg/dL</div><div class="biomarker-ref t-high"></div><div><span class="status-pill status-risk">✕ High Risk</span></div></div>
-      <div class="unlock-banner"><p id="t-unlock-text"></p><button class="unlock-btn" onclick="openModal('standard')" id="t-unlock-btn"></button></div>
+      <div class="unlock-banner"><p id="t-unlock-text"></p><button class="unlock-btn" onclick="openModal('essential')" id="t-unlock-btn"></button></div>
     </div>
   </div>
 </div>
@@ -346,6 +417,20 @@
       <div class="step-card"><div class="step-num">03</div><div class="step-icon">📋</div><h3 id="t-step3-title"></h3><p id="t-step3-body"></p></div>
       <div class="step-card"><div class="step-num">04</div><div class="step-icon">💬</div><h3 id="t-step4-title"></h3><p id="t-step4-body"></p></div>
     </div>
+ 
+    <!-- ===== KNOWLEDGE GRAPH ===== -->
+    <div class="kg-wrap">
+      <div class="kg-label" id="t-kg-label">How biomarkers connect</div>
+      <div class="kg-line">
+        <span class="kg-node">LDL-C</span><span class="kg-sep">→</span>
+        <span class="kg-node">ApoB</span><span class="kg-sep">→</span>
+        <span class="kg-node">Residual Risk</span><span class="kg-sep">→</span>
+        <span class="kg-node">ASCVD</span><span class="kg-sep">→</span>
+        <span class="kg-node kg-final">Recommendation</span>
+      </div>
+    </div>
+    <!-- ===== END KNOWLEDGE GRAPH ===== -->
+ 
   </div>
 </div>
 <div class="credentials-bar">
@@ -362,6 +447,44 @@
     </div>
   </div>
 </div>
+ 
+<!-- ===== INSIGHTS SECTION ===== -->
+<div class="section" id="insights">
+  <div class="section-label" id="t-insights-label"></div>
+  <div class="section-title" id="t-insights-title"></div>
+  <p class="section-sub" id="t-insights-sub"></p>
+  <div class="insights-grid">
+    <div class="insight-card" onclick="toggleInsight(1)" style="cursor:pointer;">
+      <div class="insight-top"></div>
+      <div class="insight-num">01</div>
+      <div class="insight-tag" id="t-ins1-tag"></div>
+      <h3 id="t-ins1-title"></h3>
+      <p id="t-ins1-body"></p>
+      <span class="insight-read"><span id="t-ins-read"></span> <span class="arrow">→</span></span>
+      <div class="insight-full" id="insight-full-1"></div>
+    </div>
+    <div class="insight-card insight-dark" onclick="toggleInsight(2)" style="cursor:pointer;">
+      <div class="insight-top"></div>
+      <div class="insight-num">02</div>
+      <div class="insight-tag" id="t-ins2-tag"></div>
+      <h3 id="t-ins2-title"></h3>
+      <p id="t-ins2-body"></p>
+      <span class="insight-read"><span id="t-ins-read2"></span> <span class="arrow">→</span></span>
+      <div class="insight-full" id="insight-full-2"></div>
+    </div>
+    <div class="insight-card" onclick="toggleInsight(3)" style="cursor:pointer;">
+      <div class="insight-top"></div>
+      <div class="insight-num">03</div>
+      <div class="insight-tag" id="t-ins3-tag"></div>
+      <h3 id="t-ins3-title"></h3>
+      <p id="t-ins3-body"></p>
+      <span class="insight-read"><span id="t-ins-read3"></span> <span class="arrow">→</span></span>
+      <div class="insight-full" id="insight-full-3"></div>
+    </div>
+  </div>
+</div>
+<!-- ===== END INSIGHTS SECTION ===== -->
+ 
 <div class="section" id="pricing">
   <div class="section-label" id="t-pricing-label"></div>
   <div class="section-title" id="t-pricing-title"></div>
@@ -417,7 +540,7 @@
   </div>
 </div>
 <footer>
-  <div class="footer-logo">Cardio<span>IQ</span></div>
+  <div class="footer-logo" style="display:flex;align-items:center;justify-content:center;gap:8px;"><svg width="22" height="22" style="opacity:0.5;"><use href="#logoMark" xlink:href="#logoMark"></use></svg>Cardio<span>IQ</span></div>
   <div class="footer-links">
     <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Medical Disclaimer</a><a href="#">Contact</a>
   </div>
@@ -509,12 +632,12 @@
         <div class="price-summary" id="price-summary"></div>
         <div class="form-group">
           <label class="form-label" id="t-field-email"></label>
-          <input type="email" class="form-input" id="pt-email" placeholder="you@email.com">
+          <input type="email" class="form-input" id="pt-email" placeholder="you@email.com" required>
         </div>
         <div style="background:#E8F5F0;border-radius:10px;padding:14px 16px;font-size:13px;color:#1A6B72;margin-bottom:1.25rem;border:1px solid #B2DFD0;">
-          🔒 <strong>Beta Launch:</strong> Report generation is free during beta. Enter your email above to receive your CardioIQ report.
+          🔒 <strong>Secure checkout:</strong> Enter your email above — you'll be taken to secure payment, then your CardioIQ report will be generated immediately after.
         </div>
-        <button class="plan-btn plan-btn-primary" style="width:100%;padding:14px" onclick="goToCheckout()" id="pay-btn">Generate My Report →</button>
+        <button class="plan-btn plan-btn-primary" style="width:100%;padding:14px" onclick="goToCheckout()" id="pay-btn"> →</button>
         <button style="width:100%;padding:10px;margin-top:8px;background:transparent;color:var(--text-muted);border:none;font-size:14px;cursor:pointer;font-family:var(--font-body)" onclick="goToStep1()" id="t-btn-back"></button>
       </div>
       <div class="form-step" id="step-3">
@@ -542,18 +665,25 @@
         <button class="btn-download" onclick="downloadReport()" id="t-btn-download"></button>
         <button class="btn-share" onclick="showToast(T.btn_share)" id="t-btn-share"></button>
       </div>
+      <div id="premium-question-box" style="display:none;margin-top:1.5rem;background:#F7F4EE;border-radius:12px;padding:1.25rem 1.5rem;border:1px solid #EDE8DC;">
+        <div style="font-size:13px;font-weight:600;color:#0B1E3D;margin-bottom:4px;">❓ Ask Dr. Tea Gamezardashvili one question</div>
+        <div style="font-size:12px;color:#8A96A8;margin-bottom:10px;">Premium benefit · Reply within 48 hours to your email</div>
+        <textarea id="premium-question" rows="3" placeholder="e.g. Should I start statin therapy given my Lp(a) level?" style="width:100%;padding:10px 12px;border:1.5px solid #EDE8DC;border-radius:8px;font-size:14px;font-family:var(--font-body);resize:vertical;outline:none;background:white;"></textarea>
+        <button onclick="submitQuestion()" style="margin-top:8px;background:#0B1E3D;color:white;border:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;font-family:var(--font-body);">Send question →</button>
+        <div id="q-sent" style="display:none;margin-top:8px;font-size:13px;color:#1A6B72;font-weight:500;">✓ Question sent! Dr. Tea will reply within 48 hours.</div>
+      </div>
     </div>
   </div>
 </div>
 <script>
-const TRANSLATIONS = {"en":{"lang_name":"EN","title":"CardioIQ — Preventive Cardiology & Longevity Science","promo":"This CardioIQ Day, invest in health, not stuff.","promo_cta":"Get your specialist report →","nav_tagline":"Preventive Cardiology & Longevity Science","nav_btn":"Get my report","eyebrow":"CardioIQ · Specialist AI Report","hero_h1":"Invest in your health,<br><em>not stuff.</em>","hero_union":"The union of Preventive Cardiology and Geroscience (Longevity)","hero_sub":"Upload your blood panel. Receive a cardiologist-level interpretation using longevity science intervals — not just standard lab ranges. Results in 90 seconds.","hero_btn1":"Analyse my labs — from $29","hero_btn2":"How it works","stat1_label":"Report delivery","stat2_label":"Biomarkers analysed","stat3_label":"Starting price","stat4_label":"Calibrated by cardiologist","invest_h2":"This CardioIQ Day, invest in <em>health, not stuff.</em>","invest_sub":"A specialist cardiovascular report costs less than a dinner out — and could change your life.","ticker_label":"Biomarkers that predict these conditions — detected early by CardioIQ","sample_label":"Sample output","sample_title":"What your report reveals","sample_sub":"The critical difference between normal by your lab and optimal for longevity — this is what CardioIQ shows you.","report_badge":"🔒 De-identified · Private","col_biomarker":"Biomarker","col_value":"Your value","col_lab":"Lab says","col_status":"Longevity status","unlock_text":"Full specialist analysis + priority action plan included in your report","unlock_btn":"Unlock full report — from $29","how_label":"Process","how_title":"Specialist insight in 4 steps","how_sub":"No appointments. No waiting rooms. Cardiologist-calibrated AI, delivered in 90 seconds.","step1_title":"Upload your labs","step1_body":"Upload any PDF or image from any laboratory worldwide. Redact your name first — we never need personal details.","step2_title":"AI extracts & classifies","step2_body":"Specialist-trained AI reads every biomarker and maps it against longevity-optimal intervals — not just standard lab ranges.","step3_title":"Receive your report","step3_body":"A structured PDF with risk stratification, clinical context, and personalised cardiovascular action plan — in 90 seconds.","step4_title":"Bring it to your doctor","step4_body":"Premium reports include a physician summary card and one expert follow-up question. Walk into your consultation prepared.","pricing_label":"Pricing","pricing_title":"One report. One payment. No subscription.","pricing_sub":"Choose the depth of analysis you need. All reports delivered in 90 seconds.","plan1_name":"Essential","plan1_desc":"Core lipid panel — the smart first look.","plan1_btn":"Get essential report","plan2_name":"Standard","plan2_desc":"Full cardiometabolic panel + personalised action plan.","plan2_btn":"Get standard report","plan2_popular":"Most popular","plan3_name":"Premium","plan3_desc":"Full panel + FH risk + expert follow-up.","plan3_btn":"Get premium report","faq_label":"Questions","faq_title":"What people ask","modal_upload_label":"Upload your lab results","modal_upload_title":"Drop file here or click to browse","modal_upload_sub":"PDF, JPG or PNG · Max 10MB","modal_privacy":"Redact your name and date of birth before uploading. We never need personal details.","field_age":"Patient age","field_sex":"Sex","field_sex_m":"Male","field_sex_f":"Female","field_smoker":"Smoker?","field_smoker_no":"No","field_smoker_former":"Former","field_smoker_current":"Current","field_anthro":"Anthropometric data","field_weight":"Weight (kg)","field_height":"Height (cm)","field_waist":"Waist circ. (cm)","field_anthro_hint":"BMI and abdominal obesity are calculated automatically.","field_history":"Past medical history","field_surgeries":"Previous surgeries / procedures","field_surgeries_ph":"e.g. CABG 2018, appendectomy, cholecystectomy","field_surgeries_hint":"Include cardiac procedures, stenting, bypass surgery, etc.","field_meds":"Current medications","field_meds_ph":"e.g. atorvastatin 40mg, metformin, aspirin","field_meds_hint":"Especially lipid-lowering therapy, antihypertensives, antidiabetics.","field_family":"Family history — first-degree relatives","field_family_sub":"Parents, siblings, children","field_family_hint":"Early family cardiovascular events significantly raise your personal risk score.","btn_continue":"Continue to payment →","field_email":"Email — to receive your report","btn_pay":"Pay and generate report →","btn_back":"← Back","loading_title":"Analysing your biomarkers…","loading_sub":"Specialist AI is reviewing your panel","ls1":"Extracting biomarkers from document","ls2":"Mapping to longevity reference intervals","ls3":"Calculating cardiovascular risk profile","ls4":"Generating clinical narrative","ls5":"Compiling your personalised report","report_title":"Your CardioIQ Report","btn_download":"⬇ Download report","btn_share":"Share summary","footer_legal":"CardioIQ is an educational health information service calibrated by Dr. Tea Gamezardashvili MD PhD MHA FACC. Reports are for informational purposes only and do not constitute medical advice, diagnosis, or treatment."},"ka":{"lang_name":"KA","title":"CardioIQ — პრევენციული კარდიოლოგია","promo":"CardioIQ დროა — ინვესტირება ჯანმრთელობაში!","promo_cta":"მიიღე შენი სპეციალისტის დასკვნა →","nav_tagline":"პრევენციული კარდიოლოგია და Longevity მეცნიერება","nav_btn":"ჩემი ანალიზი","eyebrow":"CardioIQ · FACC სერტიფიცირებული კარდიოლოგი","hero_h1":"ინვესტირება ჯანმრთელობაში,<br><em>არა მატერიალურ დოვლათში.</em>","hero_union":"პრევენციული კარდიოლოგიისა და გეროსციენსის (Longevity) გაერთიანება","hero_sub":"ატვირთე სისხლის ანალიზი. მიიღე უმაღლესი დონის კარდიოლოგიური ინტერპრეტაცია Longevity მეცნიერების რჩევებით. შედეგი 90 წამში.","hero_btn1":"ჩემი ანალიზების შემოწმება — $29-დან","hero_btn2":"როგორ მუშაობს","stat1_label":"დასკვნის მიღება","stat2_label":"ბიომარკერი","stat3_label":"საწყისი ფასი","stat4_label":"FACC სერტიფიცირებული კარდიოლოგი","invest_h2":"CardioIQ დროა — ინვესტირება <em>ჯანმრთელობაში!</em>","invest_sub":"მაღალკვალიფიციური კარდიოვასკულარული დასკვნა.","ticker_label":"ბიომარკერები, რომლებიც ამ დაავადებებს ავლენს — CardioIQ-ის მეშვეობით","sample_label":"ნიმუში","sample_title":"რას გიჩვენებს შენი ანგარიში","sample_sub":"CardioIQ გიჩვენებს რეალურ სურათს.","report_badge":"🔒 დეიდენტიფიცირებული · პირადი","col_biomarker":"ბიომარკერი","col_value":"შენი მაჩვენებელი","col_lab":"ლაბ. ნორმა","col_status":"Longevity სტატუსი","unlock_text":"სპეციალისტის სრული დასკვნა + სამოქმედო გეგმა","unlock_btn":"სრული ანგარიში $29-დან","how_label":"პროცესი","how_title":"სპეციალისტის დასკვნა 4 ნაბიჯში","how_sub":"ვიზიტის გარეშე. 90 წამში.","step1_title":"ანალიზის ატვირთვა","step1_body":"ატვირთე ნებისმიერი PDF ან სურათი.","step2_title":"AI ამოიღებს და აკლასიფიცირებს","step2_body":"AI კითხულობს ბიომარკერებს Longevity ინტერვალებთან.","step3_title":"მიიღე ანგარიში","step3_body":"სტრუქტურირებული PDF 90 წამში.","step4_title":"გაუგზავნე მკურნალ ექიმს","step4_body":"Premium ანგარიში მოიცავს ექიმის შეჯამებას.","pricing_label":"ფასები","pricing_title":"ერთი ანგარიში. ერთი გადახდა.","pricing_sub":"ყველა ანგარიში 90 წამში.","plan1_name":"ბაზისური","plan1_desc":"ლიპიდური პანელის ინტერპრეტაცია.","plan1_btn":"ბაზისური ანგარიში","plan2_name":"სტანდარტული","plan2_desc":"სრული კარდიომეტაბოლური პანელი.","plan2_btn":"სტანდარტული ანგარიში","plan2_popular":"ყველაზე პოპულარული","plan3_name":"პრემიუმი","plan3_desc":"სრული პანელი + FH რისკი.","plan3_btn":"პრემიუმ ანგარიში","faq_label":"კითხვები","faq_title":"რას გვეკითხებიან","modal_upload_label":"ატვირთე ლაბორატორიული ანალიზი","modal_upload_title":"ჩააგდე ფაილი ან დააჭირე","modal_upload_sub":"PDF, JPG ან PNG · მაქს. 10MB","modal_privacy":"ატვირთვამდე წაშალე სახელი და დაბადების თარიღი.","field_age":"პაციენტის ასაკი","field_sex":"სქესი","field_sex_m":"მამრობითი","field_sex_f":"მდედრობითი","field_smoker":"მწეველი?","field_smoker_no":"არა","field_smoker_former":"ყოფილი","field_smoker_current":"დიახ","field_anthro":"ანთროპომეტრია","field_weight":"წონა (კგ)","field_height":"სიმაღლე (სმ)","field_waist":"მუცლის გარშ. (სმ)","field_anthro_hint":"BMI ავტომატურად გამოითვლება.","field_history":"გადატანილი დაავადებები","field_surgeries":"გადატანილი ოპერაციები","field_surgeries_ph":"მაგ. CABG 2018","field_surgeries_hint":"კარდიოლოგიური პროცედურები.","field_meds":"მიმდინარე მედიკამენტები","field_meds_ph":"მაგ. ატორვასტატინი 40მგ","field_meds_hint":"ლიპიდების დამწევი, ანტიჰიპერტენზიული.","field_family":"ოჯახური ანამნეზი","field_family_sub":"მშობლები, და-ძმები, შვილები","field_family_hint":"ოჯახური კარდიოვასკულარული მოვლენები.","btn_continue":"გაგრძელება →","field_email":"ელ-ფოსტა","btn_pay":"გენერაცია →","btn_back":"← უკან","loading_title":"ბიომარკერების ანალიზი…","loading_sub":"AI განიხილავს შენს პანელს","ls1":"ბიომარკერების ამოღება","ls2":"Longevity ინტერვალებთან შედარება","ls3":"რისკ-პროფილის გამოთვლა","ls4":"კლინიკური ნარატივის გენერაცია","ls5":"ანგარიშის კომპილაცია","report_title":"შენი CardioIQ ანგარიში","btn_download":"⬇ ანგარიშის გადმოწერა","btn_share":"გაზიარება","footer_legal":"CardioIQ კალიბრირებულია დოქტ. თეა გამეზარდაშვილის (MD PhD MHA FACC) მიერ."},"ru":{"lang_name":"RU","title":"CardioIQ — Превентивная кардиология","promo":"В этот день CardioIQ — инвестируй в здоровье.","promo_cta":"Получить заключение специалиста →","nav_tagline":"Превентивная кардиология и наука о долголетии","nav_btn":"Мой анализ","eyebrow":"CardioIQ · Заключение ИИ-специалиста","hero_h1":"Инвестируй в здоровье,<br><em>не в вещи.</em>","hero_union":"Объединение превентивной кардиологии и геронауки (Longevity)","hero_sub":"Загрузи анализ крови. Получи интерпретацию уровня кардиолога. Результат за 90 секунд.","hero_btn1":"Анализ моих данных — от $29","hero_btn2":"Как это работает","stat1_label":"Доставка отчёта","stat2_label":"Биомаркеров","stat3_label":"Начальная цена","stat4_label":"Откалибровано кардиологом","invest_h2":"В этот день CardioIQ — инвестируй в <em>здоровье.</em>","invest_sub":"Заключение кардиолога стоит меньше ужина в ресторане.","ticker_label":"Биомаркеры, которые выявляют заболевания на ранней стадии — с CardioIQ","sample_label":"Образец","sample_title":"Что покажет ваш отчёт","sample_sub":"Критическая разница между нормой лаборатории и оптимальным для долголетия.","report_badge":"🔒 Деидентифицировано · Конфиденциально","col_biomarker":"Биомаркер","col_value":"Ваше значение","col_lab":"Норма лаб.","col_status":"Статус Longevity","unlock_text":"Полный анализ специалиста + приоритетный план действий","unlock_btn":"Получить полный отчёт — от $29","how_label":"Процесс","how_title":"Экспертное заключение за 3 шага","how_sub":"Без записи. Без очередей. За 90 секунд.","step1_title":"Загрузи анализы","step1_body":"Загрузи любой PDF или изображение из любой лаборатории.","step2_title":"ИИ извлекает и классифицирует","step2_body":"ИИ читает каждый биомаркер и сравнивает с интервалами долголетия.","step3_title":"Получи отчёт","step3_body":"Структурированный PDF за 90 секунд.","step4_title":"Покажи врачу","step4_body":"Премиум-отчёт включает карточку для врача.","pricing_label":"Цены","pricing_title":"Один отчёт. Один платёж. Без подписки.","pricing_sub":"Все отчёты за 90 секунд.","plan1_name":"Базовый","plan1_desc":"Интерпретация липидного профиля.","plan1_btn":"Базовый отчёт","plan2_name":"Стандартный","plan2_desc":"Полная кардиометаболическая панель.","plan2_btn":"Стандартный отчёт","plan2_popular":"Самый популярный","plan3_name":"Премиум","plan3_desc":"Полная панель + риск СГХ.","plan3_btn":"Премиум отчёт","faq_label":"Вопросы","faq_title":"Что спрашивают","modal_upload_label":"Загрузи результаты анализов","modal_upload_title":"Перетащи файл или нажми для выбора","modal_upload_sub":"PDF, JPG или PNG · Макс. 10MB","modal_privacy":"Перед загрузкой скрой имя и дату рождения.","field_age":"Возраст пациента","field_sex":"Пол","field_sex_m":"Мужской","field_sex_f":"Женский","field_smoker":"Курение?","field_smoker_no":"Нет","field_smoker_former":"Бывший курильщик","field_smoker_current":"Курю","field_anthro":"Антропометрия","field_weight":"Вес (кг)","field_height":"Рост (см)","field_waist":"Объём талии (см)","field_anthro_hint":"ИМТ рассчитывается автоматически.","field_history":"Перенесённые заболевания","field_surgeries":"Перенесённые операции","field_surgeries_ph":"напр. АКШ 2018","field_surgeries_hint":"Кардиологические процедуры.","field_meds":"Текущие препараты","field_meds_ph":"напр. аторвастатин 40мг","field_meds_hint":"Гиполипидемические, антигипертензивные.","field_family":"Семейный анамнез","field_family_sub":"Родители, братья/сёстры, дети","field_family_hint":"Ранние сердечно-сосудистые события в семье.","btn_continue":"Продолжить →","field_email":"Email — для получения отчёта","btn_pay":"Сгенерировать отчёт →","btn_back":"← Назад","loading_title":"Анализ биомаркеров…","loading_sub":"ИИ-специалист изучает вашу панель","ls1":"Извлечение биомаркеров","ls2":"Сопоставление с интервалами долголетия","ls3":"Расчёт риск-профиля","ls4":"Создание клинического нарратива","ls5":"Компиляция отчёта","report_title":"Ваш отчёт CardioIQ","btn_download":"⬇ Скачать отчёт","btn_share":"Поделиться","footer_legal":"CardioIQ откалиброван д-ром Теей Гамезардашвили (MD PhD MHA FACC)."}};
+const TRANSLATIONS = {"en":{"lang_name":"EN","title":"CardioIQ — Preventive Cardiology & Longevity Science","promo":"This CardioIQ Day, invest in health, not stuff.","promo_cta":"Get your specialist report →","nav_tagline":"Preventive Cardiology & Longevity Science","nav_btn":"Get my report","eyebrow":"CardioIQ · Specialist AI Report","hero_h1":"Invest in your health,<br><em>not stuff.</em>","hero_union":"The union of Preventive Cardiology and Geroscience (Longevity)","hero_sub":"Upload your blood panel. Receive a cardiologist-level interpretation using longevity science intervals — not just standard lab ranges. Results in 90 seconds.","hero_btn1":"Analyse my labs — from $29","hero_btn2":"How it works","stat1_label":"Report delivery","stat2_label":"Biomarkers analysed","stat3_label":"Starting price","stat4_label":"Calibrated by cardiologist","invest_h2":"This CardioIQ Day, invest in <em>health, not stuff.</em>","invest_sub":"A specialist cardiovascular report costs less than a dinner out — and could change your life.","ticker_label":"Biomarkers that predict these conditions — detected early by CardioIQ","sample_label":"Sample output","sample_title":"What your report reveals","sample_sub":"The critical difference between normal by your lab and optimal for longevity — this is what CardioIQ shows you.","report_badge":"🔒 De-identified · Private","col_biomarker":"Biomarker","col_value":"Your value","col_lab":"Lab says","col_status":"Longevity status","unlock_text":"Full specialist analysis + priority action plan included in your report","unlock_btn":"Unlock full report — from $29","how_label":"Process","how_title":"Specialist insight in 4 steps","how_sub":"No appointments. No waiting rooms. Cardiologist-calibrated AI, delivered in 90 seconds.","step1_title":"Upload your labs","step1_body":"Upload any PDF or image from any laboratory worldwide. Redact your name first — we never need personal details.","step2_title":"AI extracts & classifies","step2_body":"Specialist-trained AI reads every biomarker and maps it against longevity-optimal intervals — not just standard lab ranges.","step3_title":"Receive your report","step3_body":"A structured PDF with risk stratification, clinical context, and personalised cardiovascular action plan — in 90 seconds.","step4_title":"Bring it to your doctor","step4_body":"Premium reports include a physician summary card and one expert follow-up question. Walk into your consultation prepared.","pricing_label":"Pricing","pricing_title":"One report. One payment. No subscription.","pricing_sub":"Choose the depth of analysis you need. All reports delivered in 90 seconds.","plan1_name":"Essential","plan1_desc":"Core lipid panel — the smart first look.","plan1_btn":"Get essential report","plan2_name":"Standard","plan2_desc":"Full cardiometabolic panel + personalised action plan.","plan2_btn":"Get standard report","plan2_popular":"Most popular","plan3_name":"Premium","plan3_desc":"Full panel + FH risk + expert follow-up.","plan3_btn":"Get premium report","faq_label":"Questions","faq_title":"What people ask","modal_upload_label":"Upload your lab results","modal_upload_title":"Drop file here or click to browse","modal_upload_sub":"PDF, JPG or PNG · Max 10MB","modal_privacy":"Redact your name and date of birth before uploading. We never need personal details.","field_age":"Patient age","field_sex":"Sex","field_sex_m":"Male","field_sex_f":"Female","field_smoker":"Smoker?","field_smoker_no":"No","field_smoker_former":"Former","field_smoker_current":"Current","field_anthro":"Anthropometric data","field_weight":"Weight (kg)","field_height":"Height (cm)","field_waist":"Waist circ. (cm)","field_anthro_hint":"BMI and abdominal obesity are calculated automatically.","field_history":"Past medical history","field_surgeries":"Previous surgeries / procedures","field_surgeries_ph":"e.g. CABG 2022, appendectomy, cholecystectomy","field_surgeries_hint":"Include cardiac procedures, stenting, bypass surgery, etc.","field_meds":"Current medications","field_meds_ph":"e.g. atorvastatin 40mg, metformin, aspirin","field_meds_hint":"Especially lipid-lowering therapy, antihypertensives, antidiabetics.","field_family":"Family history — first-degree relatives","field_family_sub":"Parents, siblings, children","field_family_hint":"Early family cardiovascular events significantly raise your personal risk score.","btn_continue":"Continue to payment →","field_email":"Email — to receive your report","btn_pay":"Pay and generate report →","btn_back":"← Back","loading_title":"Analysing your biomarkers…","loading_sub":"Specialist AI is reviewing your panel","ls1":"Extracting biomarkers from document","ls2":"Mapping to longevity reference intervals","ls3":"Calculating cardiovascular risk profile","ls4":"Generating clinical narrative","ls5":"Compiling your personalised report","report_title":"Your CardioIQ Report","btn_download":"⬇ Download report","btn_share":"Share summary","footer_legal":"CardioIQ is an educational health information service calibrated by Dr. Tea Gamezardashvili MD PhD MHA FACC. Reports are for informational purposes only and do not constitute medical advice, diagnosis, or treatment.","insights_label":"Insights","insights_title":"Short, evidence-based reads","insights_sub":"A few minutes on the biomarkers and guidelines that actually move your risk.","ins1_tag":"Biomarkers","ins1_title":"Why ApoB tells you more than LDL-C alone","ins1_body":"Two people can share an identical LDL-C and carry very different particle burden — here's why that gap matters.","ins2_tag":"Risk Science","ins2_title":"Lp(a): the risk factor most people are never tested for","ins2_body":"One in five people carry an elevated, largely genetic risk factor that standard panels skip entirely.","ins3_tag":"Longevity","ins3_title":"Fasting insulin: the \"normal\" number that isn't optimal","ins3_body":"Standard labs flag insulin resistance late. Longevity-based intervals catch it years earlier.","ins_read":"Read the breakdown","nvn_label":"Why CardioIQ is different","nvn_title":"A risk score isn't a risk explanation.","nvn_sub":"Most cardiovascular calculators stop at a number. CardioIQ gives you the clinical reasoning behind it.","nvn_left_label":"Typical Calculator","nvn_left_caption":"10-year ASCVD risk. No context. No next step.","nvn_right_label":"CardioIQ Clinical Narrative","nvn_narrative":"Your LDL-C is elevated, but the clinical significance depends on the number of ApoB-containing particles, other cardiovascular risk factors, and current evidence-based treatment thresholds. Based on the available information, your profile is consistent with an elevated atherosclerotic risk that warrants further assessment and discussion with your healthcare professional.","nvn_footer":"CardioIQ supports — it does not replace — your physician. Every report is written to help that conversation, not skip it.","ins1_full":"LDL-C measures the cholesterol carried by particles in your blood — but it doesn't count the particles themselves. ApoB is a structural protein found on every atherogenic particle (one ApoB molecule per particle), so it directly counts how many particles are circulating. Two people can have identical LDL-C but very different particle counts if one has many small, cholesterol-poor particles and the other has fewer, larger ones. The small-particle pattern carries materially higher cardiovascular risk because more particles means more opportunities to enter the artery wall. This is why ESC/EAS guidelines now recommend ApoB as a secondary target, especially in people with diabetes, obesity, or high triglycerides — exactly the profile where LDL-C alone tends to understate true risk.","ins2_full":"Lipoprotein(a), or Lp(a), is an LDL-like particle with an extra protein attached that makes it both more likely to promote plaque formation and more likely to promote clotting. Unlike LDL-C, it is almost entirely genetically determined — diet and exercise barely move it — and it is not included in a standard lipid panel. Roughly 1 in 5 people carry an elevated level, and for them it can meaningfully raise lifetime cardiovascular risk independent of every other factor. Because it's measured once (it doesn't change much over a lifetime), most international guidelines now recommend at least a single lifetime check, particularly if there's a family history of early heart disease that doesn't otherwise add up.","ins3_full":"Fasting insulin is rarely included on a routine panel, but it's often the earliest signal of metabolic dysfunction — appearing years, sometimes a decade, before glucose or HbA1c move out of range. Standard lab reference ranges typically flag insulin resistance only once it's already advanced (up to ~25 µIU/mL is often called \"normal\"). Longevity-oriented intervals target a much tighter 2–5 µIU/mL range, reflecting research on optimal long-term metabolic and cardiovascular health rather than just ruling out overt disease. Catching elevated fasting insulin early gives meaningfully more room to intervene with diet, exercise, and sleep before insulin resistance progresses toward prediabetes.","err_email_required":"Please enter your email address — your report will be sent there.","err_email_invalid":"Please enter a valid email address."},"ka":{"lang_name":"KA","title":"CardioIQ — პრევენციული კარდიოლოგია","promo":"CardioIQ დროა — ინვესტირება ჯანმრთელობაში!","promo_cta":"მიიღე შენი სპეციალისტის დასკვნა →","nav_tagline":"პრევენციული კარდიოლოგია და Longevity მეცნიერება","nav_btn":"ჩემი ანალიზი","eyebrow":"CardioIQ · FACC სერტიფიცირებული კარდიოლოგი","hero_h1":"ინვესტირება ჯანმრთელობაში,<br><em>არა მატერიალურ დოვლათში.</em>","hero_union":"პრევენციული კარდიოლოგიისა და დღეგრძელობის/გეროსციენსის (Longevity) ერთობლიობა","hero_sub":"ატვირთე სისხლის ანალიზი. მიიღე უმაღლესი დონის კარდიოლოგიური ინტერპრეტაცია Longevity მეცნიერების რჩევებით. შედეგი 90 წამში.","hero_btn1":"ჩემი ანალიზების შემოწმება — $29-დან","hero_btn2":"როგორ მუშაობს","stat1_label":"დასკვნის მიღება","stat2_label":"ბიომარკერი","stat3_label":"საწყისი ფასი","stat4_label":"FACC სერტიფიცირებული კარდიოლოგი","invest_h2":"CardioIQ-ს დროა — ინვესტირება <em>ჯანმრთელობაში!</em>","invest_sub":"მაღალკვალიფიციური კარდიოვასკულარული დასკვნა.","ticker_label":"ბიომარკერები, რომლებიც ამ დაავადებებს ავლენს — CardioIQ-ის მეშვეობით","sample_label":"ნიმუში","sample_title":"რას გიჩვენებს შენი ჯანმრთელობის ანგარიში","sample_sub":"CardioIQ გიჩვენებს რეალურ სურათს.","report_badge":"🔒 არაიდენტიფიცირებული · პირადი მონაცემები","col_biomarker":"ბიომარკერი","col_value":"შენი მაჩვენებელი","col_lab":"ლაბ. ნორმა","col_status":"Longevity სტატუსი","unlock_text":"სპეციალისტის სრული დასკვნა + სამოქმედო გეგმა","unlock_btn":"სრული ანგარიში $29-დან","how_label":"პროცესი","how_title":"სპეციალისტის დასკვნა 4 ნაბიჯში","how_sub":"ვიზიტის გარეშე. 90 წამში.","step1_title":"ანალიზის ატვირთვა","step1_body":"ატვირთე ნებისმიერი PDF ან სურათი.","step2_title":"AI ამოიღებს და აკლასიფიცირებს","step2_body":"AI კითხულობს ბიომარკერებს Longevity ინტერვალებთან.","step3_title":"მიიღე ანგარიში","step3_body":"სტრუქტურირებული PDF 90 წამში.","step4_title":"გაუგზავნე მკურნალ ექიმს","step4_body":"Premium ანგარიში მოიცავს ექიმის შეჯამებას.","pricing_label":"ფასები","pricing_title":"ერთი ანგარიში. ერთი გადახდა.","pricing_sub":"ყველა ანგარიში 90 წამში.","plan1_name":"ბაზისური","plan1_desc":"ლიპიდური პანელის ინტერპრეტაცია.","plan1_btn":"ბაზისური ანგარიში","plan2_name":"სტანდარტული","plan2_desc":"სრული კარდიომეტაბოლური პანელი.","plan2_btn":"სტანდარტული ანგარიში","plan2_popular":"ყველაზე პოპულარული","plan3_name":"პრემიუმი","plan3_desc":"სრული პანელი + FH რისკი.","plan3_btn":"პრემიუმ ანგარიში","faq_label":"კითხვები","faq_title":"რას გვეკითხებიან","modal_upload_label":"ატვირთე ლაბორატორიული ანალიზი","modal_upload_title":"ჩააგდე ფაილი ან დააჭირე","modal_upload_sub":"PDF, JPG ან PNG · მაქს. 10MB","modal_privacy":"ატვირთვამდე წაშალე სახელი და დაბადების თარიღი.","field_age":"პაციენტის ასაკი","field_sex":"სქესი","field_sex_m":"მამრობითი","field_sex_f":"მდედრობითი","field_smoker":"მწეველი?","field_smoker_no":"არა","field_smoker_former":"ყოფილი","field_smoker_current":"დიახ","field_anthro":"ანთროპომეტრია","field_weight":"წონა (კგ)","field_height":"სიმაღლე (სმ)","field_waist":"მუცლის გარშ. (სმ)","field_anthro_hint":"BMI ავტომატურად გამოითვლება.","field_history":"გადატანილი დაავადებები","field_surgeries":"გადატანილი ოპერაციები","field_surgeries_ph":"მაგ. CABG 2018","field_surgeries_hint":"კარდიოლოგიური პროცედურები.","field_meds":"მიმდინარე მედიკამენტები","field_meds_ph":"მაგ. ატორვასტატინი 40მგ","field_meds_hint":"ლიპიდების დამწევი, ანტიჰიპერტენზიული.","field_family":"ოჯახური ანამნეზი","field_family_sub":"მშობლები, და-ძმები, შვილები","field_family_hint":"ოჯახური კარდიოვასკულარული მოვლენები.","btn_continue":"გაგრძელება →","field_email":"ელ-ფოსტა","btn_pay":"გენერაცია →","btn_back":"← უკან","loading_title":"ბიომარკერების ანალიზი…","loading_sub":"AI განიხილავს შენს პანელს","ls1":"ბიომარკერების ამოღება","ls2":"Longevity ინტერვალებთან შედარება","ls3":"რისკ-პროფილის გამოთვლა","ls4":"კლინიკური ნარატივის გენერაცია","ls5":"ანგარიშის კომპილაცია","report_title":"შენი CardioIQ ანგარიში","btn_download":"⬇ ანგარიშის გადმოწერა","btn_share":"გაზიარება","footer_legal":"CardioIQ კალიბრირებულია დოქტ. თეა გამეზარდაშვილის (MD PhD MHA FACC) მიერ.","insights_label":"სიახლეები","insights_title":"მოკლე, მტკიცებულებებზე დაფუძნებული სტატიები","insights_sub":"რამდენიმე წუთი იმ ბიომარკერებსა და გაიდლაინებზე, რომლებიც რეალურად განსაზღვრავს შენს რისკს.","ins1_tag":"ბიომარკერები","ins1_title":"რატომ ამბობს ApoB უფრო მეტს, ვიდრე მხოლოდ LDL-C","ins1_body":"ორ ადამიანს შეიძლება ჰქონდეს ერთნაირი LDL-C, მაგრამ სრულიად განსხვავებული ნაწილაკების რაოდენობა — აი რატომ აქვს ამას მნიშვნელობა.","ins2_tag":"რისკის მეცნიერება","ins2_title":"Lp(a) — რისკის ფაქტორი, რომელზეც უმეტესობას არასდროს უტესტიათ","ins2_body":"ყოველი მეხუთე ადამიანი ატარებს მომატებულ, ძირითადად გენეტიკურ რისკ-ფაქტორს, რომელსაც სტანდარტული პანელები საერთოდ ტოვებს.","ins3_tag":"Longevity","ins3_title":"უზმოზე ინსულინი — „ნორმალური\" მაჩვენებელი, რომელიც ოპტიმალური არ არის","ins3_body":"სტანდარტული ლაბორატორია ინსულინრეზისტენტობას გვიან აღმოაჩენს. Longevity-ინტერვალები მას წლებით ადრე იჭერს.","ins_read":"სრულად წაკითხვა","nvn_label":"რატომ განსხვავდება CardioIQ","nvn_title":"რისკის შეფასება ჯერ კიდევ არ არის ახსნა.","nvn_sub":"კარდიოვასკულარული კალკულატორების უმეტესობა მხოლოდ ციფრით სრულდება. CardioIQ გიჩვენებს კლინიკურ ლოგიკას ციფრის მიღმა.","nvn_left_label":"ჩვეულებრივი კალკულატორი","nvn_left_caption":"10-წლიანი ASCVD რისკი. კონტექსტის გარეშე. შემდეგი ნაბიჯის გარეშე.","nvn_right_label":"CardioIQ-ის კლინიკური ახსნა","nvn_narrative":"თქვენი LDL-C მომატებულია, თუმცა მისი კლინიკური მნიშვნელობა დამოკიდებულია ApoB-შემცველი ნაწილაკების რაოდენობაზე, სხვა კარდიოვასკულარულ რისკ-ფაქტორებზე და მტკიცებულებებზე დაფუძნებულ მკურნალობის ზღვრებზე. არსებული მონაცემების მიხედვით, თქვენი პროფილი შეესაბამება მომატებულ ათეროსკლეროზულ რისკს, რომელიც საჭიროებს დამატებით შეფასებას და განხილვას თქვენს მკურნალ ექიმთან.","nvn_footer":"CardioIQ ეხმარება — არ ანაცვლებს — თქვენს ექიმს. ყოველი ანგარიში დაწერილია იმისთვის, რომ ეს საუბარი გაამარტივოს, არა გამოტოვოს.","ins1_full":"LDL-C ზომავს სისხლში მოცირკულირე ნაწილაკებში არსებულ ქოლესტერინს — მაგრამ თავად ნაწილაკების რაოდენობას არ ითვლის. ApoB არის სტრუქტურული ცილა, რომელიც თითოეულ ათეროგენულ ნაწილაკზეა (ერთი ApoB — ერთი ნაწილაკი), ამიტომ ის პირდაპირ აჩვენებს რამდენი ნაწილაკი მოძრაობს სისხლში. ორ ადამიანს შეიძლება ჰქონდეს ერთნაირი LDL-C, მაგრამ სრულიად განსხვავებული ნაწილაკების რაოდენობა — თუ ერთს მეტი პატარა, ქოლესტერინით ღარიბი ნაწილაკი აქვს, ხოლო მეორეს — ნაკლები, მაგრამ დიდი. პატარა ნაწილაკების სიჭარბე უფრო მაღალი რისკის მატარებელია, რადგან მეტი ნაწილაკი ნიშნავს არტერიის კედელში შეღწევის მეტ შესაძლებლობას. სწორედ ამიტომ ESC/EAS გაიდლაინები ApoB-ს დამატებით სამიზნედ განიხილავს, განსაკუთრებით დიაბეტის, სიმსუქნისა და მაღალი ტრიგლიცერიდების მქონე პირებში.","ins2_full":"Lp(a) არის LDL-ის მსგავსი ნაწილაკი, რომელსაც დამატებითი ცილა აქვს მიმაგრებული — ეს მას ერთდროულად უფრო ათეროგენულსაც ხდის და სისხლის შედედებისკენაც უფრო მიდრეკილს. LDL-C-ისგან განსხვავებით, ის თითქმის მთლიანად გენეტიკურად განისაზღვრება — დიეტა და ვარჯიში მასზე თითქმის არ ახდენს გავლენას — და სტანდარტული ლიპიდური პანელი მას არ მოიცავს. დაახლოებით ყოველ მეხუთე ადამიანს მომატებული დონე აქვს, რისთვისაც ეს მნიშვნელოვნად ზრდის სიცოცხლის განმავლობაში კარდიოვასკულარულ რისკს, დანარჩენი ფაქტორებისგან დამოუკიდებლად. რადგან ეს მაჩვენებელი სიცოცხლის მანძილზე თითქმის არ იცვლება, საერთაშორისო გაიდლაინები რეკომენდაციას უწევენ მინიმუმ ერთჯერად შემოწმებას, განსაკუთრებით ადრეული გულის დაავადების ოჯახური ანამნეზის შემთხვევაში.","ins3_full":"უზმოზე ინსულინი იშვიათად შედის სტანდარტულ პანელში, თუმცა ხშირად ეს არის მეტაბოლური დარღვევის ყველაზე ადრეული სიგნალი — ჩნდება გლუკოზის ან HbA1c-ის ნორმიდან გადახვევამდე წლებით, ზოგჯერ ათწლეულითაც კი ადრე. სტანდარტული ლაბორატორიული ნორმები ინსულინრეზისტენტობას ხშირად მხოლოდ მაშინ აღნიშნავს, როცა ის უკვე შორს არის წასული (24.9-მდე ხშირად „ნორმად\" ითვლება). Longevity-ზე ორიენტირებული ინტერვალები გაცილებით მკაცრ, 2–5 µIU/mL დიაპაზონს მიზნად ისახავს. ადრეულად მომატებული უზმოზე ინსულინის აღმოჩენა მნიშვნელოვნად მეტ დროს იძლევა დიეტით, ვარჯიშითა და ძილით ჩარევისთვის, სანამ ინსულინრეზისტენტობა პრედიაბეტამდე განვითარდება.","err_email_required":"გთხოვთ შეიყვანოთ თქვენი ელ-ფოსტა — სწორედ იქ მიიღებთ ანგარიშს.","err_email_invalid":"გთხოვთ შეიყვანოთ სწორი ელ-ფოსტის მისამართი."},"ru":{"lang_name":"RU","title":"CardioIQ — Превентивная кардиология","promo":"В этот день CardioIQ — инвестируй в здоровье.","promo_cta":"Получить заключение специалиста →","nav_tagline":"Превентивная кардиология и наука о долголетии","nav_btn":"Мой анализ","eyebrow":"CardioIQ · Заключение ИИ-специалиста","hero_h1":"Инвестируй в здоровье,<br><em>не в вещи.</em>","hero_union":"Объединение превентивной кардиологии и геронауки (Longevity)","hero_sub":"Загрузи анализ крови. Получи интерпретацию уровня кардиолога. Результат за 90 секунд.","hero_btn1":"Анализ моих данных — от $29","hero_btn2":"Как это работает","stat1_label":"Доставка отчёта","stat2_label":"Биомаркеров","stat3_label":"Начальная цена","stat4_label":"Откалибровано кардиологом","invest_h2":"В этот день CardioIQ — инвестируй в <em>здоровье.</em>","invest_sub":"Заключение кардиолога стоит меньше ужина в ресторане.","ticker_label":"Биомаркеры, которые выявляют заболевания на ранней стадии — с CardioIQ","sample_label":"Образец","sample_title":"Что покажет ваш отчёт","sample_sub":"Критическая разница между нормой лаборатории и оптимальным для долголетия.","report_badge":"🔒 Деидентифицировано · Конфиденциально","col_biomarker":"Биомаркер","col_value":"Ваше значение","col_lab":"Норма лаб.","col_status":"Статус Longevity","unlock_text":"Полный анализ специалиста + приоритетный план действий","unlock_btn":"Получить полный отчёт — от $29","how_label":"Процесс","how_title":"Экспертное заключение за 3 шага","how_sub":"Без записи. Без очередей. За 90 секунд.","step1_title":"Загрузи анализы","step1_body":"Загрузи любой PDF или изображение из любой лаборатории.","step2_title":"ИИ извлекает и классифицирует","step2_body":"ИИ читает каждый биомаркер и сравнивает с интервалами долголетия.","step3_title":"Получи отчёт","step3_body":"Структурированный PDF за 90 секунд.","step4_title":"Покажи врачу","step4_body":"Премиум-отчёт включает карточку для врача.","pricing_label":"Цены","pricing_title":"Один отчёт. Один платёж. Без подписки.","pricing_sub":"Все отчёты за 90 секунд.","plan1_name":"Базовый","plan1_desc":"Интерпретация липидного профиля.","plan1_btn":"Базовый отчёт","plan2_name":"Стандартный","plan2_desc":"Полная кардиометаболическая панель.","plan2_btn":"Стандартный отчёт","plan2_popular":"Самый популярный","plan3_name":"Премиум","plan3_desc":"Полная панель + риск СГХ.","plan3_btn":"Премиум отчёт","faq_label":"Вопросы","faq_title":"Что спрашивают","modal_upload_label":"Загрузи результаты анализов","modal_upload_title":"Перетащи файл или нажми для выбора","modal_upload_sub":"PDF, JPG или PNG · Макс. 10MB","modal_privacy":"Перед загрузкой скрой имя и дату рождения.","field_age":"Возраст пациента","field_sex":"Пол","field_sex_m":"Мужской","field_sex_f":"Женский","field_smoker":"Курение?","field_smoker_no":"Нет","field_smoker_former":"Бывший курильщик","field_smoker_current":"Курю","field_anthro":"Антропометрия","field_weight":"Вес (кг)","field_height":"Рост (см)","field_waist":"Объём талии (см)","field_anthro_hint":"ИМТ рассчитывается автоматически.","field_history":"Перенесённые заболевания","field_surgeries":"Перенесённые операции","field_surgeries_ph":"напр. АКШ 2018","field_surgeries_hint":"Кардиологические процедуры.","field_meds":"Текущие препараты","field_meds_ph":"напр. аторвастатин 40мг","field_meds_hint":"Гиполипидемические, антигипертензивные.","field_family":"Семейный анамнез","field_family_sub":"Родители, братья/сёстры, дети","field_family_hint":"Ранние сердечно-сосудистые события в семье.","btn_continue":"Продолжить →","field_email":"Email — для получения отчёта","btn_pay":"Сгенерировать отчёт →","btn_back":"← Назад","loading_title":"Анализ биомаркеров…","loading_sub":"ИИ-специалист изучает вашу панель","ls1":"Извлечение биомаркеров","ls2":"Сопоставление с интервалами долголетия","ls3":"Расчёт риск-профиля","ls4":"Создание клинического нарратива","ls5":"Компиляция отчёта","report_title":"Ваш отчёт CardioIQ","btn_download":"⬇ Скачать отчёт","btn_share":"Поделиться","footer_legal":"CardioIQ откалиброван д-ром Теей Гамезардашвили (MD PhD MHA FACC).","insights_label":"Статьи","insights_title":"Короткие материалы на основе доказательной медицины","insights_sub":"Несколько минут о биомаркерах и рекомендациях, которые реально влияют на ваш риск.","ins1_tag":"Биомаркеры","ins1_title":"Почему ApoB говорит больше, чем один LDL-C","ins1_body":"У двух людей может быть одинаковый LDL-C, но совершенно разное количество частиц — вот почему это важно.","ins2_tag":"Наука о риске","ins2_title":"Lp(a): фактор риска, который почти никто не проверяет","ins2_body":"Каждый пятый человек имеет повышенный, в основном генетический фактор риска, который полностью пропускают стандартные панели.","ins3_tag":"Долголетие","ins3_title":"Инсулин натощак: «нормальное» значение, которое не оптимально","ins3_body":"Стандартные лаборатории выявляют инсулинорезистентность поздно. Интервалы долголетия — на годы раньше.","ins_read":"Читать подробнее","nvn_label":"Почему CardioIQ отличается","nvn_title":"Оценка риска — это ещё не объяснение риска.","nvn_sub":"Большинство кардиокалькуляторов останавливаются на цифре. CardioIQ показывает клиническую логику за ней.","nvn_left_label":"Обычный калькулятор","nvn_left_caption":"10-летний риск ASCVD. Без контекста. Без следующего шага.","nvn_right_label":"Клиническое заключение CardioIQ","nvn_narrative":"Ваш LDL-C повышен, однако его клиническое значение зависит от количества частиц, содержащих ApoB, других сердечно-сосудистых факторов риска и текущих научно обоснованных порогов лечения. На основе имеющихся данных ваш профиль соответствует повышенному атеросклеротическому риску, который требует дополнительной оценки и обсуждения с вашим врачом.","nvn_footer":"CardioIQ дополняет — но не заменяет — вашего врача. Каждый отчёт написан, чтобы помочь этому разговору, а не заменить его.","ins1_full":"LDL-C измеряет холестерин, который переносят частицы в крови, но не считает сами частицы. ApoB — структурный белок, присутствующий на каждой атерогенной частице (один ApoB на одну частицу), поэтому он напрямую показывает их количество. У двух людей может быть одинаковый LDL-C, но совершенно разное число частиц: у одного — много мелких, бедных холестерином частиц, у другого — меньше, но крупных. Преобладание мелких частиц несёт существенно более высокий риск, так как больше частиц означает больше возможностей проникнуть в стенку артерии. Поэтому рекомендации ESC/EAS теперь указывают ApoB как дополнительную цель, особенно при диабете, ожирении или высоком уровне триглицеридов.","ins2_full":"Липопротеин(a), или Lp(a), — это частица, похожая на LDL, с дополнительным белком, который делает её более атерогенной и более склонной к образованию тромбов. В отличие от LDL-C, она почти полностью определяется генетически — диета и физическая активность почти не влияют на неё — и не входит в стандартную липидную панель. Примерно у каждого пятого человека уровень повышен, что существенно увеличивает пожизненный сердечно-сосудистый риск независимо от других факторов. Поскольку этот показатель почти не меняется в течение жизни, большинство международных рекомендаций советуют проверить его хотя бы раз, особенно при семейном анамнезе ранних сердечных заболеваний.","ins3_full":"Инсулин натощак редко включают в обычную панель, однако часто это самый ранний сигнал метаболического нарушения — он появляется за годы, иногда за десятилетие до отклонения глюкозы или HbA1c от нормы. Стандартные лабораторные нормы обычно отмечают инсулинорезистентность лишь на поздней стадии (значение до ~25 мкЕд/мл часто считается «нормой»). Интервалы, ориентированные на долголетие, нацелены на гораздо более узкий диапазон 2–5 мкЕд/мл. Раннее выявление повышенного инсулина натощак даёт значительно больше времени для вмешательства с помощью диеты, физической активности и сна, прежде чем инсулинорезистентность перейдёт в предиабет.","err_email_required":"Пожалуйста, введите ваш email — отчёт будет отправлен туда.","err_email_invalid":"Пожалуйста, введите корректный email."}};
  
 const TICKER_DISEASES = {"en":["Familial Hypercholesterolaemia","Coronary Artery Disease","Insulin Resistance","Atherosclerosis","Metabolic Syndrome","Hypertriglyceridaemia","Lp(a) Elevation","Chronic Inflammation","ApoB Dyslipidaemia","Type 2 Diabetes","Hypertension","Chronic Kidney Disease","Fatty Liver Disease","Homocysteinaemia","Endothelial Dysfunction"],"ka":["ოჯახური ჰიპერქოლესტეროლემია","კორონარული არტერიის დაავადება","ინსულინრეზისტენტობა","ათეროსკლეროზი","მეტაბოლური სინდრომი","ჰიპერტრიგლიცერიდემია","Lp(a) მომატება","ქრონიკული ანთება","ApoB დისლიპიდემია","ტიპი 2 დიაბეტი","ჰიპერტენზია","ქრონიკული თირკმლის დაავადება","ღვიძლის ცხიმოვანი დეგენერაცია","ჰომოცისტეინემია","ენდოთელიუმის დისფუნქცია"],"ru":["Семейная гиперхолестеринемия","Ишемическая болезнь сердца","Инсулинорезистентность","Атеросклероз","Метаболический синдром","Гипертриглицеридемия","Повышенный Lp(a)","Хроническое воспаление","Дислипидемия по ApoB","Сахарный диабет 2 типа","Гипертония","Хроническая болезнь почек","Жировая болезнь печени","Гомоцистеинемия","Дисфункция эндотелия"]};
 const CONDITIONS_LABELS = {"en":["Hypertension","Type 2 diabetes","Previous MI","Previous stroke","Coronary artery disease","Heart failure","Atrial fibrillation","Chronic kidney disease","Hypothyroidism","Fatty liver disease","Pancreatitis","PCOS"],"ka":["ჰიპერტენზია","ტიპი 2 დიაბეტი","გადატანილი ინფარქტი","გადატანილი ინსულტი","კორონარული დაავადება","გულის უკმარისობა","პარკუჭოვ. ფიბრილ.","ქრ. თირკმლის დაავ.","ჰიპოთირეოზი","ღვ. ცხ. დეგ.","პანკრეატიტი","PCOS"],"ru":["Гипертония","Сахарный диабет 2 типа","Перенесённый ИМ","Перенесённый инсульт","ИБС","Сердечная недостаточность","Мерцательная аритмия","ХБП","Гипотиреоз","Жировая болезнь печени","Панкреатит","СПКЯ"]};
 const FAMILY_LABELS = {"en":["MI in male relative <55 yrs","MI in female relative <65 yrs","Stroke in first-degree relative","Type 2 diabetes","High cholesterol / FH","Sudden cardiac death <60 yrs"],"ka":["ინფარქტი მამრ. ნათ. <55წ","ინფარქტი მდ. ნათ. <65წ","ინსულტი ახლო ნათ.","ტიპი 2 დიაბეტი","მაღ. ქოლ. / FH","მოულ. გულ. გაჩ. <60წ"],"ru":["ИМ у мужчины <55 лет","ИМ у женщины <65 лет","Инсульт у родственника","Сахарный диабет 2 типа","Высокий холестерин / СГХ","Внезапная смерть <60 лет"]};
 const CONDITIONS_VALUES = ['Hypertension','Type 2 diabetes','Previous MI','Previous stroke','Coronary artery disease','Heart failure','Atrial fibrillation','CKD','Hypothyroidism','NAFLD','Pancreatitis','PCOS'];
 const FAMILY_VALUES = ['Family MI <55 (male)','Family MI <65 (female)','Family stroke','Family diabetes','Family high cholesterol','Family sudden cardiac death'];
-const FAQ_DATA = {en:[{q:'Is this a medical diagnosis?',a:'No. CardioIQ provides an educational interpretation based on published longevity and preventive cardiology science. Always discuss significant findings with your doctor.'},{q:'What is the difference between standard ranges and longevity intervals?',a:'Standard ranges detect acute disease. Longevity intervals are evidence-based targets for long-term cardiovascular health. Fasting insulin is normal up to 24.9 by standard range — but longevity science targets 2–5 µIU/mL.'},{q:'What labs can I upload?',a:'Any standard blood test PDF or image from any laboratory worldwide. Supported: PDF, JPG, PNG.'},{q:'Is my data private?',a:'Yes. We do not require your name or date of birth. Redact your name before uploading. Lab data is processed and deleted — never stored or sold.'},{q:'Why CardioIQ?',a:'CardioIQ is calibrated by a practising cardiologist (FACC, EAS Lipid Clinic Network) with deep FH expertise. For $29–69 one-time, you get specialist reasoning — not a wellness score.'}],ka:[{q:'ეს სამედიცინო დიაგნოზია?',a:'არა. CardioIQ გთავაზობს საგანმანათლებლო ინტერპრეტაციას. მნიშვნელოვანი შედეგები ყოველთვის განიხილე შენს ექიმთან.'},{q:'რა განსხვავებაა?',a:'სტანდარტული ნორმები ავლენს მწვავე დაავადებას. Longevity ინტერვალები — გრძელვადიანი ჯანმრთელობის სამიზნეებია.'},{q:'რა ანალიზების ატვირთვა შეიძლება?',a:'ნებისმიერი PDF ან სურათი. PDF, JPG, PNG.'},{q:'ჩემი მონაცემები დაცულია?',a:'დიახ. სახელი და დაბადების თარიღი არ გვჭირდება. მონაცემები მუშავდება და იშლება.'},{q:'რატომ CardioIQ?',a:'კალიბრირებულია პრაქტიკოსი კარდიოლოგის (FACC, EAS) მიერ. $29-69 ერთჯერადი გადახდა.'}],ru:[{q:'Это медицинский диагноз?',a:'Нет. CardioIQ предоставляет образовательную интерпретацию. Всегда обсуждай результаты со своим врачом.'},{q:'В чём разница между нормами и интервалами долголетия?',a:'Стандартные нормы выявляют острые заболевания. Интервалы долголетия — научно обоснованные цели для здоровья.'},{q:'Какие анализы можно загружать?',a:'Любой анализ крови в виде PDF или изображения. PDF, JPG, PNG.'},{q:'Мои данные в безопасности?',a:'Да. Имя и дата рождения не нужны. Данные обрабатываются и удаляются.'},{q:'Почему CardioIQ?',a:'Откалиброван практикующим кардиологом (FACC, EAS). За $29–69 разово — заключение специалиста.'}]};
+const FAQ_DATA = {en:[{q:'Is this a medical diagnosis?',a:'No. CardioIQ provides an educational interpretation based on published longevity and preventive cardiology science. Always discuss significant findings with your doctor.'},{q:'What is the difference between standard ranges and longevity intervals?',a:'Standard ranges detect acute disease. Longevity intervals are evidence-based targets for long-term cardiovascular health. Fasting insulin is normal up to 24.9 by standard range — but longevity science targets 2–5 µIU/mL.'},{q:'What labs can I upload?',a:'Any standard blood test PDF or image from any laboratory worldwide. Supported: PDF, JPG, PNG.'},{q:'Is my data private?',a:'Yes. We do not require your name or date of birth. Redact your name before uploading. Lab data is processed and deleted — never stored or sold.'},{q:'Why CardioIQ?',a:'CardioIQ is calibrated by a practising cardiologist (FACC, EAS Lipid Clinic Network) with deep FH expertise. For $29–69 one-time, you get specialist reasoning — not a wellness score.'}],ka:[{q:'ეს სამედიცინო დიაგნოზია?',a:'არა. CardioIQ გთავაზობს საგანმანათლებლო ინტერპრეტაციას. მნიშვნელოვანი შედეგები ყოველთვის განიხილე შენს ექიმთან.'},{q:'რა განსხვავებაა?',a:'სტანდარტული ნორმები ავლენს მწვავე დაავადებას. Longevity ინტერვალები — გრძელვადიანი ჯანმრთელობის სამიზნეებია.'},{q:'რა ანალიზების ატვირთვა შეიძლება?',a:'ნებისმიერი PDF ან სურათი. PDF, JPG, PNG.'},{q:'ჩემი მონაცემები დაცულია?',a:'დიახ. სახელი და დაბადების თარიღი არ გვჭირდება. მონაცემები მუშავდება და იშლება.'},{q:'რატომ CardioIQ?',a:'ჩამოყალიბებულია მაღალი კვალიფიკაციის პრაქტიკოსი კარდიოლოგის (FACC, EAS) მიერ. $29-69 ერთჯერადი გადახდა.'}],ru:[{q:'Это медицинский диагноз?',a:'Нет. CardioIQ предоставляет образовательную интерпретацию. Всегда обсуждай результаты со своим врачом.'},{q:'В чём разница между нормами и интервалами долголетия?',a:'Стандартные нормы выявляют острые заболевания. Интервалы долголетия — научно обоснованные цели для здоровья.'},{q:'Какие анализы можно загружать?',a:'Любой анализ крови в виде PDF или изображения. PDF, JPG, PNG.'},{q:'Мои данные в безопасности?',a:'Да. Имя и дата рождения не нужны. Данные обрабатываются и удаляются.'},{q:'Почему CardioIQ?',a:'Откалиброван практикующим кардиологом (FACC, EAS). За $29–69 разово — заключение специалиста.'}]};
  
 let currentLang='en',T=TRANSLATIONS.en,selectedPlan='standard',uploadedFile=null,reportText='';
 const plans={essential:{price:29},standard:{price:49},premium:{price:69}};
@@ -599,10 +729,19 @@ function applyTranslations(){
   setTxt('t-field-history',T.field_history);setTxt('t-field-surgeries',T.field_surgeries);setAttr('pt-surgeries','placeholder',T.field_surgeries_ph);setTxt('t-surgeries-hint',T.field_surgeries_hint);
   setTxt('t-field-meds',T.field_meds);setAttr('pt-meds','placeholder',T.field_meds_ph);setTxt('t-meds-hint',T.field_meds_hint);
   setTxt('t-field-family',T.field_family);setTxt('t-family-sub',T.field_family_sub);setTxt('t-family-hint',T.field_family_hint);
-  setTxt('t-btn-continue',T.btn_continue);setTxt('t-field-email',T.field_email);setTxt('pay-btn',T.btn_pay);setTxt('t-btn-back',T.btn_back);
+  setTxt('t-btn-continue',T.btn_continue);setTxt('t-field-email',(T.field_email||'')+' *');setTxt('pay-btn',T.btn_pay);setTxt('t-btn-back',T.btn_back);
   setTxt('t-loading-title',T.loading_title);setTxt('t-loading-sub',T.loading_sub);
   setTxt('t-ls1',T.ls1);setTxt('t-ls2',T.ls2);setTxt('t-ls3',T.ls3);setTxt('t-ls4',T.ls4);setTxt('t-ls5',T.ls5);
   setTxt('t-report-title',T.report_title);setTxt('t-btn-download',T.btn_download);setTxt('t-btn-share',T.btn_share);setTxt('t-footer-legal',T.footer_legal);
+  setTxt('t-insights-label',T.insights_label);setTxt('t-insights-title',T.insights_title);setTxt('t-insights-sub',T.insights_sub);
+  setTxt('t-ins1-tag',T.ins1_tag);setTxt('t-ins1-title',T.ins1_title);setTxt('t-ins1-body',T.ins1_body);
+  setTxt('t-ins2-tag',T.ins2_tag);setTxt('t-ins2-title',T.ins2_title);setTxt('t-ins2-body',T.ins2_body);
+  setTxt('t-ins3-tag',T.ins3_tag);setTxt('t-ins3-title',T.ins3_title);setTxt('t-ins3-body',T.ins3_body);
+  setTxt('t-ins-read',T.ins_read);setTxt('t-ins-read2',T.ins_read);setTxt('t-ins-read3',T.ins_read);
+  setTxt('t-nvn-label',T.nvn_label);setTxt('t-nvn-title',T.nvn_title);setTxt('t-nvn-sub',T.nvn_sub);
+  setTxt('t-nvn-left-label',T.nvn_left_label);setTxt('t-nvn-left-caption',T.nvn_left_caption);
+  setTxt('t-nvn-right-label',T.nvn_right_label);setTxt('t-nvn-narrative',T.nvn_narrative);
+  setTxt('t-nvn-footer',T.nvn_footer);
   const hookT={label:{en:'The question nobody asks',ka:'კითხვა, რომელსაც არავინ სვამს',ru:'Вопрос, который никто не задаёт'},h2:{en:'Could your blood test be missing<br>your real cardiovascular risk?',ka:'რამდენად რეალურია სისხლის ანალიზით<br>კარდიოვასკულარული რისკი შეფასდეს?',ru:'Может ли ваш анализ крови упускать<br>ваш реальный сердечно-сосудистый риск?'},bLabel:{en:'Standard Lab',ka:'სტანდარტული ლაბ.',ru:'Стандартная лаб.'},aLabel:{en:'CardioIQ Longevity Analysis',ka:'CardioIQ Longevity ანალიზი',ru:'CardioIQ Longevity-анализ'},normal:{en:'Normal ✓',ka:'ნორმა ✓',ru:'Норма ✓'},bVerdict:{en:'No action needed.',ka:'ჩარევას არ საჭიროებს.',ru:'Действий не требуется.'},ldlA:{en:'2.3× above optimal prevention target',ka:'2.3× პრევენციის სამიზნე ნორმაზე მაღალი',ru:'В 2.3× выше оптимального целевого уровня'},apobA:{en:'31% above longevity optimal (<70 mg/dL)',ka:'Longevity ოპტიმუმზე 31%-ით მაღალი',ru:'На 31% выше оптимума долголетия'},insA:{en:'2.5× above longevity threshold',ka:'Longevity ზღვარს 2.5× სჭარბობს',ru:'В 2.5× выше порога долголетия'},crpA:{en:'Optimal — keep it here ✓',ka:'ოპტიმალური — შეინარჩუნე ✓',ru:'Оптимально — сохраняй уровень ✓'},hbaA:{en:'Pre-diabetic range by longevity standard',ka:'პრედიაბეტური ზონა Longevity სტანდარტით',ru:'Преддиабетический диапазон'},aVerdict:{en:'4 of 5 markers require attention. Personalised action plan generated.',ka:'5-დან 4 მარკერი ყურადღებას საჭიროებს.',ru:'4 из 5 маркеров требуют внимания.'},ctaSub:{en:'This is exactly what you get in your CardioIQ report.',ka:'ეს ზუსტად ისაა, რასაც მიიღებ CardioIQ ანგარიშში.',ru:'Именно это вы получаете в своём отчёте CardioIQ.'},ctaBtn:{en:'Get my specialist report — from $29',ka:'ჩემი სპეციალისტის ანგარიში — $29-დან',ru:'Мой отчёт специалиста — от $29'}};
   setTxt('t-hook-label',hookT.label[currentLang]);set('t-hook-h2',hookT.h2[currentLang]);
   const subMap={en:['Your cholesterol may be','"normal"','but not optimal.'],ka:['შენი ქოლესტეროლი შეიძლება','ნორმალური','მაგრამ ოპტიმალური არა.'],ru:['Ваш холестерин может быть','нормальным','но не оптимальным.']};
@@ -639,12 +778,56 @@ function goToStep2(){if(!uploadedFile){alert('Please upload your lab results (PD
 function handleFile(input){const file=input.files[0];if(!file)return;uploadedFile=file;document.getElementById('upload-zone').classList.add('uploaded');document.getElementById('upload-icon').textContent='✅';document.getElementById('upload-title-el').textContent=file.name;document.getElementById('upload-sub-el').textContent=(file.size/1024).toFixed(0)+' KB';}
 const zone=document.getElementById('upload-zone');zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('drag-over');});zone.addEventListener('dragleave',()=>zone.classList.remove('drag-over'));zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('drag-over');const files=e.dataTransfer.files;if(files.length){uploadedFile=files[0];handleFile({files:files});}});
  function goToCheckout(){
+  const email = document.getElementById('pt-email').value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!email){
+    alert(T.err_email_required || 'Please enter your email address — your report will be sent there.');
+    document.getElementById('pt-email').focus();
+    return;
+  }
+  if(!emailPattern.test(email)){
+    alert(T.err_email_invalid || 'Please enter a valid email address.');
+    document.getElementById('pt-email').focus();
+    return;
+  }
   const urls={
     essential:'https://cardioiq.lemonsqueezy.com/checkout/buy/55a263a9-3538-46c7-99fd-4ea42158c803',
     standard:'https://cardioiq.lemonsqueezy.com/checkout/buy/36ed396f-48c3-4c72-b9db-227d29548b9b',
     premium:'https://cardioiq.lemonsqueezy.com/checkout/buy/275aa729-6843-4f41-a4de-55dc080fb7d4'
   };
-  window.open(urls[selectedPlan]||urls.standard,'_blank');
+  const baseUrl = urls[selectedPlan]||urls.standard;
+  const checkoutUrl = baseUrl + '?checkout[email]=' + encodeURIComponent(email);
+  window.open(checkoutUrl,'_blank');
+}
+  async function submitQuestion(){
+  const q = document.getElementById('premium-question').value.trim();
+  const email = document.getElementById('pt-email').value.trim();
+  if(!q){alert('Please write your question first.');return;}
+ 
+  const btn = event.target;
+  btn.textContent='Sending…';btn.disabled=true;
+ 
+  try{
+    await fetch('https://formspree.io/f/xvznyglo',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({
+        subject:'CardioIQ Premium Question',
+        email: email||'not provided',
+        plan: 'Premium $69',
+        question: q,
+        patient_age: document.getElementById('pt-age').value,
+        patient_sex: document.getElementById('pt-sex').value,
+        medications: document.getElementById('pt-meds').value
+      })
+    });
+    document.getElementById('q-sent').style.display='block';
+    btn.style.display='none';
+    document.getElementById('premium-question').disabled=true;
+  }catch(e){
+    btn.textContent='Send question →';btn.disabled=false;
+    alert('Error sending. Please try again.');
+  }
 }
 async function processPayment(){const btn=document.getElementById('pay-btn');if(btn){btn.textContent='…';btn.disabled=true;}await sleep(300);showStep('step-3');setDot(2,'done');setDot(3,'active');setLine(2,true);await animateLoading();await generateReport();}
 async function animateLoading(){const ids=['ls-1','ls-2','ls-3','ls-4','ls-5'];for(let i=0;i<ids.length;i++){await sleep(700);document.getElementById(ids[i]).classList.add('active');if(i>0)document.getElementById(ids[i-1]).classList.add('done');}await sleep(500);document.getElementById('ls-5').classList.add('done');await sleep(300);}
@@ -663,7 +846,77 @@ async function generateReport(){
   let bmi='';if(weight&&height)bmi=(weight/((height/100)**2)).toFixed(1);
   const reportLang=currentLang==='ka'?'Georgian (ქართული)':currentLang==='ru'?'Russian (русский)':'English';
  
-  const system='You are CardioIQ — a Clinical Intelligence Engine calibrated by Dr. Tea Gamezardashvili MD PhD FACC, President of the Georgian Atherosclerosis Association, National Coordinator of the EAS Lipid Clinic Network, expert in Familial Hypercholesterolaemia, preventive cardiology, and Longevity Medicine.\n\nCRITICAL: Write your entire response in '+reportLang+'. Every word must be in '+reportLang+'.\n\nLONGEVITY OPTIMAL intervals:\n- LDL-C: <55 mg/dL (Very High Risk), <70 mg/dL (High Risk)\n- ApoB: <70 mg/dL\n- Fasting insulin: 2-5 µIU/mL\n- hs-CRP: <0.5 mg/L\n- HbA1c: 4.8-5.3%\n- Lp(a): <30 nmol/L\n- Triglycerides: <100 mg/dL\n- Fasting glucose: <90 mg/dL\n\nREPORT STRUCTURE:\n### Executive Summary\nOverall cardiometabolic score (0-100), top 3 risk drivers, cardiovascular age vs chronological age.\n\n### Biomarker Intelligence\nFor each biomarker: Result | Standard Normal | Longevity Optimal | Status\n\n### Cardiovascular Risk Assessment\nSCORE2/ASCVD risk, Heart Age vs Chronological Age.\n\n### Longevity Intelligence\nSleep, Inflammation, Muscle health, Cognitive health assessment.\n\n### Nutrition Prescription\nPersonalised dietary recommendations based on biomarker pattern.\n\n### Exercise Prescription\nAerobic + resistance training protocol for this patient.\n\n### Lifestyle Scores\nNutrition, Sleep, Exercise, Stress — each scored 0-100.\n\n### Three Immediate Priorities\nRanked 1-2-3 by cardiovascular impact.\n\n### Questions for Your Doctor\n5 personalised questions.\n\n### Cardiologist Letter\nWarm personal letter from Dr. Tea Gamezardashvili.\n\n### Disclaimer\nEducational report only.';
+  const system = `You are CardioIQ — a Clinical Intelligence Engine calibrated by Dr. Tea Gamezardashvili MD PhD FACC, President of the Georgian Atherosclerosis Association, National Coordinator of the EAS Lipid Clinic Network.
+CRITICAL: You have enough tokens. Do NOT use tables for Longevity Intelligence, Nutrition and Exercise sections — use short paragraphs instead to save space. Complete ALL sections including Cardiologist Letter. Never truncate.
+LANGUAGE RULE — ABSOLUTE: Your ENTIRE response must be written in ${reportLang}. 
+- If ${reportLang} is Georgian: use only Georgian script (ქართული). Zero English except medical abbreviations (LDL, ApoB, etc).
+- If ${reportLang} is Russian: use only Cyrillic. Zero English except medical abbreviations.
+- If ${reportLang} is English: use only English.
+This is non-negotiable. Every section title, every sentence, every word must be in ${reportLang}.
+GEORGIAN OUTPUT RULE: Write Georgian text at B1 level — simple, clear, medical but accessible. If unsure of a Georgian word, use the English medical term instead of guessing. Never invent words.
+ 
+LONGEVITY OPTIMAL intervals (use these, not standard lab ranges):
+- LDL-C: <55 mg/dL (Very High Risk), <70 mg/dL (High Risk)
+- ApoB: <70 mg/dL | Fasting insulin: 2–5 µIU/mL | hs-CRP: <0.5 mg/L
+- HbA1c: 4.8–5.3% | Lp(a): <30 nmol/L | Triglycerides: <100 mg/dL
+LANGUAGE RULE: 
+- If ${reportLang} is English or Russian: write fully in that language.
+- If ${reportLang} is Georgian: write the ENTIRE report in ENGLISH. 
+  Georgian readers will receive the English version — translation quality 
+  is not sufficient. Use English only, with section titles in both:
+  ### Executive Summary — მოკლე შეჯამება
+  ### Biomarker Intelligence — ბიომარკერები  
+  ### Cardiovascular Risk — კარდიოვასკულური რისკი
+  ### Longevity Intelligence — სიცოცხლის ხანგრძლივობა
+  ### Nutrition — კვება
+  ### Exercise — ვარჯიში
+  ### Lifestyle Scores — ცხოვრების სტილი
+  ### Three Priorities — სამი პრიორიტეტი
+  ### Doctor Questions — კითხვები ექიმისთვის
+  ### Cardiologist Letter — წერილი
+- NEVER write transliterations: დრაივერი, სქორი, პროფაილი, ფაქტორი (English loan words)
+- WRITE INSTEAD: რისკის შემცველი, შეფასება, პროფილი, მაჩვენებელი
+- Albuminuria = ალბუმინურია
+- Risk driver = რისკის მთავარი ფაქტორი
+- Risk score = რისკის შეფასება
+- Tables in Georgian: avoid markdown tables — use numbered lists instead.
+- Biomarker names stay in Latin (LDL-C, ApoB, HbA1c) but ALL explanations in Georgian
+- Keep each section maximum 120 words to avoid truncation
+- Total report must fit within 5000 tokens
+You MUST complete ALL sections. Do not truncate. Do not skip any section.
+${selectedPlan==='premium' ? 'Total report: maximum 7000 tokens. All sections required including Cardiologist Letter.' : 'Keep each section CONCISE — maximum 100 words per section. Total report must fit within 4000 tokens.'}
+### Executive Summary
+Cardiometabolic score (0-100), top 3 risk drivers, cardiovascular age vs chronological age.
+ 
+### Biomarker Intelligence
+For each biomarker: Result | Standard Normal | Longevity Optimal | Status 🔴🟡🟢
+ 
+### Cardiovascular Risk Assessment
+SCORE2/ASCVD risk category, Heart Age vs Chronological Age.
+ 
+### Longevity Intelligence
+Sleep, Inflammation, Muscle health, Cognitive health.
+ 
+### Nutrition Prescription
+Personalised dietary recommendations based on this patient's biomarker pattern.
+ 
+### Exercise Prescription
+Specific aerobic + resistance protocol for this patient's risk profile.
+ 
+### Lifestyle Scores
+Nutrition / Sleep / Exercise / Stress — each 0-100 with explanation.
+ 
+### Three Immediate Priorities
+Ranked 1-2-3 by cardiovascular impact. Specific and actionable.
+ 
+### Questions for Your Doctor
+5 personalised questions this patient should ask their physician.
+ 
+### Cardiologist's Letter
+A warm personal letter from Dr. Tea Gamezardashvili directly to the patient. Clinically precise and emotionally supportive.
+ 
+### Disclaimer
+Educational report only. Not a medical diagnosis. Consult your physician.`;
  
   const user='Patient: Age '+age+' | Sex: '+sex+' | Smoker: '+(smoker||'Not stated')+'\nWeight: '+(weight||'?')+' kg | Height: '+(height||'?')+' cm | Waist: '+(waist||'?')+' cm | BMI: '+(bmi||'?')+'\nHistory: '+(checkedCond||'None')+'\nSurgeries: '+(surgeries||'None')+'\nMedications: '+(meds||'None')+'\nFamily history: '+(familyHx||'None')+'\nPlan: '+selectedPlan+(selectedPlan==='premium'?' Include Dutch Lipid Clinic FH score.':'');
  
@@ -677,10 +930,36 @@ async function generateReport(){
   showReport();
 }
  
-function showReport(){document.querySelector('.modal-body').style.display='none';document.querySelector('.step-indicator').parentElement.style.display='none';document.getElementById('modal-title').textContent='✓ '+T.report_title;const screen=document.getElementById('report-screen');screen.classList.add('active');screen.style.display='block';document.getElementById('report-content').innerHTML=reportText.replace(/### (.+)/g,'<h3>$1</h3>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');setDot(3,'done');showToast('✓ '+T.report_title);}
+function showReport(){
+  document.querySelector('.modal-body').style.display='none';
+  document.querySelector('.step-indicator').parentElement.style.display='none';
+  document.getElementById('modal-title').textContent='✓ '+T.report_title;
+  const screen=document.getElementById('report-screen');
+  screen.classList.add('active');screen.style.display='block';
+  document.getElementById('report-content').innerHTML=reportText
+    .replace(/### (.+)/g,'<h3>$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+    .replace(/\n/g,'<br>');
+  setDot(3,'done');
+  showToast('✓ '+T.report_title);
+ 
+  // Premium: show question form
+  const qBox = document.getElementById('premium-question-box');
+  if(qBox) qBox.style.display = selectedPlan==='premium' ? 'block' : 'none';
+}
 function downloadReport(){const blob=new Blob(['CARDIOIQ\n'+T.report_title+'\nDr. Tea Gamezardashvili, FACC · EAS Lipid Clinic Network\n\n'+reportText],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='CardioIQ_Report.txt';a.click();}
 function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+function toggleInsight(n){
+  const card = document.querySelectorAll('.insight-card')[n-1];
+  const full = document.getElementById('insight-full-'+n);
+  const isOpen = card.classList.contains('expanded');
+  document.querySelectorAll('.insight-card').forEach(c=>c.classList.remove('expanded'));
+  if(!isOpen){
+    card.classList.add('expanded');
+    full.textContent = T['ins'+n+'_full'] || '';
+  }
+}
  
 setLang('en');
 </script>
