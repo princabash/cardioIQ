@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+  <!-- SEO -->
+  <title>ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk | CardioIQ</title>
+  <meta name="description" content="ApoB measures atherogenic particle number — not cholesterol mass. Learn what ApoB is, how it differs from LDL, normal ranges, guidelines, and how to lower it. Medically reviewed by a board-certified cardiologist." />
+  <link rel="canonical" href="https://cardioiq.health/blog/apob-guide/" />
+ 
+  <!-- Open Graph -->
+  <meta property="og:title" content="ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk" />
+  <meta property="og:description" content="ApoB measures atherogenic particle number — not cholesterol mass. Evidence-based guide reviewed by a board-certified lipidologist." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://cardioiq.health/blog/apob-guide/" />
+ 
+  <!-- Schema: MedicalWebPage + Article -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MedicalWebPage", "Article"],
+    "headline": "ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk",
+    "description": "Evidence-based clinical guide to ApoB testing, interpretation, and cardiovascular risk — medically reviewed by a board-certified cardiologist and lipidologist.",
+    "url": "https://cardioiq.health/blog/apob-guide/",
+    "datePublished": "2026-07-01",
+    "dateModified": "2026-07-01",
+    "author": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificPrefix": "Dr.",
+      "honorificSuffix": "MD, PhD, MHA, FACC",
+      "jobTitle": "Preventive Cardiologist and Lipidologist",
+      "url": "https://cardioiq.health/about/"
+    },
+    "reviewedBy": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CardioIQ",
+      "url": "https://cardioiq.health"
+    },
+    "medicalAudience": {
+      "@type": "MedicalAudience",
+      "audienceType": "Patient"
+    },
+    "about": {
+      "@type": "MedicalCondition",
+      "name": "Cardiovascular Disease Risk Assessment"
+    }
+  }
+  </script>
+ 
+  <style>
+    /* ── Design tokens ── */
+    :root {
+      --navy:       #0B1F3A;
+      --navy-mid:   #112847;
+      --teal:       #0E7C7B;
+      --teal-light: #12A09E;
+      --gold:       #C9A84C;
+      --gold-light: #E4C878;
+      --cream:      #F8F6F1;
+      --white:      #FFFFFF;
+      --text:       #1A2B3C;
+      --text-muted: #4A6070;
+      --border:     #D8E4EC;
+      --danger-bg:  #FFF8E8;
+      --danger-border: #C9A84C;
+ 
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+ 
+      --max-w: 760px;
+      --max-w-wide: 1060px;
+    }
+ 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+    html { scroll-behavior: smooth; }
+ 
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+ 
+    /* ── Nav ── */
+    .site-nav {
+      background: var(--navy);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--teal);
+      color: var(--white) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+ 
+    /* ── Article hero ── */
+    .article-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+    }
+    .article-tag {
+      display: inline-block;
+      background: rgba(201,168,76,0.18);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+    .article-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.3;
+    }
+    .article-hero p.lead {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+    }
+    .byline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 0.75rem 1.25rem;
+    }
+    .byline-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .byline-text { text-align: left; }
+    .byline-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .byline-name {
+      font-size: 0.88rem;
+      color: var(--white);
+      font-weight: 600;
+    }
+    .byline-creds {
+      font-size: 0.78rem;
+      color: var(--gold-light);
+    }
+ 
+    /* ── TOC ── */
+    .toc-wrap {
+      max-width: var(--max-w);
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+    .toc {
+      background: var(--cream);
+      border-left: 4px solid var(--teal);
+      border-radius: 0 10px 10px 0;
+      padding: 1.5rem 1.75rem;
+    }
+    .toc h2 {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+    .toc ol {
+      margin: 0;
+      padding-left: 1.3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.2rem 2rem;
+    }
+    .toc li { font-size: 0.9rem; }
+    .toc a { color: var(--teal); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+ 
+    /* ── Main article layout ── */
+    .article-body {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem 4rem;
+    }
+ 
+    /* ── Typography ── */
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 3rem 0 1rem;
+      padding-top: 1rem;
+      border-top: 2px solid var(--border);
+    }
+    .article-body h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 2rem 0 0.6rem;
+    }
+    .article-body p { margin-bottom: 1.1rem; }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body strong { color: var(--navy); }
+    .article-body em { font-style: italic; }
+    .article-body a { color: var(--teal); text-decoration: underline; }
+    .article-body a:hover { color: var(--teal-light); }
+ 
+    .article-body ul, .article-body ol {
+      margin: 0.75rem 0 1.1rem 1.4rem;
+    }
+    .article-body li { margin-bottom: 0.4rem; }
+ 
+    .intro-paragraph {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      border-left: 3px solid var(--gold);
+      padding-left: 1.25rem;
+      margin-bottom: 2rem;
+    }
+ 
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+ 
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0 2rem; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    thead { background: var(--navy); }
+    thead th {
+      color: var(--white);
+      text-align: left;
+      padding: 0.85rem 1rem;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+    }
+    tbody tr:nth-child(even) { background: var(--cream); }
+    tbody tr:nth-child(odd) { background: var(--white); }
+    tbody td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+ 
+    /* ── Callout boxes ── */
+    .callout {
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.75rem 0;
+    }
+    .callout-teal {
+      background: rgba(14,124,123,0.06);
+      border-left: 4px solid var(--teal);
+    }
+    .callout-gold {
+      background: var(--danger-bg);
+      border-left: 4px solid var(--gold);
+    }
+    .callout p { margin-bottom: 0; }
+    .callout strong { color: var(--navy); }
+ 
+    /* ── Risk table ── */
+    .risk-badge {
+      display: inline-block;
+      padding: 0.15rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .risk-high { background: #FFF0E8; color: #C0521A; }
+    .risk-very-high { background: #FDECEA; color: #B91C1C; }
+    .risk-low { background: #EAF7F0; color: #15803D; }
+    .risk-mod { background: #FFF8E8; color: #92610A; }
+ 
+    /* ── Medical notice ── */
+    .medical-notice {
+      background: var(--danger-bg);
+      border: 1px solid var(--danger-border);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 3rem 0 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .notice-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .medical-notice p { margin: 0; font-size: 0.9rem; color: var(--text-muted); }
+    .medical-notice strong { color: var(--navy); }
+ 
+    /* ── CTA block ── */
+    .cta-block {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      text-align: center;
+      margin: 3.5rem 0 2rem;
+    }
+    .cta-block h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      border: none;
+      padding: 0;
+    }
+    .cta-block p {
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin: 0 auto 0.6rem;
+      font-size: 0.95rem;
+    }
+    .cta-flow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin: 1.25rem 0 2rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .cta-flow-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+    }
+    .cta-arrow { color: var(--gold); }
+    .btn-primary {
+      display: inline-block;
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 2.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 0.75rem;
+    }
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-block;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      text-decoration: none;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.2);
+      margin-left: 0.75rem;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--white); border-color: rgba(255,255,255,0.45); }
+ 
+    /* ── References ── */
+    .references {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 1.75rem 2rem;
+      margin-top: 3rem;
+    }
+    .references h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      border: none;
+      padding: 0;
+    }
+    .references ol {
+      margin: 0;
+      padding-left: 1.3rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .references li { margin-bottom: 0.5rem; }
+    .references a { color: var(--teal); }
+ 
+    /* ── FAQ ── */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q {
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    .faq-a { color: var(--text); font-size: 0.95rem; margin: 0; }
+ 
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.83rem;
+    }
+    .site-footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    .site-footer a:hover { color: var(--white); }
+ 
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .toc ol { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .cta-block { padding: 2rem 1.25rem; }
+      .btn-secondary { display: block; margin: 0.75rem auto 0; text-align: center; }
+    }
+ 
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ── Navigation ── -->
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/sample-report/">Sample Report</a></li>
+    <li><a href="/assessment/" class="nav-cta">Start Free Assessment</a></li>
+  </ul>
+</nav>
+ 
+<!-- ── Hero ── -->
+<header class="article-hero">
+  <div class="article-tag">Lipid Science · Evidence-Based Guide</div>
+  <h1>ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk</h1>
+  <p class="lead">What ApoB measures, how it differs from LDL cholesterol, how to interpret your results, and what international clinical guidelines actually recommend.</p>
+  <div class="byline">
+    <div class="byline-avatar">TG</div>
+    <div class="byline-text">
+      <div class="byline-label">Medically Reviewed By</div>
+      <div class="byline-name"><a href="/about/" style="color:inherit;text-decoration:none;">Dr. Tea Gamezardashvili</a></div>
+      <div class="byline-creds">MD, PhD, MHA, FACC · Cardiologist &amp; Lipidologist</div>
+    </div>
+  </div>
+</header>
+ 
+<!-- ── TOC ── -->
+<div class="toc-wrap">
+  <nav class="toc" aria-label="Table of contents">
+    <h2>In This Guide</h2>
+    <ol>
+      <li><a href="#what-is-apob">What Is ApoB?</a></li>
+      <li><a href="#apob-vs-ldl">ApoB vs LDL Cholesterol</a></li>
+      <li><a href="#the-test">The ApoB Test</a></li>
+      <li><a href="#interpreting">Interpreting Your Results</a></li>
+      <li><a href="#causes">What Drives High ApoB?</a></li>
+      <li><a href="#evidence">The Evidence</a></li>
+      <li><a href="#guidelines">Clinical Guidelines</a></li>
+      <li><a href="#should-you-test">Should You Measure ApoB?</a></li>
+      <li><a href="#treatment">Treatment: Lowering ApoB</a></li>
+      <li><a href="#faq">Common Questions</a></li>
+    </ol>
+  </nav>
+</div>
+ 
+<!-- ── Article Body ── -->
+<main class="article-body">
+ 
+  <p class="intro-paragraph">Two patients can sit in the same clinic, on the same day, with the same LDL cholesterol level — and carry meaningfully different risk of a heart attack. This is not a hypothetical. It is one of the most common discrepancies seen in everyday cardiology practice, and it is also one of the least explained on a standard lab report. The reason often comes down to a single marker most people have never been tested for: <strong>ApoB</strong>.</p>
+ 
+  <!-- Section 1 -->
+  <h2 id="what-is-apob">What Is ApoB?</h2>
+ 
+  <h3>The Basic Definition</h3>
+  <p>Apolipoprotein B, or ApoB, is the main structural protein embedded in the membrane of LDL, VLDL, IDL, chylomicron remnants, and Lp(a) particles. Each of these particles carries exactly one molecule of ApoB on its surface — no more, no less. Because of this one-to-one relationship, an ApoB blood test does not measure how much cholesterol your particles are carrying; it measures how many particles you have.</p>
+ 
+  <div class="callout callout-teal">
+    <p><strong>The single most important concept:</strong> LDL cholesterol measures cargo weight. ApoB measures the number of vehicles. A person can have a relatively low cholesterol "weight" while still carrying a high number of particles — and it is the particles themselves, not the cholesterol they transport, that become trapped in the artery wall and drive the development of atherosclerosis.</p>
+  </div>
+ 
+  <h3>Which Particles Carry ApoB</h3>
+  <p>Not every lipoprotein in the blood carries ApoB — and the ones that do are, not coincidentally, the ones implicated in atherosclerotic cardiovascular disease.</p>
+ 
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Particle Type</th><th>Carries ApoB?</th><th>Atherogenic?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>LDL (low-density lipoprotein)</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+        <tr><td>VLDL (very-low-density lipoprotein)</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+        <tr><td>IDL (intermediate-density lipoprotein)</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+        <tr><td>Chylomicron remnants</td><td>✓ Yes</td><td>✓ Yes</td></tr>
+        <tr><td>Lp(a)</td><td>✓ Yes (ApoB + apo(a))</td><td>✓ Yes</td></tr>
+        <tr><td>HDL (high-density lipoprotein)</td><td>✗ No (carries ApoA1)</td><td>✗ No</td></tr>
+      </tbody>
+    </table>
+  </div>
+ 
+  <p>HDL is the notable exception. Because HDL particles carry apolipoprotein A1, not ApoB, they are excluded from the ApoB measurement entirely — which is part of why ApoB is described as a more direct readout of "bad" particle burden than total cholesterol, which lumps HDL in with everything else.</p>
+ 
+  <h3>Why ApoB Exists as a Clinical Marker</h3>
+  <p>For decades, cardiovascular risk was assessed through the lens of cholesterol mass. But as lipid science matured, a problem became clear: cholesterol mass and particle number do not always move together. Two people can have identical LDL-C while one carries far more LDL particles than the other — because their particles are smaller and carry proportionally less cholesterol each. This phenomenon, known as LDL discordance, helped drive a shift toward asking not just <em>how much</em> cholesterol is circulating, but <em>how many particles</em> are available to penetrate the arterial wall and initiate plaque formation.</p>
+ 
+  <hr />
+ 
+  <!-- Section 2 -->
+  <h2 id="apob-vs-ldl">ApoB vs. LDL Cholesterol: Why They're Not the Same Thing</h2>
+  <p>If you already know your LDL cholesterol, why would you need ApoB too? For many people, you wouldn't — LDL-C and ApoB usually move together. But for a meaningful subset of patients, they don't, and that gap is exactly where ApoB earns its clinical value.</p>
+ 
+  <h3>What LDL-C Actually Measures</h3>
+  <p>A standard lipid panel reports LDL-C as a concentration of cholesterol carried inside LDL particles. Critically, LDL-C is a measure of <strong>cargo, not vehicles</strong>. It tells you the total mass of cholesterol packed into your LDL particles, but it cannot tell you whether that cholesterol is distributed across a few large, cholesterol-rich particles or many small, cholesterol-poor ones.</p>
+ 
+  <h3>What ApoB Actually Measures</h3>
+  <p>ApoB sidesteps the cargo-versus-vehicle ambiguity entirely. Because every LDL, VLDL, IDL, and Lp(a) particle carries exactly one ApoB molecule, a single ApoB measurement is, in effect, a direct particle count. It doesn't matter whether each particle is carrying a little cholesterol or a lot — ApoB counts the particles themselves, which are what physically lodge in the arterial wall and initiate atherosclerotic plaque formation.</p>
+ 
+  <h3>Discordance: When LDL Is Normal But ApoB Is High</h3>
+  <p>The clinically important scenario is called <strong>LDL-ApoB discordance</strong> — when LDL-C and ApoB point to different risk levels for the same patient. The most common pattern is a normal or even low LDL-C alongside an elevated ApoB, arising from many small, dense LDL particles, each carrying relatively little cholesterol individually, but adding up to a high total particle count.</p>
+  <p>This phenotype is strongly associated with insulin resistance, metabolic syndrome, and type 2 diabetes — conditions in which the liver tends to produce a higher number of smaller, triglyceride-rich, cholesterol-depleted particles. A patient with this profile can look reassuring on a standard lipid panel while actually carrying a high-risk particle burden that only ApoB reveals.</p>
+ 
+  <h3>What the Evidence Shows</h3>
+  <p>Recent systematic-review evidence indicates that ApoB is a more accurate marker of ASCVD risk than LDL-C, and often non-HDL-C, particularly in discordance analyses. A 2025 systematic review in the <em>Journal of Clinical Lipidology</em> pooled 15 discordance studies spanning nearly 600,000 participants and found that ApoB outperformed LDL-C in every study that made a direct comparison — concluding that neither LDL-C nor non-HDL-C should be treated as adequate clinical substitutes for ApoB.<sup><a href="#ref6">[6]</a></sup></p>
+  <p>A 2025 review in <em>Future Cardiology</em> further reinforces the biological rationale: ApoB is a direct count of atherogenic particles and is most clinically useful precisely in the settings where cholesterol-per-particle varies — insulin resistance, obesity, and hypertriglyceridemia.<sup><a href="#ref7">[7]</a></sup></p>
+  <p>A large 2025 UK Biobank analysis, following over 375,000 adults without prior cardiovascular disease, reinforced the discordance pattern with prospective outcomes data: participants with discordantly high ApoB relative to their LDL-C carried a measurably elevated risk of major adverse cardiovascular events, while those with discordantly low ApoB carried correspondingly lower risk — even though their LDL-C values looked similar on paper.<sup><a href="#ref8">[8]</a></sup></p>
+  <p>Preliminary cohort evidence in genetically confirmed heterozygous familial hypercholesterolemia (HeFH) further suggests that ApoB/LDL-C discordance may identify residual risk not captured by LDL-C alone — though this finding requires prospective validation given the methodological limitations of current HeFH discordance cohorts.</p>
+ 
+  <h3>ApoB vs. LDL-C: A Direct Comparison</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th></th><th>LDL Cholesterol (LDL-C)</th><th>ApoB</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>What it measures</strong></td><td>Mass of cholesterol in LDL particles</td><td>Total count of atherogenic particles (LDL, VLDL, IDL, Lp(a))</td></tr>
+        <tr><td><strong>Captures VLDL/IDL particles</strong></td><td>No</td><td>Yes</td></tr>
+        <tr><td><strong>Captures Lp(a)</strong></td><td>No</td><td>Yes</td></tr>
+        <tr><td><strong>Affected by particle size</strong></td><td>Yes — can under- or overestimate</td><td>No — counts directly</td></tr>
+        <tr><td><strong>Most useful when</strong></td><td>Particle size is typical / non-discordant</td><td>Diabetes, metabolic syndrome, obesity, statin-treated patients</td></tr>
+        <tr><td><strong>Fasting required</strong></td><td>Generally not required</td><td>Generally not required</td></tr>
+        <tr><td><strong>Guideline status</strong></td><td>Primary target in most guidelines</td><td>Recommended adjunct or alternative in specific populations</td></tr>
+      </tbody>
+    </table>
+  </div>
+ 
+  <hr />
+ 
+  <!-- Section 3 -->
+  <h2 id="the-test">The ApoB Test: What to Expect</h2>
+ 
+  <h3>How the Test Is Done</h3>
+  <p>An ApoB test is a standard blood draw — no special preparation, equipment, or procedure beyond what your blood draw already involves. Unlike triglycerides, which can shift meaningfully depending on recent food intake, ApoB is relatively stable whether or not you've fasted beforehand. Many clinicians now order it as a non-fasting test for this reason. That said, your clinician may still prefer a fasting sample depending on what else is being measured — confirm before your appointment.</p>
+ 
+  <h3>Who Should Consider ApoB Testing</h3>
+  <ul>
+    <li><strong>People with diabetes, prediabetes, or insulin resistance</strong> — exactly the scenario where LDL-C can understate true particle burden.</li>
+    <li><strong>People with metabolic syndrome or obesity</strong>, particularly with elevated triglycerides or low HDL.</li>
+    <li><strong>People with a family history of premature cardiovascular disease</strong>, where genetic conditions such as familial hypercholesterolemia can drive a high particle count not fully reflected in standard LDL-C.</li>
+    <li><strong>People with normal LDL-C but a personal history of a cardiovascular event</strong> that seems otherwise unexplained.</li>
+    <li><strong>Statin-treated patients with residual cardiovascular risk</strong>, since statins can lower LDL-C and particle number to different degrees.</li>
+  </ul>
+ 
+  <h3>How Often Should It Be Tested</h3>
+  <p>There is no single universal interval for ApoB retesting. A baseline measurement establishes whether discordance is present, and retesting typically follows the same monitoring rhythm as other lipid parameters — more frequent during the early phase of a new treatment, less frequent once levels are stable. If ApoB was the primary driver of a treatment decision, it should be monitored directly going forward, rather than relying on LDL-C alone.</p>
+ 
+  <h3>Test Availability and Practical Considerations</h3>
+  <p>ApoB testing is widely available through standard clinical laboratories and is increasingly offered as an add-on to routine lipid panels, though it is still not part of every default panel. Availability, turnaround time, and whether a separate order is needed can vary by laboratory and by country. Cost and coverage vary considerably — worth confirming with your lab or provider before testing.</p>
+ 
+  <hr />
+ 
+  <!-- Section 4 -->
+  <h2 id="interpreting">Interpreting Your ApoB Results</h2>
+  <p>"Normal" for ApoB is not a single fixed number — it depends on your overall cardiovascular risk category.</p>
+ 
+  <h3>Reference Ranges</h3>
+  <p><strong>ESC/EAS (European) targets</strong>, from the 2019 ESC/EAS Guidelines:<sup><a href="#ref1">[1]</a></sup></p>
+  <ul>
+    <li>High-risk individuals: ApoB target <strong>&lt; 80 mg/dL</strong></li>
+    <li>Very-high-risk individuals: ApoB target <strong>&lt; 65 mg/dL</strong></li>
+  </ul>
+  <p><strong>ACC/AHA (US) approach</strong>, from the 2018 ACC/AHA Guideline:<sup><a href="#ref2">[2]</a></sup></p>
+  <ul>
+    <li>ApoB <strong>≥ 130 mg/dL</strong> is treated as a <em>risk-enhancing factor</em> — used to help refine treatment decisions in intermediate-risk patients, particularly when triglycerides are ≥ 200 mg/dL.</li>
+  </ul>
+ 
+  <h3>ApoB Targets by Risk Category</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Risk Category</th><th>ESC/EAS ApoB Target</th><th>Clinical Context</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="risk-badge risk-low">Low risk</span></td>
+          <td>No specific ApoB target defined</td>
+          <td>LDL-C remains the primary target</td>
+        </tr>
+        <tr>
+          <td><span class="risk-badge risk-mod">Moderate risk</span></td>
+          <td>No specific ApoB target defined</td>
+          <td>ApoB may inform risk refinement with elevated TG, diabetes, or obesity</td>
+        </tr>
+        <tr>
+          <td><span class="risk-badge risk-high">High risk</span></td>
+          <td>&lt; 80 mg/dL</td>
+          <td>Longstanding diabetes, single very high risk factor, moderate CKD</td>
+        </tr>
+        <tr>
+          <td><span class="risk-badge risk-very-high">Very high risk</span></td>
+          <td>&lt; 65 mg/dL</td>
+          <td>Established ASCVD, FH with additional risk factors, severe CKD</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+  <div class="callout callout-gold">
+    <p><em>US ACC/AHA framework: ApoB ≥ 130 mg/dL is used as a risk-enhancing factor to support treatment-intensification decisions in intermediate-risk patients, rather than as a fixed target across all risk categories.</em></p>
+  </div>
+ 
+  <p>To understand which risk category applies to you — a necessary first step before any ApoB target becomes meaningful — see <a href="/blog/score2-guide/">SCORE2: Understanding Your Cardiovascular Risk Score</a>.</p>
+ 
+  <hr />
+ 
+  <!-- Section 5 -->
+  <h2 id="causes">What Drives High ApoB?</h2>
+  <p>An elevated ApoB is a measurement, not a diagnosis — it reflects an underlying process that's worth understanding, because the cause shapes the treatment approach. Broadly, elevated ApoB traces back to one of three categories: inherited genetic conditions, metabolic and lifestyle factors, or secondary medical causes.</p>
+ 
+  <h3>Genetic and Familial Causes</h3>
+  <p><strong>Familial hypercholesterolemia (FH)</strong> is the most clinically significant. In heterozygous FH, a mutation — most commonly in the LDL receptor gene — impairs the liver's ability to remove LDL particles from circulation, leading to lifelong elevation in both LDL-C and ApoB from birth. Because the elevation begins so early, cumulative arterial exposure to atherogenic particles is far greater than someone who develops elevated lipids later from lifestyle factors alone.</p>
+  <p><strong>Familial combined hyperlipidemia (FCHL)</strong> is characterized by overproduction of ApoB-containing particles from the liver, often producing a mixed pattern of elevated LDL, elevated triglycerides, or both — sometimes varying within the same family from one affected relative to another.</p>
+  <p><a href="/blog/familial-hypercholesterolemia/">See the complete guide to Familial Hypercholesterolemia →</a></p>
+ 
+  <h3>Metabolic and Lifestyle Drivers</h3>
+  <ul>
+    <li><strong>Insulin resistance</strong> increases hepatic production of triglyceride-rich VLDL particles, progressively remodeled into smaller, denser LDL particles — raising particle count even when LDL-C looks unremarkable.</li>
+    <li><strong>Visceral adiposity</strong> (fat stored around abdominal organs) is particularly strongly linked to this particle-overproduction pattern, more so than subcutaneous fat distribution.</li>
+    <li><strong>Dietary patterns</strong> high in refined carbohydrates and added sugars can elevate triglycerides and drive the same small-particle remodeling process, independent of total dietary fat or cholesterol intake.</li>
+    <li><strong>Sedentary behavior and low cardiorespiratory fitness</strong> are independently associated with higher ApoB and small LDL particle burden, even after accounting for body weight.</li>
+  </ul>
+ 
+  <h3>Secondary Causes</h3>
+  <ul>
+    <li><strong>Hypothyroidism</strong> reduces LDL receptor activity, slowing clearance of ApoB-containing particles from circulation.</li>
+    <li><strong>Chronic kidney disease</strong>, particularly nephrotic syndrome, is associated with increased hepatic lipoprotein production and elevated ApoB.</li>
+    <li><strong>Certain medications</strong> — including some corticosteroids, antiretroviral therapies, and second-generation antipsychotics — can elevate ApoB-containing lipoproteins as a side effect.</li>
+  </ul>
+ 
+  <hr />
+ 
+  <!-- Section 6 -->
+  <h2 id="evidence">ApoB and Cardiovascular Risk: What the Evidence Shows</h2>
+ 
+  <h3>ApoB as a Predictor of Atherosclerotic Events</h3>
+  <p>A 2021 Mendelian randomization analysis in the <em>International Journal of Epidemiology</em> applied a high-throughput, agnostic genetic approach across multiple large datasets — systematically testing a wide range of candidate lipid and metabolomic risk factors against coronary artery disease. Across every dataset examined, ApoB was consistently identified as the primary lipid determinant of coronary artery disease risk, ahead of LDL-C, triglycerides, and other commonly measured lipid markers.<sup><a href="#ref9">[9]</a></sup></p>
+  <p>A separate 2025 Mendelian randomization study, using genome-wide association data from European cohorts, found a statistically robust causal relationship between ApoB and coronary heart disease, and similarly significant associations with large-artery atherosclerotic stroke and small-vessel stroke.<sup><a href="#ref10">[10]</a></sup></p>
+ 
+  <h3>Why Particle Number Predicts Risk Better Than Cholesterol Mass</h3>
+  <p>Atherosclerosis begins when an ApoB-containing particle crosses the endothelial lining of an artery and becomes retained there — a process driven by the particle itself binding to structures within the arterial wall, not by the amount of cholesterol that particle carries.</p>
+  <p>In practical terms: one large LDL particle and three small LDL particles can carry a similar total amount of cholesterol, but it's the three particles — not the cholesterol mass — that have three separate opportunities to become trapped in the artery wall and contribute to plaque formation.</p>
+ 
+  <h3>ApoB in Special Populations</h3>
+  <p><strong>Diabetes and metabolic syndrome.</strong> The small, dense LDL phenotype common in insulin resistance produces a pattern where LDL-C can substantially understate true particle burden — making ApoB particularly informative in this population, consistent with both ESC/EAS and ACC/AHA guidance.</p>
+  <p><strong>Statin-treated patients with residual risk.</strong> A 2023 cohort study in the <em>Journal of Geriatric Cardiology</em> examined discordance between apolipoprotein and standard lipid measures in statin-treated patients with established coronary artery disease, finding that ApoB/LDL-C discordance carried independent prognostic value for subsequent myocardial infarction.<sup><a href="#ref11">[11]</a></sup></p>
+  <p><strong>Women.</strong> Sex-specific differences in ApoB's predictive performance remain an active area of ongoing research rather than a fully settled question.</p>
+ 
+  <hr />
+ 
+  <!-- Section 7 -->
+  <h2 id="guidelines">ApoB in Clinical Guidelines</h2>
+ 
+  <h3>ESC/EAS Guidelines</h3>
+  <p>The 2019 ESC/EAS Guidelines set explicit ApoB targets by risk category — &lt;80 mg/dL for high-risk patients and &lt;65 mg/dL for very-high-risk patients — positioning ApoB as a formal secondary goal alongside LDL-C, with particular emphasis in patients with hypertriglyceridemia, diabetes, obesity, or very low LDL-C. LDL-C nonetheless remains the primary treatment target; ApoB functions as a complementary measure to refine risk assessment and confirm treatment adequacy.</p>
+ 
+  <h3>ACC/AHA Guidelines</h3>
+  <p>The 2018 ACC/AHA Guideline incorporates ApoB ≥130 mg/dL as a <em>risk-enhancing factor</em> — supplementary information used to help decide whether to intensify statin therapy in patients whose 10-year risk estimate falls in an intermediate, less clear-cut range. This positions ApoB as a decision-support tool for borderline cases specifically, rather than a target tracked routinely.</p>
+ 
+  <h3>Canadian Cardiovascular Society Guidelines</h3>
+  <p>Canada has taken the most assertive stance of any major guideline body. The 2021 CCS Guidelines state that for any patient with triglycerides above 1.5 mmol/L, non-HDL cholesterol or ApoB — not LDL-C — are the preferred lipid parameters for screening. ApoB and non-HDL-C remain stable in the postprandial state, whereas LDL-C can be lowered by up to 10% due to triglyceride enrichment — a practical rationale for favoring ApoB specifically when triglycerides are elevated.<sup><a href="#ref4">[4]</a></sup></p>
+ 
+  <h3>Why Guideline Bodies Differ in Emphasis</h3>
+  <p>The differences across ESC/EAS, ACC/AHA, and CCS reflect different judgments about clinical practicality — how to balance ApoB's incremental predictive value against the cost and complexity of incorporating an additional test into routine care. A 2022 comparative analysis confirmed: LDL-C remains the primary treatment target across all three frameworks, even as each has incorporated ApoB to different degrees and for different purposes.<sup><a href="#ref5">[5]</a></sup></p>
+ 
+  <hr />
+ 
+  <!-- Section 8 -->
+  <h2 id="should-you-test">Should You Measure ApoB? A Decision Framework</h2>
+ 
+  <h3>Scenarios Where ApoB Adds the Most Value</h3>
+  <p><strong>You have diabetes, prediabetes, or insulin resistance.</strong> Your particle count may be substantially higher than LDL-C suggests.</p>
+  <p><strong>You have metabolic syndrome</strong> — particularly central obesity with elevated triglycerides and low HDL. The CCS guidelines explicitly recommend ApoB or non-HDL-C over LDL-C when triglycerides exceed 1.5 mmol/L (approximately 133 mg/dL).</p>
+  <p><strong>You have a family history of premature cardiovascular disease</strong>, especially in a first-degree relative before age 55 (men) or 65 (women).</p>
+  <p><strong>You've had a cardiovascular event despite seemingly well-controlled LDL-C.</strong> Discordance between LDL-C and particle count is a logical first hypothesis to investigate.</p>
+  <p><strong>You're already on statin therapy and want to assess residual particle burden.</strong> Statins reduce both LDL-C and particle count, but not always in identical proportion.</p>
+ 
+  <h3>Scenarios Where Standard Lipid Panel May Be Sufficient</h3>
+  <p>For most patients without the above risk factors — with normal triglycerides, no metabolic syndrome, no family history of premature cardiovascular disease, and no discordant clinical picture — LDL-C and a full standard lipid panel already provide an accurate enough picture. Adding ApoB in this population tends to confirm what LDL-C already shows rather than revealing something new.</p>
+ 
+  <h3>Questions to Bring to Your Doctor</h3>
+  <ul>
+    <li>"My LDL-C is [X] — do you think my particle count could be discordant from that, given my triglycerides and metabolic history?"</li>
+    <li>"I have [diabetes / metabolic syndrome / a family history of early heart disease] — would ApoB change how you assess my risk or manage my treatment?"</li>
+    <li>"I'm currently on a statin — would knowing my ApoB level help you determine whether my current dose is achieving adequate particle reduction?"</li>
+    <li>"If my ApoB is elevated, what would that change about my treatment plan?"</li>
+  </ul>
+  <p>The last question is particularly useful: if the answer is "nothing would change," ApoB testing may not add practical value at this point. If it could influence a treatment decision, it's more clearly worth doing.</p>
+ 
+  <hr />
+ 
+  <!-- Section 9 -->
+  <h2 id="treatment">Treatment: Lowering ApoB</h2>
+ 
+  <h3>Lifestyle Approaches</h3>
+  <p><strong>Dietary patterns.</strong> Reducing refined carbohydrates and added sugars lowers triglyceride levels and reduces hepatic VLDL overproduction. Replacing saturated fats with unsaturated fats — consistent with Mediterranean-style dietary patterns — is associated with improved LDL-C and particle profiles.</p>
+  <p><strong>Weight and adiposity management.</strong> Reduction in visceral adiposity consistently improves particle size distribution and reduces ApoB. Even modest intentional weight loss in individuals with metabolic syndrome is associated with meaningful improvements in ApoB and triglycerides.</p>
+  <p><strong>Physical activity.</strong> Regular aerobic exercise improves insulin sensitivity, lowers triglycerides, and shifts LDL particle distribution toward larger, less numerous particles — all contributing to ApoB reduction, independent of weight change.</p>
+ 
+  <h3>Statins and ApoB Reduction</h3>
+  <p>Statins are the cornerstone pharmacological treatment. They work by inhibiting HMG-CoA reductase, upregulating LDL receptor expression and accelerating clearance of ApoB-containing LDL particles. High-intensity statins (rosuvastatin 20–40 mg, atorvastatin 40–80 mg) typically reduce LDL-C by 50% or more, with corresponding reductions in ApoB. The proportional reductions in ApoB and LDL-C are generally similar, though not always identical — a patient whose ApoB does not fall as much as expected from their LDL-C reduction may have residual particle burden warranting further investigation.</p>
+  <p><a href="/blog/statins-guide/">See the complete guide to Statins →</a></p>
+ 
+  <h3>Non-Statin Therapies</h3>
+  <p><strong>Ezetimibe</strong> inhibits cholesterol absorption in the small intestine. Used as an add-on to statin therapy, it typically produces an additional 15–25% reduction in LDL-C and corresponding ApoB reduction.</p>
+  <p><strong>PCSK9 inhibitors</strong> (evolocumab, alirocumab) are injectable monoclonal antibodies that block PCSK9, substantially increasing LDL particle clearance and lowering LDL-C and ApoB by 50–60% on top of statin therapy alone.</p>
+  <p><strong>Bempedoic acid</strong> inhibits cholesterol synthesis upstream of HMG-CoA reductase, acting only in the liver, avoiding the muscle-related side effects some patients experience with statins. It produces moderate LDL-C and ApoB reductions (approximately 15–25%).</p>
+ 
+  <h3>Monitoring Response to Treatment</h3>
+  <p>If ApoB was the metric that identified elevated risk or guided the initial treatment decision, it should also be the metric monitored to confirm treatment response — rather than defaulting back to LDL-C alone, which is precisely what could miss a recurrence of discordance under treatment. Initial re-testing is typically performed at 6–12 weeks to assess early response.</p>
+ 
+  <hr />
+ 
+  <!-- Section 10: FAQ -->
+  <h2 id="faq">Common Questions About ApoB</h2>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Is ApoB testing covered by insurance?</div>
+    <p class="faq-a">Coverage varies widely depending on your insurer, country, and whether your clinician has indicated a specific clinical rationale for testing. In the United States, ApoB is not universally covered as a routine lipid panel component, though coverage is more likely when there is a documented clinical indication such as diabetes, metabolic syndrome, or statin-treated residual risk. It's worth confirming with your insurer or lab before testing.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Can ApoB be lowered through diet alone?</div>
+    <p class="faq-a">For patients whose elevated ApoB is primarily metabolically driven — by insulin resistance, visceral adiposity, or a diet high in refined carbohydrates — meaningful ApoB reductions through dietary change and weight management are achievable and well-supported by evidence. For patients with genetic dyslipidemias such as familial hypercholesterolemia, diet alone is generally insufficient and pharmacotherapy is typically required.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Is ApoB the same as Lp(a)?</div>
+    <p class="faq-a">No — though there is an important overlap. Lp(a) is a distinct lipoprotein particle that carries its own ApoB molecule alongside an additional protein called apo(a). Lp(a) particles are counted within a total ApoB measurement, but ApoB and Lp(a) are separate markers assessing different aspects of cardiovascular risk. An elevated ApoB without separately measuring Lp(a) cannot tell you whether Lp(a) specifically is contributing to that elevation. See <a href="/blog/lpa-guide/">Lipoprotein(a): What It Is and Why It Matters →</a></p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">How accurate is ApoB testing compared to LDL?</div>
+    <p class="faq-a">ApoB is measured directly using standardized immunoassay methods and is considered analytically more precise than LDL-C at low concentrations — particularly below 70 mg/dL, where the Friedewald equation commonly used to calculate LDL-C becomes less reliable. The 2019 ESC/EAS guidelines explicitly note that ApoB measurement is more accurate than LDL-C or non-HDL-C, especially at lower concentrations.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Does fasting affect ApoB results?</div>
+    <p class="faq-a">ApoB is largely fasting-stable. Unlike triglycerides — which can rise substantially after eating — ApoB concentrations do not change significantly in the postprandial state, making non-fasting testing appropriate in most clinical settings. The CCS guidelines specifically note this stability as a practical advantage of ApoB over LDL-C for patients who cannot easily fast before a blood draw.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">What is ApoB particle number?</div>
+    <p class="faq-a">"ApoB particle number" refers to the same measurement as a standard ApoB blood test — because each atherogenic particle carries exactly one ApoB molecule, the ApoB concentration in blood directly reflects the count of circulating particles. You may also encounter the term "LDL particle number" (LDL-P), measured separately by nuclear magnetic resonance (NMR) spectroscopy and counting LDL particles specifically. ApoB is the more comprehensive measure, capturing LDL, VLDL, IDL, and Lp(a) particles together.</p>
+  </div>
+ 
+  <!-- CTA block -->
+  <div class="cta-block">
+    <h2>Understand Your Own ApoB Results with CardioIQ</h2>
+    <p>Knowing that ApoB matters is one thing. Knowing what <em>your</em> ApoB level means — in the context of your full lipid panel, your clinical risk profile, and current guidelines — is something more specific.</p>
+    <div class="cta-flow">
+      <span class="cta-flow-item">Upload your lipid profile</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">ApoB analysis</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Residual risk</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">ASCVD risk category</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Guideline recommendations</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Clinical report</span>
+    </div>
+    <a href="/assessment/" class="btn-primary">Start Your Free Assessment</a>
+    <a href="/sample-report/" class="btn-secondary">View a Sample Report →</a>
+  </div>
+ 
+  <!-- Medical notice -->
+  <div class="medical-notice">
+    <div class="notice-icon">⚠️</div>
+    <p><strong>Important Medical Notice.</strong> CardioIQ is an educational and clinical decision-support platform. This article does not constitute medical diagnosis, does not prescribe treatment, and does not replace the judgment of a licensed healthcare professional. Always consult a qualified physician before making decisions about your health, changing medications, or starting or stopping any treatment.</p>
+  </div>
+ 
+  <!-- References -->
+  <div class="references">
+    <h2>References</h2>
+    <ol>
+      <li id="ref1">2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455" target="_blank" rel="noopener">10.1093/eurheartj/ehz455</a></li>
+      <li id="ref2">2018 AHA/ACC/Multisociety Guideline on the Management of Blood Cholesterol. <em>Journal of the American College of Cardiology</em>. doi:<a href="https://doi.org/10.1016/j.jacc.2018.11.003" target="_blank" rel="noopener">10.1016/j.jacc.2018.11.003</a></li>
+      <li id="ref3">2019 ACC/AHA Guideline on the Primary Prevention of Cardiovascular Disease. <em>Circulation</em>. doi:<a href="https://doi.org/10.1161/CIR.0000000000000678" target="_blank" rel="noopener">10.1161/CIR.0000000000000678</a></li>
+      <li id="ref4">Pearson GJ, et al. 2021 Canadian Cardiovascular Society Guidelines for the Management of Dyslipidemia. <em>Canadian Journal of Cardiology</em>. doi:<a href="https://doi.org/10.1016/j.cjca.2021.03.016" target="_blank" rel="noopener">10.1016/j.cjca.2021.03.016</a></li>
+      <li id="ref5">Aygun S, Tokgozoglu L. Comparison of Current International Guidelines for the Management of Dyslipidemia. <em>Journal of Clinical Medicine</em>, 2022. doi:<a href="https://doi.org/10.3390/jcm11237249" target="_blank" rel="noopener">10.3390/jcm11237249</a></li>
+      <li id="ref6">ApoB, LDL-C, and non-HDL-C as markers of cardiovascular risk: systematic review [15 studies, n≈600,000]. <em>Journal of Clinical Lipidology</em>, 2025. PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/40681368/" target="_blank" rel="noopener">40681368</a></li>
+      <li id="ref7">ApoB as a direct count of atherogenic particles: clinical utility in insulin resistance, obesity, and hypertriglyceridemia. <em>Future Cardiology</em>, 2025. <a href="https://www.tandfonline.com/doi/full/10.1080/14796678.2025.2535184" target="_blank" rel="noopener">Tandfonline</a></li>
+      <li id="ref8">Du Y, et al. Impact of LDL-C and Apolipoprotein B Level Discordance on Cardiovascular Outcomes in a large primary prevention population. <em>European Journal of Preventive Cardiology</em>, 2025. doi:<a href="https://doi.org/10.1093/eurjpc/zwaf750" target="_blank" rel="noopener">10.1093/eurjpc/zwaf750</a></li>
+      <li id="ref9">Zuber V, et al. High-throughput multivariable Mendelian randomization analysis prioritizes apolipoprotein B as key lipid risk factor for coronary artery disease. <em>International Journal of Epidemiology</em>, 2021. doi:<a href="https://doi.org/10.1093/ije/dyab074" target="_blank" rel="noopener">10.1093/ije/dyab074</a></li>
+      <li id="ref10">Causal relationship between apolipoprotein B and risk of atherosclerotic cardiovascular disease: a Mendelian randomization analysis. <em>Health Information Science and Systems</em>, 2025. doi:<a href="https://doi.org/10.1007/s13755-024-00323-5" target="_blank" rel="noopener">10.1007/s13755-024-00323-5</a></li>
+      <li id="ref11">Discordance analysis for apolipoprotein and lipid measures for predicting myocardial infarction in statin-treated patients with coronary artery disease. <em>Journal of Geriatric Cardiology</em>, 2023;20:845–854</li>
+      <li id="ref12">ATTICA Study Group. Concordance-discordance between apolipoprotein B and lipid biomarkers in predicting 20-year atherosclerotic cardiovascular disease risk. PMC12434434</li>
+    </ol>
+  </div>
+ 
+</main>
+ 
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <p style="margin-bottom:0.5rem;">
+    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
+    <a href="/about/">About</a> &nbsp;·&nbsp;
+    <a href="/blog/">Blog</a> &nbsp;·&nbsp;
+    <a href="/privacy/">Privacy</a> &nbsp;·&nbsp;
+    <a href="/terms/">Terms</a>
+  </p>
+  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+</footer>
+ 
+</body>
+</html>
