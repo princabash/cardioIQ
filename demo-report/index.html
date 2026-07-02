@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CardioIQ Clinical Intelligence Report™ | Demo Case</title>
+  <style>
+    :root {
+      --navy:      #0B1F3A;
+      --navy-mid:  #112847;
+      --navy-light:#1A3A5C;
+      --teal:      #0E7C7B;
+      --teal-light:#12A09E;
+      --gold:      #C9A84C;
+      --gold-light:#E4C878;
+      --cream:     #F8F6F1;
+      --white:     #FFFFFF;
+      --text:      #1A2B3C;
+      --muted:     #4A6070;
+      --border:    #D8E4EC;
+      --red:       #B91C1C;
+      --red-bg:    #FDECEA;
+      --amber:     #92610A;
+      --amber-bg:  #FFF8E8;
+      --green:     #15803D;
+      --green-bg:  #EAF7F0;
+      --font-display: Georgia, 'Times New Roman', serif;
+      --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+    }
+ 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-body); font-size: 15px; line-height: 1.7; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+ 
+    /* COVER PAGE */
+    .cover {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, #0D3060 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 4rem;
+      position: relative;
+      page-break-after: always;
+    }
+    .cover-logo { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 4rem; }
+    .cover-logo-mark { width: 48px; height: 48px; background: var(--gold); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.1rem; color: var(--navy); font-weight: 700; }
+    .cover-logo-text { font-family: var(--font-display); font-size: 1.6rem; color: var(--white); }
+    .cover-logo-text span { color: var(--gold); }
+    .cover-main { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .cover-badge { display: inline-block; background: rgba(201,168,76,0.2); color: var(--gold-light); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 2rem; border: 1px solid rgba(201,168,76,0.3); }
+    .cover-title { font-family: var(--font-display); font-size: 2.8rem; color: var(--white); line-height: 1.2; margin-bottom: 0.75rem; }
+    .cover-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.6); margin-bottom: 3rem; }
+    .cover-divider { border: none; border-top: 1px solid rgba(255,255,255,0.15); margin: 2.5rem 0; }
+    .cover-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .cover-meta-item label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); display: block; margin-bottom: 0.2rem; }
+    .cover-meta-item span { font-size: 0.92rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+    .cover-footer { margin-top: 4rem; display: flex; justify-content: space-between; align-items: flex-end; }
+    .cover-footer-legal { font-size: 0.72rem; color: rgba(255,255,255,0.35); max-width: 500px; line-height: 1.5; }
+    .cover-risk-badge { background: var(--red); color: var(--white); font-size: 0.82rem; font-weight: 700; padding: 0.5rem 1.25rem; border-radius: 8px; letter-spacing: 0.05em; }
+ 
+    /* MAIN CONTENT */
+    .report-body { max-width: 900px; margin: 0 auto; padding: 3rem 3rem; }
+ 
+    /* SECTION HEADERS */
+    .section { margin-bottom: 3rem; page-break-inside: avoid; }
+    .section-header { background: var(--navy); color: var(--white); padding: 1rem 1.5rem; border-radius: 10px 10px 0 0; display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0; }
+    .section-number { background: var(--gold); color: var(--navy); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; }
+    .section-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; }
+    .section-body { border: 1px solid var(--border); border-top: none; border-radius: 0 0 10px 10px; padding: 1.75rem; }
+ 
+    /* EXECUTIVE SUMMARY */
+    .exec-summary { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 14px; padding: 2.5rem; margin-bottom: 3rem; color: rgba(255,255,255,0.85); }
+    .exec-summary h2 { font-family: var(--font-display); color: var(--white); font-size: 1.3rem; margin-bottom: 1.5rem; }
+    .exec-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin-bottom: 1.75rem; }
+    .exec-card { background: rgba(255,255,255,0.07); border-radius: 8px; padding: 1rem 1.25rem; border: 1px solid rgba(255,255,255,0.1); }
+    .exec-card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 0.3rem; }
+    .exec-card-value { font-size: 1.25rem; font-weight: 700; color: var(--white); }
+    .exec-card-value.red { color: #FC8181; }
+    .exec-card-value.amber { color: var(--gold-light); }
+    .exec-card-value.green { color: #68D391; }
+    .exec-card-sub { font-size: 0.72rem; color: rgba(255,255,255,0.5); margin-top: 0.2rem; }
+    .exec-findings { margin-top: 0.5rem; }
+    .exec-findings h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.5); margin-bottom: 0.75rem; }
+    .exec-finding { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.6rem; font-size: 0.9rem; color: rgba(255,255,255,0.82); }
+    .exec-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem; }
+    .exec-dot.red { background: #FC8181; }
+    .exec-dot.amber { background: var(--gold-light); }
+    .exec-dot.teal { background: var(--teal-light); }
+ 
+    /* PATIENT PROFILE */
+    .profile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .profile-card { background: var(--cream); border-radius: 8px; padding: 1.1rem 1.25rem; }
+    .profile-card h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.6rem; }
+    .profile-card p { font-size: 0.9rem; color: var(--text); }
+    .profile-card ul { padding-left: 1.2rem; font-size: 0.9rem; }
+    .profile-card li { margin-bottom: 0.25rem; }
+ 
+    /* BIOMARKER TABLE */
+    .biomarker-table { width: 100%; border-collapse: collapse; }
+    .biomarker-table th { background: var(--navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.05em; }
+    .biomarker-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; vertical-align: middle; }
+    .biomarker-table tr:last-child td { border-bottom: none; }
+    .biomarker-table tr:nth-child(even) td { background: var(--cream); }
+    .status-pill { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 100px; }
+    .status-pill.critical { background: var(--red-bg); color: var(--red); }
+    .status-pill.high { background: #FEF3C7; color: #92400E; }
+    .status-pill.suboptimal { background: var(--amber-bg); color: var(--amber); }
+    .status-pill.at-goal { background: var(--green-bg); color: var(--green); }
+    .status-pill.low { background: var(--red-bg); color: var(--red); }
+    .target-miss { color: var(--red); font-weight: 600; font-size: 0.82rem; }
+    .target-ok { color: var(--green); font-weight: 600; font-size: 0.82rem; }
+ 
+    /* RESIDUAL RISK DOMAINS */
+    .risk-domain { border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .risk-domain-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
+    .risk-domain h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); }
+    .risk-level { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.75rem; border-radius: 100px; }
+    .risk-level.very-high { background: var(--red-bg); color: var(--red); }
+    .risk-level.high { background: #FEF3C7; color: #92400E; }
+    .risk-level.moderate { background: var(--amber-bg); color: var(--amber); }
+    .risk-level.elevated { background: #EDE9FE; color: #5B21B6; }
+    .risk-domain p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+    .domain-lipid { background: rgba(185,28,28,0.05); border: 1px solid rgba(185,28,28,0.2); }
+    .domain-metabolic { background: rgba(146,97,10,0.05); border: 1px solid rgba(146,97,10,0.2); }
+    .domain-inflammatory { background: rgba(91,33,182,0.04); border: 1px solid rgba(91,33,182,0.15); }
+    .domain-thrombotic { background: rgba(14,124,123,0.05); border: 1px solid rgba(14,124,123,0.2); }
+    .domain-renal { background: rgba(30,64,175,0.04); border: 1px solid rgba(30,64,175,0.15); }
+    .domain-vascular { background: rgba(17,40,71,0.04); border: 1px solid rgba(17,40,71,0.2); }
+ 
+    /* DISCORDANCE BOX */
+    .discordance-box { background: var(--red-bg); border: 1px solid rgba(185,28,28,0.3); border-radius: 10px; padding: 1.5rem; margin: 1.25rem 0; }
+    .discordance-box h3 { color: var(--red); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .discordance-box p { font-size: 0.88rem; color: #7F1D1D; line-height: 1.6; margin-bottom: 0.5rem; }
+ 
+    /* GUIDELINE GAPS */
+    .gap-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .gap-item:last-child { border-bottom: none; }
+    .gap-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .gap-icon.critical { background: var(--red-bg); color: var(--red); }
+    .gap-icon.high { background: #FEF3C7; color: #92400E; }
+    .gap-icon.moderate { background: var(--amber-bg); color: var(--amber); }
+    .gap-text h4 { font-size: 0.92rem; font-weight: 700; color: var(--navy); margin-bottom: 0.25rem; }
+    .gap-text p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+    .gap-text .guideline-ref { font-size: 0.75rem; color: var(--teal); font-weight: 600; margin-top: 0.25rem; }
+ 
+    /* TREATMENT TABLE */
+    .treatment-table { width: 100%; border-collapse: collapse; }
+    .treatment-table th { background: var(--navy); color: var(--white); padding: 0.7rem 1rem; text-align: left; font-size: 0.78rem; font-weight: 600; }
+    .treatment-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.86rem; vertical-align: top; }
+    .treatment-table tr:last-child td { border-bottom: none; }
+    .treatment-table tr:nth-child(even) td { background: var(--cream); }
+    .priority-1 { color: var(--red); font-weight: 700; }
+    .priority-2 { color: var(--amber); font-weight: 700; }
+    .priority-3 { color: var(--teal); font-weight: 700; }
+    .evidence-badge { font-size: 0.72rem; background: var(--navy); color: var(--gold-light); padding: 0.15rem 0.5rem; border-radius: 4px; display: inline-block; }
+ 
+    /* CALLOUT BOXES */
+    .callout { border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.25rem 0; }
+    .callout-critical { background: var(--red-bg); border-left: 4px solid var(--red); }
+    .callout-warning { background: var(--amber-bg); border-left: 4px solid var(--gold); }
+    .callout-info { background: rgba(14,124,123,0.06); border-left: 4px solid var(--teal); }
+    .callout h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .callout p, .callout li { font-size: 0.86rem; color: var(--muted); line-height: 1.6; margin-bottom: 0.3rem; }
+    .callout ul { padding-left: 1.2rem; }
+ 
+    /* EVIDENCE TABLE */
+    .evidence-table { width: 100%; border-collapse: collapse; }
+    .evidence-table th { background: var(--navy); color: var(--white); padding: 0.65rem 1rem; text-align: left; font-size: 0.76rem; font-weight: 600; }
+    .evidence-table td { padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.82rem; vertical-align: top; }
+    .evidence-table tr:last-child td { border-bottom: none; }
+    .evidence-table tr:nth-child(even) td { background: var(--cream); }
+ 
+    /* PATIENT SUMMARY */
+    .patient-summary { background: var(--cream); border-radius: 14px; padding: 2rem; margin-bottom: 1.5rem; }
+    .patient-summary h2 { font-family: var(--font-display); color: var(--navy); font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .patient-summary .summary-sub { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .summary-point { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+    .summary-point-num { width: 24px; height: 24px; background: var(--navy); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+    .summary-point p { font-size: 0.9rem; color: var(--text); line-height: 1.6; margin: 0; }
+ 
+    /* FOLLOW UP */
+    .followup-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+    .followup-card { border-radius: 10px; padding: 1.25rem; border: 1px solid var(--border); }
+    .followup-card h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 0.75rem; }
+    .followup-card ul { padding-left: 1.1rem; font-size: 0.85rem; }
+    .followup-card li { margin-bottom: 0.4rem; color: var(--text); }
+ 
+    /* DOCTOR SUMMARY */
+    .doctor-summary { background: var(--navy); border-radius: 14px; padding: 2rem; color: rgba(255,255,255,0.85); margin-bottom: 1.5rem; }
+    .doctor-summary h2 { font-family: var(--font-display); color: var(--white); font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .doctor-summary .summary-sub { font-size: 0.82rem; color: rgba(255,255,255,0.5); margin-bottom: 1.5rem; }
+    .doctor-point { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+    .doctor-point-num { width: 24px; height: 24px; background: var(--gold); color: var(--navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+    .doctor-point p { font-size: 0.9rem; color: rgba(255,255,255,0.82); line-height: 1.6; margin: 0; }
+ 
+    /* SIGNATURE BLOCK */
+    .signature-block { border-top: 2px solid var(--border); padding-top: 2rem; margin-top: 3rem; }
+    .signature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .signature-item label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); display: block; margin-bottom: 0.3rem; }
+    .signature-item span { font-size: 0.92rem; color: var(--navy); font-weight: 600; }
+    .signature-item .sub { font-size: 0.8rem; color: var(--muted); font-weight: 400; }
+ 
+    /* MISC */
+    p { margin-bottom: 0.85rem; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--navy); }
+    .page-break { page-break-before: always; }
+    .section-divider { border: none; border-top: 2px solid var(--border); margin: 2.5rem 0; }
+    .text-muted { color: var(--muted); font-size: 0.82rem; }
+ 
+    @media print {
+      .cover { page-break-after: always; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ══════════════════════════════════════════
+     COVER PAGE
+══════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-logo">
+    <div class="cover-logo-mark">CIQ</div>
+    <div class="cover-logo-text">Cardio<span>IQ</span></div>
+  </div>
+ 
+  <div class="cover-main">
+    <div class="cover-badge">Clinical Intelligence Report™ · Confidential</div>
+    <div class="cover-title">Cardiovascular Risk<br />Intelligence Analysis</div>
+    <div class="cover-subtitle">Evidence-Based Clinical Decision Support · Version 1.0<br />
+<span style="color:var(--gold-light);font-size:0.85rem;letter-spacing:0.05em;">Medically Reviewed by Tea Gamezardashvili, MD, PhD, MHA, FACC</span></div>
+ 
+    <hr class="cover-divider" />
+ 
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Patient ID</label>
+        <span>CIQ-DEMO-2026-001</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Report Date</label>
+        <span>July 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Patient Profile</label>
+        <span>Male, 58 years</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Cardiovascular Risk Category</label>
+        <span style="color:#FC8181;font-weight:700;">VERY HIGH RISK</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Clinical Setting</label>
+        <span>Secondary Prevention · Post-MI/PCI</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Report Status</label>
+        <span>De-identified · Educational Demo</span>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="cover-footer">
+    <div class="cover-footer-legal">
+      This report is generated by CardioIQ Clinical Intelligence Platform™, calibrated by Tea Gamezardashvili, MD, PhD, MHA, FACC. It is intended for qualified healthcare professionals as a clinical decision support tool and does not constitute a medical diagnosis or replace physician judgment. This document is de-identified and prepared for educational demonstration purposes.
+    </div>
+    <div class="cover-risk-badge">⚠ VERY HIGH RISK</div>
+  </div>
+</div>
+ 
+<!-- ══════════════════════════════════════════
+     REPORT BODY
+══════════════════════════════════════════ -->
+<div class="report-body">
+ 
+  <!-- EXECUTIVE SUMMARY -->
+  <div class="exec-summary">
+    <h2>Executive Summary</h2>
+    <div class="exec-grid">
+      <div class="exec-card">
+        <div class="exec-card-label">CV Risk Category</div>
+        <div class="exec-card-value red">VERY HIGH</div>
+        <div class="exec-card-sub">Post-NSTEMI/PCI · ESC/EAS 2019</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">ApoB vs Target</div>
+        <div class="exec-card-value red">125 mg/dL</div>
+        <div class="exec-card-sub">Target &lt;65 mg/dL · 92% above goal</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">HOMA-IR</div>
+        <div class="exec-card-value red">4.5</div>
+        <div class="exec-card-sub">Significant insulin resistance</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">Lp(a)</div>
+        <div class="exec-card-value red">190 nmol/L</div>
+        <div class="exec-card-sub">≥125 nmol/L = very high genetic risk</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">LDL-C (on statin)</div>
+        <div class="exec-card-value amber">2.1 mmol/L</div>
+        <div class="exec-card-sub">Target &lt;1.4 mmol/L · not at goal</div>
+      </div>
+      <div class="exec-card">
+        <div class="exec-card-label">HbA1c</div>
+        <div class="exec-card-value amber">7.6%</div>
+        <div class="exec-card-sub">Target &lt;7.0% · suboptimal</div>
+      </div>
+    </div>
+ 
+    <div class="exec-findings">
+      <h3>Critical Findings Requiring Action</h3>
+      <div class="exec-finding"><div class="exec-dot red"></div><span><strong>LDL-C-ApoB Discordance:</strong> LDL-C appears near-goal, but ApoB is 92% above the very-high-risk target — indicating a high atherogenic particle burden driven by insulin resistance-mediated small, dense LDL phenotype.</span></div>
+      <div class="exec-finding"><div class="exec-dot red"></div><span><strong>Lp(a) 190 nmol/L:</strong> Genetically elevated Lp(a) adds independent thrombotic and atherogenic risk on top of elevated LDL and ApoB — and is not reduced by statin therapy.</span></div>
+      <div class="exec-finding"><div class="exec-dot red"></div><span><strong>Lipid-lowering therapy gap:</strong> Current statin regimen is insufficient. PCSK9 inhibitor or intensification to highest-intensity statin + ezetimibe is indicated per ESC/EAS 2019.</span></div>
+      <div class="exec-finding"><div class="exec-dot amber"></div><span><strong>Suboptimal glycaemic control:</strong> HbA1c 7.6% with HOMA-IR 4.5 — SGLT2 inhibitor or GLP-1 receptor agonist would provide concurrent glycaemic improvement and proven CV benefit.</span></div>
+      <div class="exec-finding"><div class="exec-dot amber"></div><span><strong>Atherogenic dyslipidaemia:</strong> TG 2.6 mmol/L, HDL 0.9 mmol/L — triglyceride-rich lipoprotein remnant burden contributes to residual cardiovascular risk beyond LDL-C.</span></div>
+      <div class="exec-finding"><div class="exec-dot teal"></div><span><strong>Missing investigations:</strong> hs-CRP, eGFR/creatinine, urine ACR — essential for complete residual risk characterisation in this profile.</span></div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 1: PATIENT PROFILE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">Patient Profile</div>
+    </div>
+    <div class="section-body">
+      <div class="profile-grid">
+        <div class="profile-card">
+          <h4>Demographics</h4>
+          <p>Male · 58 years<br />Non-smoker · BP controlled (~130–135/80–85 mmHg)</p>
+        </div>
+        <div class="profile-card">
+          <h4>Established Diagnoses</h4>
+          <ul>
+            <li>NSTEMI + PCI (stent) — 3 years prior</li>
+            <li>Type 2 Diabetes Mellitus (6 years)</li>
+            <li>Hypertension (controlled)</li>
+          </ul>
+        </div>
+        <div class="profile-card">
+          <h4>Current Medications</h4>
+          <ul>
+            <li>Atorvastatin 40–80 mg/day</li>
+            <li>Aspirin (antiplatelet)</li>
+            <li>Beta-blocker</li>
+            <li>ACE inhibitor</li>
+            <li>Metformin</li>
+          </ul>
+        </div>
+        <div class="profile-card">
+          <h4>Family History</h4>
+          <ul>
+            <li>Father: MI at age 52 (premature CVD)</li>
+            <li>Mother: Type 2 Diabetes</li>
+            <li>FH cascade screening: not documented</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout callout-critical" style="margin-top:1.25rem;">
+        <h4>⚠ Risk Category: VERY HIGH — ESC/EAS 2019</h4>
+        <p>Established ASCVD (post-NSTEMI/PCI) automatically places this patient in the Very High Risk category, independent of calculated risk scores. SCORE2 and Pooled Cohort Equations are not required for risk categorisation; they confirm: estimated 10-year ASCVD risk &gt;20%, SCORE2 fatal CVD risk &gt;10%.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 2: LIPID INTELLIGENCE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">Lipid Intelligence Analysis</div>
+    </div>
+    <div class="section-body">
+      <table class="biomarker-table">
+        <thead>
+          <tr>
+            <th>Biomarker</th>
+            <th>Result</th>
+            <th>Unit</th>
+            <th>Very-High-Risk Target</th>
+            <th>Status</th>
+            <th>vs. Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>LDL-C</strong></td>
+            <td>2.1 mmol/L</td>
+            <td>(~81 mg/dL)</td>
+            <td>&lt;1.4 mmol/L (ESC/EAS 2019)</td>
+            <td><span class="status-pill suboptimal">ABOVE TARGET</span></td>
+            <td class="target-miss">+50% above goal</td>
+          </tr>
+          <tr>
+            <td><strong>ApoB</strong></td>
+            <td>125 mg/dL</td>
+            <td>(1.25 g/L)</td>
+            <td>&lt;65 mg/dL (ESC/EAS 2019)</td>
+            <td><span class="status-pill critical">CRITICAL</span></td>
+            <td class="target-miss">+92% above goal</td>
+          </tr>
+          <tr>
+            <td><strong>Non-HDL-C</strong></td>
+            <td>4.5 mmol/L</td>
+            <td>(~174 mg/dL)</td>
+            <td>&lt;2.2 mmol/L (ESC/EAS 2019)</td>
+            <td><span class="status-pill critical">CRITICAL</span></td>
+            <td class="target-miss">+105% above goal</td>
+          </tr>
+          <tr>
+            <td><strong>Lp(a)</strong></td>
+            <td>190 nmol/L</td>
+            <td>(~85 mg/dL)</td>
+            <td>&lt;125 nmol/L (EAS 2022)</td>
+            <td><span class="status-pill critical">VERY HIGH</span></td>
+            <td class="target-miss">Significantly elevated</td>
+          </tr>
+          <tr>
+            <td><strong>Triglycerides</strong></td>
+            <td>2.6 mmol/L</td>
+            <td>(~230 mg/dL)</td>
+            <td>&lt;1.7 mmol/L</td>
+            <td><span class="status-pill high">ELEVATED</span></td>
+            <td class="target-miss">+53% above goal</td>
+          </tr>
+          <tr>
+            <td><strong>HDL-C</strong></td>
+            <td>0.9 mmol/L</td>
+            <td>(~35 mg/dL)</td>
+            <td>&gt;1.0 mmol/L (men)</td>
+            <td><span class="status-pill low">LOW</span></td>
+            <td class="target-miss">Below threshold</td>
+          </tr>
+          <tr>
+            <td><strong>Total Cholesterol</strong></td>
+            <td>5.4 mmol/L</td>
+            <td>(~209 mg/dL)</td>
+            <td>Context-dependent</td>
+            <td><span class="status-pill suboptimal">ELEVATED</span></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+ 
+      <div class="discordance-box">
+        <h3>⚠ Critical LDL-C / ApoB Discordance Detected</h3>
+        <p><strong>LDL-C (2.1 mmol/L / 81 mg/dL)</strong> may create a false sense of reassurance — it is within a range some clinicians might consider "reasonable" for a secondary prevention patient on statin therapy. However, <strong>ApoB at 125 mg/dL is 92% above the very-high-risk target of 65 mg/dL.</strong></p>
+        <p>This discordance is mechanistically explained: elevated triglycerides (2.6 mmol/L) and insulin resistance (HOMA-IR 4.5) drive hepatic overproduction of triglyceride-enriched VLDL particles, which are progressively remodeled into numerous small, cholesterol-depleted LDL particles. Each particle carries less cholesterol than average — keeping LDL-C lower than the true particle burden — while ApoB accurately counts all atherogenic particles regardless of their cholesterol content.</p>
+        <p><strong>Clinical implication:</strong> Monitoring LDL-C alone in this patient would systematically underestimate atherogenic particle burden and residual cardiovascular risk. ApoB is the appropriate primary treatment target and monitoring metric.</p>
+      </div>
+ 
+      <div class="callout callout-critical">
+        <h4>Lp(a) 190 nmol/L — Independent Genetic Cardiovascular Risk</h4>
+        <ul>
+          <li>Lp(a) ≥125 nmol/L (≥50 mg/dL) is classified as a major independent cardiovascular risk factor by EAS 2022 Consensus and ESC/EAS 2019 guidelines.</li>
+          <li>At 190 nmol/L, this patient's Lp(a) adds substantial atherogenic and prothrombotic risk that is <strong>independent of LDL-C, ApoB, and diabetes</strong>.</li>
+          <li>Lp(a) is genetically determined and minimally affected by statin therapy (statins may modestly raise Lp(a) in some patients).</li>
+          <li>Family history of premature MI (father, age 52) may reflect familial Lp(a) elevation — cascade testing of first-degree relatives is recommended.</li>
+          <li>No approved Lp(a)-specific therapy is currently available (Phase 3 trials underway: pelacarsen, olpasiran). Current strategy: intensify LDL-C and ApoB lowering maximally.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 3: CARDIOMETABOLIC INTELLIGENCE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title">Cardiometabolic Intelligence</div>
+    </div>
+    <div class="section-body">
+      <table class="biomarker-table">
+        <thead>
+          <tr>
+            <th>Biomarker</th>
+            <th>Result</th>
+            <th>Target / Optimal</th>
+            <th>Status</th>
+            <th>Clinical Implication</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>HbA1c</strong></td>
+            <td>7.6%</td>
+            <td>&lt;7.0% (ADA/ESC 2023)</td>
+            <td><span class="status-pill suboptimal">SUBOPTIMAL</span></td>
+            <td>Glycaemic control inadequate; CV outcome benefit from intensification</td>
+          </tr>
+          <tr>
+            <td><strong>Fasting Glucose</strong></td>
+            <td>7.2 mmol/L (130 mg/dL)</td>
+            <td>&lt;6.1 mmol/L</td>
+            <td><span class="status-pill high">ELEVATED</span></td>
+            <td>Consistent with uncontrolled T2DM; drives atherogenic dyslipidaemia</td>
+          </tr>
+          <tr>
+            <td><strong>Fasting Insulin</strong></td>
+            <td>14 mU/L (µIU/mL)</td>
+            <td>&lt;10 mU/L (longevity optimal &lt;5)</td>
+            <td><span class="status-pill high">ELEVATED</span></td>
+            <td>Compensatory hyperinsulinaemia; drives TG elevation and small dense LDL</td>
+          </tr>
+          <tr>
+            <td><strong>HOMA-IR</strong></td>
+            <td>≈ 4.5</td>
+            <td>&lt;1.9 (early IR); &lt;1.0 optimal</td>
+            <td><span class="status-pill critical">SIGNIFICANT IR</span></td>
+            <td>Significant insulin resistance driving atherogenic dyslipidaemia phenotype</td>
+          </tr>
+        </tbody>
+      </table>
+ 
+      <div class="callout callout-warning" style="margin-top:1.25rem;">
+        <h4>HOMA-IR Calculation for This Patient</h4>
+        <p><strong>Formula:</strong> HOMA-IR = (Fasting Insulin × Fasting Glucose) ÷ 405</p>
+        <p><strong>Calculation:</strong> (14 × 130) ÷ 405 = 1,820 ÷ 405 = <strong>4.49</strong></p>
+        <p>A HOMA-IR of 4.5 is well above the threshold for significant insulin resistance (&gt;2.9) and explains the atherogenic dyslipidaemia pattern seen in this patient: elevated TG (2.6 mmol/L), low HDL (0.9 mmol/L), and small dense LDL driving ApoB-LDL-C discordance.</p>
+        <p><strong>The metabolic and lipid risk domains are deeply interconnected in this patient — insulin resistance is the upstream driver of the atherogenic particle burden.</strong></p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 4: RESIDUAL RISK ASSESSMENT -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title">Residual Cardiovascular Risk Assessment™</div>
+    </div>
+    <div class="section-body">
+      <p style="margin-bottom:1.25rem;color:var(--muted);font-size:0.88rem;">Residual cardiovascular risk is evaluated across six biological domains. Each domain contributes independently to overall ASCVD risk and requires targeted management strategies.</p>
+ 
+      <div class="risk-domain domain-lipid">
+        <div class="risk-domain-header">
+          <h3>🔴 Domain 1 — Lipid Residual Risk</h3>
+          <span class="risk-level very-high">VERY HIGH</span>
+        </div>
+        <p><strong>ApoB 125 mg/dL</strong> (target &lt;65 mg/dL) and <strong>Non-HDL-C 4.5 mmol/L</strong> (target &lt;2.2 mmol/L) indicate a very high atherogenic particle burden despite statin therapy. <strong>Lp(a) 190 nmol/L</strong> adds a genetically-determined, largely statin-insensitive lipid risk layer. Triglyceride-rich lipoprotein remnant accumulation (TG 2.6 mmol/L) contributes additional atherogenic burden not captured by LDL-C. This patient's lipid residual risk is not minor — it is the dominant active risk domain requiring immediate therapeutic intensification.</p>
+      </div>
+ 
+      <div class="risk-domain domain-metabolic">
+        <div class="risk-domain-header">
+          <h3>🟠 Domain 2 — Metabolic Residual Risk</h3>
+          <span class="risk-level high">HIGH</span>
+        </div>
+        <p>Suboptimal glycaemic control (HbA1c 7.6%), significant insulin resistance (HOMA-IR 4.5), hyperinsulinaemia (fasting insulin 14 mU/L), and low HDL (0.9 mmol/L) collectively define an <strong>insulin resistance-driven atherogenic dyslipidaemia syndrome</strong> — the metabolic phenotype most strongly associated with ApoB-LDL-C discordance. This metabolic residual risk is the upstream driver of the lipid residual risk above: improving insulin sensitivity through SGLT2 inhibitor, GLP-1RA, lifestyle, or combination would address both domains simultaneously.</p>
+      </div>
+ 
+      <div class="risk-domain domain-inflammatory">
+        <div class="risk-domain-header">
+          <h3>🟣 Domain 3 — Inflammatory Residual Risk</h3>
+          <span class="risk-level elevated">NOT ASSESSED</span>
+        </div>
+        <p><strong>hs-CRP has not been measured.</strong> In a patient with T2DM, obesity-associated metabolic syndrome features (low HDL, elevated TG), and post-MI status, elevated inflammatory markers are common and clinically relevant. Residual inflammatory risk — as demonstrated by the CANTOS and COLCOT trials — is independent of lipid risk and contributes meaningfully to recurrent events in post-MI patients. <strong>hs-CRP measurement is recommended as a priority missing investigation.</strong> If hs-CRP &gt;2 mg/L, anti-inflammatory therapy consideration (colchicine 0.5 mg/day per LoDoCo2/COLCOT evidence) would be appropriate.</p>
+      </div>
+ 
+      <div class="risk-domain domain-thrombotic">
+        <div class="risk-domain-header">
+          <h3>🔵 Domain 4 — Thrombotic Residual Risk</h3>
+          <span class="risk-level moderate">ELEVATED</span>
+        </div>
+        <p>The patient is on aspirin post-PCI, which addresses standard antiplatelet requirements. However, <strong>Lp(a) at 190 nmol/L carries additional prothrombotic risk</strong> through structural resemblance of apo(a) to plasminogen, potentially impairing fibrinolysis. Dual antiplatelet therapy duration and need for P2Y12 inhibitor continuation should be reviewed per current ESC guidelines for post-ACS management. No additional thrombotic biomarkers (D-dimer, fibrinogen) documented — these are not routinely required but should be considered if clinical course suggests hypercoagulable state.</p>
+      </div>
+ 
+      <div class="risk-domain domain-renal">
+        <div class="risk-domain-header">
+          <h3>🔵 Domain 5 — Renal Residual Risk</h3>
+          <span class="risk-level elevated">NOT ASSESSED</span>
+        </div>
+        <p><strong>eGFR and urine ACR are not documented.</strong> This is a significant gap: T2DM of 6 years' duration, hypertension, and post-MI status all independently predispose to CKD development. Diabetic nephropathy affects approximately 40% of T2DM patients over time, and even mild CKD (eGFR 60–89 mL/min/1.73m²) amplifies cardiovascular risk substantially. KDIGO 2022 guidelines recommend annual eGFR and urine ACR monitoring in all T2DM patients. Additionally, SGLT2 inhibitor therapy (which this patient should be considered for CV benefit) has specific eGFR thresholds that must be checked before initiation.</p>
+      </div>
+ 
+      <div class="risk-domain domain-vascular">
+        <div class="risk-domain-header">
+          <h3>⚫ Domain 6 — Vascular Ageing Risk</h3>
+          <span class="risk-level moderate">ESTIMATED HIGH</span>
+        </div>
+        <p>At 58 years with established ASCVD, T2DM of 6 years, significant insulin resistance, and sustained atherogenic dyslipidaemia, cumulative vascular damage is expected to be substantial. No direct vascular ageing measurements are documented (coronary artery calcium score, carotid intima-media thickness, pulse wave velocity). <strong>A coronary artery calcium (CAC) score would provide additional prognostic information</strong> and may further guide treatment intensity decisions, though in this patient it would not change the very-high-risk classification or the need for maximal lipid-lowering.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 5: GUIDELINE GAPS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <div class="section-title">Guideline Gaps &amp; Missing Investigations</div>
+    </div>
+    <div class="section-body">
+ 
+      <div class="gap-item">
+        <div class="gap-icon critical">❗</div>
+        <div class="gap-text">
+          <h4>LDL-C Not at Very-High-Risk Target — Immediate Action Required</h4>
+          <p>LDL-C is 2.1 mmol/L vs. the ESC/EAS 2019 very-high-risk target of &lt;1.4 mmol/L and &gt;50% reduction from baseline. Current statin monotherapy is insufficient. Combination therapy (add ezetimibe ± PCSK9 inhibitor) is indicated.</p>
+          <div class="guideline-ref">ESC/EAS 2019 Dyslipidaemia Guidelines — Class I, Level A</div>
+        </div>
+      </div>
+ 
+      <div class="gap-item">
+        <div class="gap-icon critical">❗</div>
+        <div class="gap-text">
+          <h4>ApoB Not at Target — Primary Atherogenic Particle Burden Uncontrolled</h4>
+          <p>ApoB 125 mg/dL vs. target &lt;65 mg/dL for very-high-risk patients. In this patient, ApoB is the more clinically appropriate treatment monitoring target than LDL-C given the documented discordance driven by insulin resistance and elevated TG.</p>
+          <div class="guideline-ref">ESC/EAS 2019 — ApoB target &lt;65 mg/dL in very-high-risk patients</div>
+        </div>
+      </div>
+ 
+      <div class="gap-item">
+        <div class="gap-icon critical">❗</div>
+        <div class="gap-text">
+          <h4>No SGLT2 Inhibitor or GLP-1 RA — Missed CV Outcome Benefit</h4>
+          <p>This patient has T2DM + established ASCVD — a combination for which SGLT2 inhibitors (empagliflozin, dapagliflozin, canagliflozin) and GLP-1 RAs (semaglutide, liraglutide) have demonstrated CV mortality and MACE reduction in landmark trials (EMPA-REG, CANVAS, DAPA-HF, LEADER, SUSTAIN-6). Current metformin monotherapy does not provide these benefits. This represents a significant guideline-adherence gap with direct survival implications.</p>
+          <div class="guideline-ref">ESC 2023 Diabetes &amp; CVD Guidelines — Class I, Level A · ADA 2024 Standards of Care</div>
+        </div>
+      </div>
+ 
+      <div class="gap-item">
+        <div class="gap-icon high">⚠</div>
+        <div class="gap-text">
+          <h4>hs-CRP Not Measured — Inflammatory Residual Risk Unquantified</h4>
+          <p>In a post-MI patient with T2DM and metabolic features, inflammatory residual risk is clinically likely and therapeutically actionable. hs-CRP &gt;2 mg/L would support colchicine 0.5 mg/day (LoDoCo2 evidence: 31% MACE reduction in stable CAD).</p>
+          <div class="guideline-ref">COLCOT 2019 · LoDoCo2 2020 — ESC endorsed</div>
+        </div>
+      </div>
+ 
+      <div class="gap-item">
+        <div class="gap-icon high">⚠</div>
+        <div class="gap-text">
+          <h4>eGFR and Urine ACR Not Documented</h4>
+          <p>Annual monitoring is mandatory per KDIGO 2022 and ADA 2024 in T2DM. Required before initiating SGLT2 inhibitor. CKD changes CV risk category and alters lipid and glycaemic management targets.</p>
+          <div class="guideline-ref">KDIGO 2022 CKD Guidelines · ADA 2024 Standards of Care</div>
+        </div>
+      </div>
+ 
+      <div class="gap-item">
+        <div class="gap-icon moderate">ℹ</div>
+        <div class="gap-text">
+          <h4>Family History of Premature CVD — FH Cascade Testing Not Documented</h4>
+          <p>Father with MI at age 52 + very high Lp(a) (190 nmol/L) warrants consideration of familial hypercholesterolaemia (FH) or familial Lp(a) elevation. Simon Broome or Dutch Lipid Clinic Network score should be calculated. First-degree relatives should be offered Lp(a) testing.</p>
+          <div class="guideline-ref">EAS 2022 Lp(a) Consensus · ESC/EAS FH Guidelines 2019</div>
+        </div>
+      </div>
+ 
+      <div class="gap-item">
+        <div class="gap-icon moderate">ℹ</div>
+        <div class="gap-text">
+          <h4>Coronary Artery Calcium Score Not Available</h4>
+          <p>While CAC would not change this patient's very-high-risk classification, it would provide prognostic information on coronary atherosclerotic burden and may support future decision-making regarding intensity of therapy.</p>
+          <div class="guideline-ref">ACC/AHA 2018 Cholesterol Guidelines — optional in secondary prevention</div>
+        </div>
+      </div>
+ 
+    </div>
+  </div>
+ 
+  <!-- SECTION 6: TREATMENT OPPORTUNITIES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">6</div>
+      <div class="section-title">Treatment Opportunities — Prioritised Action Plan</div>
+    </div>
+    <div class="section-body">
+      <table class="treatment-table">
+        <thead>
+          <tr>
+            <th>Priority</th>
+            <th>Intervention</th>
+            <th>Rationale</th>
+            <th>Evidence</th>
+            <th>Expected Benefit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="priority-1">P1 — URGENT</span></td>
+            <td><strong>Add ezetimibe 10 mg/day</strong><br />(if not already at maximum statin)</td>
+            <td>LDL-C and ApoB above very-high-risk targets on statin monotherapy. Ezetimibe provides additive LDL-C reduction of 15–25% with well-established CV outcome benefit.</td>
+            <td><span class="evidence-badge">IMPROVE-IT</span> <span class="evidence-badge">Class I, Level B</span></td>
+            <td>~15–25% further LDL-C reduction; ApoB reduction proportional</td>
+          </tr>
+          <tr>
+            <td><span class="priority-1">P1 — URGENT</span></td>
+            <td><strong>Consider PCSK9 inhibitor</strong><br />(evolocumab or alirocumab)</td>
+            <td>Despite statin + ezetimibe, LDL-C may still not reach &lt;1.4 mmol/L target given ApoB discordance. PCSK9 inhibitors reduce LDL-C 50–60% additionally, reduce ApoB proportionally, and have demonstrated CV mortality reduction in high-risk post-ACS patients.</td>
+            <td><span class="evidence-badge">FOURIER</span> <span class="evidence-badge">ODYSSEY</span> <span class="evidence-badge">Class I, Level A</span></td>
+            <td>50–60% additional LDL-C reduction; proven MACE and CV death reduction</td>
+          </tr>
+          <tr>
+            <td><span class="priority-1">P1 — URGENT</span></td>
+            <td><strong>Add SGLT2 inhibitor</strong><br />(empagliflozin, dapagliflozin, or canagliflozin)</td>
+            <td>T2DM + established ASCVD = Class I indication for SGLT2 inhibitor per ESC 2023 and ADA 2024. Provides: CV death/HF hospitalisation reduction, modest HbA1c improvement, renal protection. Check eGFR before initiation.</td>
+            <td><span class="evidence-badge">EMPA-REG</span> <span class="evidence-badge">CANVAS</span> <span class="evidence-badge">Class I, Level A</span></td>
+            <td>CV death reduction ~38% (EMPA-REG); HbA1c reduction ~0.5–1.0%</td>
+          </tr>
+          <tr>
+            <td><span class="priority-2">P2 — HIGH</span></td>
+            <td><strong>Consider GLP-1 receptor agonist</strong><br />(semaglutide or liraglutide)</td>
+            <td>If HbA1c remains &gt;7.0% after SGLT2 inhibitor or if weight loss / triglyceride reduction is a priority, GLP-1 RA provides additional glycaemic benefit, CV outcome benefit, TG reduction (~15–30%), and HDL improvement.</td>
+            <td><span class="evidence-badge">LEADER</span> <span class="evidence-badge">SUSTAIN-6</span> <span class="evidence-badge">Class I, Level A</span></td>
+            <td>CV death and stroke reduction; TG reduction; weight loss</td>
+          </tr>
+          <tr>
+            <td><span class="priority-2">P2 — HIGH</span></td>
+            <td><strong>Icosapent ethyl 4g/day</strong><br />(if TG remains &gt;1.5 mmol/L)</td>
+            <td>TG 2.6 mmol/L after statin therapy. REDUCE-IT demonstrated 25% MACE reduction in high-CV-risk patients with elevated TG (≥1.5 mmol/L) treated with icosapent ethyl 4g/day, including in diabetes subgroup.</td>
+            <td><span class="evidence-badge">REDUCE-IT</span> <span class="evidence-badge">Class IIa, Level B</span></td>
+            <td>25% MACE reduction; ~18% TG reduction; some ApoB benefit</td>
+          </tr>
+          <tr>
+            <td><span class="priority-2">P2 — HIGH</span></td>
+            <td><strong>Measure hs-CRP → consider colchicine</strong></td>
+            <td>If hs-CRP &gt;2 mg/L: colchicine 0.5 mg/day (LoDoCo2) reduces MACE by 31% in stable CAD patients with elevated inflammation. COLCOT: 23% MACE reduction post-MI specifically.</td>
+            <td><span class="evidence-badge">LoDoCo2</span> <span class="evidence-badge">COLCOT</span></td>
+            <td>23–31% MACE reduction if inflammatory risk confirmed</td>
+          </tr>
+          <tr>
+            <td><span class="priority-3">P3 — MONITOR</span></td>
+            <td><strong>Lifestyle optimisation — structured programme</strong></td>
+            <td>Mediterranean dietary pattern, 150–300 min/week moderate aerobic activity, resistance training 2×/week. Addresses insulin resistance, TG, HDL, and weight — all of which compound the atherogenic dyslipidaemia phenotype.</td>
+            <td><span class="evidence-badge">ESC/EAS 2019</span> <span class="evidence-badge">ADA 2024</span></td>
+            <td>HOMA-IR improvement; TG reduction; HDL improvement; weight loss</td>
+          </tr>
+          <tr>
+            <td><span class="priority-3">P3 — MONITOR</span></td>
+            <td><strong>Lp(a) cascade family testing</strong></td>
+            <td>Lp(a) is genetically determined. First-degree relatives (children, siblings) should be offered Lp(a) testing given level of 190 nmol/L + father's premature MI.</td>
+            <td><span class="evidence-badge">EAS 2022 Consensus</span></td>
+            <td>Early detection in relatives; opportunity for primary prevention</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+  <!-- SECTION 7: EVIDENCE FRAMEWORK -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">7</div>
+      <div class="section-title">Evidence &amp; Guideline Framework</div>
+    </div>
+    <div class="section-body">
+      <table class="evidence-table">
+        <thead>
+          <tr>
+            <th>Clinical Question</th>
+            <th>Guideline / Trial</th>
+            <th>Recommendation</th>
+            <th>Class / Level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>LDL-C target in established ASCVD</td>
+            <td>ESC/EAS 2019</td>
+            <td>LDL-C &lt;1.4 mmol/L AND &gt;50% reduction from baseline</td>
+            <td>Class I, Level A</td>
+          </tr>
+          <tr>
+            <td>ApoB target in very-high-risk</td>
+            <td>ESC/EAS 2019</td>
+            <td>ApoB &lt;65 mg/dL as secondary treatment target</td>
+            <td>Class I, Level B</td>
+          </tr>
+          <tr>
+            <td>Lp(a) threshold for CV risk</td>
+            <td>EAS Consensus 2022</td>
+            <td>Lp(a) ≥125 nmol/L = major independent CV risk factor</td>
+            <td>EAS Expert Consensus</td>
+          </tr>
+          <tr>
+            <td>SGLT2 inhibitor in T2DM + ASCVD</td>
+            <td>ESC 2023 · ADA 2024</td>
+            <td>Indicated regardless of HbA1c for CV benefit</td>
+            <td>Class I, Level A</td>
+          </tr>
+          <tr>
+            <td>GLP-1 RA in T2DM + ASCVD</td>
+            <td>ESC 2023 · ADA 2024</td>
+            <td>Indicated for CV outcome benefit</td>
+            <td>Class I, Level A</td>
+          </tr>
+          <tr>
+            <td>Ezetimibe add-on to statin</td>
+            <td>ESC/EAS 2019 · IMPROVE-IT</td>
+            <td>Add ezetimibe if LDL-C target not achieved on statin</td>
+            <td>Class I, Level B</td>
+          </tr>
+          <tr>
+            <td>PCSK9 inhibitor in very-high-risk</td>
+            <td>ESC/EAS 2019 · FOURIER · ODYSSEY</td>
+            <td>Add if LDL-C not at target on statin ± ezetimibe</td>
+            <td>Class I, Level A</td>
+          </tr>
+          <tr>
+            <td>Colchicine post-MI / stable CAD</td>
+            <td>COLCOT 2019 · LoDoCo2 2020</td>
+            <td>0.5 mg/day — consider in high inflammatory risk</td>
+            <td>Class IIa, Level A</td>
+          </tr>
+          <tr>
+            <td>Icosapent ethyl (TG ≥1.5 mmol/L)</td>
+            <td>REDUCE-IT 2018</td>
+            <td>4g/day in high-CV-risk with TG ≥1.5 mmol/L on statin</td>
+            <td>Class IIa, Level B</td>
+          </tr>
+          <tr>
+            <td>eGFR/ACR monitoring in T2DM</td>
+            <td>KDIGO 2022 · ADA 2024</td>
+            <td>Annual monitoring mandatory</td>
+            <td>Class I</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+  <!-- SECTION 8: PATIENT SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">8</div>
+      <div class="section-title">Patient Summary — Plain Language</div>
+    </div>
+    <div class="section-body">
+      <div class="patient-summary">
+        <h2>What Your Results Mean — In Plain Language</h2>
+        <div class="summary-sub">This summary is designed to help you understand your cardiovascular health results and support a more informed conversation with your doctor.</div>
+ 
+        <div class="summary-point">
+          <div class="summary-point-num">1</div>
+          <p><strong>Your cholesterol number may be misleading.</strong> Your LDL cholesterol on the blood test looks reasonable — but a marker called ApoB, which counts the actual number of harmful cholesterol-carrying particles in your blood, is nearly twice as high as it should be. This is because your diabetes and insulin resistance cause your liver to produce many more smaller particles than average. More particles means more risk, even when the cholesterol number looks acceptable.</p>
+        </div>
+ 
+        <div class="summary-point">
+          <div class="summary-point-num">2</div>
+          <p><strong>You have an inherited risk factor that your current treatment cannot address.</strong> A protein called Lp(a) — which is determined almost entirely by your genes and not by diet or exercise — is very high in your blood. This adds risk of heart attack and stroke on top of your other risk factors, and it is not reduced by the statin medication you are currently taking. There are experimental treatments being tested in clinical trials, but none are yet approved.</p>
+        </div>
+ 
+        <div class="summary-point">
+          <div class="summary-point-num">3</div>
+          <p><strong>Your diabetes is not yet well controlled, and this is increasing your heart risk.</strong> Your HbA1c (a 3-month average of your blood sugar) is 7.6%, which is above the recommended target of 7.0%. Your body is also producing much more insulin than it should to keep your blood sugar at this level — a pattern called insulin resistance that is linked to higher heart risk. There are newer diabetes medications that have been proven to reduce the chance of another heart attack.</p>
+        </div>
+ 
+        <div class="summary-point">
+          <div class="summary-point-num">4</div>
+          <p><strong>Your fat levels in the blood are too high, and your protective cholesterol is too low.</strong> Your triglycerides (a type of fat in the blood) are elevated, and your HDL ("good" cholesterol) is below the healthy level. This combination is a recognised pattern in people with insulin resistance and increases heart risk beyond what your LDL alone would suggest.</p>
+        </div>
+ 
+        <div class="summary-point">
+          <div class="summary-point-num">5</div>
+          <p><strong>Some important tests are missing.</strong> A measure of your kidney function (eGFR) and a urine test for kidney protein leakage (ACR) have not been documented in your recent results. These are important because diabetes can affect the kidneys, and kidney function affects how your heart risk is managed. Your doctor should check these regularly.</p>
+        </div>
+ 
+        <div class="summary-point">
+          <div class="summary-point-num">6</div>
+          <p><strong>Your family history is important.</strong> Your father had a heart attack at 52 — this is considered "early." Combined with your very high Lp(a), it suggests that your children and siblings should have their Lp(a) checked, as elevated Lp(a) runs in families and can be detected and monitored long before problems develop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 9: DOCTOR SUMMARY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">9</div>
+      <div class="section-title">Clinician Summary — Key Action Points</div>
+    </div>
+    <div class="section-body">
+      <div class="doctor-summary">
+        <h2>Clinician Decision Support Summary</h2>
+        <div class="summary-sub">Structured summary for the treating physician. All recommendations are guideline-referenced and evidence-graded.</div>
+ 
+        <div class="doctor-point">
+          <div class="doctor-point-num">1</div>
+          <p><strong>Intensify lipid-lowering therapy urgently.</strong> LDL-C 2.1 mmol/L and ApoB 125 mg/dL — both substantially above ESC/EAS very-high-risk targets. Add ezetimibe 10 mg/day as first step. If targets not achieved within 3 months, initiate PCSK9 inhibitor (evolocumab or alirocumab). ApoB, not LDL-C, should be the primary monitoring target given documented discordance. <em>ESC/EAS 2019 — Class I, Level A.</em></p>
+        </div>
+ 
+        <div class="doctor-point">
+          <div class="doctor-point-num">2</div>
+          <p><strong>Initiate SGLT2 inhibitor — this is a Class I indication.</strong> T2DM + established ASCVD = mandatory SGLT2 inhibitor per ESC 2023 and ADA 2024, independent of HbA1c level. Check eGFR before initiation. Empagliflozin or dapagliflozin preferred for CV outcome evidence. Consider adding GLP-1 RA (semaglutide) if HbA1c remains &gt;7.0% or weight loss/TG reduction is a priority. <em>ESC 2023 — Class I, Level A.</em></p>
+        </div>
+ 
+        <div class="doctor-point">
+          <div class="doctor-point-num">3</div>
+          <p><strong>Measure hs-CRP — inflammatory residual risk is likely and actionable.</strong> In this metabolic phenotype (T2DM, elevated TG, low HDL, post-MI), elevated hs-CRP is common. If hs-CRP &gt;2 mg/L, colchicine 0.5 mg/day provides 23–31% MACE reduction (COLCOT/LoDoCo2). This is a missed therapeutic opportunity if inflammatory risk is not assessed.</p>
+        </div>
+ 
+        <div class="doctor-point">
+          <div class="doctor-point-num">4</div>
+          <p><strong>Lp(a) 190 nmol/L — document, monitor, and cascade-test.</strong> No approved Lp(a)-lowering therapy exists (Phase 3 trials underway). Current strategy: maximally lower LDL-C and ApoB to offset additive risk. Cascade Lp(a) testing in first-degree relatives (children &gt;18 years, siblings). The combination of high Lp(a) + premature paternal MI warrants FH scoring (Dutch Lipid Clinic Network or Simon Broome criteria).</p>
+        </div>
+ 
+        <div class="doctor-point">
+          <div class="doctor-point-num">5</div>
+          <p><strong>Order eGFR + urine ACR — renal assessment is overdue.</strong> 6 years of T2DM + hypertension + post-MI. Annual KDIGO-mandated screening not documented. CKD would: (a) further elevate CV risk category; (b) alter SGLT2 inhibitor dosing; (c) modify lipid management intensity. Albuminuria ≥30 mg/g would independently indicate SGLT2 inhibitor.</p>
+        </div>
+ 
+        <div class="doctor-point">
+          <div class="doctor-point-num">6</div>
+          <p><strong>Consider icosapent ethyl 4g/day for triglyceride residual risk.</strong> TG 2.6 mmol/L on statin. REDUCE-IT demonstrated 25% MACE reduction in patients with TG ≥1.5 mmol/L + established CVD or high risk on statin therapy. Particularly relevant given the TG-driven atherogenic dyslipidaemia phenotype contributing to ApoB-LDL-C discordance. <em>Class IIa, Level B.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SECTION 10: FOLLOW-UP PLAN -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">10</div>
+      <div class="section-title">Follow-Up Plan</div>
+    </div>
+    <div class="section-body">
+      <div class="followup-grid">
+        <div class="followup-card">
+          <h4>⏱ Immediate (Now)</h4>
+          <ul>
+            <li>Add ezetimibe 10 mg/day</li>
+            <li>Initiate SGLT2 inhibitor (check eGFR first)</li>
+            <li>Order hs-CRP</li>
+            <li>Order eGFR + urine ACR</li>
+            <li>Consider icosapent ethyl 4g/day</li>
+          </ul>
+        </div>
+        <div class="followup-card">
+          <h4>📅 6–12 Weeks</h4>
+          <ul>
+            <li>Repeat full fasting lipid panel + ApoB</li>
+            <li>Repeat HbA1c + fasting glucose</li>
+            <li>Review eGFR/ACR results</li>
+            <li>If LDL-C/ApoB still above target → initiate PCSK9 inhibitor</li>
+            <li>If hs-CRP &gt;2 → consider colchicine</li>
+          </ul>
+        </div>
+        <div class="followup-card">
+          <h4>📆 6–12 Months</h4>
+          <ul>
+            <li>Full cardiometabolic reassessment</li>
+            <li>ApoB target review (&lt;65 mg/dL)</li>
+            <li>HbA1c target review (&lt;7.0%)</li>
+            <li>Family Lp(a) cascade testing</li>
+            <li>Lifestyle programme review</li>
+            <li>Consider CAC score if clinically useful</li>
+          </ul>
+        </div>
+      </div>
+ 
+      <div class="callout callout-info" style="margin-top:1.5rem;">
+        <h4>Priority Monitoring Targets</h4>
+        <ul>
+          <li><strong>ApoB:</strong> &lt;65 mg/dL (primary target — more clinically relevant than LDL-C in this patient)</li>
+          <li><strong>LDL-C:</strong> &lt;1.4 mmol/L AND &gt;50% reduction from baseline</li>
+          <li><strong>Non-HDL-C:</strong> &lt;2.2 mmol/L</li>
+          <li><strong>HbA1c:</strong> &lt;7.0% (individualise based on hypoglycaemia risk)</li>
+          <li><strong>Triglycerides:</strong> &lt;1.7 mmol/L</li>
+          <li><strong>eGFR:</strong> annual monitoring</li>
+          <li><strong>Urine ACR:</strong> annual monitoring</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SIGNATURE & FOOTER -->
+  <div class="signature-block">
+    <div class="signature-grid">
+      <div class="signature-item">
+        <label>Report Prepared &amp; Clinically Reviewed By</label>
+        <span>Tea Gamezardashvili, MD, PhD, MHA, FACC</span>
+        <span class="sub">Preventive Cardiologist &amp; Lipidologist<br />President, Georgian Atherosclerosis Association<br />National Coordinator, EAS Lipid Clinic Network — Georgia</span>
+      </div>
+      <div class="signature-item">
+        <label>Report Classification</label>
+        <span>CardioIQ Clinical Intelligence Report™</span>
+        <span class="sub">De-identified · Educational Demo<br />Version 1.0 · July 2026<br />cardioiq.health</span>
+      </div>
+    </div>
+ 
+    <div class="callout callout-warning" style="margin-top:2rem;">
+      <h4>Important Disclaimer</h4>
+      <p>This report is generated by CardioIQ Clinical Intelligence Platform™ as a clinical decision support tool for qualified healthcare professionals. It does not constitute a medical diagnosis, does not prescribe treatment, and does not replace the clinical judgment of a licensed physician. All treatment decisions remain the exclusive responsibility of the treating healthcare professional. This document is de-identified and prepared for educational demonstration purposes only.</p>
+    </div>
+  </div>
+ 
+</div><!-- end report-body -->
+</body>
+</html>
