@@ -791,9 +791,7 @@ const zone=document.getElementById('upload-zone');zone.addEventListener('dragove
     return;
   }
   const urls={
-    essential:'https://cardioiq.lemonsqueezy.com/checkout/buy/55a263a9-3538-46c7-99fd-4ea42158c803',
-    standard:'https://cardioiq.lemonsqueezy.com/checkout/buy/36ed396f-48c3-4c72-b9db-227d29548b9b',
-    premium:'https://cardioiq.lemonsqueezy.com/checkout/buy/275aa729-6843-4f41-a4de-55dc080fb7d4'
+    const urls={essential:'https://www.paypal.com/ncp/payment/PD7GZHEXWTQQE',standard:'https://www.paypal.com/ncp/payment/VAPXHSQVM82ZY',premium:'https://www.paypal.com/ncp/payment/PF7AM3XCGMRV6',
   };
   const baseUrl = urls[selectedPlan]||urls.standard;
   const checkoutUrl = baseUrl + '?checkout[email]=' + encodeURIComponent(email);
