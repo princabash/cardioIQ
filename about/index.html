@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About CardioIQ | Dr. Tea Gamezardashvili MD PhD MHA FACC</title>
+  <meta name="description" content="CardioIQ was built by Dr. Tea Gamezardashvili, MD PhD MHA FACC — preventive cardiologist, lipidologist, and President of the Georgian Atherosclerosis Association. Evidence-based cardiovascular AI." />
+  <link rel="canonical" href="https://cardioiq.health/about/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "url": "https://cardioiq.health/about/",
+    "name": "About CardioIQ",
+    "description": "CardioIQ was built by Dr. Tea Gamezardashvili, MD PhD MHA FACC — preventive cardiologist and lipidologist.",
+    "author": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC",
+      "jobTitle": "Preventive Cardiologist and Lipidologist",
+      "memberOf": [
+        {"@type": "Organization", "name": "Georgian Atherosclerosis Association"},
+        {"@type": "Organization", "name": "European Atherosclerosis Society"}
+      ]
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --navy:      #0B1F3A;
+      --navy-mid:  #112847;
+      --teal:      #0E7C7B;
+      --teal-light:#12A09E;
+      --gold:      #C9A84C;
+      --gold-light:#E4C878;
+      --cream:     #F8F6F1;
+      --white:     #FFFFFF;
+      --text:      #1A2B3C;
+      --muted:     #4A6070;
+      --border:    #D8E4EC;
+      --font-display: Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      --max-w: 760px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 17px; line-height: 1.75; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+ 
+    /* Nav */
+    .site-nav { background: var(--navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.35rem; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600; }
+ 
+    /* Hero */
+    .about-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 5rem 2rem 4rem; text-align: center; }
+    .hero-tag { display: inline-block; background: rgba(201,168,76,0.18); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .about-hero h1 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: var(--white); max-width: 700px; margin: 0 auto 1.25rem; line-height: 1.3; }
+    .about-hero p { color: rgba(255,255,255,0.72); font-size: 1.05rem; max-width: 580px; margin: 0 auto; }
+ 
+    /* Main */
+    .about-body { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem 5rem; }
+ 
+    /* Sections */
+    .section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+    .section:last-of-type { border-bottom: none; }
+    .section-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--teal); margin-bottom: 0.75rem; }
+    .section h2 { font-family: var(--font-display); font-size: 1.65rem; color: var(--navy); margin-bottom: 1.25rem; line-height: 1.3; }
+    .section h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin: 1.5rem 0 0.5rem; }
+    .section p { margin-bottom: 1rem; color: var(--text); }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul { margin: 0.75rem 0 1rem 1.25rem; }
+    .section li { margin-bottom: 0.4rem; }
+    .section em { font-style: italic; }
+    .section strong { color: var(--navy); }
+ 
+    /* Mission block */
+    .mission-block { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 16px; padding: 3rem 2.5rem; margin: 3rem 0; color: rgba(255,255,255,0.85); }
+    .mission-block h2 { font-family: var(--font-display); color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .mission-block h3 { color: var(--gold-light); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
+    .mission-block p { color: rgba(255,255,255,0.8); margin-bottom: 0.9rem; }
+    .mission-taglines { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); }
+    .mission-taglines p { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 0.4rem; }
+ 
+    /* Founder card */
+    .founder-card { background: var(--cream); border-radius: 14px; padding: 2rem; margin-bottom: 2rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .founder-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+    .founder-info h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
+    .founder-creds { color: var(--teal); font-size: 0.88rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .founder-info p { font-size: 0.93rem; color: var(--muted); margin: 0; }
+ 
+    /* Credentials badges */
+    .creds-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
+    .cred-badge { background: var(--navy); color: var(--gold-light); font-size: 0.8rem; font-weight: 700; padding: 0.35rem 0.9rem; border-radius: 100px; letter-spacing: 0.05em; }
+ 
+    /* Principles grid */
+    .principles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .principle-card { background: var(--cream); border-radius: 10px; padding: 1.25rem 1.5rem; border-left: 3px solid var(--teal); }
+    .principle-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .principle-card p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+ 
+    /* Guidelines list */
+    .guidelines-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 1rem; }
+    .guideline-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: var(--text); }
+    .guideline-dot { width: 8px; height: 8px; background: var(--teal); border-radius: 50%; flex-shrink: 0; }
+ 
+    /* Publications */
+    .pub-list { margin-top: 1rem; }
+    .pub-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-year { font-size: 0.78rem; font-weight: 700; color: var(--gold); background: rgba(201,168,76,0.1); padding: 0.2rem 0.6rem; border-radius: 4px; height: fit-content; flex-shrink: 0; margin-top: 0.2rem; }
+    .pub-text { font-size: 0.92rem; color: var(--text); }
+    .pub-text em { color: var(--muted); }
+ 
+    /* Medical notice */
+    .medical-notice { background: #FFF8E8; border: 1px solid var(--gold); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 3rem 0 2rem; display: flex; gap: 1rem; }
+    .notice-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .medical-notice p { font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .medical-notice strong { color: var(--navy); }
+ 
+    /* CTA */
+    .cta-block { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 16px; padding: 3rem 2.5rem; text-align: center; margin: 2rem 0; }
+    .cta-block h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 0.75rem; }
+    .cta-block p { color: rgba(255,255,255,0.72); font-size: 0.95rem; margin-bottom: 2rem; }
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); font-weight: 700; font-size: 1rem; padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; margin-bottom: 0.75rem; }
+    .btn-primary:hover { background: var(--teal-light); }
+    .btn-secondary { display: inline-block; color: rgba(255,255,255,0.65); font-size: 0.88rem; text-decoration: none; padding: 0.4rem 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; margin-left: 0.75rem; }
+    .btn-secondary:hover { color: var(--white); }
+ 
+    /* Footer tagline */
+    .footer-tagline { text-align: center; color: var(--muted); font-size: 0.85rem; padding: 2rem 0; }
+ 
+    /* Footer */
+    .site-footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 2.5rem 2rem; font-size: 0.83rem; }
+    .site-footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+ 
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .founder-card { flex-direction: column; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .guidelines-list { grid-template-columns: 1fr; }
+      .btn-secondary { display: block; margin: 0.75rem auto 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+ 
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/apob-guide/">Blog</a></li>
+    <li><a href="/sample-report/">Sample Report</a></li>
+    <li><a href="/" class="nav-cta">Get my report</a></li>
+  </ul>
+</nav>
+ 
+<!-- Hero -->
+<header class="about-hero">
+  <div class="hero-tag">About CardioIQ</div>
+  <h1>Why CardioIQ Deserves Your Trust</h1>
+  <p>Health information deserves more than numbers. It deserves context, scientific accuracy, and clear explanations.</p>
+</header>
+ 
+<main class="about-body">
+ 
+  <!-- Mission -->
+  <div class="mission-block">
+    <h2>Protect Your Heart. Extend Your Healthspan.</h2>
+    <h3>Cardiovascular Health Is the Foundation of Healthy Longevity</h3>
+    <p>Living longer is meaningful only if those additional years are lived in good health.</p>
+    <p>CardioIQ was created with a simple belief: preventing cardiovascular disease is one of the most effective ways to improve both lifespan and healthspan. Scientific evidence consistently shows that cardiovascular health influences not only the risk of heart attack and stroke, but also healthy aging, cognitive function, kidney health, and overall quality of life.</p>
+    <p>Our mission is not simply to identify cardiovascular risk. It is to help people understand the biological processes that drive that risk and to support earlier, more informed conversations with healthcare professionals.</p>
+    <p>By combining evidence-based medicine, advanced lipid science, and explainable artificial intelligence, CardioIQ transforms complex laboratory data into meaningful clinical insights that support personalized cardiovascular prevention.</p>
+    <div class="mission-taglines">
+      <p>We believe that healthy longevity begins long before disease develops.</p>
+      <p>Every laboratory result is an opportunity to better understand your health.</p>
+      <p>Every evidence-based decision is an investment in your future.</p>
+    </div>
+  </div>
+ 
+  <!-- Founder -->
+  <div class="section">
+    <div class="section-label">Built by a Cardiologist</div>
+    <div class="founder-card">
+      <div class="founder-avatar">TG</div>
+      <div class="founder-info">
+        <h3>Tea Gamezardashvili</h3>
+        <div class="founder-creds">MD, PhD, MHA, FACC · Preventive Cardiologist &amp; Lipidologist</div>
+        <p>Founder of CardioIQ. Clinical researcher with extensive clinical, academic, and international leadership experience in preventive cardiology and lipidology.</p>
+      </div>
+    </div>
+    <p>Dr. Gamezardashvili serves as President of the Georgian Atherosclerosis Association, National Coordinator of the European Atherosclerosis Society (EAS) Lipid Clinic Network for Georgia, Clinical Manager at REMEDICAL Hospital, and Associate Professor.</p>
+    <p>CardioIQ reflects years of clinical experience caring for patients with dyslipidemia, atherosclerotic cardiovascular disease, diabetes, chronic kidney disease, and other cardiometabolic conditions.</p>
+  </div>
+ 
+  <!-- Credentials -->
+  <div class="section">
+    <div class="section-label">Credentials</div>
+    <h2>Medical Qualifications &amp; Affiliations</h2>
+    <div class="creds-grid">
+      <span class="cred-badge">MD</span>
+      <span class="cred-badge">PhD</span>
+      <span class="cred-badge">MHA</span>
+      <span class="cred-badge">FACC</span>
+    </div>
+    <ul>
+      <li>President — Georgian Atherosclerosis Association (GAA)</li>
+      <li>National Coordinator — EAS Lipid Clinic Network, Georgia</li>
+      <li>Clinical Manager — REMEDICAL Hospital</li>
+      <li>Associate Professor — Georgian University</li>
+      <li>Fellow — American College of Cardiology (FACC)</li>
+    </ul>
+  </div>
+ 
+  <!-- Professional Story -->
+  <div class="section">
+    <div class="section-label">Professional Story</div>
+    <h2>Why CardioIQ Exists</h2>
+    <p>The idea for CardioIQ did not start in a boardroom. It started in the clinic.</p>
+    <p>Over years of treating patients with dyslipidemia, atherosclerotic cardiovascular disease, diabetes, and chronic kidney disease, one pattern repeated itself constantly: patients would arrive holding a stack of lab results, often having already searched online for answers, often more confused than before they searched.</p>
+    <p>A lipid panel would list LDL, HDL, triglycerides — sometimes ApoB or Lp(a) — but the report itself never explained how these numbers related to one another, what they meant for that specific patient's risk, or what should happen next. Two patients with an identical LDL level could carry very different cardiovascular risk, depending on ApoB, Lp(a), family history, and a dozen other factors a single number on a page cannot capture.</p>
+    <p>At the same time, the clinical evidence behind these markers was advancing faster than most lab reports could reflect. New risk calculators, new guideline thresholds, new therapies for previously untreatable conditions like elevated Lp(a) — the science kept moving, while the patient experience of receiving a report stayed the same.</p>
+    <p>CardioIQ was built to close that distance: between what a lab report says and what a patient actually needs to understand; between what current cardiovascular science knows and what most people are told.</p>
+  </div>
+ 
+  <!-- Scientific Principles -->
+  <div class="section">
+    <div class="section-label">Scientific Principles</div>
+    <h2>How CardioIQ Works</h2>
+    <p>Everything CardioIQ produces is guided by four core principles.</p>
+    <div class="principles-grid">
+      <div class="principle-card">
+        <h3>Evidence First</h3>
+        <p>Every clinical interpretation is developed using internationally recognized guidelines, peer-reviewed scientific literature, and established cardiovascular prevention principles.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Explainable AI</h3>
+        <p>CardioIQ is designed to explain — not simply predict. Users can understand how conclusions are reached and which evidence supports each interpretation.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Clinical Transparency</h3>
+        <p>Recommendations are presented together with their scientific rationale, helping users understand not only <em>what</em> may be important, but <em>why</em>.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Decision Support</h3>
+        <p>CardioIQ is designed to support informed healthcare decisions — not replace professional medical judgment.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Clinical Review Process -->
+  <div class="section">
+    <div class="section-label">Clinical Review Process</div>
+    <h2>How Reports Are Validated</h2>
+    <p>Every CardioIQ report is developed and reviewed against a structured clinical framework, not generated as an unverified AI output.</p>
+    <ul>
+      <li><strong>Guideline-anchored logic</strong> — Risk interpretation rules are built directly from current ESC/EAS, ACC/AHA, ADA, and KDIGO recommendations.</li>
+      <li><strong>Clinical oversight</strong> — Interpretive frameworks and report logic are reviewed by Dr. Gamezardashvili to ensure alignment with current clinical practice standards.</li>
+      <li><strong>Continuous updates</strong> — As guidelines are revised and new evidence emerges, CardioIQ's interpretive logic is reviewed and updated accordingly.</li>
+      <li><strong>Source-linked reasoning</strong> — Where possible, conclusions reference the specific guideline or evidence basis behind them.</li>
+    </ul>
+  </div>
+ 
+  <!-- Guidelines -->
+  <div class="section">
+    <div class="section-label">International Standards</div>
+    <h2>Built on International Clinical Guidelines</h2>
+    <p>CardioIQ follows internationally recognized evidence and clinical practice recommendations, including guidance from:</p>
+    <div class="guidelines-list">
+      <div class="guideline-item"><div class="guideline-dot"></div>European Atherosclerosis Society (EAS)</div>
+      <div class="guideline-item"><div class="guideline-dot"></div>European Society of Cardiology (ESC)</div>
+      <div class="guideline-item"><div class="guideline-dot"></div>American College of Cardiology (ACC)</div>
+      <div class="guideline-item"><div class="guideline-dot"></div>American Heart Association (AHA)</div>
+      <div class="guideline-item"><div class="guideline-dot"></div>American Diabetes Association (ADA)</div>
+      <div class="guideline-item"><div class="guideline-dot"></div>KDIGO</div>
+    </div>
+  </div>
+ 
+  <!-- Research & Publications -->
+  <div class="section">
+    <div class="section-label">Research &amp; Publications</div>
+    <h2>Scientific Work</h2>
+    <p>Dr. Gamezardashvili's clinical and scientific work informs the evidence base behind CardioIQ.</p>
+    <div class="pub-list">
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-text">Co-author, European Atherosclerosis Society consensus publication, <em>"Lipid Clinics Worldwide"</em> — <em>Atherosclerosis</em>, 2026</div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-text">Presenter, EAS 94th Congress, Athens — invited presentation on dyslipidemia management in Georgia</div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-text">Scientific poster, EAS 94th Congress — siRNA therapy in heterozygous familial hypercholesterolemia (HeFH) and metabolic syndrome</div>
+      </div>
+      <div class="pub-item">
+        <span class="pub-year">2026</span>
+        <div class="pub-text">Scientific poster, EAS 94th Congress — refractory hypertriglyceridemia and recurrent acute pancreatitis</div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- Medical Notice -->
+  <div class="medical-notice">
+    <div class="notice-icon">⚠️</div>
+    <p><strong>Important Medical Notice.</strong> CardioIQ is an educational and clinical decision-support platform. It does not provide medical diagnoses, prescribe treatments, or replace the judgment of licensed healthcare professionals. Always consult a qualified physician or other licensed healthcare professional before making medical decisions, changing medications, or starting or stopping any treatment based on information provided by CardioIQ.</p>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Ready to See CardioIQ in Action?</h2>
+    <p>Understand how evidence-based AI transforms laboratory results into meaningful cardiovascular insights.</p>
+    <a href="/" class="btn-primary">Start Your Free Assessment</a>
+    <a href="/sample-report/" class="btn-secondary">View a Sample Report →</a>
+  </div>
+ 
+  <div class="footer-tagline">
+    Clinical Practice ↓ Scientific Research ↓ International Collaboration ↓ CardioIQ
+  </div>
+ 
+</main>
+ 
+<footer class="site-footer">
+  <p style="margin-bottom:0.5rem;">
+    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
+    <a href="/about/">About</a> &nbsp;·&nbsp;
+    <a href="/blog/apob-guide/">Blog</a> &nbsp;·&nbsp;
+    <a href="/sample-report/">Sample Report</a>
+  </p>
+  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+</footer>
+ 
+</body>
+</html>
