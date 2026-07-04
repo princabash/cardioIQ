@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>High Lp(a) and ApoB Targets: Why Standard Thresholds May Not Be Enough | CardioIQ</title>
+  <meta name="description" content="Elevated Lp(a) changes how ApoB targets should be interpreted. Standard ApoB thresholds may underestimate true cardiovascular risk when Lp(a) is high. Evidence-based guide reviewed by Dr. Tea Gamezardashvili, MD PhD MHA FACC." />
+  <link rel="canonical" href="https://cardioiq.health/blog/apob-lpa-targets/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MedicalWebPage", "Article"],
+    "headline": "High Lp(a) and ApoB Targets: Why Standard Thresholds May Not Be Enough",
+    "description": "Elevated Lp(a) fundamentally changes how ApoB targets should be interpreted. Standard thresholds may underestimate cardiovascular risk when Lp(a) is elevated.",
+    "url": "https://cardioiq.health/blog/apob-lpa-targets/",
+    "datePublished": "2026-07-04",
+    "dateModified": "2026-07-04",
+    "author": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC"
+    },
+    "reviewedBy": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CardioIQ",
+      "url": "https://cardioiq.health"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --navy:       #0B1F3A;
+      --navy-mid:   #112847;
+      --teal:       #0E7C7B;
+      --teal-light: #12A09E;
+      --gold:       #C9A84C;
+      --gold-light: #E4C878;
+      --cream:      #F8F6F1;
+      --white:      #FFFFFF;
+      --text:       #1A2B3C;
+      --muted:      #4A6070;
+      --border:     #D8E4EC;
+      --red:        #B91C1C;
+      --red-bg:     #FDECEA;
+      --font-display: Georgia, 'Times New Roman', serif;
+      --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+      --max-w: 760px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 17px; line-height: 1.75; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+ 
+    .site-nav { background: var(--navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.35rem; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600; }
+ 
+    .article-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 5rem 2rem 4rem; text-align: center; }
+    .article-tag { display: inline-block; background: rgba(201,168,76,0.18); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .article-hero h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 3.5vw, 2.5rem); color: var(--white); max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.3; }
+    .article-hero p.lead { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2.5rem; }
+    .byline { display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 0.75rem 1.25rem; }
+    .byline-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; color: var(--white); font-weight: 700; flex-shrink: 0; }
+    .byline-text { text-align: left; }
+    .byline-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+    .byline-name { font-size: 0.88rem; color: var(--white); font-weight: 600; }
+    .byline-creds { font-size: 0.78rem; color: var(--gold-light); }
+ 
+    .article-body { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem 4rem; }
+    .article-body h2 { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy); margin: 3rem 0 1rem; padding-top: 1rem; border-top: 2px solid var(--border); }
+    .article-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 2rem 0 0.6rem; }
+    .article-body p { margin-bottom: 1.1rem; }
+    .article-body strong { color: var(--navy); }
+    .article-body a { color: var(--teal); text-decoration: underline; }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+    .article-body li { margin-bottom: 0.5rem; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+ 
+    .intro-paragraph { font-size: 1.05rem; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 1.25rem; margin-bottom: 2rem; }
+ 
+    /* Key insight box */
+    .key-insight { background: var(--red-bg); border: 1px solid rgba(185,28,28,0.2); border-left: 4px solid var(--red); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .key-insight-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 0.5rem; }
+    .key-insight p { margin: 0; font-size: 0.95rem; color: var(--text); }
+ 
+    .callout-teal { background: rgba(14,124,123,0.06); border-left: 4px solid var(--teal); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .callout-gold { background: #FFF8E8; border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .callout-navy { background: var(--cream); border-left: 4px solid var(--navy); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .callout-teal p, .callout-gold p, .callout-navy p { margin: 0; font-size: 0.95rem; }
+ 
+    /* Adjusted targets table */
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0 2rem; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    thead { background: var(--navy); }
+    thead th { color: var(--white); text-align: left; padding: 0.85rem 1rem; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; }
+    tbody tr:nth-child(even) { background: var(--cream); }
+    tbody tr:nth-child(odd) { background: var(--white); }
+    tbody td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: none; }
+    .target-std { color: var(--muted); font-weight: 600; }
+    .target-adj { color: var(--red); font-weight: 700; }
+    .scenario-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 100px; }
+    .s-low { background: #EAF7F0; color: #15803D; }
+    .s-high { background: #FEF3C7; color: #92400E; }
+    .s-very { background: var(--red-bg); color: var(--red); }
+ 
+    /* Formula box */
+    .formula-box { background: var(--navy); border-radius: 14px; padding: 2rem; margin: 2rem 0; text-align: center; }
+    .formula-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
+    .formula-eq { font-family: var(--font-display); font-size: 1.25rem; color: var(--white); margin-bottom: 0.5rem; line-height: 1.5; }
+    .formula-eq span { color: var(--gold); }
+    .formula-example { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 0.75rem; line-height: 1.6; }
+    .formula-note { margin-top: 1rem; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.25); border-radius: 8px; padding: 0.75rem 1rem; font-size: 0.82rem; color: var(--gold-light); text-align: left; }
+ 
+    /* Practical steps */
+    .steps-list { margin: 1.5rem 0; }
+    .step-item { display: flex; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+    .step-item:last-child { border-bottom: none; }
+    .step-num { width: 32px; height: 32px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 0.85rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+    .step-content h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .step-content p { font-size: 0.88rem; color: var(--muted); margin: 0; line-height: 1.6; }
+ 
+    /* Bottom line */
+    .bottom-line { background: var(--navy); border-radius: 14px; padding: 2rem; margin: 2rem 0; }
+    .bottom-line h3 { font-family: var(--font-display); color: var(--gold-light); font-size: 1.1rem; margin-bottom: 1rem; }
+    .bottom-line p { color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 0.75rem; line-height: 1.7; }
+    .bottom-line p:last-child { margin-bottom: 0; }
+ 
+    /* Related articles */
+    .related { background: var(--cream); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 2rem 0; }
+    .related-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 1rem; }
+    .related a { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.92rem; margin-bottom: 0.65rem; }
+    .related a:last-child { margin-bottom: 0; }
+    .related a span { color: var(--teal); }
+ 
+    /* CTA */
+    .cta-block { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 16px; padding: 3rem 2.5rem; text-align: center; margin: 3.5rem 0 2rem; }
+    .cta-block h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 0.75rem; }
+    .cta-block p { color: rgba(255,255,255,0.72); font-size: 0.95rem; max-width: 500px; margin: 0 auto 0.5rem; }
+    .cta-flow { display: flex; justify-content: center; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 1.25rem 0 2rem; font-size: 0.8rem; }
+    .cta-flow-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 0.3rem 0.75rem; color: rgba(255,255,255,0.8); }
+    .cta-arrow { color: var(--gold); }
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); font-weight: 700; font-size: 1rem; padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; margin-bottom: 0.75rem; }
+    .btn-primary:hover { background: var(--teal-light); color: var(--white); }
+    .btn-secondary { display: inline-block; color: rgba(255,255,255,0.65); font-size: 0.88rem; text-decoration: none; padding: 0.4rem 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; margin-left: 0.75rem; }
+ 
+    /* Medical notice */
+    .medical-notice { background: #FFF8E8; border: 1px solid var(--gold); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 3rem 0 2rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .notice-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .medical-notice p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+ 
+    /* References */
+    .references { background: var(--cream); border-radius: 10px; padding: 1.75rem 2rem; margin-top: 3rem; }
+    .references h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 1rem; border: none; padding: 0; }
+    .references ol { margin: 0; padding-left: 1.3rem; font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+    .references li { margin-bottom: 0.5rem; }
+    .references a { color: var(--teal); }
+ 
+    .site-footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 2.5rem 2rem; font-size: 0.83rem; }
+    .site-footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+ 
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .cta-block { padding: 2rem 1.25rem; }
+      .btn-secondary { display: block; margin: 0.75rem auto 0; text-align: center; }
+      .formula-eq { font-size: 1rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+ 
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/apob-guide/">Blog</a></li>
+    <li><a href="/demo-report/">Demo Report</a></li>
+    <li><a href="/" class="nav-cta">Get my report</a></li>
+  </ul>
+</nav>
+ 
+<header class="article-hero">
+  <div class="article-tag">ApoB · Lp(a) · Risk Assessment</div>
+  <h1>High Lp(a) and ApoB Targets: Why Standard Thresholds May Not Be Enough</h1>
+  <p class="lead">When Lp(a) is elevated, standard ApoB cutoffs can underestimate true cardiovascular risk — and the clinical response needs to be more aggressive than guidelines alone suggest.</p>
+  <div class="byline">
+    <div class="byline-avatar">TG</div>
+    <div class="byline-text">
+      <div class="byline-label">Medically Reviewed By</div>
+      <div class="byline-name"><a href="/about/" style="color:inherit;text-decoration:none;">Dr. Tea Gamezardashvili</a></div>
+      <div class="byline-creds">MD, PhD, MHA, FACC · Cardiologist &amp; Lipidologist</div>
+    </div>
+  </div>
+</header>
+ 
+<main class="article-body">
+ 
+  <p class="intro-paragraph">ApoB is the most direct measure of atherogenic particle burden — but its predictive value assumes that each ApoB-containing particle carries roughly similar cardiovascular risk. Elevated Lp(a) challenges this assumption. Lp(a) particles are counted within the total ApoB measurement, but they carry a disproportionately higher atherogenic load than standard LDL particles. The result: standard ApoB targets can systematically underestimate true risk in patients with high Lp(a).</p>
+ 
+  <p>Understanding why this happens — and what to do about it — is one of the more nuanced aspects of modern lipidology and is directly relevant to clinical decision-making in patients with elevated Lp(a).</p>
+ 
+  <hr />
+ 
+  ## The Core Mechanism: Why ApoB Underestimates Risk in High Lp(a)
+ 
+  <p>Three interconnected findings explain why standard ApoB thresholds may be insufficient when Lp(a) is elevated:</p>
+ 
+  <div class="key-insight">
+    <div class="key-insight-label">Key Mechanism</div>
+    <p><strong>Lp(a) particles are estimated to be approximately 7-fold more atherogenic per particle than standard LDL particles</strong> — yet standard ApoB measurements count Lp(a) particles the same way they count LDL particles, with no weighting for this difference in atherogenicity. This means that a patient's total ApoB can look acceptable while their true atherogenic burden is substantially higher than the number reflects.</p>
+  </div>
+ 
+  <p>There is a second, equally important effect. Research has shown that the association between total ApoB and coronary heart disease risk is <strong>diminished or partially lost in patients with high Lp(a)</strong>. This occurs because Lp(a) drives cardiovascular events through mechanisms that are partially independent of the standard ApoB-atherosclerosis pathway — including its prothrombotic effects through structural resemblance to plasminogen. When Lp(a) is a significant contributor to a patient's particle burden, using total ApoB alone to assess risk means missing a substantial portion of what's driving that risk.</p>
+ 
+  <div class="callout-teal">
+    <p><strong>The practical implication:</strong> A patient with ApoB of 85 mg/dL and Lp(a) of 180 nmol/L is not in the same risk category as a patient with ApoB of 85 mg/dL and normal Lp(a) — even though their total ApoB numbers are identical. Standard ApoB targets were not calibrated for the high-Lp(a) phenotype.</p>
+  </div>
+ 
+  <hr />
+ 
+  ## Adjusted ApoB Targets When Lp(a) Is Elevated
+ 
+  <p>When Lp(a) is elevated (≥50 mg/dL or ≥125 nmol/L per EAS 2022 Consensus), current evidence supports a more aggressive ApoB target than standard guidelines recommend for the equivalent risk category. The following framework reflects emerging clinical practice and expert opinion, rather than formally adopted guideline thresholds — but it is grounded in the biological rationale above and in the principle that residual Lp(a)-mediated risk should prompt intensification of modifiable risk factors.</p>
+ 
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Clinical Scenario</th>
+          <th>Standard ApoB Target</th>
+          <th>With Elevated Lp(a) ≥125 nmol/L</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="scenario-badge s-low">Low / Moderate Risk</span></td>
+          <td><span class="target-std">&lt;90 mg/dL</span></td>
+          <td><span class="target-adj">&lt;80 mg/dL</span> (or lower)</td>
+        </tr>
+        <tr>
+          <td><span class="scenario-badge s-high">High Risk</span><br/><small style="color:var(--muted);font-size:0.78rem;">Diabetes · CKD · Multiple risk factors</small></td>
+          <td><span class="target-std">&lt;80 mg/dL</span></td>
+          <td><span class="target-adj">&lt;65 mg/dL</span></td>
+        </tr>
+        <tr>
+          <td><span class="scenario-badge s-very">Very High Risk</span><br/><small style="color:var(--muted);font-size:0.78rem;">Prior ASCVD · FH · Severe CKD</small></td>
+          <td><span class="target-std">&lt;65 mg/dL</span></td>
+          <td><span class="target-adj">&lt;55 mg/dL</span> (or lowest achievable)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+  <div class="callout-gold">
+    <p><strong>For a "healthy" individual with elevated Lp(a):</strong> A minimum ApoB target of &lt;100 mg/dL should be recognised as a floor — not a goal — given that elevated Lp(a) places this person at higher actual risk than traditional risk factors alone suggest. If additional risk enhancers are present (family history of premature ASCVD, metabolic syndrome, chronic inflammation, South Asian ancestry), a target of &lt;80 mg/dL is more appropriate.</p>
+  </div>
+ 
+  <hr />
+ 
+  ## The Risk-Weighted ApoB Concept
+ 
+  <p>Some lipidology researchers have proposed a risk-weighted ApoB formula to better capture the total atherogenic burden in patients with elevated Lp(a):</p>
+ 
+  <div class="formula-box">
+    <div class="formula-label">Emerging Concept — Not Yet Guideline-Endorsed</div>
+    <div class="formula-eq">
+      Risk-Weighted ApoB = <span>ApoB</span> + (<span>Lp(a)</span> × <span>6</span>)
+    </div>
+    <div class="formula-example">
+      Example: ApoB 85 mg/dL · Lp(a) 175 nmol/L (~78 mg/dL)<br />
+      Risk-Weighted ApoB = 85 + (78 × 6) = 85 + 468 = <strong style="color:var(--gold-light);">553</strong><br />
+      — versus a patient with ApoB 85 mg/dL and normal Lp(a): Risk-Weighted ApoB = 85
+    </div>
+    <div class="formula-note">
+      ⚠️ This formula is a conceptual framework proposed in the lipidology literature to illustrate the disproportionate atherogenicity of Lp(a) particles. It is <strong>not a formally validated clinical tool</strong> and is not endorsed by ESC/EAS, ACC/AHA, or other major guideline bodies. It is presented here to illustrate why identical total ApoB values carry very different risk in the presence of elevated Lp(a) — and why treating ApoB and Lp(a) as independent, additive risk factors matters clinically.
+    </div>
+  </div>
+ 
+  <p>The formula helps explain a pattern seen repeatedly in clinical practice: patients with "acceptable" ApoB levels (80–100 mg/dL) and high Lp(a) (150–200 nmol/L) continue to experience cardiovascular events despite apparently adequate lipid management. The Lp(a)-mediated atherogenic and thrombotic burden is not captured in the standard ApoB number.</p>
+ 
+  <hr />
+ 
+  ## What This Means in Practice: Five Clinical Recommendations
+ 
+  <div class="steps-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Measure Lp(a) once in all high-risk patients</h4>
+        <p>Target &lt;50 mg/dL or &lt;125 nmol/L per EAS 2022 Consensus. A single measurement is sufficient — Lp(a) is genetically determined and largely stable across a lifetime. Many patients with elevated Lp(a) have never been tested.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Do not rely solely on LDL-C or standard ApoB targets when Lp(a) is elevated</h4>
+        <p>In patients with Lp(a) ≥125 nmol/L, an "on-target" ApoB by standard thresholds may still reflect a high atherogenic burden. Shift the target one category more aggressive than the patient's conventional risk category would suggest.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Intensify ApoB lowering to the lowest achievable level</h4>
+        <p>High-potency statins (atorvastatin 40–80 mg, rosuvastatin 20–40 mg) + ezetimibe as first steps. PCSK9 inhibitors (evolocumab, alirocumab) are the most potent option — they lower LDL-C and ApoB by 50–60% and also lower Lp(a) by approximately 20–30%, making them particularly relevant in the high-Lp(a) phenotype.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Target ApoB &lt;65 mg/dL (or &lt;55 mg/dL) for very high-risk patients with elevated Lp(a)</h4>
+        <p>The rationale: since Lp(a)-mediated risk cannot currently be eliminated pharmacologically (no approved Lp(a)-lowering therapy as of 2026), the modifiable component — LDL and non-Lp(a) ApoB — should be reduced as far as safely possible to offset the fixed Lp(a) burden.</p>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Consider LDL apheresis in extreme cases</h4>
+        <p>In patients with progressive cardiovascular disease despite maximal pharmacotherapy, Lp(a) &gt;180 mg/dL, and failure to achieve adequate ApoB reduction, LDL apheresis may be considered. This removes both LDL and Lp(a) particles directly and is available at specialised lipid centres.</p>
+      </div>
+    </div>
+  </div>
+ 
+  <hr />
+ 
+  ## Why This Matters Beyond Guidelines
+ 
+  <p>Current major guidelines — ESC/EAS 2019, ACC/AHA 2018, CCS 2021 — acknowledge Lp(a) as an independent risk-enhancing factor and recommend measuring it, particularly in patients at intermediate or high risk. What they do not yet do is provide formally calibrated ApoB targets specifically adjusted for elevated Lp(a), partly because the evidence base for such precise adjustments is still developing.</p>
+ 
+  <p>The 2025 <em>Circulation</em> meta-analysis of six major statin trials confirmed directly that potent LDL-C reduction does not offset Lp(a)-mediated cardiovascular risk — participants with the lowest achieved LDL-C but elevated Lp(a) still carried a 38% higher risk of major adverse cardiovascular events compared with those with both low LDL-C and normal Lp(a). This evidence base is precisely what motivates the more aggressive ApoB targets described in this article.</p>
+ 
+  <div class="callout-navy">
+    <p><strong>The principle:</strong> Where a risk factor cannot yet be directly lowered (Lp(a)), the clinically rational response is to lower every modifiable risk factor more aggressively — including ApoB — to reduce the total atherogenic burden as far as possible.</p>
+  </div>
+ 
+  <!-- Bottom line -->
+  <div class="bottom-line">
+    <h3>Bottom Line</h3>
+    <p>Elevated Lp(a) is a risk-enhancing factor that demands more aggressive ApoB targets. Standard ApoB thresholds — &lt;90 or &lt;80 mg/dL — may be insufficient for patients with Lp(a) ≥125 nmol/L. The appropriate response is to shift the target one category lower and use the most potent available lipid-lowering therapy to reach it.</p>
+    <p>Residual risk from Lp(a) may persist even at optimal ApoB levels — acknowledging this honestly, monitoring proactively, and preparing patients for emerging Lp(a)-specific therapies (currently in Phase 3 trials) is the current best practice.</p>
+  </div>
+ 
+  <!-- Related articles -->
+  <div class="related">
+    <div class="related-label">Related Articles</div>
+    <a href="/blog/apob-guide/"><span>→</span> ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk</a>
+    <a href="/blog/apob-normal-range/"><span>→</span> What Is a Normal ApoB Level? Ranges, Targets &amp; When to Test</a>
+    <a href="/blog/lpa-vs-ldl/"><span>→</span> Lp(a) vs LDL: Why a Normal Cholesterol Test Can Miss a Serious Risk Factor</a>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Know Your ApoB and Lp(a) Together</h2>
+    <p>CardioIQ assesses both ApoB and Lp(a) in the context of your full lipid panel — identifying whether Lp(a) is driving a gap between your apparent ApoB target and your true atherogenic burden.</p>
+    <div class="cta-flow">
+      <span class="cta-flow-item">Upload your panel</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">ApoB + Lp(a)</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Risk assessment</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Adjusted targets</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Clinical report</span>
+    </div>
+    <a href="/" class="btn-primary">Start Your Free Assessment</a>
+    <a href="/demo-report/" class="btn-secondary">View Sample Report →</a>
+  </div>
+ 
+  <!-- Medical notice -->
+  <div class="medical-notice">
+    <div class="notice-icon">⚠️</div>
+    <p><strong>Important Medical Notice.</strong> This article is for educational and informational purposes only. The adjusted ApoB targets and risk-weighted ApoB concept described here reflect emerging clinical evidence and expert opinion — they are not formally adopted in major international guidelines as of 2026. Always consult a qualified physician before making decisions about your health or treatment.</p>
+  </div>
+ 
+  <!-- References -->
+  <div class="references">
+    <h2>References</h2>
+    <ol>
+      <li>2022 EAS Consensus Statement on Lipoprotein(a). <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehac361" target="_blank" rel="noopener">10.1093/eurheartj/ehac361</a></li>
+      <li>Bhatia HS, Wandel S, Willeit P, et al. Independence of Lipoprotein(a) and LDL-C-Mediated Cardiovascular Risk. <em>Circulation</em>. 2025;151(4):312–321. doi:<a href="https://doi.org/10.1161/CIRCULATIONAHA.124.069556" target="_blank" rel="noopener">10.1161/CIRCULATIONAHA.124.069556</a></li>
+      <li>Lipoprotein(a) and coronary heart disease: ApoB-Lp(a) interaction. <em>PMC</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11437815/" target="_blank" rel="noopener">PMC11437815</a></li>
+      <li>2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455" target="_blank" rel="noopener">10.1093/eurheartj/ehz455</a></li>
+      <li>ApoB, LDL-C and non-HDL-C as markers of cardiovascular risk: systematic review (n≈600,000). <em>Journal of Clinical Lipidology</em>. 2025. PubMed: <a href="https://pubmed.ncbi.nlm.nih.gov/40681368/" target="_blank" rel="noopener">40681368</a></li>
+      <li>Zuber V et al. Mendelian randomization prioritises ApoB as key lipid risk factor for coronary artery disease. <em>International Journal of Epidemiology</em>. 2021. doi:<a href="https://doi.org/10.1093/ije/dyab074" target="_blank" rel="noopener">10.1093/ije/dyab074</a></li>
+    </ol>
+  </div>
+ 
+</main>
+ 
+<footer class="site-footer">
+  <p style="margin-bottom:0.5rem;">
+    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
+    <a href="/about/">About</a> &nbsp;·&nbsp;
+    <a href="/blog/apob-guide/">Blog</a> &nbsp;·&nbsp;
+    <a href="/demo-report/">Demo Report</a>
+  </p>
+  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+</footer>
+ 
+</body>
+</html>
