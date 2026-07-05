@@ -86,11 +86,13 @@
     .mission-taglines p { color: rgba(255,255,255,0.65); font-size: 0.95rem; margin-bottom: 0.4rem; }
  
     /* Founder card */
-    .founder-card { background: var(--cream); border-radius: 14px; padding: 2rem; margin-bottom: 2rem; display: flex; gap: 1.5rem; align-items: flex-start; }
+    .founder-card { background: var(--cream); border-radius: 14px; padding: 2rem; margin-bottom: 2rem; display: flex; gap: 1.5rem; align-items: flex-start; transition: box-shadow 0.2s, transform 0.2s; }
+    .founder-card:hover { box-shadow: 0 4px 18px rgba(11,31,58,0.12); transform: translateY(-1px); }
     .founder-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.5rem; color: var(--gold); font-weight: 700; flex-shrink: 0; }
     .founder-info h3 { font-size: 1.15rem; font-weight: 700; color: var(--navy); margin-bottom: 0.2rem; }
     .founder-creds { color: var(--teal); font-size: 0.88rem; font-weight: 600; margin-bottom: 0.75rem; }
     .founder-info p { font-size: 0.93rem; color: var(--muted); margin: 0; }
+    .founder-link-hint { font-size: 0.8rem; color: var(--teal); font-weight: 600; margin-top: 0.6rem; }
  
     /* Credentials badges */
     .creds-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1.25rem 0; }
@@ -186,14 +188,15 @@
   <!-- Founder -->
   <div class="section">
     <div class="section-label">Built by a Cardiologist</div>
-    <div class="founder-card">
+    <a href="https://teagamezardashvili.com" target="_blank" rel="noopener" class="founder-card" style="text-decoration:none;">
       <div class="founder-avatar">TG</div>
       <div class="founder-info">
         <h3>Tea Gamezardashvili</h3>
         <div class="founder-creds">MD, PhD, MHA, FACC · Preventive Cardiologist &amp; Lipidologist</div>
         <p>Founder of CardioIQ. Clinical researcher with extensive clinical, academic, and international leadership experience in preventive cardiology and lipidology.</p>
+        <div class="founder-link-hint">View full profile →</div>
       </div>
-    </div>
+    </a>
     <p>Dr. Gamezardashvili serves as President of the Georgian Atherosclerosis Association, National Coordinator of the European Atherosclerosis Society (EAS) Lipid Clinic Network for Georgia, Clinical Manager at REMEDICAL Hospital, and Associate Professor.</p>
     <p>CardioIQ reflects years of clinical experience caring for patients with dyslipidemia, atherosclerotic cardiovascular disease, diabetes, chronic kidney disease, and other cardiometabolic conditions.</p>
   </div>
