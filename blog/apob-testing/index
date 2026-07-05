@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ApoB Test: What It Measures and Who Should Get One | CardioIQ</title>
+  <meta name="description" content="The ApoB test counts atherogenic particles instead of measuring cholesterol weight — and it catches risk that a standard lipid panel misses in roughly 1 in 5 people. Learn who should get tested. Medically reviewed by Dr. Tea Gamezardashvili, MD PhD MHA FACC." />
+  <link rel="canonical" href="https://cardioiq.health/blog/apob-testing/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MedicalWebPage", "Article"],
+    "headline": "ApoB Test: What It Measures and Who Should Get One",
+    "description": "What the ApoB test measures, why it outperforms LDL-C for cardiovascular risk prediction, and the seven patient groups who should consider testing.",
+    "url": "https://cardioiq.health/blog/apob-testing/",
+    "datePublished": "2026-07-05",
+    "dateModified": "2026-07-05",
+    "author": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC"
+    },
+    "reviewedBy": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CardioIQ",
+      "url": "https://cardioiq.health"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --navy:       #0B1F3A;
+      --navy-mid:   #112847;
+      --teal:       #0E7C7B;
+      --teal-light: #12A09E;
+      --gold:       #C9A84C;
+      --gold-light: #E4C878;
+      --cream:      #F8F6F1;
+      --white:      #FFFFFF;
+      --text:       #1A2B3C;
+      --muted:      #4A6070;
+      --border:     #D8E4EC;
+      --font-display: Georgia, 'Times New Roman', serif;
+      --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+      --max-w: 760px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 17px; line-height: 1.75; color: var(--text); background: var(--white); -webkit-font-smoothing: antialiased; }
+ 
+    .site-nav { background: var(--navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-family: var(--font-display); font-size: 1.35rem; color: var(--white); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--teal); color: var(--white) !important; padding: 0.45rem 1.1rem; border-radius: 6px; font-weight: 600; }
+ 
+    .article-hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 5rem 2rem 4rem; text-align: center; }
+    .article-tag { display: inline-block; background: rgba(201,168,76,0.18); color: var(--gold-light); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .article-hero h1 { font-family: var(--font-display); font-size: clamp(1.7rem, 3.5vw, 2.6rem); color: var(--white); max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.3; }
+    .article-hero p.lead { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2.5rem; }
+    .byline { display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 0.75rem 1.25rem; }
+    .byline-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1rem; color: var(--white); font-weight: 700; flex-shrink: 0; }
+    .byline-text { text-align: left; }
+    .byline-label { font-size: 0.72rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+    .byline-name { font-size: 0.88rem; color: var(--white); font-weight: 600; }
+    .byline-creds { font-size: 0.78rem; color: var(--gold-light); }
+ 
+    .article-body { max-width: var(--max-w); margin: 0 auto; padding: 3rem 2rem 4rem; }
+    .article-body h2 { font-family: var(--font-display); font-size: 1.6rem; color: var(--navy); margin: 3rem 0 1rem; padding-top: 1rem; border-top: 2px solid var(--border); }
+    .article-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 2rem 0 0.6rem; }
+    .article-body p { margin-bottom: 1.1rem; }
+    .article-body strong { color: var(--navy); }
+    .article-body a { color: var(--teal); text-decoration: underline; }
+    .article-body ul, .article-body ol { margin: 0.75rem 0 1.1rem 1.4rem; }
+    .article-body li { margin-bottom: 0.4rem; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+ 
+    .intro-paragraph { font-size: 1.05rem; color: var(--muted); border-left: 3px solid var(--gold); padding-left: 1.25rem; margin-bottom: 2rem; }
+ 
+    .quick-answer { background: var(--navy); border-radius: 14px; padding: 1.75rem 2rem; margin: 2rem 0; }
+    .quick-answer-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-light); margin-bottom: 0.75rem; }
+    .quick-answer h3 { color: var(--white); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .quick-answer p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin: 0; line-height: 1.6; }
+ 
+    .table-wrap { overflow-x: auto; margin: 1.5rem 0 2rem; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.07); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    thead { background: var(--navy); }
+    thead th { color: var(--white); text-align: left; padding: 0.85rem 1rem; font-weight: 600; font-size: 0.82rem; letter-spacing: 0.04em; }
+    tbody tr:nth-child(even) { background: var(--cream); }
+    tbody tr:nth-child(odd) { background: var(--white); }
+    tbody td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: none; }
+    .risk-badge { display: inline-block; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.65rem; border-radius: 100px; }
+    .risk-low { background: #EAF7F0; color: #15803D; }
+    .risk-mod { background: #FFF8E8; color: #92610A; }
+    .risk-high { background: #FEF3C7; color: #92400E; }
+    .risk-very { background: #FDECEA; color: #B91C1C; }
+    .apob-target { font-weight: 700; color: var(--navy); font-size: 1rem; }
+ 
+    .callout { border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.75rem 0; }
+    .callout-teal { background: rgba(14,124,123,0.06); border-left: 4px solid var(--teal); }
+    .callout-gold { background: #FFF8E8; border-left: 4px solid var(--gold); }
+    .callout-navy { background: var(--cream); border-left: 4px solid var(--navy); }
+    .callout p { margin: 0; font-size: 0.95rem; }
+ 
+    .keypoints { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .keypoint { background: var(--cream); border-radius: 10px; padding: 1.25rem; border-top: 3px solid var(--teal); }
+    .keypoint h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .keypoint p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.55; }
+ 
+    .test-list { background: var(--cream); border-radius: 12px; padding: 1.5rem 1.75rem; margin: 1.5rem 0; }
+    .test-list h3 { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1rem; }
+    .test-item { display: flex; gap: 0.75rem; margin-bottom: 0.75rem; align-items: flex-start; }
+    .test-item:last-child { margin-bottom: 0; }
+    .test-icon { width: 28px; height: 28px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+    .test-item p { font-size: 0.92rem; color: var(--text); margin: 0; line-height: 1.55; }
+ 
+    .faq-item { border-bottom: 1px solid var(--border); padding: 1.25rem 0; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; font-size: 1rem; }
+    .faq-a { color: var(--text); font-size: 0.95rem; margin: 0; }
+ 
+    .medical-notice { background: #FFF8E8; border: 1px solid var(--gold); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 3rem 0 2rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .notice-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .medical-notice p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+    .medical-notice strong { color: var(--navy); }
+ 
+    .cta-block { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%); border-radius: 16px; padding: 3rem 2.5rem; text-align: center; margin: 3.5rem 0 2rem; }
+    .cta-block h2 { font-family: var(--font-display); font-size: 1.5rem; color: var(--white); margin-bottom: 0.75rem; border: none; padding: 0; }
+    .cta-block p { color: rgba(255,255,255,0.72); font-size: 0.95rem; max-width: 500px; margin: 0 auto 0.5rem; }
+    .cta-flow { display: flex; justify-content: center; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 1.25rem 0 2rem; font-size: 0.8rem; }
+    .cta-flow-item { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; padding: 0.3rem 0.75rem; color: rgba(255,255,255,0.8); }
+    .cta-arrow { color: var(--gold); }
+    .btn-primary { display: inline-block; background: var(--teal); color: var(--white); font-weight: 700; font-size: 1rem; padding: 0.9rem 2.2rem; border-radius: 8px; text-decoration: none; transition: background 0.2s; margin-bottom: 0.75rem; }
+    .btn-primary:hover { background: var(--teal-light); color: var(--white); }
+    .btn-secondary { display: inline-block; color: rgba(255,255,255,0.65); font-size: 0.88rem; text-decoration: none; padding: 0.4rem 0.75rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; margin-left: 0.75rem; }
+ 
+    .references { background: var(--cream); border-radius: 10px; padding: 1.75rem 2rem; margin-top: 3rem; }
+    .references h2 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 1rem; border: none; padding: 0; }
+    .references ol { margin: 0; padding-left: 1.3rem; font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+    .references li { margin-bottom: 0.5rem; }
+    .references a { color: var(--teal); }
+ 
+    .site-footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 2.5rem 2rem; font-size: 0.83rem; }
+    .site-footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+ 
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .keypoints { grid-template-columns: 1fr; }
+      .cta-block { padding: 2rem 1.25rem; }
+      .btn-secondary { display: block; margin: 0.75rem auto 0; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+ 
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/apob-guide/">Blog</a></li>
+    <li><a href="/demo-report/">Demo Report</a></li>
+    <li><a href="/" class="nav-cta">Get my report</a></li>
+  </ul>
+</nav>
+ 
+<header class="article-hero">
+  <div class="article-tag">ApoB · Testing Guide</div>
+  <h1>ApoB Test: What It Measures and Who Should Get One</h1>
+  <p class="lead">A standard lipid panel tells you how much cholesterol your particles are carrying. It doesn't tell you how many particles you actually have. That's the gap the ApoB test closes.</p>
+  <div class="byline">
+    <div class="byline-avatar">TG</div>
+    <div class="byline-text">
+      <div class="byline-label">Medically Reviewed By</div>
+      <div class="byline-name"><a href="/about/" style="color:inherit;text-decoration:none;">Dr. Tea Gamezardashvili</a></div>
+      <div class="byline-creds">MD, PhD, MHA, FACC · Cardiologist &amp; Lipidologist</div>
+    </div>
+  </div>
+</header>
+ 
+<main class="article-body">
+ 
+  <p class="intro-paragraph">The apolipoprotein B (ApoB) test counts the total number of atherogenic — artery-damaging — lipoprotein particles circulating in your blood. Every LDL, VLDL, IDL, and Lp(a) particle carries exactly one ApoB molecule, so measuring ApoB is effectively a direct particle count. Research consistently shows it outperforms LDL-C and non-HDL-C as a predictor of heart attack and stroke risk.</p>
+ 
+  <div class="quick-answer">
+    <div class="quick-answer-label">Quick Answer</div>
+    <h3>What ApoB Measures, Who Should Test</h3>
+    <p>ApoB counts atherogenic particles rather than the cholesterol weight inside them. Strong candidates for testing include anyone with a family or personal history of early cardiovascular disease, diabetes or metabolic syndrome, discordant lipid results, chronic inflammatory conditions, or anyone already on lipid-lowering therapy who wants to confirm it's working.</p>
+  </div>
+ 
+  <hr />
+ 
+  <h2 id="what-it-measures">What Does the ApoB Test Measure?</h2>
+ 
+  <p>Apolipoprotein B is the primary structural protein carried on every atherogenic lipoprotein:</p>
+ 
+  <ul>
+    <li><strong>LDL (low-density lipoprotein)</strong> — the main cholesterol carrier</li>
+    <li><strong>VLDL (very low-density lipoprotein)</strong> — a triglyceride-rich particle</li>
+    <li><strong>IDL (intermediate-density lipoprotein)</strong> — a transitional particle</li>
+    <li><strong>Lp(a) (lipoprotein(a))</strong> — a genetically determined, highly atherogenic particle</li>
+  </ul>
+ 
+  <div class="callout callout-teal">
+    <p><strong>Key principle:</strong> each of these particles carries exactly one ApoB molecule. Measuring ApoB therefore gives a total count of artery-damaging particles, regardless of how much cholesterol any individual particle happens to carry.</p>
+  </div>
+ 
+  <h3>ApoB vs. LDL-C: What's the Difference?</h3>
+ 
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Metric</th><th>What It Measures</th><th>Limitation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>LDL-C</strong></td><td>Cholesterol weight inside LDL particles</td><td>Can underestimate risk when particles are small and numerous</td></tr>
+        <tr><td><strong>ApoB</strong></td><td>Total number of atherogenic particles</td><td>More accurate, especially in metabolic syndrome, diabetes, and obesity</td></tr>
+      </tbody>
+    </table>
+  </div>
+ 
+  <p>Two patients can share an identical LDL-C of 100 mg/dL and still carry very different risk. A patient with large, cholesterol-rich particles will have a lower ApoB and lower risk. A patient with small, dense, numerous particles will have a higher ApoB — and higher risk — that LDL-C alone misses entirely.</p>
+ 
+  <hr />
+ 
+  <h2 id="why-it-matters">Why Is ApoB Important?</h2>
+ 
+  <div class="keypoints">
+    <div class="keypoint">
+      <h4>Superior risk prediction</h4>
+      <p>A meta-analysis of 12 studies found ApoB to be the most potent single marker of cardiovascular risk, ahead of both LDL-C and non-HDL-C.</p>
+    </div>
+    <div class="keypoint">
+      <h4>Detects discordance</h4>
+      <p>Roughly 15–20% of people have elevated ApoB alongside a "normal" LDL-C — meaning standard panels miss significant risk in about 1 in 5 people.</p>
+    </div>
+    <div class="keypoint">
+      <h4>Better treatment monitoring</h4>
+      <p>ApoB tracks tightly with response to statins, ezetimibe, and PCSK9 inhibitors — and guidelines increasingly recommend ApoB targets alongside LDL-C.</p>
+    </div>
+    <div class="keypoint">
+      <h4>Causal, not just correlated</h4>
+      <p>Mendelian randomization studies consistently identify ApoB as the primary lipid driver of coronary artery disease.</p>
+    </div>
+  </div>
+ 
+  <hr />
+ 
+  <h2 id="who-should-test">Who Should Get an ApoB Test?</h2>
+ 
+  <p>ApoB isn't part of a routine lipid panel — it has to be ordered separately. These are the groups where testing adds the most clinical value:</p>
+ 
+  <div class="test-list">
+    <h3>Strong Candidates for Testing</h3>
+    <div class="test-item">
+      <div class="test-icon">1</div>
+      <p><strong>Family history of premature cardiovascular disease</strong> — a first-degree relative with a heart attack or stroke before age 55 (men) or 65 (women)</p>
+    </div>
+    <div class="test-item">
+      <div class="test-icon">2</div>
+      <p><strong>Personal history of cardiovascular disease</strong> — prior heart attack, stroke, PCI/stent placement, or peripheral artery disease</p>
+    </div>
+    <div class="test-item">
+      <div class="test-icon">3</div>
+      <p><strong>Metabolic conditions</strong> — type 2 diabetes or prediabetes, metabolic syndrome, visceral obesity, or chronic kidney disease</p>
+    </div>
+    <div class="test-item">
+      <div class="test-icon">4</div>
+      <p><strong>Discordant lipid results</strong> — a "normal" LDL-C alongside high triglycerides, low HDL, or a family history suggesting higher risk than the panel indicates</p>
+    </div>
+    <div class="test-item">
+      <div class="test-icon">5</div>
+      <p><strong>Inflammatory conditions</strong> — rheumatoid arthritis, inflammatory bowel disease, psoriasis, or other chronic inflammatory states</p>
+    </div>
+    <div class="test-item">
+      <div class="test-icon">6</div>
+      <p><strong>Age 40+, building a baseline</strong> — midlife adults establishing a cardiovascular risk baseline, or anyone actively tracking biomarkers over time</p>
+    </div>
+    <div class="test-item">
+      <div class="test-icon">7</div>
+      <p><strong>Monitoring treatment response</strong> — already on statins, ezetimibe, or a PCSK9 inhibitor and want to confirm the therapy is adequate beyond what LDL-C shows</p>
+    </div>
+  </div>
+ 
+  <hr />
+ 
+  <h2 id="how-its-done">How Is the Test Performed?</h2>
+ 
+  <ul>
+    <li><strong>Sample type:</strong> a standard venous blood draw (typically 5–10 mL)</li>
+    <li><strong>Fasting:</strong> an 8–12 hour fast is recommended for the most accurate companion lipids (triglycerides, LDL-C)</li>
+    <li><strong>Turnaround:</strong> results are typically available within 24–48 hours</li>
+    <li><strong>Units:</strong> reported in mg/dL (US) or g/L (international)</li>
+  </ul>
+ 
+  <hr />
+ 
+  <h2 id="interpreting-results">How to Interpret Your Results</h2>
+ 
+  <p>Most laboratories report ApoB against general-population reference ranges — but those ranges aren't the same as the targets used for cardiovascular prevention.</p>
+ 
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Sex</th><th>Lab Reference Range</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Men</strong></td><td>66–133 mg/dL</td></tr>
+        <tr><td><strong>Women</strong></td><td>60–117 mg/dL</td></tr>
+      </tbody>
+    </table>
+  </div>
+ 
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Risk Category</th><th>ApoB Target</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="risk-badge risk-low">Low / Moderate</span></td>
+          <td><span class="apob-target">&lt;90 mg/dL</span></td>
+        </tr>
+        <tr>
+          <td><span class="risk-badge risk-high">High Risk</span> (diabetes, CKD, multiple risk factors)</td>
+          <td><span class="apob-target">&lt;80 mg/dL</span></td>
+        </tr>
+        <tr>
+          <td><span class="risk-badge risk-very">Very High Risk</span> (prior ASCVD, FH, severe CKD)</td>
+          <td><span class="apob-target">&lt;65 mg/dL</span> <span style="font-size:0.8rem;color:var(--muted);">(some guidelines: &lt;55 mg/dL)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ 
+  <p>As a general guide outside of risk-category targets: below 100 mg/dL is typically considered normal, 100–110 mg/dL borderline high, and above 110 mg/dL high risk.</p>
+ 
+  <div class="callout callout-gold">
+    <p><strong>Important:</strong> an elevated ApoB is a risk marker, not a diagnosis. It should prompt lifestyle optimization (diet, exercise, weight management), further risk assessment (coronary artery calcium score, Lp(a), family history), and a conversation with your provider about whether lipid-lowering therapy is appropriate.</p>
+  </div>
+ 
+  <hr />
+ 
+  <h2 id="limitations">Limitations</h2>
+ 
+  <ul>
+    <li><strong>Not routinely tested</strong> — many clinicians still rely on LDL-C alone</li>
+    <li><strong>Insurance coverage varies</strong> — it may not be covered without a specific clinical indication</li>
+    <li><strong>No single universal treatment target</strong> — guidelines are still evolving, though ApoB targets are increasingly incorporated into major cardiology society recommendations</li>
+    <li><strong>Doesn't isolate Lp(a)</strong> — ApoB counts Lp(a) particles within the total, but doesn't reveal how much of your risk is coming from Lp(a) specifically, which is markedly more atherogenic particle-for-particle. See <a href="/blog/lpa-vs-ldl/">Lp(a) vs LDL</a> for that distinction.</li>
+  </ul>
+ 
+  <hr />
+ 
+  <h2 id="faq">Common Questions</h2>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Do I need to fast before an ApoB test?</div>
+    <p class="faq-a">An 8–12 hour fast is generally recommended, mainly so that companion lipids drawn at the same time — triglycerides and calculated LDL-C — are accurate. ApoB itself is less affected by recent food intake than triglycerides are.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Is ApoB testing covered by insurance?</div>
+    <p class="faq-a">Coverage varies by insurer and typically requires a documented clinical indication — such as a discordant lipid panel, established cardiovascular disease, diabetes, or a strong family history. Ask your provider to note the specific indication on the order.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Should I get ApoB tested instead of a standard lipid panel, or in addition to it?</div>
+    <p class="faq-a">In addition to, not instead of. A standard lipid panel still provides useful information — HDL-C, triglycerides, and calculated LDL-C all factor into the overall picture. ApoB adds the particle-count dimension that the standard panel can't capture on its own.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">What should I do if my ApoB comes back high?</div>
+    <p class="faq-a">Treat it as a prompt to look further, not a standalone diagnosis. That typically means reviewing lifestyle factors, considering additional testing such as Lp(a) or a coronary artery calcium score, and discussing with your provider whether lipid-lowering therapy is appropriate given your overall risk category.</p>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Know Where Your ApoB Stands</h2>
+    <p>CardioIQ interprets your ApoB result in the context of your full lipid panel, your risk category, and current ESC/EAS and ACC/AHA guideline targets — telling you exactly where you stand and what it means.</p>
+    <div class="cta-flow">
+      <span class="cta-flow-item">Upload your panel</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">ApoB analysis</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Risk category</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Guideline target</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Clinical report</span>
+    </div>
+    <a href="/" class="btn-primary">Start Your Free Assessment</a>
+    <a href="/demo-report/" class="btn-secondary">View Sample Report →</a>
+  </div>
+ 
+  <!-- Medical notice -->
+  <div class="medical-notice">
+    <div class="notice-icon">⚠️</div>
+    <p><strong>Important Medical Notice.</strong> This article is for educational and informational purposes only. Reference ranges and targets cited reflect published guideline recommendations and may differ from your laboratory's reference range. Always consult a qualified physician before making decisions about your health or treatment.</p>
+  </div>
+ 
+  <!-- References -->
+  <div class="references">
+    <h2>References</h2>
+    <ol>
+      <li>Cleveland Clinic. Apolipoprotein B (ApoB) Test. <a href="https://my.clevelandclinic.org/health/diagnostics/24992-apolipoprotein-b-test" target="_blank" rel="noopener">my.clevelandclinic.org</a></li>
+      <li>Harvard Health Publishing. Is an ApoB test a better way to check your cholesterol? <a href="https://www.health.harvard.edu/heart-health/is-an-apob-test-a-better-way-to-check-your-cholesterol" target="_blank" rel="noopener">health.harvard.edu</a></li>
+      <li>Labcorp OnDemand. What Is ApoB and Why Does It Matter for Heart Health? <a href="https://www.ondemand.labcorp.com/blog/what-is-apob-heart-health" target="_blank" rel="noopener">ondemand.labcorp.com</a></li>
+      <li>NCBI StatPearls. Apolipoprotein B. <a href="https://www.ncbi.nlm.nih.gov/books/NBK538139/" target="_blank" rel="noopener">ncbi.nlm.nih.gov</a></li>
+      <li>2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455" target="_blank" rel="noopener">10.1093/eurheartj/ehz455</a></li>
+      <li>American Heart Association. <em>Circulation</em>. doi:<a href="https://doi.org/10.1161/CIRCULATIONAHA.124.068885" target="_blank" rel="noopener">10.1161/CIRCULATIONAHA.124.068885</a></li>
+      <li>Texas Health Resources. This New Test Can Provide More Clarity into Heart Disease Risk. <a href="https://www.texashealth.org/areyouawellbeing/Heart-Health/This-New-Test-Can-Provide-More-Clarity-into-Heart-Disease-Risk" target="_blank" rel="noopener">texashealth.org</a></li>
+      <li>PMC. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12537807/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov/articles/PMC12537807</a></li>
+      <li>University of Rochester Medical Center. Apolipoprotein B100. <a href="https://www.urmc.rochester.edu/encyclopedia/content?contenttypeid=167&amp;contentid=apolipoprotein_b100" target="_blank" rel="noopener">urmc.rochester.edu</a></li>
+    </ol>
+  </div>
+ 
+</main>
+ 
+<footer class="site-footer">
+  <p style="margin-bottom:0.5rem;">
+    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
+    <a href="/about/">About</a> &nbsp;·&nbsp;
+    <a href="/blog/apob-guide/">Blog</a> &nbsp;·&nbsp;
+    <a href="/demo-report/">Demo Report</a>
+  </p>
+  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+</footer>
+ 
+</body>
+</html>
