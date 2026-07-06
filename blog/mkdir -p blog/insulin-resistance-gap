@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  CardioIQ blog article
+  Pillar: 3 — Metabolic health (insulin resistance, TG/HDL, glucose)
+  Primary persona: The Optimizer  |  On-ramp persona: The Newly Worried
+  Slug: /blog/insulin-resistance-gap/
+  CRL chain: Finding → Reference frame → Mechanism → Evidence → Modifiers → Action → Boundary
+  Internal links (CONFIRM exact slugs against live site before publish):
+    - ApoB pillar        -> /blog/apob/
+    - ApoB testing guide -> /blog/apob-testing-guide/
+    - Product            -> https://cardioiq.health
+-->
+<title>Your Glucose Is "Normal" — So Why Are Your Arteries Aging? | CardioIQ</title>
+<meta name="description" content="Fasting glucose and HbA1c can read normal for years while insulin resistance quietly ages your arteries. Here's why fasting insulin and HOMA-IR matter — and what to do next.">
+<link rel="canonical" href="https://cardioiq.health/blog/insulin-resistance-gap/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Your Glucose Is 'Normal' — So Why Are Your Arteries Aging?">
+<meta property="og:description" content="The insulin resistance gap: how fasting insulin and HOMA-IR reveal cardiovascular risk that a normal glucose result hides.">
+<meta property="og:url" content="https://cardioiq.health/blog/insulin-resistance-gap/">
+<meta property="og:site_name" content="CardioIQ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#0a1c33;
+    --navy-800:#0f2947;
+    --navy-700:#173a63;
+    --paper:#f6f8fb;
+    --card:#ffffff;
+    --ink:#132232;
+    --muted:#57697c;
+    --line:#dfe6ee;
+    --gold:#c39a2b;
+    --gold-soft:#e3c974;
+    --teal:#188a7c;
+    --teal-deep:#0d5b52;
+    --teal-tint:#e7f3f1;
+    --amber-tint:#fbf3e2;
+    --maxw:720px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size:18px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+ 
+  /* ---------- top bar ---------- */
+  .topbar{border-bottom:1px solid rgba(255,255,255,.12);background:var(--navy-900)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;letter-spacing:.2px}
+  .brand .mark{width:26px;height:26px;flex:0 0 auto}
+  .topbar a.small{color:#c7d4e3;text-decoration:none;font-size:14px;font-weight:500}
+  .topbar a.small:hover{color:#fff}
+ 
+  /* ---------- hero ---------- */
+  .hero{background:
+      radial-gradient(1200px 400px at 78% -10%, rgba(35,120,110,.28), transparent 60%),
+      radial-gradient(900px 380px at 5% 120%, rgba(195,154,43,.16), transparent 55%),
+      var(--navy-900);
+    color:#eaf1f8;padding:64px 0 56px}
+  .eyebrow{
+    font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold-soft);margin:0 0 18px}
+  .eyebrow span{color:#8fb7c9}
+  h1{
+    font-family:"Newsreader",Georgia,serif;
+    font-weight:500;font-size:clamp(32px,5.4vw,50px);line-height:1.08;
+    letter-spacing:-.01em;margin:0 0 20px;color:#fff}
+  h1 em{font-style:italic;color:var(--gold-soft)}
+  .standfirst{font-size:19.5px;line-height:1.6;color:#c6d6e6;max-width:600px;margin:0}
+ 
+  /* hero thesis figure: glucose flat, insulin climbing */
+  .thesis{margin:38px 0 4px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);
+    border-radius:var(--radius);padding:20px 22px 16px}
+  .thesis figcaption{font-size:13px;color:#9fb4c8;margin-top:10px;line-height:1.5}
+  .thesis .legend{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:12px;font-size:13px;color:#cdddec}
+  .thesis .legend b{font-weight:600}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:1px}
+  svg .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s ease-out forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+ 
+  /* ---------- article body ---------- */
+  article{padding:56px 0 24px}
+  article h2{
+    font-family:"Newsreader",Georgia,serif;font-weight:500;
+    font-size:clamp(25px,3.6vw,32px);line-height:1.18;letter-spacing:-.01em;
+    color:var(--navy-800);margin:52px 0 14px}
+  article h3{font-size:19px;font-weight:600;color:var(--navy-800);margin:30px 0 8px}
+  article p{margin:0 0 18px}
+  article a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
+  article a:hover{color:var(--teal)}
+  .lede{font-size:20px;line-height:1.6;color:var(--ink)}
+  ul,ol{margin:0 0 20px;padding-left:22px}
+  li{margin:6px 0}
+  strong{color:var(--navy-800)}
+ 
+  .section-rule{border:none;border-top:1px solid var(--line);margin:8px 0 0}
+ 
+  /* pull device: the gap */
+  .gap-callout{
+    border-left:3px solid var(--gold);background:var(--amber-tint);
+    border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;font-size:17.5px}
+  .gap-callout b{color:#7a5c10}
+ 
+  /* reference tables: normal vs optimal lanes */
+  .reftable{width:100%;border-collapse:collapse;margin:10px 0 8px;font-size:16px;
+    border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .reftable caption{caption-side:top;text-align:left;font-size:14px;color:var(--muted);margin-bottom:8px}
+  .reftable th,.reftable td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}
+  .reftable thead th{background:var(--navy-800);color:#eaf1f8;font-weight:600;font-size:14px;letter-spacing:.02em}
+  .reftable tbody tr:last-child td{border-bottom:none}
+  .reftable .metric{font-weight:600;color:var(--navy-800)}
+  .reftable td.optimal{background:var(--teal-tint);color:var(--teal-deep);font-weight:600;font-variant-numeric:tabular-nums}
+  .reftable td.normal{color:var(--muted);font-variant-numeric:tabular-nums}
+  .reftable thead th.optimal{background:var(--teal-deep)}
+  .tnote{font-size:14px;color:var(--muted);margin:2px 0 22px}
+ 
+  /* worked example / formula card */
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:20px 22px;margin:22px 0}
+  .card h4{margin:0 0 10px;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-deep)}
+  .formula{font-family:"Newsreader",Georgia,serif;font-size:18px;color:var(--navy-800);
+    background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:6px 0 4px}
+  .worked{font-size:16px;color:var(--muted);margin:0}
+  .worked b{color:var(--navy-800)}
+ 
+  /* illustration case */
+  .case{background:var(--navy-900);color:#e9f0f8;border-radius:var(--radius);padding:26px 26px 22px;margin:26px 0}
+  .case h3{color:#fff;margin:0 0 4px}
+  .case .who{color:#9fb4c8;font-size:15px;margin:0 0 16px}
+  .labgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin:0 0 16px}
+  .labgrid div{display:flex;justify-content:space-between;gap:12px;font-size:15px;
+    padding:7px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .labgrid span:first-child{color:#b9c9da}
+  .labgrid span:last-child{font-variant-numeric:tabular-nums;font-weight:600;color:#fff}
+  .flag{color:var(--gold-soft)!important}
+  .case p{color:#cddbea;margin:6px 0 0;font-size:15.5px}
+  .case p b{color:#fff}
+ 
+  /* questions for your doctor */
+  .ask{border:1px solid var(--teal);background:var(--teal-tint);border-radius:var(--radius);
+    padding:22px 24px;margin:30px 0}
+  .ask h3{margin:0 0 10px;color:var(--teal-deep)}
+  .ask ul{margin:0;padding-left:20px}
+  .ask li{margin:8px 0;color:#0f453e}
+  .ask .say{font-style:italic}
+ 
+  /* CTA */
+  .cta{background:
+      radial-gradient(700px 240px at 90% -30%, rgba(35,120,110,.35), transparent 60%),
+      var(--navy-800);
+    color:#fff;border-radius:18px;padding:34px 32px;margin:44px 0 8px;text-align:left}
+  .cta h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:24px;color:#fff;margin:0 0 8px}
+  .cta p{color:#cdddec;margin:0 0 18px;font-size:16.5px;max-width:520px}
+  .cta a.btn{display:inline-block;background:var(--gold);color:#1b1405;font-weight:600;
+    text-decoration:none;padding:13px 22px;border-radius:10px;font-size:16px}
+  .cta a.btn:hover{background:var(--gold-soft)}
+ 
+  /* disclaimer */
+  .disclaimer{border-top:2px solid var(--gold);background:#fff;border-radius:0 0 12px 12px;
+    padding:22px 24px;margin:40px 0 0;font-size:14.5px;color:var(--muted);line-height:1.65}
+  .disclaimer strong{color:var(--navy-800)}
+ 
+  /* meta row */
+  .articlemeta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
+    color:var(--muted);font-size:14px;margin:0 0 6px}
+  .articlemeta .who-by{color:var(--navy-800);font-weight:600}
+  .pill{display:inline-block;background:var(--teal-tint);color:var(--teal-deep);
+    font-size:12.5px;font-weight:600;letter-spacing:.02em;padding:4px 10px;border-radius:999px}
+ 
+  footer{background:var(--navy-900);color:#9fb4c8;padding:34px 0;margin-top:52px;font-size:14px}
+  footer a{color:#cdddec;text-decoration:none}
+  footer a:hover{color:#fff}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
+ 
+  @media (max-width:600px){
+    body{font-size:17px}
+    .labgrid{grid-template-columns:1fr}
+    .hero{padding:48px 0 44px}
+    article{padding:40px 0 16px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    svg .draw{animation:none;stroke-dashoffset:0}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+ 
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="https://cardioiq.health">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#0f2947"/>
+        <path d="M6 17h4l2-5 3 9 2.5-6 1.5 2H26" fill="none" stroke="#c39a2b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      CardioIQ
+    </a>
+    <a class="small" href="https://cardioiq.health/blog">← All articles</a>
+  </div>
+</div>
+ 
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Metabolic Health &nbsp;·&nbsp; <span>Healthy Longevity Framework</span></p>
+    <h1>Your glucose is "normal."<br>So why are your arteries <em>aging</em>?</h1>
+    <p class="standfirst">Fasting glucose and HbA1c can read perfectly normal for years while insulin resistance quietly does its work. This is the insulin resistance gap — and it may be one of the most under-measured drivers of cardiovascular aging.</p>
+ 
+    <figure class="thesis">
+      <div class="legend">
+        <span><b class="dot" style="background:#8fb7c9"></b> Fasting glucose — stays "normal"</span>
+        <span><b class="dot" style="background:var(--gold-soft)"></b> Fasting insulin — climbing</span>
+      </div>
+      <svg viewBox="0 0 640 150" width="100%" height="150" role="img" aria-label="A chart showing fasting glucose staying flat and within normal range over years while fasting insulin rises steadily.">
+        <line x1="20" y1="120" x2="620" y2="120" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <line x1="20" y1="20" x2="20" y2="120" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+        <!-- glucose flat -->
+        <path class="draw" d="M20 96 C 120 94, 240 95, 360 92 C 460 90, 540 90, 620 86" fill="none" stroke="#8fb7c9" stroke-width="2.5" stroke-linecap="round" pathLength="1"/>
+        <!-- insulin rising -->
+        <path class="draw" d="M20 108 C 140 104, 250 92, 360 74 C 470 56, 545 40, 620 30" fill="none" stroke="#e3c974" stroke-width="3" stroke-linecap="round" pathLength="1"/>
+        <text x="26" y="16" fill="#9fb4c8" font-size="12" font-family="Inter">level</text>
+        <text x="556" y="138" fill="#9fb4c8" font-size="12" font-family="Inter">years →</text>
+      </svg>
+      <figcaption>The same person, tracked over time. Glucose can hold steady inside the reference range while insulin rises to keep it there — the compensation is invisible on a standard screen.</figcaption>
+    </figure>
+  </div>
+</header>
+ 
+<article>
+  <div class="wrap">
+ 
+    <div class="articlemeta">
+      <span class="pill">Metabolic health</span>
+      <span class="who-by">Reviewed against CardioIQ's clinical knowledge base</span>
+      <span>· 9 min read</span>
+    </div>
+ 
+    <p class="lede">You get your annual labs back. Fasting glucose is 88 mg/dL — textbook normal. HbA1c is 5.4%, well under the diabetes line. On paper, your metabolism looks fine.</p>
+ 
+    <p>And yet: energy dips after meals, weight that settles around the midsection, triglycerides that keep creeping up. These can be early signals of something a routine screen is not built to catch — <strong>insulin resistance that has been present, and quietly influencing your arteries, long before glucose ever moves.</strong></p>
+ 
+    <p>This article explains why that gap exists, which two numbers close it, and what a reasonable next step looks like — always in partnership with your own physician.</p>
+ 
+    <hr class="section-rule">
+ 
+    <h2>Glucose is a lagging indicator</h2>
+ 
+    <p>Standard metabolic screening leans on two tests: <strong>fasting glucose</strong> (reference: below 100 mg/dL) and <strong>HbA1c</strong> (reference: below 5.7%). Both are genuinely good at one job — confirming diabetes once it has developed. They are far less useful for detecting the earlier stage, when the trajectory is still very changeable.</p>
+ 
+    <h3>Why the numbers stay quiet</h3>
+    <p>When cells become less responsive to insulin — driven by genetics, visceral fat, low activity, poor sleep, and diet quality — the pancreas does not fail straight away. It compensates by producing <em>more</em> insulin to move the same glucose into cells. For a long stretch, sometimes a decade or more, this compensation works: insulin rises, glucose is pushed to stay in range, and both fasting glucose and HbA1c continue to read "normal."</p>
+ 
+    <p>Meanwhile, chronically elevated insulin is associated with visceral fat accumulation (including in the liver), higher triglycerides and lower HDL, impaired blood-vessel function, and a more inflammatory internal environment. By the time glucose finally drifts into the prediabetes range, that quieter phase has often been underway for years.</p>
+ 
+    <div class="gap-callout"><b>The gap in one line:</b> a normal glucose tells you the pancreas is still <em>winning</em> the fight. It does not tell you how hard it is fighting — or what that effort is costing your arteries.</div>
+ 
+    <h2>The two numbers that close the gap</h2>
+ 
+    <p>The missing measurement is <strong>fasting insulin</strong>, and the calculation built from it, <strong>HOMA-IR</strong>. Together they show how much insulin your body needs to keep glucose where it is — which is exactly the information a glucose value leaves out.</p>
+ 
+    <p>This is also where CardioIQ's core idea applies: the gap between a <em>population-normal</em> range and a <em>longevity-optimal</em> one. A lab may flag a value only when it is frankly abnormal; the more useful question for prevention is where you sit relative to optimal.</p>
+ 
+    <table class="reftable">
+      <caption>Fasting insulin — reference points (units: mU/L)</caption>
+      <thead>
+        <tr><th>Range</th><th class="normal">Typical lab "normal"</th><th class="optimal">Longevity-optimal frame</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="metric">Optimal</td><td class="normal">reported within 2–25</td><td class="optimal">roughly &lt; 5–6</td></tr>
+        <tr><td class="metric">Watch</td><td class="normal">still "in range"</td><td class="optimal">~ 7–10</td></tr>
+        <tr><td class="metric">Elevated</td><td class="normal">often still "in range"</td><td class="optimal">&gt; 10–12</td></tr>
+      </tbody>
+    </table>
+    <p class="tnote">These are widely-cited reference points, not diagnostic cut-offs. Units and ranges vary by laboratory and assay, and interpretation belongs to your physician.</p>
+ 
+    <h3>HOMA-IR: putting glucose and insulin together</h3>
+    <p>HOMA-IR (Homeostatic Model Assessment of Insulin Resistance) combines fasting insulin and fasting glucose into a single estimate of insulin sensitivity.</p>
+ 
+    <div class="card">
+      <h4>The calculation</h4>
+      <div class="formula">HOMA-IR = ( fasting insulin [mU/L] × fasting glucose [mmol/L] ) ÷ 22.5</div>
+      <p class="worked">To convert glucose from mg/dL to mmol/L, divide by 18.<br>
+      <b>Example:</b> glucose 90 mg/dL (5.0 mmol/L), insulin 15 mU/L → (15 × 5.0) ÷ 22.5 = <b>3.3</b>. That points to meaningful insulin resistance — even though the glucose reading alone looked reassuring.</p>
+    </div>
+ 
+    <table class="reftable">
+      <caption>HOMA-IR — commonly-used reference points</caption>
+      <thead>
+        <tr><th>HOMA-IR</th><th class="optimal">Interpretation frame</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="metric normal">&lt; 1.0</td><td class="optimal">Optimal insulin sensitivity</td></tr>
+        <tr><td class="metric normal">1.0 – 1.9</td><td class="optimal">Normal to mild resistance</td></tr>
+        <tr><td class="metric normal">2.0 – 2.9</td><td class="optimal">Moderate resistance</td></tr>
+        <tr><td class="metric normal">≥ 3.0</td><td class="optimal">Significant resistance</td></tr>
+      </tbody>
+    </table>
+    <p class="tnote">Reference points only; thresholds differ across populations and assays. A number is a prompt for a conversation, not a verdict. If you're new to these tests, our <a href="/blog/apob-testing-guide/">testing guide</a> walks through how to order and interpret an extended panel with your physician.</p>
+ 
+    <h2>How insulin resistance ages arteries</h2>
+ 
+    <p>The reason this matters for the heart is that insulin resistance influences several of the pathways that drive atherosclerosis — and it does so largely <em>independently</em> of glucose. A few of the better-understood links:</p>
+ 
+    <h3>It reshapes your lipids toward the atherogenic pattern</h3>
+    <p>Insulin resistance tends to raise triglycerides, lower HDL, and shift LDL toward smaller, denser particles. Crucially, it is a leading reason that <strong>LDL-C and ApoB diverge</strong>. ApoB counts the actual number of atherogenic particles, and the EAS consensus positions it as the preferred marker of that particle burden — superior to LDL-C precisely when triglycerides are high or metabolic syndrome is present. UK Biobank and CPRD analyses show these two markers disagree in a meaningful minority of people — on the order of one in four or five. In that group, an LDL-C that looks fine can sit alongside an ApoB that does not.</p>
+ 
+    <p>This is why insulin resistance and atherogenic particle burden are best read together, not separately. If you want the fuller picture on particle count, start with our <a href="/blog/apob/">ApoB pillar</a>.</p>
+ 
+    <h3>It promotes inflammation and vascular strain</h3>
+    <p>Insulin-resistant fat tissue releases inflammatory signals that raise markers such as hsCRP — the same inflammatory residual risk highlighted by the JUPITER trial. Alongside this, impaired blood-vessel dilation and rising blood pressure add to the load on the arterial wall. None of these show up on a glucose test.</p>
+ 
+    <h2>What "normal glucose, high insulin" can look like</h2>
+ 
+    <p>An illustration — assembled to show how the numbers fit together, <em>not</em> a real patient and not a diagnosis:</p>
+ 
+    <div class="case">
+      <h3>A composite picture</h3>
+      <p class="who">52, active job, considers himself healthy</p>
+      <div class="labgrid">
+        <div><span>Fasting glucose</span><span>92 mg/dL</span></div>
+        <div><span>HbA1c</span><span>5.5%</span></div>
+        <div><span>Fasting insulin</span><span class="flag">18 mU/L</span></div>
+        <div><span>HOMA-IR</span><span class="flag">4.1</span></div>
+        <div><span>Triglycerides</span><span class="flag">185 mg/dL</span></div>
+        <div><span>HDL</span><span class="flag">38 mg/dL</span></div>
+        <div><span>ApoB</span><span class="flag">115 mg/dL</span></div>
+        <div><span>hsCRP</span><span class="flag">3.2 mg/L</span></div>
+      </div>
+      <p>On the <b>standard glucose-and-HbA1c screen</b>, this profile reads as reassuring — the kind that earns a "looks fine, see you next year."</p>
+      <p>On a <b>fuller panel</b>, the same person shows meaningful insulin resistance, an atherogenic lipid pattern, and elevated inflammation — a very different conversation about cardiovascular risk. The extra tests didn't change the biology; they simply made it visible.</p>
+      <p><b>The boundary:</b> this is an interpretation of how such numbers relate, not a diagnosis. Only your physician, seeing your full history, can interpret your panel.</p>
+    </div>
+ 
+    <h2>Who might reasonably consider these tests</h2>
+ 
+    <p>Fasting insulin and HOMA-IR are worth raising with your physician if you have an otherwise "normal" glucose alongside any of the following. None of these is a diagnosis on its own — they simply raise the value of looking closer:</p>
+ 
+    <ul>
+      <li>Increasing waist circumference, or weight that concentrates around the midsection</li>
+      <li>An atherogenic lipid pattern: triglycerides above ~150 mg/dL, low HDL, a high TG/HDL ratio, or an elevated <strong>ApoB</strong> / non-HDL-C</li>
+      <li>Blood pressure that is drifting upward year over year</li>
+      <li>A family history of type 2 diabetes or premature cardiovascular disease</li>
+      <li>Related conditions such as fatty liver (raised ALT), PCOS, or sleep apnea</li>
+      <li>Simply being 40+ and wanting an honest metabolic baseline</li>
+    </ul>
+ 
+    <h2>What you can actually do about it</h2>
+ 
+    <p>The encouraging part: early insulin resistance is one of the more <strong>modifiable</strong> risk factors in cardiovascular prevention. Lifestyle change is genuinely first-line here, and for many people it moves these numbers meaningfully.</p>
+ 
+    <h3>Lifestyle — the foundation</h3>
+    <ul>
+      <li><strong>Nutrition:</strong> fewer refined carbohydrates and sugar-sweetened drinks; more fiber, whole foods, adequate protein, and unsaturated fats. Giving the body longer gaps between meals may help some people, though the right pattern is individual.</li>
+      <li><strong>Movement:</strong> a mix of resistance training and regular aerobic activity improves how the body handles glucose. Even a short walk after meals helps, and a single session can improve insulin sensitivity for a day or two.</li>
+      <li><strong>Weight, if relevant:</strong> for those carrying excess visceral fat, a modest reduction (around 5–10% of body weight) can improve insulin sensitivity substantially.</li>
+      <li><strong>Sleep and stress:</strong> short or poor-quality sleep and chronic stress both worsen insulin resistance. Protecting 7–9 hours and treating sleep apnea matter more than most people expect.</li>
+    </ul>
+ 
+    <h3>When lifestyle isn't enough</h3>
+    <p>If focused lifestyle change doesn't move the numbers, several <strong>classes of medication</strong> can improve insulin sensitivity or support weight loss and metabolic health. Which class — if any — is appropriate depends on your full risk picture, and that is a decision for you and your physician together. CardioIQ does not recommend specific drugs; that judgment belongs in the clinic.</p>
+ 
+    <p>The same applies to supplements often discussed in this space. Evidence is mixed and dosing is individual, so treat them as something to raise with your physician rather than to self-prescribe.</p>
+ 
+    <h2>Why this fits a longevity view of the heart</h2>
+ 
+    <p>Cardiovascular disease doesn't begin on the day of a diagnosis. Under a cumulative-exposure model — lower risk factors, held for longer, starting earlier — the quiet insulin-resistant years are precisely the window where intervention changes the long-term trajectory. Waiting for glucose to become abnormal is, in effect, waiting for a later and harder starting point.</p>
+ 
+    <p>Two accessible numbers — fasting insulin and HOMA-IR — turn that silent phase into something you can see, discuss, and act on while the trajectory is still very much yours to bend.</p>
+ 
+    <div class="ask">
+      <h3>Questions to bring to your doctor</h3>
+      <ul>
+        <li class="say">"Can we add a fasting insulin to my next panel and calculate my HOMA-IR?"</li>
+        <li class="say">"My glucose is normal — but does my triglyceride, HDL, or ApoB pattern suggest insulin resistance?"</li>
+        <li class="say">"Given my family history, what's the right cardiovascular baseline for me now, not later?"</li>
+      </ul>
+    </div>
+ 
+    <div class="cta">
+      <h3>Already have these numbers?</h3>
+      <p>CardioIQ interprets your lipid, ApoB, glucose–insulin, and inflammation markers against longevity-optimal targets — not just population ranges — in a structured, physician-grade report you can take to your own doctor. See exactly what that looks like.</p>
+      <a class="btn" href="https://cardioiq.health/demo-report/">See a sample CardioIQ report</a>
+    </div>
+ 
+    <div class="disclaimer">
+      <strong>Medical disclaimer.</strong> This article is for education only. It is not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. CardioIQ interprets biomarker data; it does not diagnose or treat disease and does not replace your treating physician. Reference ranges and calculations described here vary by laboratory, assay, and individual circumstances. Do not start, stop, or change any medication, supplement, or lifestyle program based on this article — discuss your results and any decisions with your physician.
+    </div>
+ 
+  </div>
+</article>
+ 
+<footer>
+  <div class="wrap">
+    <span>© CardioIQ — physician-built cardiovascular longevity intelligence.</span>
+    <span><a href="https://cardioiq.health/blog">Blog</a> &nbsp;·&nbsp; <a href="https://cardioiq.health">cardioiq.health</a></span>
+  </div>
+</footer>
+ 
+</body>
+</html>
