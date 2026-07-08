@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--
+    CardioIQ blog article — SUPPORTING (Lp(a) cluster, Pillar 2)
+    Slug: /blog/lpa-high-level/  | Persona: Newly Worried + Optimizer
+    Intent: "high Lp(a)", "Lp(a) levels/range" — featured-snippet target; mirror of apob-normal-range
+    Units: nmol/L primary, mg/dL secondary. CRL: Finding -> Reference frame (central) -> Mechanism -> Evidence -> Boundary
+    Internal links (LIVE-only): lpa-guide (pillar), lpa-vs-ldl, /reports/  (NOT lpa-family-screening — unbuilt)
+    VERIFY BEFORE PUBLISH: nmol/L thresholds + "~1 in 5" against EAS 2022 consensus; reference DOIs.
+    NOTE: all section headings are real <h2>/<h3> (no markdown ##).
+  -->
+  <title>What Is a High Lp(a) Level? Ranges in nmol/L, Units, and What They Mean | CardioIQ</title>
+  <meta name="description" content="A high Lp(a) is generally above ~125 nmol/L (~50 mg/dL). Learn how Lp(a) is measured, why nmol/L and mg/dL don't convert cleanly, and what 'high' means for your risk. Medically reviewed by Dr. Tea Gamezardashvili, MD PhD MHA FACC." />
+  <link rel="canonical" href="https://cardioiq.health/blog/lpa-high-level/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="What Is a High Lp(a) Level? Ranges, Units, and What They Mean" />
+  <meta property="og:description" content="A high Lp(a) is generally above ~125 nmol/L (~50 mg/dL) — but the units matter. An evidence-based explainer reviewed by a lipidologist." />
+  <meta property="og:url" content="https://cardioiq.health/blog/lpa-high-level/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MedicalWebPage", "Article"],
+    "headline": "What Is a High Lp(a) Level? Ranges, Units, and What They Mean",
+    "description": "Lp(a) reference ranges in nmol/L and mg/dL, why the units don't convert cleanly, and what a high result means for cardiovascular risk.",
+    "url": "https://cardioiq.health/blog/lpa-high-level/",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "author": { "@type": "Person", "name": "Tea Gamezardashvili", "honorificSuffix": "MD, PhD, MHA, FACC" },
+    "reviewedBy": { "@type": "Person", "name": "Tea Gamezardashvili", "honorificSuffix": "MD, PhD, MHA, FACC" },
+    "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health" }
+  }
+  </script>
+  <style>
+    :root{
+      --navy:#0B1F3A; --navy-mid:#112847; --teal:#0E7C7B; --teal-light:#12A09E;
+      --gold:#C9A84C; --gold-light:#E4C878; --cream:#F8F6F1; --white:#FFFFFF;
+      --text:#1A2B3C; --muted:#4A6070; --border:#D8E4EC;
+      --font-display:Georgia,'Times New Roman',serif;
+      --font-body:'Inter','Helvetica Neue',Arial,sans-serif;
+      --max-w:760px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);font-size:17px;line-height:1.75;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
+ 
+    .site-nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:var(--font-display);font-size:1.35rem;color:var(--white);text-decoration:none}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color .2s}
+    .nav-links a:hover{color:var(--white)}
+    .nav-cta{background:var(--teal);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:6px;font-weight:600}
+ 
+    .article-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:5rem 2rem 4rem;text-align:center}
+    .article-tag{display:inline-block;background:rgba(201,168,76,0.18);color:var(--gold-light);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:100px;margin-bottom:1.5rem}
+    .article-hero h1{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.6rem);color:var(--white);max-width:800px;margin:0 auto 1.5rem;line-height:1.3}
+    .article-hero p.lead{color:rgba(255,255,255,0.75);font-size:1.05rem;max-width:600px;margin:0 auto 2.5rem}
+    .byline{display:inline-flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem 1.25rem}
+    .byline-avatar{width:42px;height:42px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:700;flex-shrink:0}
+    .byline-text{text-align:left}
+    .byline-label{font-size:0.72rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em}
+    .byline-name{font-size:0.88rem;color:var(--white);font-weight:600}
+    .byline-creds{font-size:0.78rem;color:var(--gold-light)}
+ 
+    .article-body{max-width:var(--max-w);margin:0 auto;padding:3rem 2rem 4rem}
+    .article-body h2{font-family:var(--font-display);font-size:1.6rem;color:var(--navy);margin:3rem 0 1rem;padding-top:1rem;border-top:2px solid var(--border)}
+    .article-body h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin:2rem 0 0.6rem}
+    .article-body p{margin-bottom:1.1rem}
+    .article-body strong{color:var(--navy)}
+    .article-body a{color:var(--teal);text-decoration:underline}
+    .article-body ul,.article-body ol{margin:0.75rem 0 1.1rem 1.4rem}
+    .article-body li{margin-bottom:0.4rem}
+    hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+ 
+    .intro-paragraph{font-size:1.05rem;color:var(--muted);border-left:3px solid var(--gold);padding-left:1.25rem;margin-bottom:2rem}
+ 
+    .quick-answer{background:var(--navy);border-radius:14px;padding:1.75rem 2rem;margin:2rem 0}
+    .quick-answer-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-light);margin-bottom:0.75rem}
+    .quick-answer h3{color:var(--white);font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+    .quick-answer p{color:rgba(255,255,255,0.78);font-size:0.9rem;margin:0;line-height:1.6}
+    .quick-answer strong{color:var(--gold-light)}
+ 
+    .range-visual{background:var(--cream);border-radius:14px;padding:2rem;margin:2rem 0}
+    .range-visual h3{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:1.5rem}
+    .range-bar{height:12px;border-radius:100px;background:linear-gradient(to right,#15803D 0%,#15803D 28%,#92610A 28%,#92610A 50%,#C0521A 50%,#C0521A 78%,#B91C1C 78%,#B91C1C 100%);margin-bottom:0.5rem}
+    .range-labels{display:flex;justify-content:space-between;font-size:0.75rem;color:var(--muted)}
+    .range-items{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;margin-top:1.25rem}
+    .range-item{display:flex;align-items:center;gap:0.6rem;font-size:0.88rem}
+    .range-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+ 
+    .table-wrap{overflow-x:auto;margin:1.5rem 0 0.6rem;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.07)}
+    table{width:100%;border-collapse:collapse;font-size:0.9rem}
+    thead{background:var(--navy)}
+    thead th{color:var(--white);text-align:left;padding:0.85rem 1rem;font-weight:600;font-size:0.82rem;letter-spacing:0.04em}
+    tbody tr:nth-child(even){background:var(--cream)}
+    tbody tr:nth-child(odd){background:var(--white)}
+    tbody td{padding:0.8rem 1rem;border-bottom:1px solid var(--border);vertical-align:middle}
+    tbody tr:last-child td{border-bottom:none}
+    .tnote{font-size:0.82rem;color:var(--muted);margin:0 0 1.5rem}
+    .risk-badge{display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.65rem;border-radius:100px}
+    .risk-low{background:#EAF7F0;color:#15803D}
+    .risk-mod{background:#FFF8E8;color:#92610A}
+    .risk-high{background:#FEF3C7;color:#92400E}
+    .risk-very{background:#FDECEA;color:#B91C1C}
+    .lp-target{font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+ 
+    .callout{border-radius:10px;padding:1.25rem 1.5rem;margin:1.75rem 0}
+    .callout-teal{background:rgba(14,124,123,0.06);border-left:4px solid var(--teal)}
+    .callout-gold{background:#FFF8E8;border-left:4px solid var(--gold)}
+    .callout p{margin:0;font-size:0.95rem}
+    .callout strong{color:var(--navy)}
+ 
+    .keypoints{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .keypoint{background:var(--cream);border-radius:10px;padding:1.25rem;border-top:3px solid var(--teal)}
+    .keypoint h4{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem}
+    .keypoint p{font-size:0.85rem;color:var(--muted);margin:0;line-height:1.55}
+ 
+    .faq-item{border-bottom:1px solid var(--border);padding:1.25rem 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-weight:700;color:var(--navy);margin-bottom:0.5rem;font-size:1rem}
+    .faq-a{color:var(--text);font-size:0.95rem;margin:0}
+ 
+    .medical-notice{background:#FFF8E8;border:1px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin:3rem 0 2rem;display:flex;gap:1rem;align-items:flex-start}
+    .notice-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem}
+    .medical-notice p{margin:0;font-size:0.9rem;color:var(--muted)}
+    .medical-notice strong{color:var(--navy)}
+ 
+    .cta-block{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:16px;padding:3rem 2.5rem;text-align:center;margin:3.5rem 0 2rem}
+    .cta-block h2{font-family:var(--font-display);font-size:1.5rem;color:var(--white);margin-bottom:0.75rem;border:none;padding:0}
+    .cta-block p{color:rgba(255,255,255,0.72);font-size:0.95rem;max-width:520px;margin:0 auto 0.5rem}
+    .cta-flow{display:flex;justify-content:center;align-items:center;gap:0.5rem;flex-wrap:wrap;margin:1.25rem 0 2rem;font-size:0.8rem}
+    .cta-flow-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:0.3rem 0.75rem;color:rgba(255,255,255,0.8)}
+    .cta-arrow{color:var(--gold)}
+    .btn-primary{display:inline-block;background:var(--teal);color:var(--white);font-weight:700;font-size:1rem;padding:0.9rem 2.2rem;border-radius:8px;text-decoration:none;transition:background .2s;margin-bottom:0.75rem}
+    .btn-primary:hover{background:var(--teal-light);color:var(--white)}
+    .btn-secondary{display:inline-block;color:rgba(255,255,255,0.65);font-size:0.88rem;text-decoration:none;padding:0.4rem 0.75rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;margin-left:0.75rem}
+ 
+    .references{background:var(--cream);border-radius:10px;padding:1.75rem 2rem;margin-top:3rem}
+    .references h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:1rem;border:none;padding:0}
+    .references ol{margin:0;padding-left:1.3rem;font-size:0.83rem;color:var(--muted);line-height:1.6}
+    .references li{margin-bottom:0.5rem}
+    .references a{color:var(--teal)}
+ 
+    .site-footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:2.5rem 2rem;font-size:0.83rem}
+    .site-footer a{color:rgba(255,255,255,0.65);text-decoration:none}
+ 
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .keypoints{grid-template-columns:1fr}
+      .range-items{grid-template-columns:1fr}
+      .cta-block{padding:2rem 1.25rem}
+      .btn-secondary{display:block;margin:0.75rem auto 0;text-align:center}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+ 
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/lpa-guide/">Blog</a></li>
+    <li><a href="/reports/">Reports</a></li>
+    <li><a href="/reports/" class="nav-cta">Get my report</a></li>
+  </ul>
+</nav>
+ 
+<header class="article-hero">
+  <div class="article-tag">Lp(a) · Reference Ranges</div>
+  <h1>What Is a High Lp(a) Level?</h1>
+  <p class="lead">Lp(a) is reported in two different units, and "high" isn't a single number. Here's how to read your result — and what it actually means.</p>
+  <div class="byline">
+    <div class="byline-avatar">TG</div>
+    <div class="byline-text">
+      <div class="byline-label">Medically Reviewed By</div>
+      <div class="byline-name"><a href="/about/" style="color:inherit;text-decoration:none;">Dr. Tea Gamezardashvili</a></div>
+      <div class="byline-creds">MD, PhD, MHA, FACC · Cardiologist &amp; Lipidologist</div>
+    </div>
+  </div>
+</header>
+ 
+<main class="article-body">
+ 
+  <p class="intro-paragraph">If you've just had lipoprotein(a) — <strong>Lp(a)</strong> — measured for the first time, the result can be confusing. It might be reported in nmol/L or in mg/dL, and there's no single universal cut-off for "high." This guide gives you the short answer, then explains what the number means and why the units matter.</p>
+ 
+  <!-- Quick Answer (featured-snippet target) -->
+  <div class="quick-answer">
+    <div class="quick-answer-label">Quick Answer</div>
+    <h3>What counts as a high Lp(a)?</h3>
+    <p>A high Lp(a) is generally considered <strong>above ~125 nmol/L (roughly ~50 mg/dL)</strong>. Below ~75 nmol/L (~30 mg/dL) is usually considered low risk; ~75–125 nmol/L is an intermediate "grey zone"; above ~250 nmol/L (~100 mg/dL) is very high. These are <strong>reference points, not diagnostic cut-offs</strong> — roughly 1 in 5 adults falls in the elevated range, and your physician interprets your result alongside your full risk picture.</p>
+  </div>
+ 
+  <hr />
+ 
+  <h2>Lp(a) Reference Ranges at a Glance</h2>
+  <p>Lp(a) is best reported in <strong>nmol/L</strong> (which counts particles). Where a result is given in mg/dL, the approximate equivalents are shown alongside — but see the units section below, because the two do not convert by a single fixed factor.</p>
+ 
+  <div class="range-visual">
+    <h3>Lp(a) Risk Bands (nmol/L)</h3>
+    <div class="range-bar"></div>
+    <div class="range-labels">
+      <span>0</span><span>75</span><span>125</span><span>250+</span>
+    </div>
+    <div class="range-items">
+      <div class="range-item"><div class="range-dot" style="background:#15803D;"></div><span><strong>&lt; ~75 nmol/L</strong> — Low risk</span></div>
+      <div class="range-item"><div class="range-dot" style="background:#92610A;"></div><span><strong>~75–125 nmol/L</strong> — Grey zone</span></div>
+      <div class="range-item"><div class="range-dot" style="background:#C0521A;"></div><span><strong>&gt; ~125 nmol/L</strong> — High</span></div>
+      <div class="range-item"><div class="range-dot" style="background:#B91C1C;"></div><span><strong>&gt; ~250 nmol/L</strong> — Very high</span></div>
+    </div>
+  </div>
+ 
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Lp(a) — nmol/L (primary)</th><th>Approx. mg/dL</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="risk-badge risk-low">Low risk</span></td><td class="lp-target">below ~75</td><td>below ~30</td></tr>
+        <tr><td><span class="risk-badge risk-mod">Grey zone</span></td><td class="lp-target">~75–125</td><td>~30–50</td></tr>
+        <tr><td><span class="risk-badge risk-high">High</span></td><td class="lp-target">above ~125</td><td>above ~50</td></tr>
+        <tr><td><span class="risk-badge risk-very">Very high</span></td><td class="lp-target">above ~250</td><td>above ~100</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote">Reference points only — exact thresholds vary by guideline, laboratory, and assay, and interpretation belongs to your physician. Track your result in nmol/L and compare like with like over time.</p>
+ 
+  <hr />
+ 
+  <h2>Two Units — and Why They Don't Convert Cleanly</h2>
+  <p>Lp(a) can be reported two ways, and this is the single most common source of confusion:</p>
+  <ul>
+    <li><strong>nmol/L (nanomoles per litre)</strong> counts the <em>number</em> of Lp(a) particles. This is the preferred, more accurate unit.</li>
+    <li><strong>mg/dL (milligrams per decilitre)</strong> measures the <em>mass</em> of the particles.</li>
+  </ul>
+  <p>You'll often see "divide by ~2.15" or "multiply by ~2.4" rules to convert between them. Treat these as rough approximations only. Because Lp(a) particles vary in size from person to person, there is <strong>no single accurate conversion factor</strong> — the true relationship depends on the individual and the laboratory assay used.</p>
+ 
+  <div class="callout callout-gold">
+    <p><strong>Practical rule:</strong> track your Lp(a) in <strong>nmol/L</strong> where possible, and when comparing an old result to a new one, make sure both are in the same unit before drawing any conclusion. A "change" that's really just a unit difference is a common false alarm.</p>
+  </div>
+ 
+  <hr />
+ 
+  <h2>"Normal" vs. "Optimal": Reading Your Result</h2>
+  <p>As with ApoB, there's an important difference between a laboratory's reference range and a risk-based threshold. A lab range describes what's statistically common in the population; a risk threshold describes the level above which cardiovascular risk begins to climb. For Lp(a), the useful question isn't "am I inside the lab range?" but "where do I sit relative to the level that starts to matter for my heart?"</p>
+  <p>This is why a result can be labelled unremarkable on a report and still be worth acting on — not by lowering Lp(a) directly, but by tightening every other risk factor. For the full picture of how Lp(a) differs from a standard cholesterol reading, see <a href="/blog/lpa-vs-ldl/">Lp(a) vs LDL</a>.</p>
+ 
+  <div class="keypoints">
+    <div class="keypoint"><h4>Higher means higher risk</h4><p>Lp(a) rises with risk in a continuous way — there's no level below which it's suddenly "safe," and no upper level that's suddenly hopeless.</p></div>
+    <div class="keypoint"><h4>Units matter</h4><p>nmol/L and mg/dL don't convert cleanly. Compare like with like, and prefer nmol/L.</p></div>
+    <div class="keypoint"><h4>Common</h4><p>Roughly 1 in 5 adults sits in the elevated range — yet most have never had Lp(a) measured.</p></div>
+    <div class="keypoint"><h4>Usually tested once</h4><p>Because Lp(a) is genetic and stable for life, a single accurate measurement is generally enough.</p></div>
+  </div>
+ 
+  <hr />
+ 
+  <h2>What a High Result Does — and Doesn't — Mean</h2>
+  <p>A high Lp(a) means you carry an inherited factor that raises your lifetime risk of heart attack, stroke, and aortic valve narrowing. It does <strong>not</strong> mean any of those things are inevitable, and it is not a diagnosis of disease.</p>
+  <p>It's also worth being clear about what a high number changes in practice. There is currently <strong>no approved medication that lowers Lp(a)</strong>, and diet or exercise won't move it meaningfully — so a high result doesn't come with an "Lp(a) pill." What it does is raise the stakes on everything else: it's a strong reason to drive your ApoB and LDL-C to target, control blood pressure, and consider testing family members. The pillar guide walks through this in full — see <a href="/blog/lpa-guide/">Lp(a): The Complete Guide</a>.</p>
+ 
+  <hr />
+ 
+  <h2>Common Questions</h2>
+ 
+  <div class="faq-item">
+    <div class="faq-q">My Lp(a) is in mg/dL — how do I know if it's high?</div>
+    <p class="faq-a">As a rough guide, above ~50 mg/dL is generally considered high and above ~30 mg/dL enters an intermediate range — but mg/dL and nmol/L don't convert by a fixed factor, so these are approximations. If you can, ask your lab to report Lp(a) in nmol/L for a more reliable read.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Is there a "normal" Lp(a) level?</div>
+    <p class="faq-a">There's no single normal number in the way there is for, say, glucose. Lp(a) risk rises continuously with the level, so it's better framed as low, intermediate, high, or very high — with lower being better. Your physician interprets your value in the context of your overall risk.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">My Lp(a) looks higher than last time — should I worry?</div>
+    <p class="faq-a">First, check the units. A very common cause of an apparent change is one result being in nmol/L and the other in mg/dL. Genuine Lp(a) levels are largely stable across life, so a real, large shift is unusual and worth discussing with your doctor.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">If my Lp(a) is high, can I lower it?</div>
+    <p class="faq-a">Not with current approved treatments, and not meaningfully through diet or exercise — Lp(a) is genetic. The effective strategy is to lower every other cardiovascular risk factor aggressively. Several Lp(a)-specific therapies are in trials but are not yet approved. See <a href="/blog/lpa-guide/">the pillar guide</a> for the full picture.</p>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>See Where Your Lp(a) Stands</h2>
+    <p>CardioIQ interprets your Lp(a) alongside your ApoB, lipids, and full risk profile — against longevity-optimal targets, not just population ranges — in a structured, physician-grade report.</p>
+    <div class="cta-flow">
+      <span class="cta-flow-item">Share your panel</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Lp(a) analysis</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Risk category</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">What it means</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Clinical report</span>
+    </div>
+    <a href="/reports/" class="btn-primary">See how CardioIQ reads your panel</a>
+    <a href="/demo-report/" class="btn-secondary">View a sample report →</a>
+  </div>
+ 
+  <!-- Medical notice -->
+  <div class="medical-notice">
+    <div class="notice-icon">⚠️</div>
+    <p><strong>Important Medical Notice.</strong> This article is for education only. It is not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. Reference ranges and units vary by laboratory and assay. CardioIQ interprets biomarker data; it does not diagnose or treat disease and does not replace your treating physician. Always discuss your results and any decisions with your physician.</p>
+  </div>
+ 
+  <!-- References -->
+  <div class="references">
+    <h2>References</h2>
+    <ol>
+      <li>Kronenberg F, et al. Lipoprotein(a) in atherosclerotic cardiovascular disease and aortic stenosis: a European Atherosclerosis Society consensus statement. <em>European Heart Journal</em>, 2022.</li>
+      <li>2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455" target="_blank" rel="noopener">10.1093/eurheartj/ehz455</a></li>
+    </ol>
+  </div>
+ 
+</main>
+ 
+<footer class="site-footer">
+  <p style="margin-bottom:0.5rem;">
+    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
+    <a href="/about/">About</a> &nbsp;·&nbsp;
+    <a href="/blog/lpa-guide/">Blog</a> &nbsp;·&nbsp;
+    <a href="/reports/">Reports</a>
+  </p>
+  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+</footer>
+ 
+</body>
+</html>
