@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<!-- ===== SEO: commercial intent (results in hand), lipidologist differentiator, correct casing, no efficacy claims ===== -->
+<title>How to Read Your Lipid Panel: What "Normal" Cholesterol Misses | CardioIQ</title>
+<meta name="description" content="A lipidologist walks through every line of a standard cholesterol panel — and the two numbers it leaves out: ApoB and Lp(a). Read your results against optimal, not just normal.">
+<link rel="canonical" href="https://cardioiq.health/blog/read-lipid-panel/">
+ 
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Read Your Lipid Panel: What 'Normal' Cholesterol Misses">
+<meta property="og:description" content="A lipidologist walks through every line of a standard cholesterol panel — and the two numbers it usually leaves out. Read your results against optimal, not just normal.">
+<meta property="og:url" content="https://cardioiq.health/blog/read-lipid-panel/">
+<meta property="og:site_name" content="CardioIQ">
+<!-- TODO(Tea): set og:image to a real 1200x630 asset on the domain -->
+<meta property="og:image" content="https://cardioiq.health/assets/og-read-lipid-panel.jpg">
+<meta name="twitter:card" content="summary_large_image">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+ 
+<style>
+  :root{
+    --navy:#0b1a2b; --navy-2:#0f2438; --navy-3:#16324b;
+    --gold:#d4a94a; --gold-soft:#e7c877;
+    --teal:#3fb6a8; --teal-soft:#7ad4c9;
+    --ink:#e9eef4; --ink-2:#b7c4d1; --ink-3:#8496a6;
+    --line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.035);
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.72; -webkit-font-smoothing:antialiased}
+  a{color:var(--teal-soft); text-decoration:none; border-bottom:1px solid rgba(122,212,201,.3); transition:.2s}
+  a:hover{color:#fff; border-color:var(--teal-soft)}
+ 
+  .topbar{border-bottom:1px solid var(--line); background:rgba(11,26,43,.85); backdrop-filter:blur(8px); position:sticky; top:0; z-index:10}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between}
+  .brand{font-family:var(--sans); font-weight:700; letter-spacing:.02em; color:#fff; font-size:18px; border:none}
+  .brand span{color:var(--gold)}
+  .topbar-inner a{border:none; font-family:var(--sans); font-size:14px; color:var(--ink-2)}
+  .topbar-inner nav a{margin-left:20px}
+ 
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+ 
+  header.post{padding:56px 0 34px}
+  .eyebrow{font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  h1{font-family:var(--sans); font-weight:700; font-size:clamp(30px,5.4vw,44px); line-height:1.14; letter-spacing:-.015em; color:#fff; margin:16px 0 22px}
+  .byline{display:flex; gap:14px; align-items:center; font-family:var(--sans); font-size:14px; color:var(--ink-3); border-top:1px solid var(--line); padding-top:18px}
+  .byline b{color:var(--ink); font-weight:600}
+  .byline .cred{color:var(--gold-soft)}
+ 
+  article{padding:8px 0 20px}
+  article p{margin:0 0 24px; color:var(--ink)}
+  article h2{font-family:var(--sans); font-weight:700; font-size:clamp(23px,3.6vw,29px); line-height:1.22; letter-spacing:-.01em; color:#fff; margin:46px 0 18px}
+  article h3{font-family:var(--sans); font-weight:600; font-size:20px; color:var(--gold-soft); margin:32px 0 12px}
+  article strong{color:#fff; font-weight:600}
+  .lead{font-size:22px; line-height:1.62; color:var(--ink); margin-bottom:30px}
+ 
+  .box{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:12px; padding:22px 24px; margin:30px 0; font-size:18px}
+  .box.gold{border-left-color:var(--gold)}
+  .box .k{font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-soft); display:block; margin-bottom:8px}
+  .box.gold .k{color:var(--gold)}
+  .box p:last-child{margin-bottom:0}
+ 
+  /* reference table */
+  .num-table{margin:26px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden; font-family:var(--sans); font-size:15px}
+  .num-row{display:grid; grid-template-columns:1fr 1.15fr 1.15fr; border-top:1px solid var(--line)}
+  .num-row:first-child{border-top:none; background:var(--navy-3); font-weight:600; color:#fff; font-size:12.5px; letter-spacing:.03em; text-transform:uppercase}
+  .num-row>div{padding:12px 15px; border-left:1px solid var(--line)}
+  .num-row>div:first-child{border-left:none; color:var(--ink); font-weight:600}
+  .num-row .desc{color:var(--ink-2)}
+  .num-row .rng{color:var(--teal-soft)}
+  .num-cap{font-family:var(--sans); font-size:13px; color:var(--ink-3); margin-top:10px; line-height:1.5}
+ 
+  .missing{background:linear-gradient(135deg,rgba(212,169,74,.07),rgba(63,182,168,.05)); border:1px solid rgba(212,169,74,.25); border-radius:12px; padding:6px 0; margin:22px 0}
+  .missing .mrow{display:grid; grid-template-columns:130px 1fr; gap:0; padding:14px 20px; border-top:1px solid var(--line); font-family:var(--sans); font-size:15px}
+  .missing .mrow:first-child{border-top:none}
+  .missing .mrow .name{font-weight:700; color:var(--gold-soft)}
+  .missing .mrow .name small{display:block; font-weight:500; color:var(--ink-3); font-size:12px; margin-top:2px}
+  .missing .mrow .what{color:var(--ink)}
+ 
+  ul.clean{margin:0 0 24px; padding-left:0; list-style:none}
+  ul.clean li{position:relative; padding-left:26px; margin-bottom:12px; color:var(--ink)}
+  ul.clean li::before{content:""; position:absolute; left:4px; top:13px; width:7px; height:7px; border-radius:50%; background:var(--gold)}
+ 
+  .loop{display:flex; flex-wrap:wrap; gap:10px; margin:26px 0; font-family:var(--sans); font-size:14px; font-weight:600}
+  .loop span{background:var(--navy-2); border:1px solid var(--line); border-radius:20px; padding:8px 16px; color:var(--ink)}
+  .loop span .arrow{color:var(--gold); margin-left:2px}
+ 
+  .disclaimer{background:rgba(212,169,74,.06); border:1px solid rgba(212,169,74,.22); border-radius:12px; padding:20px 22px; margin:40px 0 10px; font-family:var(--sans); font-size:14.5px; line-height:1.62; color:var(--ink-2)}
+  .disclaimer b{color:var(--gold-soft)}
+ 
+  .cta{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid var(--line); border-radius:16px; padding:34px 30px; margin:44px 0 12px; text-align:center}
+  .cta h3{font-family:var(--sans); color:#fff; font-size:22px; margin:0 0 10px}
+  .cta p{color:var(--ink-2); font-size:16px; margin:0 auto 22px; max-width:470px}
+  .cta a.btn{display:inline-block; background:var(--gold); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:15px; padding:13px 30px; border-radius:10px; border:none}
+  .cta a.btn:hover{background:var(--gold-soft); color:var(--navy)}
+  .cta .sub{display:block; margin-top:14px; font-family:var(--sans); font-size:13px; color:var(--ink-3)}
+  .cta .sub a{color:var(--teal-soft); border:none}
+ 
+  .author{display:flex; gap:18px; align-items:flex-start; border-top:1px solid var(--line); margin-top:48px; padding-top:28px}
+  .author .av{flex:0 0 56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--teal)); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-weight:700; color:var(--navy); font-size:20px}
+  .author .meta{font-family:var(--sans); font-size:14.5px; color:var(--ink-2); line-height:1.6}
+  .author .meta b{color:#fff; font-size:16px; display:block; margin-bottom:2px}
+  .author .meta .cred{color:var(--gold-soft)}
+ 
+  footer{border-top:1px solid var(--line); margin-top:50px; padding:28px 0 60px}
+  footer .wrap{font-family:var(--sans); font-size:13px; color:var(--ink-3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  footer a{color:var(--ink-3); border:none}
+  footer a:hover{color:var(--teal-soft)}
+ 
+  @media(max-width:560px){
+    body{font-size:18px}
+    .num-row{grid-template-columns:1fr}
+    .num-row>div{border-left:none; border-top:1px solid var(--line)}
+    .num-row:first-child{display:none}
+    .num-row>div::before{content:attr(data-label); font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px}
+    .missing .mrow{grid-template-columns:1fr; gap:4px}
+    .topbar-inner nav a:first-child{display:none}
+  }
+</style>
+</head>
+<body>
+ 
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">Cardio<span>IQ</span></a>
+    <nav>
+      <a href="/blog/">Blog</a>
+      <a href="/reports/">Reports</a>
+    </nav>
+  </div>
+</div>
+ 
+<div class="wrap">
+  <header class="post">
+    <div class="eyebrow">Understanding Your Results</div>
+    <h1>How to Read Your Lipid Panel — and What "Normal" Misses</h1>
+    <div class="byline">
+      <span>Reviewed by <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b><br>
+      <span class="cred">Preventive Cardiologist &amp; Lipidologist · President, Georgian Atherosclerosis Association</span></span>
+    </div>
+  </header>
+ 
+  <article>
+    <p class="lead">You have your cholesterol results in front of you. There's a column of numbers, maybe a few flagged "high" or "normal," and not much explanation. This is a plain-language walk through every line — what each one means, what the "normal" ranges actually represent, and the two numbers a standard panel usually leaves out entirely. The goal isn't to alarm you. It's to help you read your own results with the same lens a preventive cardiologist would.</p>
+ 
+    <h2>What's actually on a standard lipid panel</h2>
+    <p>A basic cholesterol test — the one most doctors order — typically reports four or five numbers. Here's what each one is measuring, alongside the reference ranges most labs print (US units, mg/dL). Read these as <strong>population reference ranges</strong>, not personal targets — the difference matters, and we'll come back to it.</p>
+ 
+    <div class="num-table">
+      <div class="num-row"><div>Line</div><div>What it measures</div><div>Typical lab "normal"</div></div>
+      <div class="num-row">
+        <div data-label="Line">Total cholesterol</div>
+        <div data-label="Measures" class="desc">All cholesterol in your blood combined</div>
+        <div data-label="Range" class="rng">&lt;200 desirable · 200–239 borderline · ≥240 high</div>
+      </div>
+      <div class="num-row">
+        <div data-label="Line">LDL-C</div>
+        <div data-label="Measures" class="desc">Cholesterol carried by LDL ("bad") particles</div>
+        <div data-label="Range" class="rng">&lt;100 optimal · 130–159 borderline · ≥160 high</div>
+      </div>
+      <div class="num-row">
+        <div data-label="Line">HDL-C</div>
+        <div data-label="Measures" class="desc">Cholesterol carried by HDL ("good") particles</div>
+        <div data-label="Range" class="rng">&lt;40 low (a risk factor) · ≥60 protective</div>
+      </div>
+      <div class="num-row">
+        <div data-label="Line">Triglycerides</div>
+        <div data-label="Measures" class="desc">A fat in the blood; rises with refined carbs, alcohol, insulin resistance</div>
+        <div data-label="Range" class="rng">&lt;150 normal · 150–199 borderline · ≥200 high</div>
+      </div>
+      <div class="num-row">
+        <div data-label="Line">Non-HDL cholesterol</div>
+        <div data-label="Measures" class="desc">Total minus HDL — all the "atherogenic" cholesterol at once</div>
+        <div data-label="Range" class="rng">Roughly your LDL goal + 30</div>
+      </div>
+    </div>
+    <p class="num-cap">Ranges follow long-standing US (ATP III) conventions and can differ by lab, units (mg/dL vs mmol/L), and country. Your physician sets the target that applies to <em>you</em>.</p>
+ 
+    <p>If your panel shows <strong>non-HDL cholesterol</strong>, pay attention to it — it's quietly one of the more useful lines. It captures the cholesterol in <em>every</em> harmful particle (LDL plus triglyceride-rich "remnants"), which makes it more reliable than LDL-C alone when triglycerides are up. It's the first hint of the deeper idea in this article: what matters isn't just how much cholesterol you have, but how many <em>particles</em> are carrying it.</p>
+ 
+    <h2>Why a "normal" LDL-C can still mislead</h2>
+    <p>Here's the mechanism that surprises most people. <strong>LDL-C measures the cholesterol <em>cargo</em>, not the number of <em>trucks</em> carrying it.</strong> Two people can have the exact same LDL-C — say, a tidy 100 mg/dL — while one is carrying that cholesterol in a few large particles and the other in many small, dense ones. It's the <em>particle count</em> that keeps making contact with your artery walls, so the second person can carry meaningfully more risk with an identical-looking number.</p>
+    <p>This mismatch has a name — <em>discordance</em> — and it's most common in exactly the people who most want a clear answer: those with higher triglycerides, insulin resistance, or metabolic syndrome. In those cases, an LDL-C that reads "normal" can sit alongside a particle burden that doesn't. Your standard panel simply can't see the difference.</p>
+ 
+    <div class="box gold">
+      <span class="k">The one-sentence version</span>
+      <p>A standard lipid panel tells you how much cholesterol you're carrying. It doesn't tell you how many particles are carrying it, or whether you inherited an extra risk that isn't measured at all. Two of the most important numbers usually aren't on the page.</p>
+    </div>
+ 
+    <h2>The two numbers your panel probably left out</h2>
+    <p>These aren't exotic or experimental. They're standard tools in preventive cardiology — they're just not part of the basic panel most people receive.</p>
+ 
+    <div class="missing">
+      <div class="mrow">
+        <div class="name">ApoB<small>particle count</small></div>
+        <div class="what">Every atherogenic particle carries exactly one <strong>ApoB</strong> molecule, so this single number counts the trucks directly. When ApoB and LDL-C disagree, ApoB tracks the risk more faithfully — which is why the ESC/EAS guidelines highlight it, especially when triglycerides are high or metabolic syndrome is present. <a href="/blog/apob-guide/">Read the full ApoB guide →</a></div>
+      </div>
+      <div class="mrow">
+        <div class="name">Lp(a)<small>inherited risk</small></div>
+        <div class="what"><strong>Lp(a)</strong> is a genetically determined particle that raises cardiovascular risk independently of everything else on your panel — and it's essentially never included in a standard test. It's largely fixed for life, so it only needs to be measured <em>once</em>. <a href="/blog/lpa-guide/">Read the full Lp(a) guide →</a></div>
+      </div>
+    </div>
+    <p>If you've only ever had a basic panel, there's a reasonable chance neither of these has been checked. That's not a failing on anyone's part — it reflects what a standard order includes. It's simply worth knowing they exist, and worth asking about. (If you want to see how the "count" view differs from the "cargo" view, our guide on <a href="/blog/apob-normal-range/">what a normal ApoB looks like</a> is a good next read.)</p>
+ 
+    <h2>"Normal" versus optimal</h2>
+    <p>This is the distinction that changes how you read every line above. A lab flags a value "normal" when it falls inside the range of a broad <em>population</em> — a population that includes a lot of people who are not aging their arteries slowly. "Normal" means "common." It does not mean "ideal for a long, healthy life."</p>
+    <p>Preventive and longevity-focused cardiology works from <strong>risk-based, optimal targets</strong> instead. The clearest example: modern ESC/EAS guidelines set LDL-C goals well below the familiar "normal" line for people at higher risk — for the highest-risk group, a goal under 55 mg/dL, far below the &lt;100 that reads "optimal" on most lab printouts. The right target for you depends on your overall risk, which is precisely the judgment your physician makes with your full picture. The point isn't a magic number — it's that "in range" and "as good as it should be" are two different questions.</p>
+    <p>Underneath it sits one principle from the science of prevention: risk is driven by <strong>cumulative exposure</strong> — how high your particle burden is, for how long, starting how early. That's why reading your results in your 40s against an optimal target, rather than waiting for a value to cross into "high," is worth so much.</p>
+ 
+    <div class="box">
+      <span class="k">Reading one panel — an illustration</span>
+      <p>A composite example, assembled to show how the numbers fit together — not a real patient, and not a diagnosis. Someone gets back: total cholesterol 195, LDL-C 98, HDL-C 41, triglycerides 190. Every line reads "normal" or close to it, and they're told they're fine. But the low-ish HDL and elevated triglycerides hint at an atherogenic, insulin-resistance-leaning pattern — the setting where LDL-C most often <em>under</em>-states particle burden. The natural next step isn't worry; it's to add an <strong>ApoB</strong> (and a one-time <strong>Lp(a)</strong>) and read the whole thing against optimal. The value is in the pattern, not any single line.</p>
+    </div>
+ 
+    <h2>What to do with your results</h2>
+    <p>You don't need to become your own cardiologist. You need to know which questions your numbers raise, and then bring them to someone who can answer them for your specific situation.</p>
+    <ul class="clean">
+      <li><strong>Note the pattern, not just the flags.</strong> Low HDL with high triglycerides, or a "normal" LDL-C in someone with metabolic risk, is worth a closer look even when nothing is flagged.</li>
+      <li><strong>Ask about the two missing numbers.</strong> "Can we add an ApoB to my next panel?" and "Have I ever had my Lp(a) measured?" are reasonable questions to bring to your doctor.</li>
+      <li><strong>Read against optimal, not just normal.</strong> Ask what target fits <em>your</em> risk — not just whether you're inside the population range.</li>
+      <li><strong>Then repeat.</strong> Lipids respond to changes over months, so the real value is in the loop below, run over years with your physician.</li>
+    </ul>
+ 
+    <div class="box gold">
+      <span class="k">The loop</span>
+      <div class="loop">
+        <span>Test<span class="arrow">→</span></span>
+        <span>Interpret vs optimal<span class="arrow">→</span></span>
+        <span>Discuss with your physician<span class="arrow">→</span></span>
+        <span>Retest</span>
+      </div>
+    </div>
+ 
+    <div class="disclaimer">
+      <b>Medical disclaimer.</b> This article is educational and reflects general cardiovascular science — it is not a diagnosis, not medical advice, and not a substitute for care from your own physician. The reference ranges here are general population figures, not personal targets, and can vary by lab and country. Any decision about testing, interpretation, or treatment should be made with your treating physician, who knows your full history.
+    </div>
+ 
+    <div class="cta">
+      <h3>Want your panel read against optimal — not just normal?</h3>
+      <p>CardioIQ takes your existing lab results — lipids, ApoB, Lp(a) and more — and interprets them against longevity-optimal targets in a structured, physician-grade report, built by a lipidologist.</p>
+      <a class="btn" href="/reports/">See how a CardioIQ report works</a>
+      <span class="sub">Still deciding what to test? Read <a href="/blog/normal-cholesterol-still-at-risk/">Normal cholesterol, still at risk? →</a></span>
+    </div>
+ 
+    <div class="author">
+      <div class="av">TG</div>
+      <div class="meta">
+        <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b>
+        <span class="cred">Preventive Cardiologist &amp; Lipidologist</span><br>
+        President, Georgian Atherosclerosis Association · National Coordinator, EAS Lipid Clinic Network (Georgia) · Academic Director, CMEA. CardioIQ is built by a lipidologist, not a tech company.
+      </div>
+    </div>
+  </article>
+</div>
+ 
+<footer>
+  <div class="wrap">
+    <span>© 2026 CardioIQ · Physician-built cardiovascular intelligence</span>
+    <span><a href="/blog/">All articles</a> · <a href="/blog/apob-guide/">ApoB guide</a> · <a href="/reports/">Reports</a></span>
+  </div>
+</footer>
+ 
+<!-- ===== Schema.org: MedicalWebPage + author for E-E-A-T ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": "How to Read Your Lipid Panel — and What 'Normal' Misses",
+  "description": "A plain-language walk through every line of a standard cholesterol panel, plus the two numbers it usually leaves out: ApoB and Lp(a).",
+  "url": "https://cardioiq.health/blog/read-lipid-panel/",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC",
+    "jobTitle": "Preventive Cardiologist & Lipidologist",
+    "url": "https://teagamezardashvili.com"
+  },
+  "reviewedBy": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CardioIQ",
+    "url": "https://cardioiq.health"
+  }
+}
+</script>
+ 
+</body>
+</html>
