@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--
+    CardioIQ blog article — PILLAR
+    Pillar: 2 — Lp(a) (Healthy Longevity Framework)
+    Primary persona: The Optimizer | On-ramp: The Newly Worried
+    Slug: /blog/lpa-guide/  (closes the /blog/lpa-guide/ 404 linked from apob-guide FAQ)
+    CRL chain: Finding -> Reference frame -> Mechanism -> Evidence -> Modifiers -> Action -> Boundary
+    Units: nmol/L primary, mg/dL secondary (EAS preference)
+    Internal links (LIVE pages only): apob-guide, lpa-vs-ldl, apob-lpa-targets, pelacarsen-olpasiran, /reports/
+    NOTE: do NOT link lpa-high-level / lpa-family-screening until those are published.
+    VERIFY BEFORE PUBLISH: all reference DOIs, and the nmol/L thresholds + prevalence against EAS 2022 consensus.
+  -->
+  <title>Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk | CardioIQ</title>
+  <meta name="description" content="Lipoprotein(a) — Lp(a) — is an inherited, lifelong cardiovascular risk factor most people are never tested for. What it is, what counts as high (nmol/L), who should be tested, and what you can do. Medically reviewed by Dr. Tea Gamezardashvili, MD PhD MHA FACC." />
+  <link rel="canonical" href="https://cardioiq.health/blog/lpa-guide/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk" />
+  <meta property="og:description" content="An inherited cardiovascular risk factor most people are never tested for — measured once in a lifetime. Evidence-based guide reviewed by a lipidologist." />
+  <meta property="og:url" content="https://cardioiq.health/blog/lpa-guide/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MedicalWebPage", "Article"],
+    "headline": "Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk",
+    "description": "Evidence-based clinical guide to lipoprotein(a) — an inherited, causal cardiovascular risk factor — including testing, interpretation in nmol/L, and management. Medically reviewed by a board-certified cardiologist and lipidologist.",
+    "url": "https://cardioiq.health/blog/lpa-guide/",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "author": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificPrefix": "Dr.",
+      "honorificSuffix": "MD, PhD, MHA, FACC",
+      "jobTitle": "Preventive Cardiologist and Lipidologist",
+      "url": "https://cardioiq.health/about/"
+    },
+    "reviewedBy": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC"
+    },
+    "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health" },
+    "medicalAudience": { "@type": "MedicalAudience", "audienceType": "Patient" },
+    "about": { "@type": "MedicalCondition", "name": "Cardiovascular Disease Risk Assessment" }
+  }
+  </script>
+  <style>
+    :root{
+      --navy:#0B1F3A; --navy-mid:#112847; --teal:#0E7C7B; --teal-light:#12A09E;
+      --gold:#C9A84C; --gold-light:#E4C878; --cream:#F8F6F1; --white:#FFFFFF;
+      --text:#1A2B3C; --muted:#4A6070; --border:#D8E4EC;
+      --font-display:Georgia,'Times New Roman',serif;
+      --font-body:'Inter','Helvetica Neue',Arial,sans-serif;
+      --max-w:760px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);font-size:17px;line-height:1.75;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
+ 
+    .site-nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:var(--font-display);font-size:1.35rem;color:var(--white);text-decoration:none}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color .2s}
+    .nav-links a:hover{color:var(--white)}
+    .nav-cta{background:var(--teal);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:6px;font-weight:600}
+ 
+    .article-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:5rem 2rem 4rem;text-align:center}
+    .article-tag{display:inline-block;background:rgba(201,168,76,0.18);color:var(--gold-light);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:100px;margin-bottom:1.5rem}
+    .article-hero h1{font-family:var(--font-display);font-size:clamp(1.7rem,3.6vw,2.7rem);color:var(--white);max-width:820px;margin:0 auto 1.5rem;line-height:1.25}
+    .article-hero p.lead{color:rgba(255,255,255,0.75);font-size:1.08rem;max-width:620px;margin:0 auto 2.5rem}
+    .byline{display:inline-flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem 1.25rem}
+    .byline-avatar{width:42px;height:42px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:700;flex-shrink:0}
+    .byline-text{text-align:left}
+    .byline-label{font-size:0.72rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em}
+    .byline-name{font-size:0.88rem;color:var(--white);font-weight:600}
+    .byline-creds{font-size:0.78rem;color:var(--gold-light)}
+ 
+    .related-hero{background:var(--cream);border-radius:12px;padding:1.5rem 1.75rem;margin:2rem auto;max-width:var(--max-w)}
+    .related-hero .rl{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:1rem}
+    .related-hero .links{display:flex;flex-direction:column;gap:0.75rem}
+    .related-hero a{display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:var(--navy);font-weight:600;font-size:0.95rem}
+    .related-hero a span{color:var(--teal);font-size:1.1rem}
+ 
+    .toc-wrap{max-width:var(--max-w);margin:3rem auto;padding:0 2rem}
+    .toc{background:var(--cream);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;padding:1.5rem 1.75rem}
+    .toc h2{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.9rem}
+    .toc ol{margin:0;padding-left:1.3rem;display:grid;grid-template-columns:1fr 1fr;gap:0.2rem 2rem}
+    .toc li{font-size:0.9rem}
+    .toc a{color:var(--teal);text-decoration:none}
+    .toc a:hover{text-decoration:underline}
+ 
+    .article-body{max-width:var(--max-w);margin:0 auto;padding:1rem 2rem 4rem}
+    .article-body h2{font-family:var(--font-display);font-size:1.6rem;color:var(--navy);margin:3rem 0 1rem;padding-top:1rem;border-top:2px solid var(--border)}
+    .article-body h3{font-size:1.12rem;font-weight:700;color:var(--navy);margin:2rem 0 0.6rem}
+    .article-body p{margin-bottom:1.1rem}
+    .article-body strong{color:var(--navy)}
+    .article-body em{font-style:italic}
+    .article-body a{color:var(--teal);text-decoration:underline}
+    .article-body ul,.article-body ol{margin:0.75rem 0 1.1rem 1.4rem}
+    .article-body li{margin-bottom:0.4rem}
+    hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+ 
+    .intro-paragraph{font-size:1.05rem;color:var(--muted);border-left:3px solid var(--gold);padding-left:1.25rem;margin-bottom:2rem}
+ 
+    .quick-answer{background:var(--navy);border-radius:14px;padding:1.75rem 2rem;margin:2rem 0}
+    .quick-answer-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-light);margin-bottom:0.75rem}
+    .quick-answer h3{color:var(--white);font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+    .quick-answer p{color:rgba(255,255,255,0.78);font-size:0.9rem;margin:0;line-height:1.6}
+    .quick-answer strong{color:var(--gold-light)}
+ 
+    .table-wrap{overflow-x:auto;margin:1.5rem 0 0.6rem;border-radius:10px;box-shadow:0 1px 6px rgba(0,0,0,0.07)}
+    table{width:100%;border-collapse:collapse;font-size:0.9rem}
+    thead{background:var(--navy)}
+    thead th{color:var(--white);text-align:left;padding:0.85rem 1rem;font-weight:600;font-size:0.82rem;letter-spacing:0.04em}
+    tbody tr:nth-child(even){background:var(--cream)}
+    tbody tr:nth-child(odd){background:var(--white)}
+    tbody td{padding:0.8rem 1rem;border-bottom:1px solid var(--border);vertical-align:middle}
+    tbody tr:last-child td{border-bottom:none}
+    .tnote{font-size:0.82rem;color:var(--muted);margin:0 0 1.5rem}
+    .risk-badge{display:inline-block;font-size:0.75rem;font-weight:700;padding:0.2rem 0.65rem;border-radius:100px}
+    .risk-low{background:#EAF7F0;color:#15803D}
+    .risk-mod{background:#FFF8E8;color:#92610A}
+    .risk-high{background:#FEF3C7;color:#92400E}
+    .risk-very{background:#FDECEA;color:#B91C1C}
+    .lp-target{font-weight:700;color:var(--navy);font-size:0.95rem;font-variant-numeric:tabular-nums}
+ 
+    .callout{border-radius:10px;padding:1.25rem 1.5rem;margin:1.75rem 0}
+    .callout-teal{background:rgba(14,124,123,0.06);border-left:4px solid var(--teal)}
+    .callout-gold{background:#FFF8E8;border-left:4px solid var(--gold)}
+    .callout p{margin:0;font-size:0.95rem}
+    .callout strong{color:var(--navy)}
+ 
+    .keypoints{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .keypoint{background:var(--cream);border-radius:10px;padding:1.25rem;border-top:3px solid var(--teal)}
+    .keypoint h4{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem}
+    .keypoint p{font-size:0.85rem;color:var(--muted);margin:0;line-height:1.55}
+ 
+    .test-list{background:var(--cream);border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0}
+    .test-list h3{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:1rem}
+    .test-item{display:flex;gap:0.75rem;margin-bottom:0.75rem;align-items:flex-start}
+    .test-item:last-child{margin-bottom:0}
+    .test-icon{width:28px;height:28px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:0.1rem}
+    .test-item p{font-size:0.92rem;color:var(--text);margin:0;line-height:1.55}
+ 
+    .faq-item{border-bottom:1px solid var(--border);padding:1.25rem 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-weight:700;color:var(--navy);margin-bottom:0.5rem;font-size:1rem}
+    .faq-a{color:var(--text);font-size:0.95rem;margin:0}
+ 
+    .medical-notice{background:#FFF8E8;border:1px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin:3rem 0 2rem;display:flex;gap:1rem;align-items:flex-start}
+    .notice-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem}
+    .medical-notice p{margin:0;font-size:0.9rem;color:var(--muted)}
+    .medical-notice strong{color:var(--navy)}
+ 
+    .cta-block{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:16px;padding:3rem 2.5rem;text-align:center;margin:3.5rem 0 2rem}
+    .cta-block h2{font-family:var(--font-display);font-size:1.5rem;color:var(--white);margin-bottom:0.75rem;border:none;padding:0}
+    .cta-block p{color:rgba(255,255,255,0.72);font-size:0.95rem;max-width:520px;margin:0 auto 0.5rem}
+    .cta-flow{display:flex;justify-content:center;align-items:center;gap:0.5rem;flex-wrap:wrap;margin:1.25rem 0 2rem;font-size:0.8rem}
+    .cta-flow-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:6px;padding:0.3rem 0.75rem;color:rgba(255,255,255,0.8)}
+    .cta-arrow{color:var(--gold)}
+    .btn-primary{display:inline-block;background:var(--teal);color:var(--white);font-weight:700;font-size:1rem;padding:0.9rem 2.2rem;border-radius:8px;text-decoration:none;transition:background .2s;margin-bottom:0.75rem}
+    .btn-primary:hover{background:var(--teal-light);color:var(--white)}
+    .btn-secondary{display:inline-block;color:rgba(255,255,255,0.65);font-size:0.88rem;text-decoration:none;padding:0.4rem 0.75rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;margin-left:0.75rem}
+ 
+    .references{background:var(--cream);border-radius:10px;padding:1.75rem 2rem;margin-top:3rem}
+    .references h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:1rem;border:none;padding:0}
+    .references ol{margin:0;padding-left:1.3rem;font-size:0.83rem;color:var(--muted);line-height:1.6}
+    .references li{margin-bottom:0.5rem}
+    .references a{color:var(--teal)}
+ 
+    .site-footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:2.5rem 2rem;font-size:0.83rem}
+    .site-footer a{color:rgba(255,255,255,0.65);text-decoration:none}
+ 
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .keypoints{grid-template-columns:1fr}
+      .toc ol{grid-template-columns:1fr}
+      .cta-block{padding:2rem 1.25rem}
+      .btn-secondary{display:block;margin:0.75rem auto 0;text-align:center}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+ 
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/apob-guide/">Blog</a></li>
+    <li><a href="/reports/">Reports</a></li>
+    <li><a href="/reports/" class="nav-cta">Get my report</a></li>
+  </ul>
+</nav>
+ 
+<header class="article-hero">
+  <div class="article-tag">Lp(a) · Evidence-Based Guide</div>
+  <h1>Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk</h1>
+  <p class="lead">An inherited, lifelong risk factor that raises the odds of heart attack, stroke, and aortic stenosis — and that most people are never tested for, even once.</p>
+  <div class="byline">
+    <div class="byline-avatar">TG</div>
+    <div class="byline-text">
+      <div class="byline-label">Medically Reviewed By</div>
+      <div class="byline-name"><a href="/about/" style="color:inherit;text-decoration:none;">Dr. Tea Gamezardashvili</a></div>
+      <div class="byline-creds">MD, PhD, MHA, FACC · Cardiologist &amp; Lipidologist</div>
+    </div>
+  </div>
+</header>
+ 
+<div class="related-hero">
+  <div class="rl">Related Articles</div>
+  <div class="links">
+    <a href="/blog/lpa-vs-ldl/"><span>→</span> Lp(a) vs LDL: Why a Normal Cholesterol Test Can Miss a Serious Risk Factor</a>
+    <a href="/blog/apob-lpa-targets/"><span>→</span> High Lp(a) and ApoB Targets: Why Standard Thresholds May Not Be Enough</a>
+    <a href="/blog/pelacarsen-olpasiran/"><span>→</span> Pelacarsen and Olpasiran: The New Generation of Lp(a)-Lowering Therapies</a>
+    <a href="/blog/apob-guide/"><span>→</span> ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk</a>
+  </div>
+</div>
+ 
+<div class="toc-wrap">
+  <nav class="toc" aria-label="Table of contents">
+    <h2>In This Guide</h2>
+    <ol>
+      <li><a href="#what-is-lpa">What Is Lp(a)?</a></li>
+      <li><a href="#why-it-matters">Why Lp(a) Matters</a></li>
+      <li><a href="#the-evidence">What the Evidence Shows</a></li>
+      <li><a href="#what-is-high">What Counts as High?</a></li>
+      <li><a href="#who-should-test">Who Should Be Tested</a></li>
+      <li><a href="#what-to-do">What You Can Do</a></li>
+      <li><a href="#family">Family &amp; Inheritance</a></li>
+      <li><a href="#faq">Common Questions</a></li>
+    </ol>
+  </nav>
+</div>
+ 
+<main class="article-body">
+ 
+  <p class="intro-paragraph">You can do everything right — normal cholesterol, good blood pressure, an active life — and still carry a meaningful, invisible cardiovascular risk written into your genes. Lipoprotein(a), written <strong>Lp(a)</strong>, is that risk for roughly one in five adults. It is inherited, largely fixed for life, and almost never included on a standard lipid panel. The good news: it takes a single test, once, to know where you stand.</p>
+ 
+  <!-- Quick answer -->
+  <div class="quick-answer">
+    <div class="quick-answer-label">Quick Answer</div>
+    <h3>Lp(a) in one paragraph</h3>
+    <p>Lp(a) is an LDL-like particle you inherit; your level is set largely by genetics and stays fairly stable across life. High Lp(a) independently raises the risk of heart attack, stroke, and aortic valve narrowing. The European Atherosclerosis Society recommends measuring it <strong>at least once in every adult's lifetime</strong>. There is <strong>no approved medication</strong> that lowers Lp(a) yet — so management focuses on aggressively controlling every other risk factor, and testing family members.</p>
+  </div>
+ 
+  <!-- 1 -->
+  <h2 id="what-is-lpa">What Is Lp(a)?</h2>
+  <p>Lipoprotein(a) is a particle in your blood that looks a lot like LDL — the "bad cholesterol" particle — with one important addition. Each Lp(a) particle is built on an <strong>ApoB</strong> core (the same protein that defines LDL and other atherogenic particles) with an extra protein called <strong>apolipoprotein(a)</strong>, or apo(a), wrapped around it. That apo(a) tail is what makes Lp(a) distinct — and what makes it dangerous in ways ordinary LDL is not.</p>
+ 
+  <h3>Why it's different from LDL cholesterol</h3>
+  <p>Two features set Lp(a) apart. First, it is <strong>inherited and lifelong</strong>: your level is determined largely by the gene you're born with (the <em>LPA</em> gene) and changes very little across your life, regardless of diet or lifestyle. Second, it appears to do damage through more than one pathway — contributing not only to the cholesterol build-up of atherosclerosis, but also to inflammation, clot formation, and the calcification of the aortic valve. For a side-by-side look at how Lp(a) differs from a standard cholesterol reading, see <a href="/blog/lpa-vs-ldl/">Lp(a) vs LDL</a>.</p>
+ 
+  <div class="callout callout-teal">
+    <p><strong>The key idea:</strong> a routine cholesterol panel can look completely reassuring while your Lp(a) is high — because Lp(a) isn't measured on that panel at all. It has to be ordered separately, which is precisely why so many people carry this risk without ever knowing.</p>
+  </div>
+ 
+  <!-- 2 -->
+  <h2 id="why-it-matters">Why Lp(a) Matters</h2>
+  <p>Lp(a) is not just associated with cardiovascular disease — the evidence points to it being a <strong>causal</strong> driver. That distinction matters: a causal factor is one that actually contributes to disease, not merely a bystander that travels alongside it.</p>
+  <p>High Lp(a) is linked to a higher lifetime risk of:</p>
+  <ul>
+    <li><strong>Heart attack and coronary artery disease</strong> — the classic atherosclerotic pathway.</li>
+    <li><strong>Ischemic stroke</strong> — particularly relevant at younger ages.</li>
+    <li><strong>Aortic valve stenosis</strong> — a progressive narrowing of the aortic valve, a link fairly unique to Lp(a) among lipid markers.</li>
+  </ul>
+  <p>Because the risk is present from birth and accumulates over decades, high Lp(a) is one reason some people develop cardiovascular disease unexpectedly early, or despite otherwise excellent numbers.</p>
+ 
+  <!-- 3 -->
+  <h2 id="the-evidence">What the Evidence Shows</h2>
+  <p>The case for Lp(a) as a causal risk factor rests on two strong pillars of evidence. Large <strong>genetic (Mendelian randomization) studies</strong> — which use inherited variation to separate cause from coincidence — consistently link genetically higher Lp(a) to higher cardiovascular risk. And large population studies show the same relationship holds across hundreds of thousands of people.</p>
+  <p>On the strength of this evidence, the <strong>European Atherosclerosis Society (EAS) 2022 consensus statement</strong> recommends that Lp(a) be measured <strong>at least once in the lifetime of every adult</strong>, to identify those with very high inherited risk. This "once in a lifetime" principle follows directly from the biology: because your level is largely fixed, one accurate measurement tells you most of what you need to know.</p>
+ 
+  <div class="keypoints">
+    <div class="keypoint"><h4>Inherited</h4><p>Your Lp(a) level is set mostly by the <em>LPA</em> gene you're born with — not by diet, weight, or exercise.</p></div>
+    <div class="keypoint"><h4>Lifelong &amp; stable</h4><p>Levels stay fairly constant across adulthood, which is why a single measurement is usually enough.</p></div>
+    <div class="keypoint"><h4>Causal, not just correlated</h4><p>Genetic evidence supports Lp(a) as a true contributor to cardiovascular disease and aortic stenosis.</p></div>
+    <div class="keypoint"><h4>Common</h4><p>Roughly 1 in 5 adults carries an elevated level — yet most have never been tested.</p></div>
+  </div>
+ 
+  <!-- 4 -->
+  <h2 id="what-is-high">What Counts as a High Lp(a) Level?</h2>
+  <p>Lp(a) is best reported in <strong>nmol/L</strong> (nanomoles per litre), which counts particles directly. You may also see it in <strong>mg/dL</strong> (a measure of mass). The two units do <em>not</em> convert by a single fixed factor — the relationship depends on the particle and the laboratory assay — so it's best to track your result in nmol/L where possible and compare like with like over time.</p>
+  <p>As with ApoB, the useful distinction is between a lab's population range and a risk-based threshold. The values below are widely-referenced <strong>reference points, not diagnostic cut-offs</strong> — your physician interprets them alongside your full risk picture.</p>
+ 
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Category</th><th>Lp(a) — nmol/L (primary)</th><th>Approx. mg/dL</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="risk-badge risk-low">Low risk</span></td><td class="lp-target">below ~75 nmol/L</td><td>below ~30 mg/dL</td></tr>
+        <tr><td><span class="risk-badge risk-mod">Grey zone</span></td><td class="lp-target">~75–125 nmol/L</td><td>~30–50 mg/dL</td></tr>
+        <tr><td><span class="risk-badge risk-high">High</span></td><td class="lp-target">above ~125 nmol/L</td><td>above ~50 mg/dL</td></tr>
+        <tr><td><span class="risk-badge risk-very">Very high</span></td><td class="lp-target">above ~250 nmol/L</td><td>above ~100 mg/dL</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="tnote">Reference points only; exact thresholds vary by guideline, assay, and population, and interpretation belongs to your physician. Track results in nmol/L and compare like with like.</p>
+ 
+  <div class="callout callout-gold">
+    <p><strong>Why the units matter:</strong> because mg/dL and nmol/L don't convert cleanly, a result can look different depending on how it's reported. If you're comparing an old and a new result, make sure both are in the same unit — ideally nmol/L — before drawing any conclusion. For how Lp(a) interacts with your ApoB target, see <a href="/blog/apob-lpa-targets/">High Lp(a) and ApoB Targets</a>.</p>
+  </div>
+ 
+  <!-- 5 -->
+  <h2 id="who-should-test">Who Should Be Tested — and When</h2>
+  <p>The EAS position is straightforward: <strong>every adult should have Lp(a) measured at least once.</strong> Because the result is largely stable for life, that single test is usually enough to know whether inherited Lp(a) is part of your risk picture. Testing matters even more if any of the following apply:</p>
+ 
+  <div class="test-list">
+    <h3>Prioritise Lp(a) testing if you have:</h3>
+    <div class="test-item"><div class="test-icon">1</div><p><strong>A family history of premature cardiovascular disease</strong> — heart attack or stroke in a parent or sibling before age 55 (men) or 65 (women).</p></div>
+    <div class="test-item"><div class="test-icon">2</div><p><strong>A personal history of early cardiovascular disease</strong> — especially an event that seems unexplained by your other numbers.</p></div>
+    <div class="test-item"><div class="test-icon">3</div><p><strong>A close relative with known high Lp(a)</strong> — because it's inherited, your risk of also carrying it is meaningfully higher.</p></div>
+    <div class="test-item"><div class="test-icon">4</div><p><strong>Familial hypercholesterolemia (FH)</strong> or a strongly elevated cholesterol pattern.</p></div>
+    <div class="test-item"><div class="test-icon">5</div><p><strong>Aortic valve stenosis</strong>, or a family history of it.</p></div>
+  </div>
+ 
+  <p>The test itself is a simple blood draw and does not require fasting. If your first-ever result is high, it rarely needs repeating for the number's sake — but it becomes an important, permanent part of how your overall risk is understood.</p>
+ 
+  <!-- 6 -->
+  <h2 id="what-to-do">What You Can Do About High Lp(a)</h2>
+  <p>Here is the honest state of play, and the single most important thing to understand about managing Lp(a):</p>
+ 
+  <div class="callout callout-gold">
+    <p><strong>There is currently no medication approved specifically to lower Lp(a).</strong> Diet, exercise, and weight loss — powerful for most cardiovascular risk factors — have little meaningful effect on Lp(a), because your level is genetic. This is not a reason for alarm; it reshapes the strategy.</p>
+  </div>
+ 
+  <h3>The strategy: lower everything else, aggressively</h3>
+  <p>If Lp(a) is a fixed source of risk you can't yet lower directly, the logical response is to reduce every <em>other</em> source of risk as much as possible — so your total risk is minimised. In practice, that means working with your physician to:</p>
+  <ul>
+    <li><strong>Optimise your atherogenic particle burden</strong> — driving ApoB and LDL-C to the targets appropriate for your risk category. Every unit of that burden you remove counts for more when Lp(a) is high. Start with the <a href="/blog/apob-guide/">ApoB guide</a>.</li>
+    <li><strong>Address blood pressure, glucose, and smoking</strong> — the other major, and modifiable, contributors to cardiovascular risk.</li>
+    <li><strong>Screen your family</strong> — see below.</li>
+  </ul>
+ 
+  <h3>A note on statins, niacin, and supplements</h3>
+  <p>Two common points of confusion are worth clearing up. Statins may raise Lp(a) slightly, but this is <strong>not</strong> a reason to avoid them — they substantially lower ApoB and overall cardiovascular risk, which is the priority when Lp(a) is high. Niacin can modestly lower Lp(a) but has not been shown to improve cardiovascular outcomes, so it is not recommended for this purpose. No dietary supplement has good evidence for lowering Lp(a) or the risk it carries. As always, any medication decision belongs to you and your physician.</p>
+ 
+  <h3>What's coming</h3>
+  <p>Several <strong>investigational</strong> therapies designed specifically to lower Lp(a) — including pelacarsen, olpasiran, and others — are in advanced clinical trials. These are not yet approved, and it is not yet known whether lowering Lp(a) with them reduces cardiovascular events; the outcome trials are still underway. For where this science stands today, see <a href="/blog/pelacarsen-olpasiran/">Pelacarsen and Olpasiran</a>.</p>
+ 
+  <!-- 7 -->
+  <h2 id="family">Family and Inheritance</h2>
+  <p>Because Lp(a) is passed down genetically, a high result in one person is a signal to look at the wider family. On average, a first-degree relative — a parent, sibling, or child — has a meaningfully higher chance of also carrying an elevated level. If your Lp(a) is high, it's worth letting close relatives know so they can discuss testing with their own doctors. This is the same logic behind <em>cascade screening</em>, long used for inherited cholesterol conditions: one diagnosis becomes a chance to protect a whole family.</p>
+ 
+  <!-- FAQ -->
+  <h2 id="faq">Common Questions About Lp(a)</h2>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Is Lp(a) included in a standard cholesterol test?</div>
+    <p class="faq-a">No. A routine lipid panel measures total cholesterol, LDL-C, HDL-C, and triglycerides — not Lp(a). It must be ordered as a separate test, which is why most people have never had it measured despite it being a common, inherited risk factor.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">If my Lp(a) is high, how often should I re-test?</div>
+    <p class="faq-a">Usually just once is enough. Because your level is largely genetic and stable across life, a single accurate measurement tells you most of what you need to know. Your physician may re-check in specific circumstances, but there's generally no need to monitor it repeatedly the way you might track LDL-C on treatment.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Can diet or exercise lower my Lp(a)?</div>
+    <p class="faq-a">Not meaningfully. Unlike LDL-C or triglycerides, Lp(a) is set largely by genetics and responds very little to diet, weight loss, or exercise. Those habits remain valuable for your overall cardiovascular health — they're simply not the lever for Lp(a) itself. The effective strategy is to lower your other risk factors as much as possible.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Is Lp(a) the same as ApoB?</div>
+    <p class="faq-a">Not the same, but related. Every Lp(a) particle carries an ApoB protein, so Lp(a) is counted within a total ApoB measurement. But ApoB reflects your entire atherogenic particle burden, while Lp(a) is one specific, inherited particle type. A high ApoB doesn't tell you whether Lp(a) is the reason — that needs its own test. See the <a href="/blog/apob-guide/">ApoB guide</a> for the full picture.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Should my children be tested?</div>
+    <p class="faq-a">Because Lp(a) is inherited, a high level in a parent raises the chance a child carries it too. Whether and when to test a child is an individual decision that depends on the family history and should be made with your physician — this guide can't make that call for you.</p>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Know Your Lp(a) — and What It Means for Your Risk</h2>
+    <p>CardioIQ interprets your Lp(a) alongside your ApoB, lipids, and full risk profile — against longevity-optimal targets, not just population ranges — in a structured, physician-grade report you can take to your own doctor.</p>
+    <div class="cta-flow">
+      <span class="cta-flow-item">Share your panel</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Lp(a) &amp; ApoB analysis</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Risk category</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Guideline mapping</span>
+      <span class="cta-arrow">→</span>
+      <span class="cta-flow-item">Clinical report</span>
+    </div>
+    <a href="/reports/" class="btn-primary">See how CardioIQ reads your panel</a>
+    <a href="/demo-report/" class="btn-secondary">View a sample report →</a>
+  </div>
+ 
+  <!-- Medical notice -->
+  <div class="medical-notice">
+    <div class="notice-icon">⚠️</div>
+    <p><strong>Important Medical Notice.</strong> This article is for education only. It is not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. CardioIQ interprets biomarker data; it does not diagnose or treat disease and does not replace your treating physician. Reference ranges and units vary by laboratory and assay. Do not start, stop, or change any medication, supplement, or lifestyle program based on this article — discuss your results and any decisions with your physician.</p>
+  </div>
+ 
+  <!-- References -->
+  <div class="references">
+    <h2>References</h2>
+    <ol>
+      <li>Kronenberg F, et al. Lipoprotein(a) in atherosclerotic cardiovascular disease and aortic stenosis: a European Atherosclerosis Society consensus statement. <em>European Heart Journal</em>, 2022.</li>
+      <li>2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455" target="_blank" rel="noopener">10.1093/eurheartj/ehz455</a></li>
+      <li>Lp(a)HORIZON trial (pelacarsen) and OCEAN(a) trial (olpasiran) — ongoing cardiovascular outcome trials of investigational Lp(a)-lowering therapies; no outcome results available at the time of writing.</li>
+    </ol>
+  </div>
+ 
+</main>
+ 
+<footer class="site-footer">
+  <p style="margin-bottom:0.5rem;">
+    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
+    <a href="/about/">About</a> &nbsp;·&nbsp;
+    <a href="/blog/apob-guide/">Blog</a> &nbsp;·&nbsp;
+    <a href="/reports/">Reports</a>
+  </p>
+  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+</footer>
+ 
+</body>
+</html>
