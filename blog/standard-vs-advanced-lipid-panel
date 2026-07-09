@@ -1,0 +1,303 @@
+
+Index · HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<!-- ===== SEO: decision intent, lipidologist differentiator, correct casing, no efficacy claims ===== -->
+<title>Standard vs Advanced Lipid Panel: Which Do You Actually Need? | CardioIQ</title>
+<meta name="description" content="A lipidologist compares the standard cholesterol panel with an advanced one — what ApoB and Lp(a) actually add, who really benefits, and how to upgrade the results you already have.">
+<link rel="canonical" href="https://cardioiq.health/blog/standard-vs-advanced-lipid-panel/">
+ 
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Standard vs Advanced Lipid Panel: Which Do You Actually Need?">
+<meta property="og:description" content="What an advanced lipid panel adds over a standard one — ApoB, Lp(a), and who genuinely benefits. Evidence-first, from a lipidologist.">
+<meta property="og:url" content="https://cardioiq.health/blog/standard-vs-advanced-lipid-panel/">
+<meta property="og:site_name" content="CardioIQ">
+<!-- TODO(Tea): set og:image to a real 1200x630 asset on the domain -->
+<meta property="og:image" content="https://cardioiq.health/assets/og-standard-vs-advanced.jpg">
+<meta name="twitter:card" content="summary_large_image">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+ 
+<style>
+  :root{
+    --navy:#0b1a2b; --navy-2:#0f2438; --navy-3:#16324b;
+    --gold:#d4a94a; --gold-soft:#e7c877;
+    --teal:#3fb6a8; --teal-soft:#7ad4c9;
+    --ink:#e9eef4; --ink-2:#b7c4d1; --ink-3:#8496a6;
+    --line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.035);
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.72; -webkit-font-smoothing:antialiased}
+  a{color:var(--teal-soft); text-decoration:none; border-bottom:1px solid rgba(122,212,201,.3); transition:.2s}
+  a:hover{color:#fff; border-color:var(--teal-soft)}
+ 
+  .topbar{border-bottom:1px solid var(--line); background:rgba(11,26,43,.85); backdrop-filter:blur(8px); position:sticky; top:0; z-index:10}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between}
+  .brand{font-family:var(--sans); font-weight:700; letter-spacing:.02em; color:#fff; font-size:18px; border:none}
+  .brand span{color:var(--gold)}
+  .topbar-inner a{border:none; font-family:var(--sans); font-size:14px; color:var(--ink-2)}
+  .topbar-inner nav a{margin-left:20px}
+ 
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+ 
+  header.post{padding:56px 0 34px}
+  .eyebrow{font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  h1{font-family:var(--sans); font-weight:700; font-size:clamp(30px,5.4vw,44px); line-height:1.14; letter-spacing:-.015em; color:#fff; margin:16px 0 22px}
+  .byline{display:flex; gap:14px; align-items:center; font-family:var(--sans); font-size:14px; color:var(--ink-3); border-top:1px solid var(--line); padding-top:18px}
+  .byline b{color:var(--ink); font-weight:600}
+  .byline .cred{color:var(--gold-soft)}
+ 
+  article{padding:8px 0 20px}
+  article p{margin:0 0 24px; color:var(--ink)}
+  article h2{font-family:var(--sans); font-weight:700; font-size:clamp(23px,3.6vw,29px); line-height:1.22; letter-spacing:-.01em; color:#fff; margin:46px 0 18px}
+  article h3{font-family:var(--sans); font-weight:600; font-size:20px; color:var(--gold-soft); margin:32px 0 12px}
+  article strong{color:#fff; font-weight:600}
+  .lead{font-size:22px; line-height:1.62; color:var(--ink); margin-bottom:30px}
+ 
+  .box{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:12px; padding:22px 24px; margin:30px 0; font-size:18px}
+  .box.gold{border-left-color:var(--gold)}
+  .box .k{font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-soft); display:block; margin-bottom:8px}
+  .box.gold .k{color:var(--gold)}
+  .box p:last-child{margin-bottom:0}
+ 
+  /* comparison table */
+  .cmp{margin:26px 0; border:1px solid var(--line); border-radius:12px; overflow:hidden; font-family:var(--sans); font-size:15px}
+  .cmp .row{display:grid; grid-template-columns:1.1fr 1fr 1fr; border-top:1px solid var(--line)}
+  .cmp .row:first-child{border-top:none; background:var(--navy-3); font-weight:600; color:#fff; font-size:13px; letter-spacing:.02em}
+  .cmp .row>div{padding:13px 15px; border-left:1px solid var(--line)}
+  .cmp .row>div:first-child{border-left:none; color:var(--ink); font-weight:600}
+  .cmp .row .std{color:var(--ink-3)}
+  .cmp .row .adv{color:var(--teal-soft)}
+  .cmp .row:first-child .std,.cmp .row:first-child .adv{color:#fff}
+ 
+  ul.clean{margin:0 0 24px; padding-left:0; list-style:none}
+  ul.clean li{position:relative; padding-left:26px; margin-bottom:12px; color:var(--ink)}
+  ul.clean li::before{content:""; position:absolute; left:4px; top:13px; width:7px; height:7px; border-radius:50%; background:var(--gold)}
+ 
+  .loop{display:flex; flex-wrap:wrap; gap:10px; margin:26px 0; font-family:var(--sans); font-size:14px; font-weight:600}
+  .loop span{background:var(--navy-2); border:1px solid var(--line); border-radius:20px; padding:8px 16px; color:var(--ink)}
+  .loop span .arrow{color:var(--gold); margin-left:2px}
+ 
+  .disclaimer{background:rgba(212,169,74,.06); border:1px solid rgba(212,169,74,.22); border-radius:12px; padding:20px 22px; margin:40px 0 10px; font-family:var(--sans); font-size:14.5px; line-height:1.62; color:var(--ink-2)}
+  .disclaimer b{color:var(--gold-soft)}
+ 
+  .cta{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid var(--line); border-radius:16px; padding:34px 30px; margin:44px 0 12px; text-align:center}
+  .cta h3{font-family:var(--sans); color:#fff; font-size:22px; margin:0 0 10px}
+  .cta p{color:var(--ink-2); font-size:16px; margin:0 auto 22px; max-width:470px}
+  .cta a.btn{display:inline-block; background:var(--gold); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:15px; padding:13px 30px; border-radius:10px; border:none}
+  .cta a.btn:hover{background:var(--gold-soft); color:var(--navy)}
+  .cta .sub{display:block; margin-top:14px; font-family:var(--sans); font-size:13px; color:var(--ink-3)}
+  .cta .sub a{color:var(--teal-soft); border:none}
+ 
+  .author{display:flex; gap:18px; align-items:flex-start; border-top:1px solid var(--line); margin-top:48px; padding-top:28px}
+  .author .av{flex:0 0 56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--teal)); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-weight:700; color:var(--navy); font-size:20px}
+  .author .meta{font-family:var(--sans); font-size:14.5px; color:var(--ink-2); line-height:1.6}
+  .author .meta b{color:#fff; font-size:16px; display:block; margin-bottom:2px}
+  .author .meta .cred{color:var(--gold-soft)}
+ 
+  .refs{border-top:1px solid var(--line); margin-top:40px; padding-top:22px; font-family:var(--sans); font-size:13px; color:var(--ink-3); line-height:1.6}
+  .refs h4{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:12px}
+  .refs ol{padding-left:18px} .refs li{margin-bottom:8px}
+  .refs a{color:var(--ink-3); border:none} .refs a:hover{color:var(--teal-soft)}
+ 
+  footer{border-top:1px solid var(--line); margin-top:30px; padding:28px 0 60px}
+  footer .wrap{font-family:var(--sans); font-size:13px; color:var(--ink-3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  footer a{color:var(--ink-3); border:none}
+  footer a:hover{color:var(--teal-soft)}
+ 
+  @media(max-width:560px){
+    body{font-size:18px}
+    .cmp .row{grid-template-columns:1fr}
+    .cmp .row>div{border-left:none; border-top:1px solid var(--line)}
+    .cmp .row:first-child{display:none}
+    .cmp .row>div::before{content:attr(data-label); font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px}
+    .topbar-inner nav a:first-child{display:none}
+  }
+</style>
+</head>
+<body>
+ 
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">Cardio<span>IQ</span></a>
+    <nav>
+      <a href="/blog/">Blog</a>
+      <a href="/reports/">Reports</a>
+    </nav>
+  </div>
+</div>
+ 
+<div class="wrap">
+  <header class="post">
+    <div class="eyebrow">Understanding Your Results</div>
+    <h1>Standard vs Advanced Lipid Panel: Which Do You Actually Need?</h1>
+    <div class="byline">
+      <span>Reviewed by <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b><br>
+      <span class="cred">Preventive Cardiologist &amp; Lipidologist · President, Georgian Atherosclerosis Association</span></span>
+    </div>
+  </header>
+ 
+  <article>
+    <p class="lead">"Advanced lipid panel" sounds like the obvious upgrade — more numbers, more insight, more of everything. But more isn't automatically better, and some advanced panels bundle in markers whose evidence is thin. Here's the honest version: what an advanced panel actually adds over a standard one, which additions carry real weight, who genuinely benefits, and how to get the fuller picture from the results you may already have.</p>
+ 
+    <h2>What each panel is designed to do</h2>
+    <p>The two tests answer slightly different questions. A <strong>standard lipid panel</strong> is built to screen the general population and flag frank abnormalities. An <strong>advanced panel</strong> is built to characterize <em>risk</em> more precisely — especially the risk that a standard panel can under-state. Neither is "wrong"; they're tuned for different jobs.</p>
+ 
+    <div class="cmp">
+      <div class="row"><div>&nbsp;</div><div class="std">Standard panel</div><div class="adv">Advanced panel</div></div>
+      <div class="row">
+        <div data-label="Includes">Core lipids</div>
+        <div data-label="Standard" class="std">Total, LDL-C, HDL, triglycerides, non-HDL</div>
+        <div data-label="Advanced" class="adv">All of standard, plus…</div>
+      </div>
+      <div class="row">
+        <div data-label="Particle count">ApoB</div>
+        <div data-label="Standard" class="std">Not included</div>
+        <div data-label="Advanced" class="adv">Counts atherogenic particles directly</div>
+      </div>
+      <div class="row">
+        <div data-label="Inherited risk">Lp(a)</div>
+        <div data-label="Standard" class="std">Not included</div>
+        <div data-label="Advanced" class="adv">Detects a common inherited risk factor</div>
+      </div>
+      <div class="row">
+        <div data-label="Often added">Sometimes added</div>
+        <div data-label="Standard" class="std">—</div>
+        <div data-label="Advanced" class="adv">hs-CRP, remnant/particle detail, ApoA1</div>
+      </div>
+      <div class="row">
+        <div data-label="Best for">Best suited to</div>
+        <div data-label="Standard" class="std">General screening; ruling out overt problems</div>
+        <div data-label="Advanced" class="adv">Precise risk when "normal" may be incomplete</div>
+      </div>
+    </div>
+ 
+    <p>If you'd like the plain-language tour of what those standard lines mean first, start with <a href="/blog/read-lipid-panel/">how to read your lipid panel</a>. This article is about the step after that: deciding whether the extra numbers are worth adding.</p>
+ 
+    <h2>The two additions that actually earn their place</h2>
+    <p>Advanced panels can list a dozen extras, but two carry the strongest evidence and do most of the work. Everything else is secondary.</p>
+ 
+    <h3>1. ApoB — the particle count</h3>
+    <p>Standard LDL-C measures the <em>cholesterol</em> your LDL particles carry, not <em>how many</em> particles there are. <strong>ApoB</strong> counts the atherogenic particles directly, and when the two disagree — <em>discordance</em> — ApoB tracks risk more faithfully. That's why the ESC/EAS guidelines highlight it, particularly when triglycerides are high or metabolic syndrome is present. It's inexpensive, widely available, and for many people it's the single most useful number to add. <a href="/blog/apob-guide/">More in the ApoB guide →</a></p>
+ 
+    <h3>2. Lp(a) — the inherited risk</h3>
+    <p><strong>Lp(a)</strong> is a genetically determined particle that raises cardiovascular risk independently of the rest of your panel, and it's essentially never in a standard test. Because it's largely fixed for life, it only needs measuring <em>once</em> — which makes it one of the highest-value single tests you can do. If you have an unexplained family history of early heart disease, this is often the missing piece. <a href="/blog/lpa-guide/">More in the Lp(a) guide →</a></p>
+ 
+    <div class="box">
+      <span class="k">An honest caveat</span>
+      <p>Not every "advanced" marker is equally proven. The evidence behind <strong>ApoB</strong> and <strong>Lp(a)</strong> is strong and guideline-backed; some other add-ons have weaker support and can add cost without adding clarity. A good advanced panel isn't the one with the most boxes ticked — it's the one that measures what changes the decision. More numbers you don't know how to read isn't more insight.</p>
+    </div>
+ 
+    <h2>Who actually benefits from going advanced</h2>
+    <p>An advanced panel isn't for everyone, and it isn't urgent for everyone. It's most worth it if one or more of these fits you:</p>
+    <ul class="clean">
+      <li><strong>You have a family history of early heart disease</strong> that your standard numbers don't explain — the classic case for checking Lp(a) once.</li>
+      <li><strong>Your standard lipids look "normal" but your metabolic markers don't</strong> — higher triglycerides, lower HDL, or early insulin resistance, where LDL-C most often under-states particle burden.</li>
+      <li><strong>You're optimizing for the long game</strong> — you want to read your numbers against longevity-optimal targets, not just wait for something to be flagged.</li>
+      <li><strong>Your LDL-C and other markers seem to disagree</strong>, and you want the number (ApoB) that settles it.</li>
+    </ul>
+    <p>If none of these apply and your standard panel is genuinely clean, there's no need to rush — though a one-time Lp(a) is reasonable for almost anyone, precisely because you only ever do it once.</p>
+ 
+    <div class="box gold">
+      <span class="k">You already have a standard panel — now what?</span>
+      <p>You usually don't need to start over. In most cases the practical upgrade is small: ask your doctor to add an <strong>ApoB</strong> to your next blood draw, add a one-time <strong>Lp(a)</strong> if you've never had it, and then read the whole set — old and new — against optimal targets rather than population ranges. That last step, the interpretation, is where the numbers turn into a decision.</p>
+    </div>
+ 
+    <h2>How to actually get it done</h2>
+    <ul class="clean">
+      <li><strong>Ask, don't assume.</strong> "Can we add ApoB and a one-time Lp(a)?" is a reasonable request at your next visit. For the logistics of ordering ApoB specifically, see <a href="/blog/apob-testing/">how ApoB testing works</a>.</li>
+      <li><strong>Prioritize the two that matter.</strong> If cost or access is limited, ApoB and Lp(a) are the additions to prioritize over more exotic markers.</li>
+      <li><strong>Interpret against optimal.</strong> Advanced numbers are only as useful as the targets you read them against — ask what fits <em>your</em> risk, not just whether you're "in range."</li>
+      <li><strong>Then discuss and retest.</strong> Bring the fuller picture to your physician, and repeat over time.</li>
+    </ul>
+ 
+    <div class="box">
+      <span class="k">The loop</span>
+      <div class="loop">
+        <span>Add ApoB + one-time Lp(a)<span class="arrow">→</span></span>
+        <span>Interpret vs optimal<span class="arrow">→</span></span>
+        <span>Discuss with your physician<span class="arrow">→</span></span>
+        <span>Retest</span>
+      </div>
+    </div>
+ 
+    <div class="disclaimer">
+      <b>Medical disclaimer.</b> This article is educational and reflects general cardiovascular science — it is not a diagnosis, not medical advice, and not a substitute for care from your own physician. Which tests are appropriate for you is a clinical decision that depends on your full history and should be made with your treating physician. This article does not recommend any specific test for any individual.
+    </div>
+ 
+    <div class="cta">
+      <h3>Have a standard panel — want the advanced read?</h3>
+      <p>CardioIQ takes the lab results you already have — plus ApoB and Lp(a) if you've added them — and interprets the full set against longevity-optimal targets, in a physician-grade report built by a lipidologist.</p>
+      <a class="btn" href="/reports/">See how a CardioIQ report works</a>
+      <span class="sub">Not sure what your numbers mean yet? <a href="/blog/normal-cholesterol-still-at-risk/">Normal cholesterol, still at risk? →</a></span>
+    </div>
+ 
+    <div class="author">
+      <div class="av">TG</div>
+      <div class="meta">
+        <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b>
+        <span class="cred">Preventive Cardiologist &amp; Lipidologist</span><br>
+        President, Georgian Atherosclerosis Association · National Coordinator, EAS Lipid Clinic Network (Georgia) · Academic Director, CMEA. CardioIQ is built by a lipidologist, not a tech company.
+      </div>
+    </div>
+ 
+    <div class="refs">
+      <h4>References</h4>
+      <ol>
+        <li>Mach F, Baigent C, Catapano AL, et al. 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2020;41(1):111–188. doi:10.1093/eurheartj/ehz455</li>
+        <li>Kronenberg F, Mora S, Stroes ESG, et al. Lipoprotein(a) in atherosclerotic cardiovascular disease and aortic stenosis: an EAS consensus statement. <em>European Heart Journal.</em> 2022. <!-- TODO(Tea): verify EAS 2022 Lp(a) consensus DOI before publish --></li>
+      </ol>
+    </div>
+  </article>
+</div>
+ 
+<footer>
+  <div class="wrap">
+    <span>© 2026 CardioIQ · Physician-built cardiovascular intelligence</span>
+    <span><a href="/blog/">All articles</a> · <a href="/blog/apob-guide/">ApoB guide</a> · <a href="/reports/">Reports</a></span>
+  </div>
+</footer>
+ 
+<!-- ===== Schema.org: MedicalWebPage + author for E-E-A-T ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": "Standard vs Advanced Lipid Panel: Which Do You Actually Need?",
+  "description": "What an advanced lipid panel adds over a standard one — ApoB, Lp(a), and who genuinely benefits.",
+  "url": "https://cardioiq.health/blog/standard-vs-advanced-lipid-panel/",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC",
+    "jobTitle": "Preventive Cardiologist & Lipidologist",
+    "url": "https://teagamezardashvili.com"
+  },
+  "reviewedBy": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CardioIQ",
+    "url": "https://cardioiq.health"
+  }
+}
+</script>
+ 
+</body>
+</html>
