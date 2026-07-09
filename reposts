@@ -1,0 +1,8 @@
+# Netlify redirects — place this file (named exactly "_redirects", no extension)
+# in the PUBLISH ROOT of the repo (the same level as the blog/ and reports/ folders).
+#
+# 301: retire the duplicate insulin-resistance article to the canonical metabolic pillar.
+# The "!" makes it a FORCED redirect, so it wins even if the old folder still exists.
+
+/blog/insulin-resistance-heart-risk/*   /blog/insulin-resistance-gap/   301!
+/blog/insulin-resistance-heart-risk     /blog/insulin-resistance-gap/   301!
