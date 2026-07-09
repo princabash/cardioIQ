@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--
+    CardioIQ blog article — SUPPORTING (Lp(a) cluster #3)
+    Slug: /blog/lpa-family-screening/
+    Persona: Newly Worried + Referring Physician
+    Keyword/intent: "Lp(a) inherited / genetic / family"
+    CRL: Finding -> Reference frame -> Mechanism (inheritance) -> Evidence -> Modifiers -> Action (cascade) -> Boundary
+    Internal links (LIVE / same-batch cluster): lpa-guide (pillar), apob-lpa-targets, /reports/
+    COMPLIANCE: children's testing = GENERAL framing only, always physician-routed. No specific pediatric ages/protocols.
+    VERIFY BEFORE PUBLISH: inheritance/prevalence figures vs EAS 2022; reference DOIs.
+  -->
+  <title>Lp(a) and Family History: Who Should Be Tested? | CardioIQ</title>
+  <meta name="description" content="Lp(a) is inherited — a high level in one family member is a signal to test close relatives. How Lp(a) is passed down, who should be tested, and how cascade screening works. Reviewed by Dr. Tea Gamezardashvili, MD PhD MHA FACC." />
+  <link rel="canonical" href="https://cardioiq.health/blog/lpa-family-screening/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Lp(a) and Family History: Who Should Be Tested?" />
+  <meta property="og:description" content="Lp(a) is inherited. A high result is a reason to test close relatives — here's how cascade screening works and who it applies to." />
+  <meta property="og:url" content="https://cardioiq.health/blog/lpa-family-screening/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["MedicalWebPage", "Article"],
+    "headline": "Lp(a) and Family History: Who Should Be Tested?",
+    "description": "How lipoprotein(a) is inherited, who should be tested when a relative has a high level, and how cascade screening applies to families.",
+    "url": "https://cardioiq.health/blog/lpa-family-screening/",
+    "datePublished": "2026-07-07",
+    "dateModified": "2026-07-07",
+    "author": { "@type": "Person", "name": "Tea Gamezardashvili", "honorificSuffix": "MD, PhD, MHA, FACC" },
+    "reviewedBy": { "@type": "Person", "name": "Tea Gamezardashvili", "honorificSuffix": "MD, PhD, MHA, FACC" },
+    "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health" }
+  }
+  </script>
+  <style>
+    :root{
+      --navy:#0B1F3A; --navy-mid:#112847; --teal:#0E7C7B; --teal-light:#12A09E;
+      --gold:#C9A84C; --gold-light:#E4C878; --cream:#F8F6F1; --white:#FFFFFF;
+      --text:#1A2B3C; --muted:#4A6070; --border:#D8E4EC;
+      --font-display:Georgia,'Times New Roman',serif;
+      --font-body:'Inter','Helvetica Neue',Arial,sans-serif;
+      --max-w:760px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-body);font-size:17px;line-height:1.75;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
+ 
+    .site-nav{background:var(--navy);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+    .nav-logo{font-family:var(--font-display);font-size:1.35rem;color:var(--white);text-decoration:none}
+    .nav-logo span{color:var(--gold)}
+    .nav-links{display:flex;gap:2rem;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;transition:color .2s}
+    .nav-links a:hover{color:var(--white)}
+    .nav-cta{background:var(--teal);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:6px;font-weight:600}
+ 
+    .article-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);padding:5rem 2rem 4rem;text-align:center}
+    .article-tag{display:inline-block;background:rgba(201,168,76,0.18);color:var(--gold-light);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:100px;margin-bottom:1.5rem}
+    .article-hero h1{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.6rem);color:var(--white);max-width:800px;margin:0 auto 1.5rem;line-height:1.3}
+    .article-hero p.lead{color:rgba(255,255,255,0.75);font-size:1.05rem;max-width:600px;margin:0 auto 2.5rem}
+    .byline{display:inline-flex;align-items:center;gap:0.75rem;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.75rem 1.25rem}
+    .byline-avatar{width:42px;height:42px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:700;flex-shrink:0}
+    .byline-text{text-align:left}
+    .byline-label{font-size:0.72rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.08em}
+    .byline-name{font-size:0.88rem;color:var(--white);font-weight:600}
+    .byline-creds{font-size:0.78rem;color:var(--gold-light)}
+ 
+    .article-body{max-width:var(--max-w);margin:0 auto;padding:3rem 2rem 4rem}
+    .article-body h2{font-family:var(--font-display);font-size:1.6rem;color:var(--navy);margin:3rem 0 1rem;padding-top:1rem;border-top:2px solid var(--border)}
+    .article-body h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin:2rem 0 0.6rem}
+    .article-body p{margin-bottom:1.1rem}
+    .article-body strong{color:var(--navy)}
+    .article-body em{font-style:italic}
+    .article-body a{color:var(--teal);text-decoration:underline}
+    .article-body ul,.article-body ol{margin:0.75rem 0 1.1rem 1.4rem}
+    .article-body li{margin-bottom:0.4rem}
+    hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+ 
+    .intro-paragraph{font-size:1.05rem;color:var(--muted);border-left:3px solid var(--gold);padding-left:1.25rem;margin-bottom:2rem}
+ 
+    .quick-answer{background:var(--navy);border-radius:14px;padding:1.75rem 2rem;margin:2rem 0}
+    .quick-answer-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-light);margin-bottom:0.75rem}
+    .quick-answer h3{color:var(--white);font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+    .quick-answer p{color:rgba(255,255,255,0.78);font-size:0.9rem;margin:0;line-height:1.6}
+    .quick-answer strong{color:var(--gold-light)}
+ 
+    .callout{border-radius:10px;padding:1.25rem 1.5rem;margin:1.75rem 0}
+    .callout-teal{background:rgba(14,124,123,0.06);border-left:4px solid var(--teal)}
+    .callout-gold{background:#FFF8E8;border-left:4px solid var(--gold)}
+    .callout p{margin:0;font-size:0.95rem}
+    .callout strong{color:var(--navy)}
+ 
+    .keypoints{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+    .keypoint{background:var(--cream);border-radius:10px;padding:1.25rem;border-top:3px solid var(--teal)}
+    .keypoint h4{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem}
+    .keypoint p{font-size:0.85rem;color:var(--muted);margin:0;line-height:1.55}
+ 
+    .test-list{background:var(--cream);border-radius:12px;padding:1.5rem 1.75rem;margin:1.5rem 0}
+    .test-list h3{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:1rem}
+    .test-item{display:flex;gap:0.75rem;margin-bottom:0.75rem;align-items:flex-start}
+    .test-item:last-child{margin-bottom:0}
+    .test-icon{width:28px;height:28px;background:var(--teal);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:0.75rem;font-weight:700;flex-shrink:0;margin-top:0.1rem}
+    .test-item p{font-size:0.92rem;color:var(--text);margin:0;line-height:1.55}
+ 
+    .faq-item{border-bottom:1px solid var(--border);padding:1.25rem 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-weight:700;color:var(--navy);margin-bottom:0.5rem;font-size:1rem}
+    .faq-a{color:var(--text);font-size:0.95rem;margin:0}
+ 
+    .medical-notice{background:#FFF8E8;border:1px solid var(--gold);border-radius:10px;padding:1.25rem 1.5rem;margin:3rem 0 2rem;display:flex;gap:1rem;align-items:flex-start}
+    .notice-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem}
+    .medical-notice p{margin:0;font-size:0.9rem;color:var(--muted)}
+    .medical-notice strong{color:var(--navy)}
+ 
+    .cta-block{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-mid) 100%);border-radius:16px;padding:3rem 2.5rem;text-align:center;margin:3.5rem 0 2rem}
+    .cta-block h2{font-family:var(--font-display);font-size:1.5rem;color:var(--white);margin-bottom:0.75rem;border:none;padding:0}
+    .cta-block p{color:rgba(255,255,255,0.72);font-size:0.95rem;max-width:520px;margin:0 auto 1.5rem}
+    .btn-primary{display:inline-block;background:var(--teal);color:var(--white);font-weight:700;font-size:1rem;padding:0.9rem 2.2rem;border-radius:8px;text-decoration:none;transition:background .2s;margin-bottom:0.75rem}
+    .btn-primary:hover{background:var(--teal-light);color:var(--white)}
+    .btn-secondary{display:inline-block;color:rgba(255,255,255,0.65);font-size:0.88rem;text-decoration:none;padding:0.4rem 0.75rem;border:1px solid rgba(255,255,255,0.2);border-radius:6px;margin-left:0.75rem}
+ 
+    .references{background:var(--cream);border-radius:10px;padding:1.75rem 2rem;margin-top:3rem}
+    .references h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:1rem;border:none;padding:0}
+    .references ol{margin:0;padding-left:1.3rem;font-size:0.83rem;color:var(--muted);line-height:1.6}
+    .references li{margin-bottom:0.5rem}
+    .references a{color:var(--teal)}
+ 
+    .site-footer{background:var(--navy);color:rgba(255,255,255,0.5);text-align:center;padding:2.5rem 2rem;font-size:0.83rem}
+    .site-footer a{color:rgba(255,255,255,0.65);text-decoration:none}
+ 
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .keypoints{grid-template-columns:1fr}
+      .cta-block{padding:2rem 1.25rem}
+      .btn-secondary{display:block;margin:0.75rem auto 0;text-align:center}
+    }
+    @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+ 
+<nav class="site-nav">
+  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/apob-guide/">Blog</a></li>
+    <li><a href="/reports/">Reports</a></li>
+    <li><a href="/reports/" class="nav-cta">Get my report</a></li>
+  </ul>
+</nav>
+ 
+<header class="article-hero">
+  <div class="article-tag">Lp(a) · Family &amp; Inheritance</div>
+  <h1>Lp(a) and Family History: Who Should Be Tested?</h1>
+  <p class="lead">Because Lp(a) is inherited, a high level in one person is rarely just their own. It's a signal to look at the whole family.</p>
+  <div class="byline">
+    <div class="byline-avatar">TG</div>
+    <div class="byline-text">
+      <div class="byline-label">Medically Reviewed By</div>
+      <div class="byline-name"><a href="/about/" style="color:inherit;text-decoration:none;">Dr. Tea Gamezardashvili</a></div>
+      <div class="byline-creds">MD, PhD, MHA, FACC · Cardiologist &amp; Lipidologist</div>
+    </div>
+  </div>
+</header>
+ 
+<main class="article-body">
+ 
+  <p class="intro-paragraph">Most cardiovascular risk factors are things you develop — through diet, weight, blood pressure, or time. Lp(a) is different: you're born with your level, written into your genes. That single fact changes how testing should work. A high Lp(a) isn't only personal information — it's a clue about your parents, your siblings, and your children.</p>
+ 
+  <!-- Quick answer -->
+  <div class="quick-answer">
+    <div class="quick-answer-label">Quick Answer</div>
+    <h3>Who should be tested?</h3>
+    <p>Guidelines recommend every adult have Lp(a) measured <strong>at least once</strong>. Testing is especially worthwhile if you have a <strong>family history of early heart disease</strong>, or a close relative with <strong>known high Lp(a)</strong> — because it's inherited, your own odds of carrying it are meaningfully higher. Whether to test children is an individual decision to make with your doctor.</p>
+  </div>
+ 
+  <h2>Lp(a) is inherited — here's what that means</h2>
+  <p>Your Lp(a) level is set largely by a single gene, <em>LPA</em>, which you inherit from your parents. Because of how that gene works, your level is essentially established at birth and stays fairly stable across your whole life — largely unaffected by diet, exercise, or weight. That's why one measurement is usually enough, and why the result carries information about your blood relatives.</p>
+  <p>In practical terms: if you have a high Lp(a), each of your <strong>first-degree relatives</strong> — parents, siblings, and children — has a meaningfully higher chance of also carrying an elevated level. The reverse is true too: a high level in a parent or sibling is a reason for you to be tested.</p>
+ 
+  <div class="callout callout-teal">
+    <p><strong>Why this is good news, oddly enough:</strong> an inherited risk factor is one you can find early — often decades before it would ever cause a problem. A single blood test can surface a lifelong risk while there's still plenty of time to act on everything around it.</p>
+  </div>
+ 
+  <h2>What is cascade screening?</h2>
+  <p><strong>Cascade screening</strong> is a simple, powerful idea borrowed from how inherited cholesterol conditions are managed: when one person is found to carry an inherited risk, their close relatives are offered testing too — and if any of them test positive, <em>their</em> relatives are offered testing in turn. One diagnosis "cascades" outward into a chance to protect an entire family.</p>
+  <p>For Lp(a), cascade screening is informal but logical. If your result comes back high, letting your close family know gives each of them the opportunity to check their own level with their own doctor — and, if it's elevated, to start optimising their other risk factors early. This is the same family-centred thinking behind screening for <a href="/blog/apob-lpa-targets/">familial lipid conditions</a>.</p>
+ 
+  <h2>Who should prioritise Lp(a) testing</h2>
+  <p>The baseline recommendation is straightforward — every adult, once. Beyond that, these situations raise the value of testing:</p>
+ 
+  <div class="test-list">
+    <h3>Test sooner if you have:</h3>
+    <div class="test-item"><div class="test-icon">1</div><p><strong>A family history of premature cardiovascular disease</strong> — a heart attack or stroke in a parent or sibling before age 55 (men) or 65 (women).</p></div>
+    <div class="test-item"><div class="test-icon">2</div><p><strong>A close relative with known high Lp(a)</strong> — a parent, sibling, or child who has already tested high.</p></div>
+    <div class="test-item"><div class="test-icon">3</div><p><strong>Familial hypercholesterolemia (FH)</strong> or a strong family pattern of very high cholesterol.</p></div>
+    <div class="test-item"><div class="test-icon">4</div><p><strong>A personal or family history of aortic valve stenosis</strong>, which is linked to Lp(a).</p></div>
+    <div class="test-item"><div class="test-icon">5</div><p><strong>Unexplained early cardiovascular disease</strong> in yourself or a relative — an event that the usual risk factors don't fully account for.</p></div>
+  </div>
+ 
+  <h2>What about testing children?</h2>
+  <p>This is a common and reasonable question when a parent tests high — but it's also one where general advice can't replace an individual decision. Because Lp(a) is inherited, a high level in a parent does raise the chance a child carries it too. <strong>Whether and when to test a particular child depends on the specific family history and other factors, and is a decision to make together with your child's doctor.</strong> This guide can't and shouldn't make that call for you; its purpose is to explain why the question comes up, so you can raise it with a clinician who knows your family's situation.</p>
+ 
+  <div class="keypoints">
+    <div class="keypoint"><h4>One test, lasting value</h4><p>Because Lp(a) is stable for life, a single result rarely needs repeating — it becomes a permanent part of a person's risk picture.</p></div>
+    <div class="keypoint"><h4>First-degree first</h4><p>Parents, siblings, and children carry the highest chance of sharing an elevated level.</p></div>
+    <div class="keypoint"><h4>Knowledge enables action</h4><p>Finding a high level early means more time to optimise every other, modifiable risk factor.</p></div>
+    <div class="keypoint"><h4>A family conversation</h4><p>Sharing a high result isn't alarming news — it's a practical heads-up that helps relatives protect themselves.</p></div>
+  </div>
+ 
+  <h2>If your Lp(a) is high: the family next steps</h2>
+  <p>A high result doesn't call for panic — it calls for a few sensible steps:</p>
+  <ul>
+    <li><strong>Understand your own number first.</strong> What it means and what to do about it is covered in the pillar guide: <a href="/blog/lpa-guide/">Lp(a): The Complete Guide</a>.</li>
+    <li><strong>Let close relatives know.</strong> A brief, matter-of-fact message is enough: you tested high for an inherited factor, it's worth them checking with their own doctor.</li>
+    <li><strong>Focus on what you can change.</strong> Since Lp(a) itself can't yet be lowered with approved medication, the shared family goal is to keep every other risk factor — especially ApoB and LDL-C — as low as possible, each person with their own physician.</li>
+  </ul>
+ 
+  <!-- FAQ -->
+  <h2>Common Questions</h2>
+ 
+  <div class="faq-item">
+    <div class="faq-q">If my parent has high Lp(a), will I definitely have it too?</div>
+    <p class="faq-a">Not definitely — but your chance is meaningfully higher than average, because Lp(a) is inherited. The only way to know is to test. A high level in a first-degree relative is one of the clearest reasons to have your own Lp(a) measured.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">How do I tell my family without worrying them?</div>
+    <p class="faq-a">Keep it simple and calm: you had a blood test that showed an inherited risk factor called Lp(a), it's common, and it's worth them asking their own doctor to check theirs. Framing it as useful, actionable information — not bad news — usually lands well. Finding it early is an advantage, not a diagnosis of disease.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Does a normal cholesterol test rule out high Lp(a) in my family?</div>
+    <p class="faq-a">No. Lp(a) isn't measured on a standard lipid panel, so a relative can have perfectly normal cholesterol and still carry high Lp(a). It has to be ordered as its own test. See <a href="/blog/lpa-vs-ldl/">Lp(a) vs LDL</a> for why a normal cholesterol result can miss it.</p>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-q">Should my children be tested for Lp(a)?</div>
+    <p class="faq-a">That depends on your family history and is a decision to make with your child's doctor — it isn't something a general guide can decide. Because Lp(a) is inherited, a high level in a parent is a reason to raise the question with a clinician who knows your family's full picture.</p>
+  </div>
+ 
+  <!-- CTA -->
+  <div class="cta-block">
+    <h2>Understand Your Lp(a) — and What It Means for Your Family</h2>
+    <p>CardioIQ interprets your Lp(a) alongside your ApoB, lipids, and full risk profile — against longevity-optimal targets — in a structured, physician-grade report you can share with your doctor.</p>
+    <a href="/reports/" class="btn-primary">See how CardioIQ reads your panel</a>
+    <a href="/demo-report/" class="btn-secondary">View a sample report →</a>
+  </div>
+ 
+  <!-- Medical notice -->
+  <div class="medical-notice">
+    <div class="notice-icon">⚠️</div>
+    <p><strong>Important Medical Notice.</strong> This article is for education only. It is not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. Decisions about testing — including whether and when to test children or other relatives — should be made with a qualified physician who knows your family's history. Always consult your physician before making decisions about your health.</p>
+  </div>
+ 
+  <!-- References -->
+  <div class="references">
+    <h2>References</h2>
+    <ol>
+      <li>Kronenberg F, et al. Lipoprotein(a) in atherosclerotic cardiovascular disease and aortic stenosis: a European Atherosclerosis Society consensus statement. <em>European Heart Journal</em>, 2022.</li>
+      <li>2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455" target="_blank" rel="noopener">10.1093/eurheartj/ehz455</a></li>
+    </ol>
+  </div>
+ 
+</main>
+ 
+<footer class="site-footer">
+  <p style="margin-bottom:0.5rem;">
+    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
+    <a href="/about/">About</a> &nbsp;·&nbsp;
+    <a href="/blog/apob-guide/">Blog</a> &nbsp;·&nbsp;
+    <a href="/reports/">Reports</a>
+  </p>
+  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+</footer>
+ 
+</body>
+</html>
