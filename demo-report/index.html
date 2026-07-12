@@ -278,7 +278,7 @@
       <a href="/reports/#tiers" style="background:var(--gold);color:#1b1405;font-weight:700;text-decoration:none;padding:.5rem 1.1rem;border-radius:9px;font-size:.9rem">Get my report</a>
     </span>
   </div>
-
+ 
 <!-- ══════════════════════════════════════════
      REPORT BODY
 ══════════════════════════════════════════ -->
@@ -971,14 +971,77 @@
       </div>
     </div>
   </div>
+ <!-- ══════════════════════════════════════════
+     WHICH REPORT IS THIS? — TIER COMPARISON
+══════════════════════════════════════════ -->
+<div style="margin:56px 0 8px;font-family:var(--font-body)">
+  <div style="text-align:center;max-width:660px;margin:0 auto 34px">
+    <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:12px">Which report is this?</p>
+    <h2 style="font-family:var(--font-display);color:var(--navy);font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.18;margin-bottom:12px">You just read a Premium report. Here's what each tier includes.</h2>
+    <p style="color:var(--muted);font-size:1.04rem;line-height:1.6">Every tier reads your own labs against longevity-optimal targets — not just "normal." The difference is how deep the panel goes and whether you get the physician-ready layer.</p>
+  </div>
+ 
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:960px;margin:0 auto">
+ 
+    <!-- ESSENTIAL -->
+    <div style="border:1px solid var(--border);border-radius:14px;padding:26px 22px;background:var(--white);display:flex;flex-direction:column">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Essential</div>
+      <div style="font-family:var(--font-display);font-size:2rem;color:var(--navy);line-height:1">$29</div>
+      <div style="color:var(--muted);font-size:.86rem;margin:4px 0 18px">Core lipid interpretation</div>
+      <ul style="list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:10px;font-size:.92rem;color:var(--text)">
+        <li style="display:flex;gap:9px"><span style="color:var(--teal);font-weight:700">✓</span>Full standard lipid panel read against optimal targets</li>
+        <li style="display:flex;gap:9px"><span style="color:var(--teal);font-weight:700">✓</span>What each value means + questions for your physician</li>
+        <li style="display:flex;gap:9px"><span style="color:var(--teal);font-weight:700">✓</span>Plain-language patient summary</li>
+      </ul>
+      <a href="/reports/#tiers" style="margin-top:auto;text-align:center;border:1px solid var(--navy);color:var(--navy);font-weight:700;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-size:.92rem">Choose Essential</a>
+    </div>
+ 
+    <!-- STANDARD (most popular) -->
+    <div style="border:2px solid var(--teal);border-radius:14px;padding:26px 22px;background:var(--cream);display:flex;flex-direction:column;position:relative;box-shadow:0 8px 28px rgba(14,124,123,.14)">
+      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap">Most popular</div>
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:8px">Standard</div>
+      <div style="font-family:var(--font-display);font-size:2rem;color:var(--navy);line-height:1">$49</div>
+      <div style="color:var(--muted);font-size:.86rem;margin:4px 0 18px">The markers that actually stratify risk</div>
+      <ul style="list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:10px;font-size:.92rem;color:var(--text)">
+        <li style="display:flex;gap:9px"><span style="color:var(--teal);font-weight:700">✓</span><strong>Everything in Essential</strong></li>
+        <li style="display:flex;gap:9px"><span style="color:var(--teal);font-weight:700">✓</span><strong>ApoB &amp; Lp(a)</strong> — the discordance the standard panel misses</li>
+        <li style="display:flex;gap:9px"><span style="color:var(--teal);font-weight:700">✓</span>Extended cardiometabolic read (insulin resistance, TG/HDL, hsCRP)</li>
+        <li style="display:flex;gap:9px"><span style="color:var(--teal);font-weight:700">✓</span>Residual cardiovascular risk assessment</li>
+      </ul>
+      <a href="/reports/#tiers" style="margin-top:auto;text-align:center;background:var(--teal);color:#fff;font-weight:700;text-decoration:none;padding:.75rem 1rem;border-radius:8px;font-size:.95rem">Choose Standard</a>
+    </div>
+ 
+    <!-- PREMIUM (the report you just read) -->
+    <div style="border:2px solid var(--gold);border-radius:14px;padding:26px 22px;background:var(--white);display:flex;flex-direction:column;position:relative">
+      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1b1405;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;white-space:nowrap">The report you just read</div>
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px">Premium</div>
+      <div style="font-family:var(--font-display);font-size:2rem;color:var(--navy);line-height:1">$69</div>
+      <div style="color:var(--muted);font-size:.86rem;margin:4px 0 18px">The full physician-ready layer</div>
+      <ul style="list-style:none;padding:0;margin:0 0 20px;display:flex;flex-direction:column;gap:10px;font-size:.92rem;color:var(--text)">
+        <li style="display:flex;gap:9px"><span style="color:var(--gold);font-weight:700">✓</span><strong>Everything in Standard</strong></li>
+        <li style="display:flex;gap:9px"><span style="color:var(--gold);font-weight:700">✓</span>Clinician decision-support summary, guideline-mapped</li>
+        <li style="display:flex;gap:9px"><span style="color:var(--gold);font-weight:700">✓</span>Prioritised treatment-opportunity list</li>
+        <li style="display:flex;gap:9px"><span style="color:var(--gold);font-weight:700">✓</span>Personalised follow-up plan</li>
+      </ul>
+      <a href="/reports/#tiers" style="margin-top:auto;text-align:center;background:var(--navy);color:#fff;font-weight:700;text-decoration:none;padding:.75rem 1rem;border-radius:8px;font-size:.95rem">Choose Premium</a>
+    </div>
+  </div>
+ 
+  <!-- AUTHORITY + BOUNDARY STRIP -->
+  <div style="max-width:960px;margin:26px auto 0;border-top:1px solid var(--border);padding-top:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+    <p style="font-family:var(--font-display);color:var(--navy);font-size:1.05rem;margin:0">Built by a lipidologist, not a tech company.</p>
+    <p style="color:var(--muted);font-size:.86rem;margin:0;max-width:520px">Every report is interpretation calibrated to optimal targets by Dr. Tea Gamezardashvili, MD, PhD, FACC — preventive cardiologist &amp; lipidologist. Educational, not a diagnosis; your physician decides.</p>
+  </div>
+</div>
+ 
  <!-- GET-YOURS CTA — insert immediately before  </div><!-- end report-body --> -->
 <div style="background:radial-gradient(800px 300px at 80% -20%,rgba(18,160,158,.3),transparent 60%),var(--navy);color:#fff;text-align:center;padding:64px 24px;border-radius:18px;margin:48px 0 8px;font-family:var(--font-body)">
   <div style="max-width:640px;margin:0 auto">
     <p style="font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:14px">Your report, your numbers</p>
     <h2 style="font-family:var(--font-display);color:#fff;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.15;margin-bottom:14px">This is what your results would look like — read against optimal, not just normal.</h2>
     <p style="color:#c6d6e6;font-size:1.08rem;line-height:1.6;margin-bottom:28px">The sample above uses ApoB, Lp(a), insulin, and inflammation markers. Enter your own panel and get the same physician-grade interpretation, built by a lipidologist.</p>
-    <a href="/reports/#tiers" style="display:inline-block;background:var(--teal);color:#fff;font-weight:700;text-decoration:none;padding:.95rem 1.9rem;border-radius:9px;font-size:1.02rem">Get my report — Standard $49</a>
-    <p style="color:#9fb4c8;font-size:.9rem;margin-top:16px">Includes ApoB &amp; Lp(a) · one-time · interpretation, not diagnosis.</p>
+    <a href="/reports/#tiers" style="display:inline-block;background:var(--teal);color:#fff;font-weight:700;text-decoration:none;padding:.95rem 1.9rem;border-radius:9px;font-size:1.02rem">Get my report — from $29</a>
+    <p style="color:#9fb4c8;font-size:.9rem;margin-top:16px">Standard ($49) includes ApoB &amp; Lp(a) · one-time · interpretation, not diagnosis.</p>
   </div>
 </div>
   <!-- SIGNATURE & FOOTER -->
