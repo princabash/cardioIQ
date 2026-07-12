@@ -107,6 +107,10 @@
   .flag-hi{color:#B45309}
   .flag-ok{color:#15803D}
   .sc-note{margin-top:14px;font-size:.82rem;color:var(--muted);border-left:3px solid var(--gold);padding-left:12px}
+  .sc-read{margin-top:16px;background:var(--teal-tint);border-radius:12px;padding:14px 16px}
+  .sc-read .sc-read-tag{display:flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
+  .sc-read .sc-read-tag .dot{width:16px;height:16px;border-radius:50%;background:var(--teal);color:#fff;font-size:.6rem;display:flex;align-items:center;justify-content:center;font-weight:700}
+  .sc-read p{font-size:.86rem;line-height:1.55;color:var(--text);margin:0}
  
   /* authority */
   .authority .wrap{display:grid;grid-template-columns:120px 1fr;gap:30px;align-items:center}
@@ -264,14 +268,18 @@
         <a class="btn btn-gold" href="/demo-report/">Open the sample report</a>
       </div>
     </div>
-    <div class="sample-card" aria-hidden="true">
+    <div class="sample-card">
       <div class="sc-head"><span class="name">CardioIQ Report</span><span class="sc-badge">Longevity-calibrated</span></div>
       <div class="sc-row"><span class="lbl">ApoB</span><span class="val flag-hi">112 mg/dL · above optimal</span></div>
       <div class="sc-row"><span class="lbl">Lp(a)</span><span class="val flag-ok">18 nmol/L · low risk</span></div>
       <div class="sc-row"><span class="lbl">LDL-C</span><span class="val flag-ok">104 mg/dL · "normal"</span></div>
       <div class="sc-row"><span class="lbl">Fasting insulin</span><span class="val flag-hi">14 mU/L · elevated</span></div>
       <div class="sc-row"><span class="lbl">hs-CRP</span><span class="val flag-hi">2.9 mg/L · residual risk</span></div>
-      <div class="sc-note">Illustrative. LDL-C reads "normal," yet ApoB and insulin tell a different story — exactly the gap the report is built to surface.</div>
+      <div class="sc-read">
+        <div class="sc-read-tag"><span class="dot">Dr</span>How a lipidologist reads this</div>
+        <p>LDL-C looks reassuring at 104 — but ApoB is telling a different story: more atherogenic particles than the cholesterol number suggests, with elevated fasting insulin pointing to the metabolic driver behind it. That's the discordance a standard panel hides. Your full report maps each marker to your optimal targets and the exact questions worth taking to your doctor.</p>
+      </div>
+      <div class="sc-note">Illustrative numbers — not a real person's results. Your own report reads your panel the same way.</div>
     </div>
   </div>
 </section>
@@ -364,12 +372,12 @@
         <!-- TODO(Tea): set the REAL turnaround + delivery format, and keep it consistent everywhere. --></p>
       </div>
     </div>
-
+ 
     <div style="margin-top:34px;max-width:760px;background:var(--teal-tint);border:1px solid var(--teal);border-left:5px solid var(--teal);border-radius:14px;padding:22px 24px;font-size:1rem;line-height:1.6">
       <strong style="color:var(--navy)">Not useful? Full refund.</strong> If your report doesn't give you a clearer, more useful read on your cardiovascular risk than the "normal" you started with, reply within 14 days and we'll refund you in full.
       <!-- TODO(Tea): confirm you're comfortable offering this. On an unknown brand a refund promise meaningfully lifts first purchases. -->
     </div>
-
+ 
     <p class="paynote" style="margin-top:20px">Your lab values are used only to prepare your report — kept private, never sold or shared.
     <!-- TODO(Tea): align to your actual data-handling / retention policy. --></p>
   </div>
