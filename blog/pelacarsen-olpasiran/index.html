@@ -226,6 +226,54 @@ what it is, what counts as high, and why to measure it once.</p>
     <p>Pelacarsen (monthly injection, antisense oligonucleotide) and olpasiran (quarterly injection, siRNA) both silence Lp(a) production at the genetic source, cutting levels by 80–95%+. Their Phase 3 outcomes trials — Lp(a) HORIZON (pelacarsen, results H1 2026) and OCEAN(a)-Outcomes (olpasiran, results December 2026) — will answer cardiology's biggest open question: does lowering Lp(a) actually reduce heart attacks and strokes?</p>
   </div>
  
+  <!-- EMAIL CAPTURE — "notify me when HORIZON reports" (Netlify Forms) -->
+  <div id="readout-capture" style="background:var(--cream);border:1px solid var(--border);border-left:4px solid var(--teal);border-radius:14px;padding:1.6rem 1.75rem;margin:2rem 0;font-family:var(--font-body)">
+    <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem">Get the readout</div>
+    <h3 style="font-family:var(--font-display);color:var(--navy);font-size:1.25rem;margin:0 0 0.5rem">Know the answer the day it lands</h3>
+    <p style="color:var(--muted);font-size:0.92rem;line-height:1.6;margin:0 0 1.1rem">Lp(a)HORIZON is the first trial to test whether lowering Lp(a) actually prevents heart attacks and strokes. When the results are published, I'll send one plain-English summary — what it means, and what it doesn't. No hype, no spam.</p>
+ 
+    <form name="pelacarsen-readout" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="readout-form" style="display:flex;flex-wrap:wrap;gap:0.6rem;align-items:center">
+      <input type="hidden" name="form-name" value="pelacarsen-readout" />
+      <input type="hidden" name="source" value="pelacarsen-olpasiran" />
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <input type="email" name="email" required placeholder="you@email.com" aria-label="Your email"
+        style="flex:1 1 240px;min-width:0;padding:0.75rem 1rem;border:1px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:var(--font-body);color:var(--text);background:var(--white)" />
+      <button type="submit"
+        style="flex:0 0 auto;background:var(--teal);color:#fff;font-weight:700;border:none;border-radius:8px;padding:0.75rem 1.5rem;font-size:0.95rem;cursor:pointer;font-family:var(--font-body)">Notify me</button>
+    </form>
+    <p style="color:var(--muted);font-size:0.78rem;margin:0.75rem 0 0">One email when results land. Unsubscribe anytime.</p>
+ 
+    <div id="readout-success" style="display:none">
+      <p style="color:var(--teal);font-weight:600;font-size:1rem;margin:0">You're on the list. ✓</p>
+      <p style="color:var(--muted);font-size:0.88rem;margin:0.4rem 0 0">You'll hear from me the day Lp(a)HORIZON reports — one plain-English summary, nothing else.</p>
+    </div>
+  </div>
+ 
+  <script>
+    (function () {
+      var form = document.getElementById('readout-form');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = new URLSearchParams(new FormData(form)).toString();
+        var btn = form.querySelector('button[type="submit"]');
+        if (btn) { btn.disabled = true; btn.textContent = 'Adding…'; }
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: data
+        }).then(function () {
+          form.style.display = 'none';
+          var s = document.getElementById('readout-success');
+          if (s) s.style.display = 'block';
+        }).catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = 'Notify me'; }
+          alert('Something went wrong — please try again.');
+        });
+      });
+    })();
+  </script>
+ 
   <hr />
  
   <h2 id="the-problem">The Problem: Lp(a) as Residual Risk</h2>
