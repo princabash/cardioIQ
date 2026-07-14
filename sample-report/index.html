@@ -1,370 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sample Clinical Report | CardioIQ</title>
-  <meta name="description" content="A sample CardioIQ cardiovascular risk report — coming soon." />
-  <meta name="robots" content="noindex" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
  
-  <style>
-    :root {
-      --navy:    #0B1F3A;
-      --teal:    #0E7C7B;
-      --teal-light: #12A09E;
-      --gold:    #C9A84C;
-      --gold-light: #E4C878;
-      --white:   #FFFFFF;
-      --cream:   #F8F6F1;
-      --text:    #1A2B3C;
-      --muted:   #4A6070;
-      --border:  #D8E4EC;
-    }
+<!-- ===== Conversion-surface proof asset. Shows the deliverable. ILLUSTRATIVE COMPOSITE — not a real patient, not a diagnosis. ===== -->
+<title>See a Sample CardioIQ Report | How We Read Your Labs Against Optimal</title>
+<meta name="description" content="See exactly what a CardioIQ report looks like before you buy: an illustrative sample panel with a lipidologist's line-by-line read of each marker against longevity-optimal targets — not just the population 'normal' range.">
+<link rel="canonical" href="https://cardioiq.health/demo-report/">
  
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta property="og:type" content="website">
+<meta property="og:title" content="See a Sample CardioIQ Report">
+<meta property="og:description" content="An illustrative sample report: how a lipidologist reads each marker against optimal, not just normal.">
+<meta property="og:url" content="https://cardioiq.health/demo-report/">
+<meta property="og:site_name" content="CardioIQ">
+<!-- TODO(Tea): set og:image to a real 1200x630 asset on the domain -->
+<meta property="og:image" content="https://cardioiq.health/assets/og-sample-report.jpg">
+<meta name="twitter:card" content="summary_large_image">
  
-    body {
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      -webkit-font-smoothing: antialiased;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
  
-    /* Nav */
-    .site-nav {
-      background: var(--navy);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
-    }
-    .nav-logo {
-      font-family: Georgia, serif;
-      font-size: 1.35rem;
-      color: var(--white);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--gold); }
+<style>
+  :root{
+    --navy:#0b1a2b; --navy-2:#0f2438; --navy-3:#16324b;
+    --gold:#d4a94a; --gold-soft:#e7c877;
+    --teal:#3fb6a8; --teal-soft:#7ad4c9;
+    --ink:#e9eef4; --ink-2:#b7c4d1; --ink-3:#8496a6;
+    --red:#e08a6b; --green:#5fc89a;
+    --line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.035);
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.7; -webkit-font-smoothing:antialiased}
+  a{color:var(--teal-soft); text-decoration:none; border-bottom:1px solid rgba(122,212,201,.3); transition:.2s}
+  a:hover{color:#fff; border-color:var(--teal-soft)}
  
-    /* Main */
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-    }
+  .topbar{border-bottom:1px solid var(--line); background:rgba(11,26,43,.85); backdrop-filter:blur(8px); position:sticky; top:0; z-index:10}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between}
+  .brand{font-family:var(--sans); font-weight:700; letter-spacing:.02em; color:#fff; font-size:18px; border:none}
+  .brand span{color:var(--gold)}
+  .topbar-inner a{border:none; font-family:var(--sans); font-size:14px; color:var(--ink-2)}
+  .topbar-inner nav a{margin-left:20px}
  
-    .card {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 4rem 3rem;
-      max-width: 560px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 4px 32px rgba(11,31,58,0.08);
-    }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
  
-    /* Report preview illustration */
-    .report-preview {
-      width: 100%;
-      max-width: 340px;
-      margin: 0 auto 2.5rem;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: left;
-    }
-    .rp-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1.25rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .rp-logo-mark {
-      width: 32px;
-      height: 32px;
-      background: var(--navy);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Georgia, serif;
-      color: var(--gold);
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-    .rp-title { font-size: 0.78rem; font-weight: 700; color: var(--navy); }
-    .rp-sub { font-size: 0.68rem; color: var(--muted); }
+  header.post{padding:52px 0 26px}
+  .eyebrow{font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  h1{font-family:var(--sans); font-weight:700; font-size:clamp(29px,5.2vw,42px); line-height:1.14; letter-spacing:-.015em; color:#fff; margin:16px 0 18px}
+  .sub-deck{font-family:var(--serif); font-size:20px; line-height:1.55; color:var(--ink-2); margin:0}
  
-    .rp-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.45rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.78rem;
-    }
-    .rp-row:last-child { border-bottom: none; }
-    .rp-label { color: var(--muted); }
-    .rp-value { font-weight: 700; color: var(--navy); }
-    .rp-badge {
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 0.15rem 0.5rem;
-      border-radius: 100px;
-    }
-    .badge-red { background: #FDECEA; color: #B91C1C; }
-    .badge-green { background: #EAF7F0; color: #15803D; }
-    .badge-amber { background: #FFF8E8; color: #92610A; }
+  /* illustrative banner — repeated compliance signal */
+  .illus{display:flex; gap:12px; align-items:flex-start; background:rgba(212,169,74,.09); border:1px solid rgba(212,169,74,.32); border-radius:12px; padding:16px 18px; margin:24px 0 6px; font-family:var(--sans); font-size:13.5px; line-height:1.55; color:var(--ink-2)}
+  .illus .b{flex:0 0 auto; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); background:var(--gold); padding:4px 9px; border-radius:5px; margin-top:1px}
  
-    /* Blur overlay */
-    .blur-wrap {
-      position: relative;
-      margin-top: 0.75rem;
-    }
-    .blur-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 0%, rgba(248,246,241,0.7) 40%, rgba(248,246,241,0.97) 100%);
-      border-radius: 0 0 12px 12px;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding-bottom: 0.75rem;
-    }
-    .blur-label {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
+  /* report card */
+  .report{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02)); border:1px solid var(--line); border-radius:18px; padding:8px 0; margin:26px 0 8px; overflow:hidden}
+  .rhead{padding:20px 24px 16px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:flex-end; gap:12px; font-family:var(--sans)}
+  .rhead .who{font-size:13px; color:var(--ink-3)}
+  .rhead .who b{display:block; color:#fff; font-size:15px; font-weight:600; margin-bottom:2px}
+  .rhead .logo{font-size:14px; font-weight:700; color:#fff}
+  .rhead .logo span{color:var(--gold)}
  
-    /* Badge coming soon */
-    .coming-soon-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(14,124,123,0.1);
-      color: var(--teal);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 100px;
-      margin-bottom: 1.25rem;
-    }
-    .dot {
-      width: 7px;
-      height: 7px;
-      background: var(--teal);
-      border-radius: 50%;
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.75); }
-    }
+  .marker{padding:22px 24px; border-bottom:1px solid var(--line)}
+  .marker:last-child{border-bottom:none}
+  .mtop{display:flex; justify-content:space-between; align-items:baseline; gap:12px; font-family:var(--sans)}
+  .mname{font-size:17px; font-weight:700; color:#fff}
+  .mname small{font-weight:400; color:var(--ink-3); font-size:12.5px; display:block; margin-top:1px}
+  .pill{font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:4px 10px; border-radius:20px; white-space:nowrap}
+  .pill.warn{background:rgba(224,138,107,.16); color:var(--red); border:1px solid rgba(224,138,107,.4)}
+  .pill.ok{background:rgba(95,200,154,.14); color:var(--green); border:1px solid rgba(95,200,154,.4)}
+  .pill.mid{background:rgba(212,169,74,.14); color:var(--gold-soft); border:1px solid rgba(212,169,74,.4)}
  
-    h1 {
-      font-family: Georgia, serif;
-      font-size: 1.75rem;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
-    }
-    p {
-      color: var(--muted);
-      font-size: 0.97rem;
-      line-height: 1.7;
-      margin-bottom: 0.6rem;
-    }
+  .mgrid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin:16px 0 4px; font-family:var(--sans)}
+  .mcell{background:rgba(255,255,255,.03); border:1px solid var(--line); border-radius:10px; padding:11px 13px}
+  .mcell .l{font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:4px}
+  .mcell .v{font-size:16px; font-weight:600; color:var(--ink)}
+  .mcell.you .v{color:#fff}
+  .mcell.opt{border-color:rgba(63,182,168,.4)}
+  .mcell.opt .l{color:var(--teal-soft)}
+  .mcell.opt .v{color:var(--teal-soft)}
  
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 2rem 0;
-    }
+  .read{margin-top:14px; font-family:var(--serif); font-size:16px; line-height:1.62; color:var(--ink-2)}
+  .read b{color:#fff; font-weight:600}
+  .read .lead-in{font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:6px}
  
-    /* What's included list */
-    .includes {
-      text-align: left;
-      margin-bottom: 2rem;
-    }
-    .includes h3 {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-      font-weight: 700;
-    }
-    .includes ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-    .includes li {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.9rem;
-      color: var(--text);
-    }
-    .check {
-      width: 20px;
-      height: 20px;
-      background: rgba(14,124,123,0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--teal);
-      font-size: 0.7rem;
-      font-weight: 700;
-    }
+  .summary{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:12px; padding:22px 24px; margin:26px 0}
+  .summary .k{font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-soft); display:block; margin-bottom:10px}
+  .summary p{margin:0 0 12px; font-size:17px; color:var(--ink)} .summary p:last-child{margin-bottom:0}
  
-    /* CTA */
-    .btn-primary {
-      display: inline-block;
-      background: var(--teal);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.9rem 2.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.15s;
-      width: 100%;
-    }
-    .btn-primary:hover {
-      background: var(--teal-light);
-      transform: translateY(-1px);
-    }
-    .btn-back {
-      display: inline-block;
-      margin-top: 1rem;
-      color: var(--muted);
-      font-size: 0.88rem;
-      text-decoration: none;
-    }
-    .btn-back:hover { color: var(--navy); }
+  .disclaimer{background:rgba(212,169,74,.06); border:1px solid rgba(212,169,74,.22); border-radius:12px; padding:20px 22px; margin:30px 0 10px; font-family:var(--sans); font-size:14px; line-height:1.62; color:var(--ink-2)}
+  .disclaimer b{color:var(--gold-soft)}
  
-    /* Footer */
-    .site-footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.45);
-      text-align: center;
-      padding: 1.5rem 2rem;
-      font-size: 0.8rem;
-    }
-    .site-footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .cta{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid var(--line); border-radius:16px; padding:34px 30px; margin:40px 0 12px; text-align:center}
+  .cta h3{font-family:var(--sans); color:#fff; font-size:22px; margin:0 0 10px}
+  .cta p{color:var(--ink-2); font-size:16px; margin:0 auto 22px; max-width:500px}
+  .cta a.btn{display:inline-block; background:var(--gold); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:15px; padding:13px 30px; border-radius:10px; border:none}
+  .cta a.btn:hover{background:var(--gold-soft); color:var(--navy)}
+  .cta .sub{display:block; margin-top:14px; font-family:var(--sans); font-size:13px; color:var(--ink-3)}
+  .cta .sub a{color:var(--teal-soft); border:none}
  
-    @media (max-width: 480px) {
-      .card { padding: 2.5rem 1.5rem; }
-      h1 { font-size: 1.45rem; }
-    }
+  .author{display:flex; gap:18px; align-items:flex-start; border-top:1px solid var(--line); margin-top:44px; padding-top:26px}
+  .author .av{flex:0 0 56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--teal)); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-weight:700; color:var(--navy); font-size:20px}
+  .author .meta{font-family:var(--sans); font-size:14.5px; color:var(--ink-2); line-height:1.6}
+  .author .meta b{color:#fff; font-size:16px; display:block; margin-bottom:2px}
+  .author .meta .cred{color:var(--gold-soft)}
  
-    @media (prefers-reduced-motion: reduce) {
-      .dot { animation: none; }
-      * { transition: none !important; }
-    }
-  </style>
+  footer{border-top:1px solid var(--line); margin-top:36px; padding:28px 0 60px}
+  footer .wrap{font-family:var(--sans); font-size:13px; color:var(--ink-3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  footer a{color:var(--ink-3); border:none}
+  footer a:hover{color:var(--teal-soft)}
+ 
+  @media(max-width:560px){
+    body{font-size:18px}
+    .mgrid{grid-template-columns:1fr}
+    .rhead{flex-direction:column; align-items:flex-start}
+    .topbar-inner nav a:first-child{display:none}
+  }
+</style>
 </head>
 <body>
  
-<nav class="site-nav">
-  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
-</nav>
- 
-<main>
-  <div class="card">
- 
-    <!-- Report preview illustration -->
-    <div class="report-preview">
-      <div class="rp-header">
-        <div class="rp-logo-mark">CIQ</div>
-        <div>
-          <div class="rp-title">CardioIQ Clinical Report</div>
-          <div class="rp-sub">Cardiovascular Risk Assessment</div>
-        </div>
-      </div>
-      <div class="rp-row">
-        <span class="rp-label">ApoB</span>
-        <span class="rp-value">98 mg/dL <span class="rp-badge badge-amber">Above Target</span></span>
-      </div>
-      <div class="rp-row">
-        <span class="rp-label">LDL-C</span>
-        <span class="rp-value">2.6 mmol/L <span class="rp-badge badge-green">At Goal</span></span>
-      </div>
-      <div class="rp-row">
-        <span class="rp-label">ApoB/LDL Discordance</span>
-        <span class="rp-value"><span class="rp-badge badge-red">Detected</span></span>
-      </div>
-      <div class="blur-wrap">
-        <div class="rp-row">
-          <span class="rp-label">Lp(a)</span>
-          <span class="rp-value">████████</span>
-        </div>
-        <div class="rp-row">
-          <span class="rp-label">SCORE2 Risk</span>
-          <span class="rp-value">████████</span>
-        </div>
-        <div class="rp-row">
-          <span class="rp-label">Guideline Recommendation</span>
-          <span class="rp-value">████████</span>
-        </div>
-        <div class="blur-overlay">
-          <span class="blur-label">Full report available after assessment</span>
-        </div>
-      </div>
-    </div>
- 
-    <!-- Coming soon -->
-    <div class="coming-soon-badge">
-      <div class="dot"></div>
-      Coming Soon
-    </div>
- 
-    <h1>Sample Clinical Report</h1>
-    <p>A full interactive sample report — showing exactly what CardioIQ generates from a real lipid panel — is being prepared and will be available here shortly.</p>
- 
-    <hr class="divider" />
- 
-    <div class="includes">
-      <h3>Every CardioIQ report includes</h3>
-      <ul>
-        <li><span class="check">✓</span> ApoB level, risk-adjusted target, and discordance analysis</li>
-        <li><span class="check">✓</span> Lp(a) assessment as an independent risk factor</li>
-        <li><span class="check">✓</span> ASCVD risk category and SCORE2 interpretation</li>
-        <li><span class="check">✓</span> Residual atherogenic particle burden beyond LDL-C</li>
-        <li><span class="check">✓</span> ESC/EAS and ACC/AHA guideline-anchored recommendations</li>
-        <li><span class="check">✓</span> Plain-language explanations for every result</li>
-      </ul>
-    </div>
- 
-    <a href="/#pricing" class="btn-primary">Get Your Report — from $29 →</a>
-    <br />
-    <a href="/" class="btn-back">← Back to CardioIQ</a>
- 
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">Cardio<span>IQ</span></a>
+    <nav>
+      <a href="/blog/apob-guide/">Blog</a>
+      <a href="/reports/">Reports</a>
+    </nav>
   </div>
-</main>
+</div>
  
-<footer class="site-footer">
-  <p>© 2026 CardioIQ · <a href="/about/">About</a> · <a href="/blog/">Blog</a> · For educational purposes only. Not medical advice.</p>
+<div class="wrap">
+  <header class="post">
+    <div class="eyebrow">Sample Report</div>
+    <h1>See a CardioIQ Report Before You Buy</h1>
+    <p class="sub-deck">Here's exactly what you get: each of your lab markers read against <em>longevity-optimal</em> targets — not just the population &ldquo;normal&rdquo; range — in the words of a preventive cardiologist.</p>
+  </header>
+ 
+  <div class="illus">
+    <span class="b">Illustrative</span>
+    <span>Everything below is an <strong>illustrative composite</strong> created to show the format. It is <strong>not a real person</strong>, not a diagnosis, and not medical advice. Your own report reflects your own numbers.</span>
+  </div>
+ 
+  <div class="report">
+    <div class="rhead">
+      <div class="who"><b>Sample profile</b>Composite · 47 · no known cardiovascular disease</div>
+      <div class="logo">Cardio<span>IQ</span> · Standard</div>
+    </div>
+ 
+    <!-- LDL-C -->
+    <div class="marker">
+      <div class="mtop">
+        <div class="mname">LDL cholesterol <small>the "bad cholesterol" everyone knows</small></div>
+        <span class="pill mid">Normal, above optimal</span>
+      </div>
+      <div class="mgrid">
+        <div class="mcell you"><div class="l">This sample</div><div class="v">116 mg/dL</div></div>
+        <div class="mcell"><div class="l">Standard range</div><div class="v">&lt; 130 mg/dL</div></div>
+        <div class="mcell opt"><div class="l">Optimal (this risk)</div><div class="v">lower</div></div>
+      </div>
+      <div class="read">
+        <span class="lead-in">How CardioIQ reads it</span>
+        A standard report would flag this as fine. But &ldquo;within range&rdquo; is a population line, not a target calibrated to <b>this person's</b> risk — and with the markers below, their optimal LDL sits lower than the standard cut-off. <b>Normal here, but not yet optimal.</b>
+      </div>
+    </div>
+ 
+    <!-- ApoB -->
+    <div class="marker">
+      <div class="mtop">
+        <div class="mname">ApoB <small>the atherogenic particle count</small></div>
+        <span class="pill warn">Above optimal</span>
+      </div>
+      <div class="mgrid">
+        <div class="mcell you"><div class="l">This sample</div><div class="v">108 mg/dL</div></div>
+        <div class="mcell"><div class="l">Often "normal"</div><div class="v">&lt; 100–120</div></div>
+        <div class="mcell opt"><div class="l">Optimal (this risk)</div><div class="v">lower</div></div>
+      </div>
+      <div class="read">
+        <span class="lead-in">How CardioIQ reads it</span>
+        This is the number a standard panel doesn't show. LDL-C looked acceptable, but the <b>particle count is running higher than the cholesterol suggested</b> — a discordance that's common with the triglyceride pattern below. It's the particles that enter the artery wall, so ApoB is the more faithful read of risk here.
+      </div>
+    </div>
+ 
+    <!-- Lp(a) -->
+    <div class="marker">
+      <div class="mtop">
+        <div class="mname">Lp(a) <small>inherited, measured once in a lifetime</small></div>
+        <span class="pill warn">Elevated</span>
+      </div>
+      <div class="mgrid">
+        <div class="mcell you"><div class="l">This sample</div><div class="v">145 nmol/L</div></div>
+        <div class="mcell"><div class="l">Not on standard panel</div><div class="v">—</div></div>
+        <div class="mcell opt"><div class="l">Interpretation</div><div class="v">elevated</div></div>
+      </div>
+      <div class="read">
+        <span class="lead-in">How CardioIQ reads it</span>
+        Never measured on a standard panel, and <b>genetically set for life</b>. An elevated Lp(a) adds independent risk this person's cholesterol result couldn't reveal — and it's a reason to be more deliberate about every risk factor they <em>can</em> change, and to consider testing family. Thresholds are assay-dependent and physician-interpreted.
+      </div>
+    </div>
+ 
+    <!-- Triglycerides / HDL -->
+    <div class="marker">
+      <div class="mtop">
+        <div class="mname">Triglycerides &amp; HDL <small>a window on metabolic health</small></div>
+        <span class="pill mid">Watch</span>
+      </div>
+      <div class="mgrid">
+        <div class="mcell you"><div class="l">TG (sample)</div><div class="v">165 mg/dL</div></div>
+        <div class="mcell you"><div class="l">HDL (sample)</div><div class="v">42 mg/dL</div></div>
+        <div class="mcell opt"><div class="l">Pattern</div><div class="v">insulin-resistant</div></div>
+      </div>
+      <div class="read">
+        <span class="lead-in">How CardioIQ reads it</span>
+        Higher triglycerides with lower HDL is the classic <b>insulin-resistance signature</b> — and exactly the setting where a &ldquo;normal&rdquo; LDL-C under-states particle burden. It explains the ApoB discordance above, and it's one of the most lifestyle-responsive levers on the whole report.
+      </div>
+    </div>
+ 
+    <!-- hs-CRP -->
+    <div class="marker">
+      <div class="mtop">
+        <div class="mname">hs-CRP <small>a marker of vascular inflammation</small></div>
+        <span class="pill mid">Mildly elevated</span>
+      </div>
+      <div class="mgrid">
+        <div class="mcell you"><div class="l">This sample</div><div class="v">2.4 mg/L</div></div>
+        <div class="mcell"><div class="l">Reference</div><div class="v">&lt; 3.0</div></div>
+        <div class="mcell opt"><div class="l">Optimal</div><div class="v">lower</div></div>
+      </div>
+      <div class="read">
+        <span class="lead-in">How CardioIQ reads it</span>
+        Within the usual reference band, but not optimal. A mild inflammatory signal is a piece of <b>residual risk</b> worth noting alongside the lipid picture — another reason the &ldquo;everything's normal&rdquo; read was incomplete.
+      </div>
+    </div>
+  </div>
+ 
+  <div class="summary">
+    <span class="k">The report's bottom line</span>
+    <p>On a standard panel, this person hears &ldquo;your cholesterol is normal.&rdquo; Read against optimal, the fuller story is different: an <b>elevated particle count (ApoB)</b> that LDL-C hid, an <b>inherited Lp(a)</b> the panel never measured, and a <b>metabolic pattern</b> driving both — none of it alarming, all of it actionable.</p>
+    <p>A CardioIQ report lays this out marker by marker and frames the questions to bring to your physician — lifestyle first, then whatever they decide is right for your risk. It interprets; your doctor decides.</p>
+  </div>
+ 
+  <div class="disclaimer">
+    <b>Important.</b> This sample is an <b>illustrative composite</b> built to demonstrate the report format — not a real patient, not a diagnosis, and not a treatment recommendation. Values and targets shown are for illustration. A CardioIQ report interprets your numbers against prevention-focused targets; it does not diagnose disease, promise outcomes, or replace your physician, who makes all clinical decisions.
+    <!-- TODO(Tea): confirm the illustrative optimal targets/ranges match the live report logic; verify Lp(a)/ApoB framing against your product before publish. -->
+  </div>
+ 
+  <div class="cta">
+    <h3>Get this read on your own numbers</h3>
+    <p>A CardioIQ Standard report reads your full panel — ApoB and Lp(a) included — against longevity-optimal targets, in a lipidologist's voice. Want a version formatted to bring to your doctor? That's the Premium report.</p>
+    <a class="btn" href="/reports/">Choose your report</a>
+    <span class="sub">Not sure what your panel is missing? Read <a href="/blog/normal-cholesterol-still-at-risk/">Normal Cholesterol, Still at Risk? →</a> or <a href="/blog/read-lipid-panel/">How to read your lipid panel →</a></span>
+  </div>
+ 
+  <div class="author">
+    <div class="av">TG</div>
+    <div class="meta">
+      <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b>
+      <span class="cred">Preventive Cardiologist &amp; Lipidologist</span><br>
+      Every CardioIQ report is built on the interpretation logic of a preventive cardiologist and lipidologist — President, Georgian Atherosclerosis Association; EAS Lipid Clinic Network coordinator. Built by a lipidologist, not a tech company.
+    </div>
+  </div>
+</div>
+ 
+<footer>
+  <div class="wrap">
+    <span>© 2026 CardioIQ · Physician-built cardiovascular intelligence</span>
+    <span><a href="/reports/">Reports</a> · <a href="/blog/apob-guide/">ApoB guide</a> · <a href="/blog/lpa-guide/">Lp(a) guide</a></span>
+  </div>
 </footer>
+ 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "See a Sample CardioIQ Report",
+  "description": "An illustrative sample CardioIQ report showing how each lab marker is read against longevity-optimal targets. Illustrative composite — not a real patient, not a diagnosis.",
+  "url": "https://cardioiq.health/demo-report/",
+  "inLanguage": "en",
+  "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health" },
+  "about": ["CardioIQ report","ApoB","Lp(a)","lipid panel interpretation"]
+}
+</script>
  
 </body>
 </html>
