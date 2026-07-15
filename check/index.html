@@ -1,1 +1,383 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Optimal vs Normal — a free lipid check built by a lipidologist | CardioIQ</title>
+<meta name="description" content="Enter the lab numbers you already have and see them in two lenses: your lab's standard range and longevity-optimal targets. Built by a lipidologist. Not a diagnosis." />
+<link rel="canonical" href="https://cardioiq.health/check/" />
+<style>
+  :root{
+    --navy:#0B1E3D; --navy-soft:#16305a;
+    --gold:#C9A227; --gold-light:#E3C24A;
+    --teal:#2A9D8F; --teal-deep:#1f7d72;
+    --cream:#F7F4EC; --cream-mid:#EFE9DA; --line:#E4DCC9;
+    --text:#1B2A44; --text-muted:#5C6B82;
+    --amber:#B7791F; --amber-bg:#FBF3E2;
+    --teal-bg:#E7F3F1;
+    --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-body);color:var(--text);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--teal-deep)}
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px}
+ 
+  /* Nav */
+  nav.site-nav{display:flex;align-items:center;justify-content:space-between;max-width:760px;margin:0 auto;padding:18px 20px}
+  .logo{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--navy);text-decoration:none;letter-spacing:-0.01em}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:18px;align-items:center;font-size:0.92rem}
+  .nav-links a{color:var(--text-muted);text-decoration:none}
+  .nav-cta{background:var(--gold);color:var(--navy)!important;padding:8px 16px;border-radius:8px;font-weight:600}
+  @media(max-width:560px){.nav-links a:not(.nav-cta){display:none}}
+ 
+  /* Hero */
+  header.hero{padding:40px 0 12px}
+  .eyebrow{font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-bottom:14px}
+  h1{font-family:var(--font-display);font-size:2.35rem;line-height:1.12;color:var(--navy);letter-spacing:-0.015em;margin-bottom:16px}
+  h1 em{font-style:italic;color:var(--gold)}
+  .lead{font-size:1.08rem;color:var(--text-muted);max-width:620px}
+  .lead strong{color:var(--text)}
+ 
+  /* Panel / form */
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;margin:26px 0;box-shadow:0 1px 0 rgba(11,30,61,0.03)}
+  .units{display:flex;gap:8px;align-items:center;margin-bottom:22px;font-size:0.9rem}
+  .units .toggle{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .units button{background:#fff;border:none;padding:8px 16px;font-family:var(--font-body);font-size:0.88rem;cursor:pointer;color:var(--text-muted)}
+  .units button.on{background:var(--navy);color:#fff}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.grid{grid-template-columns:1fr}}
+  .field label{display:block;font-size:0.86rem;font-weight:600;color:var(--text);margin-bottom:5px}
+  .field .u{color:var(--text-muted);font-weight:400}
+  .field input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:var(--font-body);background:var(--cream)}
+  .field input:focus{outline:2px solid var(--teal);outline-offset:1px;background:#fff}
+ 
+  .section-label{font-size:0.82rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);margin:4px 0 14px}
+  details.adv{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px}
+  details.adv summary{cursor:pointer;font-weight:600;color:var(--teal-deep);list-style:none;font-size:0.95rem}
+  details.adv summary::-webkit-details-marker{display:none}
+  details.adv summary::before{content:"+ ";font-weight:700}
+  details.adv[open] summary::before{content:"– "}
+  details.adv .grid{margin-top:16px}
+  .hint{font-size:0.8rem;color:var(--text-muted);margin-top:6px}
+ 
+  .go{margin-top:22px;width:100%;background:var(--navy);color:#fff;border:none;padding:15px;border-radius:12px;font-size:1.02rem;font-weight:600;font-family:var(--font-body);cursor:pointer}
+  .go:hover{background:var(--navy-soft)}
+  .go-note{text-align:center;font-size:0.82rem;color:var(--text-muted);margin-top:10px}
+ 
+  /* Results */
+  #results{display:none}
+  .res-head{font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin:34px 0 4px}
+  .res-sub{color:var(--text-muted);font-size:0.96rem;margin-bottom:20px}
+  .r{border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px;background:#fff}
+  .r-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .r-name{font-weight:700;color:var(--navy);font-size:1.02rem}
+  .r-val{font-variant-numeric:tabular-nums;font-weight:600;color:var(--text)}
+  .pill{display:inline-block;font-size:0.74rem;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-top:8px}
+  .pill.opt{background:var(--teal-bg);color:var(--teal-deep)}
+  .pill.room{background:var(--amber-bg);color:var(--amber)}
+  .pill.ctx{background:var(--cream-mid);color:var(--text-muted)}
+  .r-body{font-size:0.94rem;color:var(--text);margin-top:10px}
+  .r-boundary{font-size:0.82rem;color:var(--text-muted);margin-top:9px;font-style:italic}
+ 
+  /* Ladder (LDL / ApoB / non-HDL) */
+  .ladder{margin:14px 0 4px}
+  .ladder-track{position:relative;height:10px;background:linear-gradient(90deg,var(--teal) 0%,var(--gold-light) 60%,var(--cream-mid) 100%);border-radius:6px}
+  .ladder-step{position:absolute;top:-4px;width:2px;height:18px;background:var(--navy);opacity:0.28}
+  .ladder-mark{position:absolute;top:-11px;transform:translateX(-50%);text-align:center}
+  .ladder-mark .dot{width:14px;height:14px;border-radius:50%;background:var(--navy);border:3px solid #fff;box-shadow:0 0 0 1px var(--navy);margin:0 auto}
+  .ladder-labels{display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted);margin-top:12px}
+  .ladder-labels span{width:33%}
+  .ladder-labels span:nth-child(2){text-align:center}
+  .ladder-labels span:nth-child(3){text-align:right}
+ 
+  .cta-box{background:var(--navy);color:#fff;border-radius:16px;padding:28px;margin:30px 0 10px;text-align:center}
+  .cta-box h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:10px}
+  .cta-box p{color:#cfd8e6;font-size:0.98rem;max-width:520px;margin:0 auto 18px}
+  .cta-btn{display:inline-block;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:700;padding:14px 26px;border-radius:11px}
+ 
+  .email-box{border:1px dashed var(--line);border-radius:14px;padding:20px;margin:16px 0}
+  .email-box h4{font-size:1rem;color:var(--navy);margin-bottom:6px}
+  .email-box p{font-size:0.88rem;color:var(--text-muted);margin-bottom:12px}
+  .email-row{display:flex;gap:10px}
+  @media(max-width:480px){.email-row{flex-direction:column}}
+  .email-row input{flex:1;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:0.98rem;font-family:var(--font-body)}
+  .email-row button{background:var(--teal-deep);color:#fff;border:none;padding:11px 20px;border-radius:10px;font-weight:600;cursor:pointer;font-family:var(--font-body)}
+  .email-ok{display:none;color:var(--teal-deep);font-weight:600;font-size:0.92rem;margin-top:10px}
+ 
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 50px}
+  .disclaimer{font-size:0.82rem;color:var(--text-muted);background:var(--cream-mid);border-radius:12px;padding:16px 18px;margin-bottom:18px}
+  .foot-links{font-size:0.86rem;color:var(--text-muted);text-align:center}
+  .foot-links a{color:var(--text-muted);text-decoration:none;margin:0 8px}
+  .author{text-align:center;font-size:0.86rem;color:var(--text-muted);margin-top:14px}
+</style>
+</head>
+<body>
+ 
+<nav class="site-nav">
+  <a href="/" class="logo">Cardio<span>IQ</span></a>
+  <div class="nav-links">
+    <a href="/blog/apob-guide/">Blog</a>
+    <a href="/science/">Science</a>
+    <a href="/reports/#tiers" class="nav-cta">Get my report</a>
+  </div>
+</nav>
+ 
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Free tool · built by a lipidologist</div>
+    <h1>See where your numbers <em>actually sit</em></h1>
+    <p class="lead">Enter the lab values you already have. You'll see each one in two lenses side by side: <strong>your lab's standard range</strong> and the <strong>longevity-optimal targets</strong> a preventive cardiologist works from. No upload, no email needed to see your results.</p>
+  </header>
+ 
+  <div class="card">
+    <div class="units">
+      <span style="color:var(--text-muted)">Units</span>
+      <div class="toggle" id="unit-toggle">
+        <button data-unit="us" class="on">US · mg/dL</button>
+        <button data-unit="si">SI · mmol/L</button>
+      </div>
+    </div>
+ 
+    <div class="section-label">Standard lipid panel</div>
+    <div class="grid">
+      <div class="field"><label>Total cholesterol <span class="u" data-ulabel="chol">mg/dL</span></label><input id="tc" type="number" inputmode="decimal" placeholder="e.g. 190" /></div>
+      <div class="field"><label>LDL-C <span class="u" data-ulabel="chol">mg/dL</span></label><input id="ldl" type="number" inputmode="decimal" placeholder="e.g. 110" /></div>
+      <div class="field"><label>HDL-C <span class="u" data-ulabel="chol">mg/dL</span></label><input id="hdl" type="number" inputmode="decimal" placeholder="e.g. 55" /></div>
+      <div class="field"><label>Triglycerides <span class="u" data-ulabel="tg">mg/dL</span></label><input id="tg" type="number" inputmode="decimal" placeholder="e.g. 90" /></div>
+    </div>
+ 
+    <details class="adv">
+      <summary>Advanced markers (ApoB, Lp(a), metabolic)</summary>
+      <div class="grid">
+        <div class="field"><label>ApoB <span class="u">mg/dL</span></label><input id="apob" type="number" inputmode="decimal" placeholder="e.g. 90" /><div class="hint">The particle-count marker. Reported in mg/dL.</div></div>
+        <div class="field"><label>Lp(a) <span class="u">nmol/L</span></label><input id="lpa" type="number" inputmode="decimal" placeholder="e.g. 60" /><div class="hint">Enter in nmol/L (the preferred unit).</div></div>
+        <div class="field"><label>Fasting glucose <span class="u" data-ulabel="glu">mg/dL</span></label><input id="glu" type="number" inputmode="decimal" placeholder="e.g. 88" /></div>
+        <div class="field"><label>Fasting insulin <span class="u">µIU/mL</span></label><input id="ins" type="number" inputmode="decimal" placeholder="e.g. 5" /></div>
+        <div class="field"><label>hsCRP <span class="u">mg/L</span></label><input id="crp" type="number" inputmode="decimal" placeholder="e.g. 0.8" /></div>
+      </div>
+    </details>
+ 
+    <button class="go" id="go">Show my results</button>
+    <div class="go-note">Everything is calculated in your browser. Your numbers never leave this page.</div>
+  </div>
+ 
+  <div id="results">
+    <div class="res-head">Your numbers, two ways</div>
+    <div class="res-sub">Standard ranges rule out disease. Longevity targets aim higher. Both are valid lenses — this is a starting point for a conversation, not a verdict.</div>
+    <div id="res-list"></div>
+ 
+    <div class="cta-box">
+      <h3 id="cta-h">See these read against optimal — in full</h3>
+      <p id="cta-p">This check shows you where the gaps are. What they mean for <em>you</em> — which target actually applies, how the markers interact, what to do next — is what a lipidologist reads in your report.</p>
+      <a class="cta-btn" id="cta-a" href="/reports/#tiers">Get my report — from $29 →</a>
+    </div>
+ 
+    <div class="email-box">
+      <h4>Want these by email?</h4>
+      <p>Get a copy of your results plus a short primer on reading these five markers. We store your email for the primer only — never your numbers.</p>
+      <form id="email-form" name="optimal-check" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="optimal-check" />
+        <input type="hidden" name="source" value="check-tool" />
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div class="email-row">
+          <input type="email" name="email" id="email" placeholder="you@email.com" required />
+          <button type="submit">Email me the primer</button>
+        </div>
+        <div class="email-ok" id="email-ok">Thanks — check your inbox shortly.</div>
+      </form>
+    </div>
+  </div>
+</div>
+ 
+<footer>
+  <div class="wrap">
+    <div class="disclaimer">
+      <strong>This is not a diagnosis.</strong> CardioIQ is an educational health information service. This tool compares the numbers you enter to published reference points; it does not assess your personal risk, which depends on your full history. Values only mean something in context — take your results to your physician, who decides what's right for you.
+    </div>
+    <div class="author">Reference points calibrated by Dr. Tea Gamezardashvili, MD, PhD, MHA, FACC — preventive cardiologist &amp; lipidologist.</div>
+    <div class="foot-links" style="margin-top:14px">
+      <a href="/">CardioIQ</a> · <a href="/reports/#tiers">Reports</a> · <a href="/science/">Science</a> · <a href="/about/">About</a>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+(function(){
+  var unit="us";
+  // conversion divisors mg/dL -> mmol/L
+  var CONV={chol:38.67, tg:88.57, glu:18.02};
+ 
+  var toggle=document.getElementById("unit-toggle");
+  toggle.addEventListener("click",function(e){
+    var b=e.target.closest("button"); if(!b) return;
+    unit=b.dataset.unit;
+    toggle.querySelectorAll("button").forEach(function(x){x.classList.toggle("on",x===b);});
+    document.querySelectorAll('[data-ulabel]').forEach(function(el){
+      var k=el.dataset.ulabel;
+      if(unit==="si"){ el.textContent = (k==="tg"||k==="glu")?"mmol/L":"mmol/L"; }
+      else { el.textContent = "mg/dL"; }
+    });
+  });
+ 
+  // read an input in current unit, return mg/dL (internal), or null
+  function readMg(id,key){
+    var v=parseFloat(document.getElementById(id).value);
+    if(isNaN(v)||v<=0) return null;
+    if(unit==="si" && key) return v*CONV[key];
+    return v;
+  }
+  function raw(id){ var v=parseFloat(document.getElementById(id).value); return (isNaN(v)||v<=0)?null:v; }
+  function fmtMg(mg,key){ // display in current unit
+    if(mg==null) return "";
+    if(unit==="si" && key){ var s=mg/CONV[key]; return s.toFixed(2)+" mmol/L"; }
+    return Math.round(mg)+" mg/dL";
+  }
+ 
+  function pill(kind){ // 'opt','room','ctx'
+    var t={opt:"At optimal",room:"Room to optimize",ctx:"Context"}[kind];
+    return '<span class="pill '+kind+'">'+t+'</span>';
+  }
+  var BOUND='<div class="r-boundary">A reference-frame starting point, not a diagnosis — discuss with your physician.</div>';
+ 
+  function block(name,valTxt,kind,body,ladder){
+    return '<div class="r"><div class="r-top"><span class="r-name">'+name+'</span><span class="r-val">'+valTxt+'</span></div>'
+      +pill(kind)+(ladder||'')+'<div class="r-body">'+body+'</div>'+BOUND+'</div>';
+  }
+ 
+  // ladder for tiered markers: steps low->high risk targets, scaleMax
+  // key='chol' -> labels convert to mmol/L in SI mode; null -> always mg/dL
+  function ladder(value,steps,scaleMax,key){
+    var pos=Math.max(0,Math.min(value/scaleMax,1))*100;
+    function lbl(v){ return (key==="chol"&&unit==="si") ? (v/CONV.chol).toFixed(1) : v; }
+    var stepEls=steps.map(function(s){
+      var p=Math.min(s.v/scaleMax,1)*100;
+      return '<div class="ladder-step" style="left:'+p+'%"></div>';
+    }).join('');
+    return '<div class="ladder"><div class="ladder-track">'+stepEls
+      +'<div class="ladder-mark" style="left:'+pos+'%"><div class="dot"></div></div></div>'
+      +'<div class="ladder-labels"><span>&lt;'+lbl(steps[0].v)+' '+steps[0].t+'</span><span>&lt;'+lbl(steps[1].v)+' '+steps[1].t+'</span><span>&lt;'+lbl(steps[2].v)+' '+steps[2].t+'</span></div></div>';
+  }
+ 
+  function run(){
+    var out=[];
+    var tc=readMg("tc","chol"), ldl=readMg("ldl","chol"), hdl=readMg("hdl","chol"), tg=readMg("tg","tg");
+    var apob=raw("apob"), lpa=raw("lpa"), glu=readMg("glu","glu"), ins=raw("ins"), crp=raw("crp");
+ 
+    // ---- Group C: tiered, personalization deferred (mg/dL internal) ----
+    if(ldl!=null){
+      out.push(block("LDL-C", fmtMg(ldl,"chol"), "ctx",
+        "Guidelines set the target by overall risk — <strong>&lt;100</strong> (moderate), <strong>&lt;70</strong> (high), <strong>&lt;55 mg/dL</strong> (very high). Standard ranges rule out disease; these steps aim lower as risk rises. Which step is yours depends on your full picture — that's what your report works out.",
+        ladder(ldl,[{v:55,t:"very high"},{v:70,t:"high"},{v:100,t:"moderate"}],160,"chol")));
+    }
+    if(apob!=null){
+      out.push(block("ApoB", Math.round(apob)+" mg/dL", "ctx",
+        "The particle-count marker. Guideline targets step down with risk — <strong>&lt;100</strong>, <strong>&lt;80</strong>, <strong>&lt;65 mg/dL</strong>. Where you land depends on your overall risk; your report determines which target is yours.",
+        ladder(apob,[{v:65,t:"very high"},{v:80,t:"high"},{v:100,t:"moderate"}],140)));
+    }
+    if(tc!=null && hdl!=null){
+      var nonhdl=tc-hdl;
+      out.push(block("Non-HDL-C <span style='font-weight:400;color:var(--text-muted);font-size:0.82rem'>(calculated: Total − HDL)</span>", fmtMg(nonhdl,"chol"), "ctx",
+        "A single figure for all your atherogenic cholesterol. Guideline targets: <strong>&lt;130</strong>, <strong>&lt;100</strong>, <strong>&lt;85 mg/dL</strong> as risk rises.",
+        ladder(nonhdl,[{v:85,t:"very high"},{v:100,t:"high"},{v:130,t:"moderate"}],160,"chol")));
+    }
+ 
+    // ---- Group A: single confirmed optimal ----
+    if(tg!=null){
+      var tgOpt=tg<100;
+      out.push(block("Triglycerides", fmtMg(tg,"tg"), tgOpt?"opt":"room",
+        tgOpt?"Below the &lt;100 mg/dL longevity aim. Standard labs only flag above 150."
+             :"Standard normal is under 150; the longevity aim sits lower, under 100 mg/dL."));
+    }
+    if(glu!=null){
+      var gk = glu<90?"opt":"room";
+      var gbody = glu<90 ? "Under the 90 mg/dL longevity aim (standard normal is under 100)."
+                : glu<100 ? "Within standard normal (under 100), and the longevity aim is under 90 mg/dL — a small margin to tighten."
+                : "Standard ranges call 100–125 mg/dL impaired fasting glucose. Worth raising with your physician.";
+      out.push(block("Fasting glucose", fmtMg(glu,"glu"), gk, gbody));
+    }
+    if(ins!=null){
+      var ik=ins<=5?"opt":"room";
+      out.push(block("Fasting insulin", ins+" µIU/mL", ik,
+        ik==="opt"?"In the 2–5 µIU/mL longevity range. Standard labs often call up to ~25 'normal', so this marker frequently reads 'fine' long before it's optimal."
+                  :"Standard 'normal' runs high (up to ~25). The longevity range is 2–5 µIU/mL — a tighter target that flags insulin resistance earlier."));
+    }
+    if(crp!=null){
+      var ck,cbody;
+      if(crp>=10){ ck="ctx"; cbody="Levels this high usually reflect a temporary infection or inflammation rather than heart risk. Standard advice is to retest when you're well."; }
+      else if(crp<1){ ck="opt"; cbody="In the low-risk band (ideally under 0.5 mg/L)."; }
+      else if(crp<=3){ ck="room"; cbody="The average-risk band (1–3 mg/L). The aim is under 1."; }
+      else { ck="room"; cbody="Above the low-risk band. Worth discussing with your physician."; }
+      out.push(block("hsCRP", crp+" mg/L", ck, cbody));
+    }
+    // TG:HDL (compute in mg/dL)
+    if(tg!=null && hdl!=null){
+      var ratio=tg/hdl;
+      var rk=ratio<1.5?"opt":"room";
+      out.push(block("TG : HDL ratio <span style='font-weight:400;color:var(--text-muted);font-size:0.82rem'>(calculated)</span>", ratio.toFixed(1), rk,
+        rk==="opt"?"A low ratio suggests good insulin sensitivity. Under 1.5 is the aim."
+                  :"A higher ratio can hint at insulin resistance; under 1.5 is the aim, over 3 is a stronger signal."));
+    }
+    // HOMA-IR
+    if(glu!=null && ins!=null){
+      var homa=(glu*ins)/405;
+      var hk=homa<1.5?"opt":"room";
+      out.push(block("HOMA-IR <span style='font-weight:400;color:var(--text-muted);font-size:0.82rem'>(calculated)</span>", homa.toFixed(1), hk,
+        hk==="opt"?"Suggests good insulin sensitivity."
+                  :"Above ~1.5 can suggest insulin resistance; discuss with your physician."));
+    }
+ 
+    // ---- Group B: context only ----
+    if(tc!=null){
+      out.push(block("Total cholesterol", fmtMg(tc,"chol"), "ctx",
+        "On its own, total cholesterol says little — ApoB (the particle count) is the better measure. Shown for completeness, not as a target to chase."));
+    }
+    if(hdl!=null){
+      out.push(block("HDL-C", fmtMg(hdl,"chol"), "ctx",
+        "Higher HDL isn't a target to chase — raising it hasn't shown benefit. A very low HDL can still matter; discuss with your physician."));
+    }
+    if(lpa!=null){
+      var lk,lbody;
+      if(lpa<75){ lk="ctx"; lbody="Rule-out zone (under ~30 mg/dL) — reassuring. Lp(a) is inherited and measured just once in a lifetime."; }
+      else if(lpa<125){ lk="ctx"; lbody="Grey zone (~30–50 mg/dL) — intermediate, where the rest of your risk picture matters more."; }
+      else { lk="room"; lbody="Above the rule-in threshold (over ~50 mg/dL). It's inherited and not changed by diet or exercise — so the move is to control ApoB/LDL well and let close family know to test once. Not an emergency; a reason to be thorough."; }
+      out.push(block("Lp(a) <span style='font-weight:400;color:var(--text-muted);font-size:0.82rem'>(measure once in a lifetime)</span>", lpa+" nmol/L", lk, lbody));
+    }
+ 
+    if(out.length===0){
+      out.push('<div class="r"><div class="r-body">Enter at least one value above to see it in both lenses.</div></div>');
+    }
+    document.getElementById("res-list").innerHTML=out.join("");
+ 
+    // CTA emphasis: ApoB or Lp(a) present -> Standard $49
+    if(apob!=null || lpa!=null){
+      document.getElementById("cta-h").textContent="See your ApoB and Lp(a) read against optimal";
+      document.getElementById("cta-p").innerHTML="You've entered the markers that matter most. Your report reads them in context — which risk tier is actually yours, how they interact, and what to bring to your doctor. Lp(a) and ApoB are included in the Standard report.";
+      document.getElementById("cta-a").textContent="Get my report — Standard, $49 →";
+      document.getElementById("cta-a").href="/reports/#tiers?utm_source=tool&utm_medium=freemium&utm_content=optimal-check-advanced";
+    } else {
+      document.getElementById("cta-a").href="/reports/#tiers?utm_source=tool&utm_medium=freemium&utm_content=optimal-check-basic";
+    }
+ 
+    var r=document.getElementById("results");
+    r.style.display="block";
+    r.scrollIntoView({behavior:"smooth"});
+  }
+ 
+  document.getElementById("go").addEventListener("click",run);
+ 
+  // Netlify email form: submit without leaving the page, keep results visible
+  var ef=document.getElementById("email-form");
+  ef.addEventListener("submit",function(e){
+    e.preventDefault();
+    var data=new URLSearchParams(new FormData(ef)).toString();
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:data})
+      .then(function(){ document.getElementById("email-ok").style.display="block"; ef.querySelector(".email-row").style.display="none"; })
+      .catch(function(){ document.getElementById("email-ok").textContent="Couldn't send just now — please try again."; document.getElementById("email-ok").style.display="block"; });
+  });
+})();
+</script>
+</body>
+</html>
