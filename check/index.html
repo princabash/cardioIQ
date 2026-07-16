@@ -191,7 +191,32 @@
     </div>
   </div>
 </div>
- 
+ <!-- DEEP DIVE OPT-IN (Netlify form: deep-dive) -->
+<div style="border:1px solid rgba(201,162,39,0.35);background:rgba(255,255,255,0.04);border-radius:16px;padding:26px;margin:34px 0;">
+  <div style="font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:#2A9D8F;font-weight:700;margin-bottom:8px;">Free · one email a month</div>
+  <p style="margin:0 0 16px;font-size:1.05rem;line-height:1.6;color:#EAF1F8;">
+    <strong>Liked seeing your numbers against optimal?</strong> Deep Dive is my monthly plain-English read on the biomarkers and new guidelines that actually move your cardiovascular risk — from a preventive cardiologist.
+  </p>
+  <form name="deep-dive" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="ddForm" style="display:flex;gap:10px;flex-wrap:wrap;">
+    <input type="hidden" name="form-name" value="deep-dive">
+    <input type="hidden" name="source" value="check">
+    <p style="display:none;"><label>Leave blank: <input name="bot-field"></label></p>
+    <input type="email" name="email" required placeholder="you@email.com" aria-label="Email"
+      style="flex:1 1 220px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:#0B1E3D;color:#fff;font-size:1rem;">
+    <button type="submit"
+      style="color:#0B1E3D;background:#C9A227;border:none;font-weight:700;padding:12px 22px;border-radius:10px;font-size:1rem;cursor:pointer;">
+      Join Deep Dive →
+    </button>
+  </form>
+</div>
+<script>
+document.getElementById('ddForm').addEventListener('submit',function(e){
+  e.preventDefault();var f=e.target;
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(){f.parentElement.innerHTML='<p style="margin:0;color:#2A9D8F;font-weight:700;">You\'re in. First Deep Dive lands in your inbox soon.</p>';})
+    .catch(function(){f.querySelector('button').textContent='Try again';});
+});
+</script>
 <footer>
   <div class="wrap">
     <div class="disclaimer">
