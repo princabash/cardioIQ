@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Thank you — CardioIQ</title>
+ 
+<!-- Analytics (same Plausible setup as the rest of the site) -->
+<script async src="https://plausible.io/js/pa-DQBmtlQyovRZ2c7JvLvUd.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+ 
+<!-- Fonts: non-blocking <link> (NOT @import) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap">
+ 
+<style>
+  :root{
+    --navy:#0B1F3A; --gold:#C9A227; --teal:#1A6B72; --teal-light:#2A9D8F;
+    --cream:#F7F4EE; --cream-mid:#EDE8DC; --text:#1A2B3C; --muted:#5A6B78; --white:#fff;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Inter','Noto Sans Georgian',sans-serif;color:var(--text);
+    background:radial-gradient(900px 500px at 50% -10%,rgba(26,107,114,0.10),transparent 60%),var(--cream);
+    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1.25rem;}
+  .card{background:var(--white);max-width:560px;width:100%;border:1px solid var(--cream-mid);
+    border-radius:20px;padding:2.75rem 2.5rem;box-shadow:0 12px 40px rgba(11,31,58,0.08);text-align:center;}
+  .check{width:64px;height:64px;border-radius:50%;background:var(--teal-light);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;}
+  .check svg{width:32px;height:32px;}
+  h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;color:var(--navy);
+    font-size:1.9rem;line-height:1.2;margin:0 0 .5rem;}
+  .sub{color:var(--muted);font-size:1.02rem;line-height:1.55;margin:0 0 1.75rem;}
+  .steps{text-align:left;border-top:1px solid var(--cream-mid);padding-top:1.5rem;margin-bottom:1.5rem;}
+  .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:1.1rem;}
+  .step:last-child{margin-bottom:0;}
+  .num{flex:0 0 26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;
+    font-size:.82rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+  .step h3{margin:0 0 2px;font-size:1rem;color:var(--navy);}
+  .step p{margin:0;font-size:.92rem;line-height:1.5;color:var(--muted);}
+  .note{background:var(--cream);border-left:4px solid var(--teal);border-radius:0 10px 10px 0;
+    padding:.9rem 1rem;font-size:.86rem;line-height:1.5;color:var(--text);text-align:left;margin-bottom:1.25rem;}
+  .support{font-size:.9rem;color:var(--muted);margin:0 0 1.5rem;}
+  .support a{color:var(--teal);}
+  .boundary{font-size:.8rem;color:var(--muted);line-height:1.5;border-top:1px solid var(--cream-mid);padding-top:1.1rem;margin-bottom:1.1rem;}
+  .back{display:inline-block;color:var(--navy);font-weight:600;text-decoration:none;font-size:.95rem;}
+  .back:hover{color:var(--teal);}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+ 
+    <h1>Thank you — your payment is received.</h1>
+    <p class="sub">You're all set. Here's exactly what happens next — no waiting in the dark.</p>
+ 
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <div>
+          <h3>Send us your panel</h3>
+          <!-- TODO(Tea): wire this to the REAL submission step — e.g. link to an upload form,
+               or "check your email for a secure upload link", or "reply to your receipt with your lab PDF". -->
+          <p>If you haven't uploaded your labs yet, check your email for a secure upload link and add the values from your existing panel — lipids, ApoB, Lp(a), insulin, and inflammation markers.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <div>
+          <h3>Read against longevity-optimal targets</h3>
+          <p>Your numbers are interpreted against longevity-optimal targets and current guidelines for your risk category — using the clinical reasoning Dr. Tea Gamezardashvili built into CardioIQ.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <div>
+          <h3>Your report is ready in about 90 seconds</h3>
+          <p>Your structured report is generated right away — you'll see it on screen and get a copy by email.<span id="premium-note" style="display:none;"> Your Premium expert follow-up question is answered personally by Dr. Tea within <strong>2 business days</strong>.</span></p>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="note">
+      Your lab values are used only to prepare your report — kept private, never sold or shared.
+    </div>
+ 
+    <p class="support">Questions? Reply to your payment receipt, or email <a href="mailto:info@cardioiq.health">info@cardioiq.health</a>.</p>
+ 
+    <p class="boundary">Your CardioIQ report is educational interpretation, not a diagnosis — built to inform the conversation with your physician, never to replace it.</p>
+ 
+    <a class="back" href="/">← Back to CardioIQ</a>
+  </div>
+ 
+<!-- ===== Conversion tracking =====
+     PayPal (and other off-site checkouts) return here after payment, so this page load = the sale.
+     Set the PayPal button "Return URL" to:  https://cardioiq.health/thank-you/?tier=standard&amount=49
+     Then create a goal named "Purchase" in Plausible. Revenue + tier are passed automatically below. -->
+<script>
+  (function(){
+    var q=new URLSearchParams(location.search);
+    var tier=q.get('tier')||'unknown';
+    var amount=parseFloat(q.get('amount'));
+    var props={tier:tier, source:q.get('utm_source')||'direct'};
+    if(tier==='premium'){var pn=document.getElementById('premium-note');if(pn)pn.style.display='inline';}
+    try{
+      if(!isNaN(amount)){
+        plausible('Purchase',{props:props, revenue:{currency:'USD', amount:amount}});
+      } else {
+        plausible('Purchase',{props:props});
+      }
+    }catch(e){}
+    // If you also run GA4, uncomment and set your ID:
+    // if(typeof gtag==='function'){ gtag('event','purchase',{currency:'USD', value:isNaN(amount)?0:amount, items:[{item_name:tier}]}); }
+  })();
+</script>
+</body>
+</html>
