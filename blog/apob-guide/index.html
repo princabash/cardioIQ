@@ -796,6 +796,33 @@
   <hr />
  
   <!-- Section 9 -->
+<!-- ONE-PAGER LEAD MAGNET (Netlify form: targets-sheet) -->
+<div style="border:1px solid var(--gold);background:var(--cream);border-radius:16px;padding:26px;margin:34px 0;">
+  <div style="font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:8px;">Free one-pager · no sign-up wall</div>
+  <p style="margin:0 0 16px;font-size:1.05rem;line-height:1.6;color:var(--text);">
+    <strong>Keep the targets on hand.</strong> Get the one-page <em>Normal vs Optimal</em> reference — every marker here (ApoB, Lp(a), lipids, insulin, inflammation) with its standard lab range next to the longevity-optimal target a lipidologist works from.
+  </p>
+  <form name="targets-sheet" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="tsForm-apob" style="display:flex;gap:10px;flex-wrap:wrap;">
+    <input type="hidden" name="form-name" value="targets-sheet">
+    <input type="hidden" name="source" value="apob-guide">
+    <p style="display:none;"><label>Leave blank: <input name="bot-field"></label></p>
+    <input type="email" name="email" required placeholder="you@email.com" aria-label="Email"
+      style="flex:1 1 220px;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--white);color:var(--text);font-size:1rem;">
+    <button type="submit"
+      style="color:var(--navy);background:var(--gold);border:none;font-weight:700;padding:12px 22px;border-radius:10px;font-size:1rem;cursor:pointer;">
+      Email me the one-pager →
+    </button>
+  </form>
+</div>
+<script>
+document.getElementById('tsForm-apob').addEventListener('submit',function(e){
+  e.preventDefault();var f=e.target;
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
+    .then(function(){f.parentElement.innerHTML='<p style="margin:0 0 14px;color:var(--teal);font-weight:700;">You\'re in — here\'s your one-pager.</p><a href="/assets/optimal-vs-normal-targets.pdf" download style="display:inline-block;color:var(--navy);background:var(--gold);text-decoration:none;font-weight:700;padding:11px 22px;border-radius:10px;">⬇ Download: Normal vs Optimal targets</a>';})
+    .catch(function(){f.querySelector('button').textContent='Try again';});
+});
+</script>
+
   <h2 id="treatment">Treatment: Lowering ApoB</h2>
  
   <h3>Lifestyle Approaches</h3>
