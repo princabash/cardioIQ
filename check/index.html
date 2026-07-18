@@ -23,7 +23,7 @@
   body{font-family:var(--font-body);color:var(--text);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
   a{color:var(--teal-deep)}
   .wrap{max-width:760px;margin:0 auto;padding:0 20px}
- 
+
   /* Nav */
   nav.site-nav{display:flex;align-items:center;justify-content:space-between;max-width:760px;margin:0 auto;padding:18px 20px}
   .logo{font-family:var(--font-display);font-size:1.35rem;font-weight:700;color:var(--navy);text-decoration:none;letter-spacing:-0.01em}
@@ -32,7 +32,7 @@
   .nav-links a{color:var(--text-muted);text-decoration:none}
   .nav-cta{background:var(--gold);color:var(--navy)!important;padding:8px 16px;border-radius:8px;font-weight:600}
   @media(max-width:560px){.nav-links a:not(.nav-cta){display:none}}
- 
+
   /* Hero */
   header.hero{padding:40px 0 12px}
   .eyebrow{font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal-deep);font-weight:600;margin-bottom:14px}
@@ -40,7 +40,7 @@
   h1 em{font-style:italic;color:var(--gold)}
   .lead{font-size:1.08rem;color:var(--text-muted);max-width:620px}
   .lead strong{color:var(--text)}
- 
+
   /* Panel / form */
   .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;margin:26px 0;box-shadow:0 1px 0 rgba(11,30,61,0.03)}
   .units{display:flex;gap:8px;align-items:center;margin-bottom:22px;font-size:0.9rem}
@@ -53,7 +53,7 @@
   .field .u{color:var(--text-muted);font-weight:400}
   .field input{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:var(--font-body);background:var(--cream)}
   .field input:focus{outline:2px solid var(--teal);outline-offset:1px;background:#fff}
- 
+
   .section-label{font-size:0.82rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--navy);margin:4px 0 14px}
   details.adv{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px}
   details.adv summary{cursor:pointer;font-weight:600;color:var(--teal-deep);list-style:none;font-size:0.95rem}
@@ -62,11 +62,11 @@
   details.adv[open] summary::before{content:"– "}
   details.adv .grid{margin-top:16px}
   .hint{font-size:0.8rem;color:var(--text-muted);margin-top:6px}
- 
+
   .go{margin-top:22px;width:100%;background:var(--navy);color:#fff;border:none;padding:15px;border-radius:12px;font-size:1.02rem;font-weight:600;font-family:var(--font-body);cursor:pointer}
   .go:hover{background:var(--navy-soft)}
   .go-note{text-align:center;font-size:0.82rem;color:var(--text-muted);margin-top:10px}
- 
+
   /* Results */
   #results{display:none}
   .res-head{font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin:34px 0 4px}
@@ -81,7 +81,7 @@
   .pill.ctx{background:var(--cream-mid);color:var(--text-muted)}
   .r-body{font-size:0.94rem;color:var(--text);margin-top:10px}
   .r-boundary{font-size:0.82rem;color:var(--text-muted);margin-top:9px;font-style:italic}
- 
+
   /* Ladder (LDL / ApoB / non-HDL) */
   .ladder{margin:14px 0 4px}
   .ladder-track{position:relative;height:10px;background:linear-gradient(90deg,var(--teal) 0%,var(--gold-light) 60%,var(--cream-mid) 100%);border-radius:6px}
@@ -92,12 +92,12 @@
   .ladder-labels span{width:33%}
   .ladder-labels span:nth-child(2){text-align:center}
   .ladder-labels span:nth-child(3){text-align:right}
- 
+
   .cta-box{background:var(--navy);color:#fff;border-radius:16px;padding:28px;margin:30px 0 10px;text-align:center}
   .cta-box h3{font-family:var(--font-display);font-size:1.4rem;margin-bottom:10px}
   .cta-box p{color:#cfd8e6;font-size:0.98rem;max-width:520px;margin:0 auto 18px}
   .cta-btn{display:inline-block;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:700;padding:14px 26px;border-radius:11px}
- 
+
   .email-box{border:1px dashed var(--line);border-radius:14px;padding:20px;margin:16px 0}
   .email-box h4{font-size:1rem;color:var(--navy);margin-bottom:6px}
   .email-box p{font-size:0.88rem;color:var(--text-muted);margin-bottom:12px}
@@ -106,7 +106,21 @@
   .email-row input{flex:1;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:0.98rem;font-family:var(--font-body)}
   .email-row button{background:var(--teal-deep);color:#fff;border:none;padding:11px 20px;border-radius:10px;font-weight:600;cursor:pointer;font-family:var(--font-body)}
   .email-ok{display:none;color:var(--teal-deep);font-weight:600;font-size:0.92rem;margin-top:10px}
- 
+
+  .print-btn{background:#fff;border:1.5px solid var(--line);color:var(--navy);font-weight:600;font-family:var(--font-body);font-size:0.95rem;padding:11px 22px;border-radius:10px;cursor:pointer}
+  .print-btn:hover{border-color:var(--teal);color:var(--teal-deep)}
+  .print-only{display:none}
+  .print-header{margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--navy);font-family:var(--font-display);font-size:1.2rem;color:var(--navy)}
+  .print-header span{display:block;font-family:var(--font-body);font-size:0.85rem;color:var(--text-muted);font-weight:400;margin-top:3px}
+  @media print{
+    nav.site-nav, header.hero, .card, .cta-box, .email-box, .print-actions, .foot-links{display:none !important}
+    .print-only{display:block !important}
+    body{background:#fff;color:#000}
+    #results{display:block !important}
+    .r{break-inside:avoid;border-color:#ccc}
+    footer{border:none;margin-top:20px}
+  }
+
   footer{border-top:1px solid var(--line);margin-top:40px;padding:26px 0 50px}
   .disclaimer{font-size:0.82rem;color:var(--text-muted);background:var(--cream-mid);border-radius:12px;padding:16px 18px;margin-bottom:18px}
   .foot-links{font-size:0.86rem;color:var(--text-muted);text-align:center}
@@ -115,7 +129,7 @@
 </style>
 </head>
 <body>
- 
+
 <nav class="site-nav">
   <a href="/" class="logo">Cardio<span>IQ</span></a>
   <div class="nav-links">
@@ -124,14 +138,14 @@
     <a href="/reports/#tiers" class="nav-cta">Get my report</a>
   </div>
 </nav>
- 
+
 <div class="wrap">
   <header class="hero">
     <div class="eyebrow">Free tool · built by a lipidologist</div>
     <h1>See where your numbers <em>actually sit</em></h1>
     <p class="lead">Enter the lab values you already have. You'll see each one in two lenses side by side: <strong>your lab's standard range</strong> and the <strong>longevity-optimal targets</strong> a preventive cardiologist works from. No upload, no email needed to see your results.</p>
   </header>
- 
+
   <div class="card">
     <div class="units">
       <span style="color:var(--text-muted)">Units</span>
@@ -140,7 +154,7 @@
         <button data-unit="si">SI · mmol/L</button>
       </div>
     </div>
- 
+
     <div class="section-label">Standard lipid panel</div>
     <div class="grid">
       <div class="field"><label>Total cholesterol <span class="u" data-ulabel="chol">mg/dL</span></label><input id="tc" type="number" inputmode="decimal" placeholder="e.g. 190" /></div>
@@ -148,7 +162,7 @@
       <div class="field"><label>HDL-C <span class="u" data-ulabel="chol">mg/dL</span></label><input id="hdl" type="number" inputmode="decimal" placeholder="e.g. 55" /></div>
       <div class="field"><label>Triglycerides <span class="u" data-ulabel="tg">mg/dL</span></label><input id="tg" type="number" inputmode="decimal" placeholder="e.g. 90" /></div>
     </div>
- 
+
     <details class="adv">
       <summary>Advanced markers (ApoB, Lp(a), metabolic)</summary>
       <div class="grid">
@@ -159,64 +173,47 @@
         <div class="field"><label>hsCRP <span class="u">mg/L</span></label><input id="crp" type="number" inputmode="decimal" placeholder="e.g. 0.8" /></div>
       </div>
     </details>
- 
+
     <button class="go" id="go">Show my results</button>
     <div class="go-note">Everything is calculated in your browser. Your numbers never leave this page.</div>
   </div>
- 
+
   <div id="results">
+    <div class="print-only print-header">
+      CardioIQ — Optimal vs Normal check
+      <span id="print-date"></span>
+    </div>
     <div class="res-head">Your numbers, two ways</div>
     <div class="res-sub">Standard ranges rule out disease. Longevity targets aim higher. Both are valid lenses — this is a starting point for a conversation, not a verdict.</div>
     <div id="res-list"></div>
- 
+
+    <div class="print-actions" style="text-align:center;margin:20px 0 4px;">
+      <button id="print-btn" class="print-btn">⬇&nbsp; Download / print my results (PDF)</button>
+    </div>
+
     <div class="cta-box">
       <h3 id="cta-h">See these read against optimal — in full</h3>
       <p id="cta-p">This check shows you where the gaps are. What they mean for <em>you</em> — which target actually applies, how the markers interact, what to do next — is what a lipidologist reads in your report.</p>
       <a class="cta-btn" id="cta-a" href="/reports/#tiers">Get my report — from $29 →</a>
     </div>
- 
+
     <div class="email-box">
-      <h4>Want these by email?</h4>
-      <p>Get a copy of your results plus a short primer on reading these five markers. We store your email for the primer only — never your numbers.</p>
+      <h4>Get the marker primer by email</h4>
+      <p>Want a short, plain-language primer on how a lipidologist reads these five markers? Leave your email and I'll send it over. Your numbers aren't emailed or stored anywhere — they stay in your browser, and you already have the download button above.</p>
       <form id="email-form" name="optimal-check" method="POST" data-netlify="true" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="optimal-check" />
         <input type="hidden" name="source" value="check-tool" />
         <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
         <div class="email-row">
           <input type="email" name="email" id="email" placeholder="you@email.com" required />
-          <button type="submit">Email me the primer</button>
+          <button type="submit">Send me the primer</button>
         </div>
-        <div class="email-ok" id="email-ok">Thanks — check your inbox shortly.</div>
+        <div class="email-ok" id="email-ok">Thanks — I'll send the primer to your inbox.</div>
       </form>
     </div>
   </div>
 </div>
- <!-- DEEP DIVE OPT-IN (Netlify form: deep-dive) -->
-<div style="border:1px solid rgba(201,162,39,0.35);background:rgba(255,255,255,0.04);border-radius:16px;padding:26px;margin:34px 0;">
-  <div style="font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:#2A9D8F;font-weight:700;margin-bottom:8px;">Free · one email a month</div>
-  <p style="margin:0 0 16px;font-size:1.05rem;line-height:1.6;color:#EAF1F8;">
-    <strong>Liked seeing your numbers against optimal?</strong> Deep Dive is my monthly plain-English read on the biomarkers and new guidelines that actually move your cardiovascular risk — from a preventive cardiologist.
-  </p>
-  <form name="deep-dive" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="ddForm" style="display:flex;gap:10px;flex-wrap:wrap;">
-    <input type="hidden" name="form-name" value="deep-dive">
-    <input type="hidden" name="source" value="check">
-    <p style="display:none;"><label>Leave blank: <input name="bot-field"></label></p>
-    <input type="email" name="email" required placeholder="you@email.com" aria-label="Email"
-      style="flex:1 1 220px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:#0B1E3D;color:#fff;font-size:1rem;">
-    <button type="submit"
-      style="color:#0B1E3D;background:#C9A227;border:none;font-weight:700;padding:12px 22px;border-radius:10px;font-size:1rem;cursor:pointer;">
-      Join Deep Dive →
-    </button>
-  </form>
-</div>
-<script>
-document.getElementById('ddForm').addEventListener('submit',function(e){
-  e.preventDefault();var f=e.target;
-  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(f)).toString()})
-    .then(function(){f.parentElement.innerHTML='<p style="margin:0;color:#2A9D8F;font-weight:700;">You\'re in. First Deep Dive lands in your inbox soon.</p>';})
-    .catch(function(){f.querySelector('button').textContent='Try again';});
-});
-</script>
+
 <footer>
   <div class="wrap">
     <div class="disclaimer">
@@ -228,13 +225,13 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
     </div>
   </div>
 </footer>
- 
+
 <script>
 (function(){
   var unit="us";
   // conversion divisors mg/dL -> mmol/L
   var CONV={chol:38.67, tg:88.57, glu:18.02};
- 
+
   var toggle=document.getElementById("unit-toggle");
   toggle.addEventListener("click",function(e){
     var b=e.target.closest("button"); if(!b) return;
@@ -246,7 +243,7 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
       else { el.textContent = "mg/dL"; }
     });
   });
- 
+
   // read an input in current unit, return mg/dL (internal), or null
   function readMg(id,key){
     var v=parseFloat(document.getElementById(id).value);
@@ -260,18 +257,18 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
     if(unit==="si" && key){ var s=mg/CONV[key]; return s.toFixed(2)+" mmol/L"; }
     return Math.round(mg)+" mg/dL";
   }
- 
+
   function pill(kind){ // 'opt','room','ctx'
     var t={opt:"At optimal",room:"Room to optimize",ctx:"Context"}[kind];
     return '<span class="pill '+kind+'">'+t+'</span>';
   }
   var BOUND='<div class="r-boundary">A reference-frame starting point, not a diagnosis — discuss with your physician.</div>';
- 
+
   function block(name,valTxt,kind,body,ladder){
     return '<div class="r"><div class="r-top"><span class="r-name">'+name+'</span><span class="r-val">'+valTxt+'</span></div>'
       +pill(kind)+(ladder||'')+'<div class="r-body">'+body+'</div>'+BOUND+'</div>';
   }
- 
+
   // ladder for tiered markers: steps low->high risk targets, scaleMax
   // key='chol' -> labels convert to mmol/L in SI mode; null -> always mg/dL
   function ladder(value,steps,scaleMax,key){
@@ -285,12 +282,12 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
       +'<div class="ladder-mark" style="left:'+pos+'%"><div class="dot"></div></div></div>'
       +'<div class="ladder-labels"><span>&lt;'+lbl(steps[0].v)+' '+steps[0].t+'</span><span>&lt;'+lbl(steps[1].v)+' '+steps[1].t+'</span><span>&lt;'+lbl(steps[2].v)+' '+steps[2].t+'</span></div></div>';
   }
- 
+
   function run(){
     var out=[];
     var tc=readMg("tc","chol"), ldl=readMg("ldl","chol"), hdl=readMg("hdl","chol"), tg=readMg("tg","tg");
     var apob=raw("apob"), lpa=raw("lpa"), glu=readMg("glu","glu"), ins=raw("ins"), crp=raw("crp");
- 
+
     // ---- Group C: tiered, personalization deferred (mg/dL internal) ----
     if(ldl!=null){
       out.push(block("LDL-C", fmtMg(ldl,"chol"), "ctx",
@@ -308,7 +305,7 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
         "A single figure for all your atherogenic cholesterol. Guideline targets: <strong>&lt;130</strong>, <strong>&lt;100</strong>, <strong>&lt;85 mg/dL</strong> as risk rises.",
         ladder(nonhdl,[{v:85,t:"very high"},{v:100,t:"high"},{v:130,t:"moderate"}],160,"chol")));
     }
- 
+
     // ---- Group A: single confirmed optimal ----
     if(tg!=null){
       var tgOpt=tg<100;
@@ -353,7 +350,7 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
         hk==="opt"?"Suggests good insulin sensitivity."
                   :"Above ~1.5 can suggest insulin resistance; discuss with your physician."));
     }
- 
+
     // ---- Group B: context only ----
     if(tc!=null){
       out.push(block("Total cholesterol", fmtMg(tc,"chol"), "ctx",
@@ -370,12 +367,12 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
       else { lk="room"; lbody="Above the rule-in threshold (over ~50 mg/dL). It's inherited and not changed by diet or exercise — so the move is to control ApoB/LDL well and let close family know to test once. Not an emergency; a reason to be thorough."; }
       out.push(block("Lp(a) <span style='font-weight:400;color:var(--text-muted);font-size:0.82rem'>(measure once in a lifetime)</span>", lpa+" nmol/L", lk, lbody));
     }
- 
+
     if(out.length===0){
       out.push('<div class="r"><div class="r-body">Enter at least one value above to see it in both lenses.</div></div>');
     }
     document.getElementById("res-list").innerHTML=out.join("");
- 
+
     // CTA emphasis: ApoB or Lp(a) present -> Standard $49
     if(apob!=null || lpa!=null){
       document.getElementById("cta-h").textContent="See your ApoB and Lp(a) read against optimal";
@@ -385,14 +382,21 @@ document.getElementById('ddForm').addEventListener('submit',function(e){
     } else {
       document.getElementById("cta-a").href="/reports/#tiers?utm_source=tool&utm_medium=freemium&utm_content=optimal-check-basic";
     }
- 
+
     var r=document.getElementById("results");
     r.style.display="block";
     r.scrollIntoView({behavior:"smooth"});
   }
- 
+
   document.getElementById("go").addEventListener("click",run);
- 
+
+  // Download / print results (client-side; opens print dialog -> Save as PDF)
+  var pb=document.getElementById("print-btn");
+  if(pb){ pb.addEventListener("click",function(){
+    try{ document.getElementById("print-date").textContent = new Date().toLocaleDateString(); }catch(e){}
+    window.print();
+  }); }
+
   // Netlify email form: submit without leaving the page, keep results visible
   var ef=document.getElementById("email-form");
   ef.addEventListener("submit",function(e){
