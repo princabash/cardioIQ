@@ -1,419 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--
-  CardioIQ blog article
-  Pillar: 3 — Metabolic health (insulin resistance, TG/HDL, glucose)
-  Primary persona: The Optimizer  |  On-ramp persona: The Newly Worried
-  Slug: /blog/insulin-resistance-gap/
-  CRL chain: Finding → Reference frame → Mechanism → Evidence → Modifiers → Action → Boundary
-  Internal links (confirmed against repo princabash/cardioIQ):
-    - ApoB pillar            -> /blog/apob-guide/
-    - Sibling (metabolic)    -> /blog/fasting-insulin-longevity/
-  Note: /blog has no index page (404) -> nav "back" links point to the homepage.
-    - Product            -> https://cardioiq.health
--->
-<title>Your Glucose Is "Normal" — So Why Are Your Arteries Aging? | CardioIQ</title>
-<meta name="description" content="Fasting glucose and HbA1c can read normal for years while insulin resistance quietly ages your arteries. Here's why fasting insulin and HOMA-IR matter — and what to do next.">
-<link rel="canonical" href="https://cardioiq.health/blog/insulin-resistance-gap/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO: metabolic lever, decision intent, lipidologist differentiator, correct casing, no efficacy claims ===== -->
+<title>Insulin Resistance and Cholesterol: When "Normal" LDL Still Misses Risk | CardioIQ</title>
+<meta name="description" content="A lipidologist explains why a 'normal' LDL cholesterol can under-read your risk when you're insulin resistant — how metabolic health reshapes your lipids, and the markers (ApoB, non-HDL-C, TG/HDL) that reveal it.">
+<link rel="canonical" href="https://cardioiq.health/blog/insulin-resistance-cholesterol/">
+
+<!-- Open Graph -->
 <meta property="og:type" content="article">
-<meta property="og:title" content="Your Glucose Is 'Normal' — So Why Are Your Arteries Aging?">
-<meta property="og:description" content="The insulin resistance gap: how fasting insulin and HOMA-IR reveal cardiovascular risk that a normal glucose result hides.">
-<meta property="og:url" content="https://cardioiq.health/blog/insulin-resistance-gap/">
+<meta property="og:title" content="Insulin Resistance and Cholesterol: When 'Normal' LDL Still Misses Risk">
+<meta property="og:description" content="Insulin resistance can raise your atherogenic particle count while LDL-C still reads 'normal.' Here's how to spot it — and what actually moves it.">
+<meta property="og:url" content="https://cardioiq.health/blog/insulin-resistance-cholesterol/">
 <meta property="og:site_name" content="CardioIQ">
+<!-- TODO(Tea): set og:image to a real 1200x630 asset on the domain -->
+<meta property="og:image" content="https://cardioiq.health/assets/og-insulin-resistance-cholesterol.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --navy-900:#0a1c33;
-    --navy-800:#0f2947;
-    --navy-700:#173a63;
-    --paper:#f6f8fb;
-    --card:#ffffff;
-    --ink:#132232;
-    --muted:#57697c;
-    --line:#dfe6ee;
-    --gold:#c39a2b;
-    --gold-soft:#e3c974;
-    --teal:#188a7c;
-    --teal-deep:#0d5b52;
-    --teal-tint:#e7f3f1;
-    --amber-tint:#fbf3e2;
+    --navy:#0b1a2b; --navy-2:#0f2438; --navy-3:#16324b;
+    --gold:#d4a94a; --gold-soft:#e7c877;
+    --teal:#3fb6a8; --teal-soft:#7ad4c9;
+    --ink:#e9eef4; --ink-2:#b7c4d1; --ink-3:#8496a6;
+    --line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.035);
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
     --maxw:720px;
-    --radius:14px;
   }
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-    font-size:18px;
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
- 
-  /* ---------- top bar ---------- */
-  .topbar{border-bottom:1px solid rgba(255,255,255,.12);background:var(--navy-900)}
-  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;letter-spacing:.2px}
-  .brand .mark{width:26px;height:26px;flex:0 0 auto}
-  .topbar a.small{color:#c7d4e3;text-decoration:none;font-size:14px;font-weight:500}
-  .topbar a.small:hover{color:#fff}
- 
-  /* ---------- hero ---------- */
-  .hero{background:
-      radial-gradient(1200px 400px at 78% -10%, rgba(35,120,110,.28), transparent 60%),
-      radial-gradient(900px 380px at 5% 120%, rgba(195,154,43,.16), transparent 55%),
-      var(--navy-900);
-    color:#eaf1f8;padding:64px 0 56px}
-  .eyebrow{
-    font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--gold-soft);margin:0 0 18px}
-  .eyebrow span{color:#8fb7c9}
-  h1{
-    font-family:"Newsreader",Georgia,serif;
-    font-weight:500;font-size:clamp(32px,5.4vw,50px);line-height:1.08;
-    letter-spacing:-.01em;margin:0 0 20px;color:#fff}
-  h1 em{font-style:italic;color:var(--gold-soft)}
-  .standfirst{font-size:19.5px;line-height:1.6;color:#c6d6e6;max-width:600px;margin:0}
- 
-  /* hero thesis figure: glucose flat, insulin climbing */
-  .thesis{margin:38px 0 4px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);
-    border-radius:var(--radius);padding:20px 22px 16px}
-  .thesis figcaption{font-size:13px;color:#9fb4c8;margin-top:10px;line-height:1.5}
-  .thesis .legend{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:12px;font-size:13px;color:#cdddec}
-  .thesis .legend b{font-weight:600}
-  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:1px}
-  svg .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.6s ease-out forwards}
-  @keyframes draw{to{stroke-dashoffset:0}}
- 
-  /* ---------- article body ---------- */
-  article{padding:56px 0 24px}
-  article h2{
-    font-family:"Newsreader",Georgia,serif;font-weight:500;
-    font-size:clamp(25px,3.6vw,32px);line-height:1.18;letter-spacing:-.01em;
-    color:var(--navy-800);margin:52px 0 14px}
-  article h3{font-size:19px;font-weight:600;color:var(--navy-800);margin:30px 0 8px}
-  article p{margin:0 0 18px}
-  article a{color:var(--teal-deep);text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px}
-  article a:hover{color:var(--teal)}
-  .lede{font-size:20px;line-height:1.6;color:var(--ink)}
-  ul,ol{margin:0 0 20px;padding-left:22px}
-  li{margin:6px 0}
-  strong{color:var(--navy-800)}
- 
-  .section-rule{border:none;border-top:1px solid var(--line);margin:8px 0 0}
- 
-  /* pull device: the gap */
-  .gap-callout{
-    border-left:3px solid var(--gold);background:var(--amber-tint);
-    border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;font-size:17.5px}
-  .gap-callout b{color:#7a5c10}
- 
-  /* reference tables: normal vs optimal lanes */
-  .reftable{width:100%;border-collapse:collapse;margin:10px 0 8px;font-size:16px;
-    border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  .reftable caption{caption-side:top;text-align:left;font-size:14px;color:var(--muted);margin-bottom:8px}
-  .reftable th,.reftable td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line)}
-  .reftable thead th{background:var(--navy-800);color:#eaf1f8;font-weight:600;font-size:14px;letter-spacing:.02em}
-  .reftable tbody tr:last-child td{border-bottom:none}
-  .reftable .metric{font-weight:600;color:var(--navy-800)}
-  .reftable td.optimal{background:var(--teal-tint);color:var(--teal-deep);font-weight:600;font-variant-numeric:tabular-nums}
-  .reftable td.normal{color:var(--muted);font-variant-numeric:tabular-nums}
-  .reftable thead th.optimal{background:var(--teal-deep)}
-  .tnote{font-size:14px;color:var(--muted);margin:2px 0 22px}
- 
-  /* worked example / formula card */
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:20px 22px;margin:22px 0}
-  .card h4{margin:0 0 10px;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--teal-deep)}
-  .formula{font-family:"Newsreader",Georgia,serif;font-size:18px;color:var(--navy-800);
-    background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:6px 0 4px}
-  .worked{font-size:16px;color:var(--muted);margin:0}
-  .worked b{color:var(--navy-800)}
- 
-  /* illustration case */
-  .case{background:var(--navy-900);color:#e9f0f8;border-radius:var(--radius);padding:26px 26px 22px;margin:26px 0}
-  .case h3{color:#fff;margin:0 0 4px}
-  .case .who{color:#9fb4c8;font-size:15px;margin:0 0 16px}
-  .labgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px 20px;margin:0 0 16px}
-  .labgrid div{display:flex;justify-content:space-between;gap:12px;font-size:15px;
-    padding:7px 0;border-bottom:1px solid rgba(255,255,255,.1)}
-  .labgrid span:first-child{color:#b9c9da}
-  .labgrid span:last-child{font-variant-numeric:tabular-nums;font-weight:600;color:#fff}
-  .flag{color:var(--gold-soft)!important}
-  .case p{color:#cddbea;margin:6px 0 0;font-size:15.5px}
-  .case p b{color:#fff}
- 
-  /* questions for your doctor */
-  .ask{border:1px solid var(--teal);background:var(--teal-tint);border-radius:var(--radius);
-    padding:22px 24px;margin:30px 0}
-  .ask h3{margin:0 0 10px;color:var(--teal-deep)}
-  .ask ul{margin:0;padding-left:20px}
-  .ask li{margin:8px 0;color:#0f453e}
-  .ask .say{font-style:italic}
- 
-  /* CTA */
-  .cta{background:
-      radial-gradient(700px 240px at 90% -30%, rgba(35,120,110,.35), transparent 60%),
-      var(--navy-800);
-    color:#fff;border-radius:18px;padding:34px 32px;margin:44px 0 8px;text-align:left}
-  .cta h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:24px;color:#fff;margin:0 0 8px}
-  .cta p{color:#cdddec;margin:0 0 18px;font-size:16.5px;max-width:520px}
-  .cta a.btn{display:inline-block;background:var(--gold);color:#1b1405;font-weight:600;
-    text-decoration:none;padding:13px 22px;border-radius:10px;font-size:16px}
-  .cta a.btn:hover{background:var(--gold-soft)}
- 
-  /* disclaimer */
-  .disclaimer{border-top:2px solid var(--gold);background:#fff;border-radius:0 0 12px 12px;
-    padding:22px 24px;margin:40px 0 0;font-size:14.5px;color:var(--muted);line-height:1.65}
-  .disclaimer strong{color:var(--navy-800)}
- 
-  /* meta row */
-  .articlemeta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;
-    color:var(--muted);font-size:14px;margin:0 0 6px}
-  .articlemeta .who-by{color:var(--navy-800);font-weight:600}
-  .pill{display:inline-block;background:var(--teal-tint);color:var(--teal-deep);
-    font-size:12.5px;font-weight:600;letter-spacing:.02em;padding:4px 10px;border-radius:999px}
- 
-  footer{background:var(--navy-900);color:#9fb4c8;padding:34px 0;margin-top:52px;font-size:14px}
-  footer a{color:#cdddec;text-decoration:none}
-  footer a:hover{color:#fff}
-  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px}
- 
-  @media (max-width:600px){
-    body{font-size:17px}
-    .labgrid{grid-template-columns:1fr}
-    .hero{padding:48px 0 44px}
-    article{padding:40px 0 16px}
-  }
-  @media (prefers-reduced-motion:reduce){
-    svg .draw{animation:none;stroke-dashoffset:0}
-    html{scroll-behavior:auto}
+  body{background:var(--navy); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.72; -webkit-font-smoothing:antialiased}
+  a{color:var(--teal-soft); text-decoration:none; border-bottom:1px solid rgba(122,212,201,.3); transition:.2s}
+  a:hover{color:#fff; border-color:var(--teal-soft)}
+
+  .topbar{border-bottom:1px solid var(--line); background:rgba(11,26,43,.85); backdrop-filter:blur(8px); position:sticky; top:0; z-index:10}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between}
+  .brand{font-family:var(--sans); font-weight:700; letter-spacing:.02em; color:#fff; font-size:18px; border:none}
+  .brand span{color:var(--gold)}
+  .topbar-inner a{border:none; font-family:var(--sans); font-size:14px; color:var(--ink-2)}
+  .topbar-inner nav a{margin-left:20px}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+
+  header.post{padding:56px 0 34px}
+  .eyebrow{font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  h1{font-family:var(--sans); font-weight:700; font-size:clamp(30px,5.4vw,44px); line-height:1.14; letter-spacing:-.015em; color:#fff; margin:16px 0 22px}
+  .byline{display:flex; gap:14px; align-items:center; font-family:var(--sans); font-size:14px; color:var(--ink-3); border-top:1px solid var(--line); padding-top:18px}
+  .byline b{color:var(--ink); font-weight:600}
+  .byline .cred{color:var(--gold-soft)}
+
+  article{padding:8px 0 20px}
+  article p{margin:0 0 24px; color:var(--ink)}
+  article h2{font-family:var(--sans); font-weight:700; font-size:clamp(23px,3.6vw,29px); line-height:1.22; letter-spacing:-.01em; color:#fff; margin:46px 0 18px}
+  article h3{font-family:var(--sans); font-weight:600; font-size:20px; color:var(--gold-soft); margin:32px 0 12px}
+  article strong{color:#fff; font-weight:600}
+  article em{color:var(--ink)}
+  .lead{font-size:22px; line-height:1.62; color:var(--ink); margin-bottom:30px}
+
+  .box{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:12px; padding:22px 24px; margin:30px 0; font-size:18px}
+  .box.gold{border-left-color:var(--gold)}
+  .box .k{font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-soft); display:block; margin-bottom:8px}
+  .box.gold .k{color:var(--gold)}
+  .box p:last-child{margin-bottom:0}
+
+  /* concordant vs discordant compare */
+  .compare2{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:28px 0 8px; font-family:var(--sans)}
+  .c2{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 20px 18px}
+  .c2.bad{border-color:rgba(212,169,74,.5)}
+  .c2 .tag{font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; margin-bottom:12px}
+  .c2.good .tag{color:var(--teal-soft)} .c2.bad .tag{color:var(--gold-soft)}
+  .c2 .rowm{display:flex; justify-content:space-between; align-items:baseline; padding:9px 0; border-top:1px solid var(--line); font-size:15px}
+  .c2 .rowm:first-of-type{border-top:none}
+  .c2 .rowm .lab{color:var(--ink-2)}
+  .c2 .rowm .val{color:#fff; font-weight:600}
+  .c2 .note{font-size:13.5px; color:var(--ink-3); margin-top:12px; line-height:1.5; font-family:var(--serif)}
+
+  ul.clean{margin:0 0 24px; padding-left:0; list-style:none}
+  ul.clean li{position:relative; padding-left:26px; margin-bottom:12px; color:var(--ink)}
+  ul.clean li::before{content:""; position:absolute; left:4px; top:13px; width:7px; height:7px; border-radius:50%; background:var(--gold)}
+
+  ol.steps{margin:24px 0; padding-left:0; list-style:none; counter-reset:s}
+  ol.steps li{position:relative; padding:2px 0 18px 44px; counter-increment:s; color:var(--ink)}
+  ol.steps li::before{content:counter(s); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--teal); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+  ol.steps li strong{color:var(--teal-soft)}
+
+  .disclaimer{background:rgba(212,169,74,.06); border:1px solid rgba(212,169,74,.22); border-radius:12px; padding:20px 22px; margin:40px 0 10px; font-family:var(--sans); font-size:14.5px; line-height:1.62; color:var(--ink-2)}
+  .disclaimer b{color:var(--gold-soft)}
+
+  .cta{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid var(--line); border-radius:16px; padding:34px 30px; margin:44px 0 12px; text-align:center}
+  .cta h3{font-family:var(--sans); color:#fff; font-size:22px; margin:0 0 10px}
+  .cta p{color:var(--ink-2); font-size:16px; margin:0 auto 22px; max-width:480px}
+  .cta a.btn{display:inline-block; background:var(--gold); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:15px; padding:13px 30px; border-radius:10px; border:none}
+  .cta a.btn:hover{background:var(--gold-soft); color:var(--navy)}
+  .cta .sub{display:block; margin-top:14px; font-family:var(--sans); font-size:13px; color:var(--ink-3)}
+  .cta .sub a{color:var(--teal-soft); border:none}
+
+  .author{display:flex; gap:18px; align-items:flex-start; border-top:1px solid var(--line); margin-top:48px; padding-top:28px}
+  .author .av{flex:0 0 56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--teal)); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-weight:700; color:var(--navy); font-size:20px}
+  .author .meta{font-family:var(--sans); font-size:14.5px; color:var(--ink-2); line-height:1.6}
+  .author .meta b{color:#fff; font-size:16px; display:block; margin-bottom:2px}
+  .author .meta .cred{color:var(--gold-soft)}
+
+  .refs{border-top:1px solid var(--line); margin-top:40px; padding-top:22px; font-family:var(--sans); font-size:13px; color:var(--ink-3); line-height:1.6}
+  .refs h4{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:12px}
+  .refs ol{padding-left:18px} .refs li{margin-bottom:8px}
+  .refs a{color:var(--ink-3); border:none} .refs a:hover{color:var(--teal-soft)}
+
+  footer{border-top:1px solid var(--line); margin-top:30px; padding:28px 0 60px}
+  footer .wrap{font-family:var(--sans); font-size:13px; color:var(--ink-3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  footer a{color:var(--ink-3); border:none}
+  footer a:hover{color:var(--teal-soft)}
+
+  @media(max-width:560px){
+    body{font-size:18px}
+    .compare2{grid-template-columns:1fr}
+    .topbar-inner nav a:first-child{display:none}
   }
 </style>
 </head>
 <body>
- 
+
 <div class="topbar">
-  <div class="wrap">
-    <a class="brand" href="https://cardioiq.health">
-      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
-        <rect width="32" height="32" rx="7" fill="#0f2947"/>
-        <path d="M6 17h4l2-5 3 9 2.5-6 1.5 2H26" fill="none" stroke="#c39a2b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      CardioIQ
-    </a>
-    <a class="small" href="https://cardioiq.health">← CardioIQ</a>
+  <div class="topbar-inner">
+    <a class="brand" href="/">Cardio<span>IQ</span></a>
+    <nav>
+      <!-- TODO(Tea): unify "Blog" nav target once /blog/ index status is confirmed. Using known-working /blog/apob-guide/ to avoid a fresh 404. -->
+      <a href="/blog/apob-guide/">Blog</a>
+      <a href="/reports/">Reports</a>
+    </nav>
   </div>
 </div>
- 
-<header class="hero">
-  <div class="wrap">
-    <p class="eyebrow">Metabolic Health &nbsp;·&nbsp; <span>Healthy Longevity Framework</span></p>
-    <h1>Your glucose is "normal."<br>So why are your arteries <em>aging</em>?</h1>
-    <p class="standfirst">Fasting glucose and HbA1c can read perfectly normal for years while insulin resistance quietly does its work. This is the insulin resistance gap — and it may be one of the most under-measured drivers of cardiovascular aging.</p>
- 
-    <figure class="thesis">
-      <div class="legend">
-        <span><b class="dot" style="background:#8fb7c9"></b> Fasting glucose — stays "normal"</span>
-        <span><b class="dot" style="background:var(--gold-soft)"></b> Fasting insulin — climbing</span>
+
+<div class="wrap">
+  <header class="post">
+    <div class="eyebrow">Longevity Levers · Metabolic Health</div>
+    <h1>Insulin Resistance and Cholesterol: When &ldquo;Normal&rdquo; LDL Still Misses Risk</h1>
+    <div class="byline">
+      <span>Reviewed by <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b><br>
+      <span class="cred">Preventive Cardiologist &amp; Lipidologist · President, Georgian Atherosclerosis Association</span></span>
+    </div>
+  </header>
+
+  <article>
+    <p class="lead">Your LDL cholesterol came back normal. But your triglycerides are creeping up, your HDL is on the low side, and maybe your fasting glucose isn't quite where it used to be. On paper, your cholesterol is &ldquo;fine.&rdquo; In reality, that normal LDL-C may be telling you less than it seems — because insulin resistance changes what a cholesterol number actually means.</p>
+
+    <p>This is one of the most common ways a reassuring result hides real cardiovascular risk. It's also one of the most fixable, if you catch it. Here's what's happening, and the markers that reveal it.</p>
+
+    <h2>Why a &ldquo;normal&rdquo; LDL-C can under-read your risk</h2>
+    <p>LDL-C measures the <em>cholesterol carried inside</em> your LDL particles. It's a good rough guide — as long as each particle carries a typical amount of cholesterol. Insulin resistance breaks that assumption.</p>
+    <p>When you're insulin resistant, your LDL particles tend to become smaller and more numerous, each carrying a little less cholesterol. So you can end up with <strong>more particles delivering the same total cholesterol</strong>. LDL-C — which counts cholesterol, not particles — still reads &ldquo;normal,&rdquo; while the number that actually tracks risk, the particle count (<strong>ApoB</strong>), quietly climbs. Clinicians call this mismatch <em>discordance</em>.</p>
+
+    <div class="compare2">
+      <div class="c2 good">
+        <div class="tag">Concordant</div>
+        <div class="rowm"><span class="lab">LDL-C</span><span class="val">Normal</span></div>
+        <div class="rowm"><span class="lab">ApoB (particles)</span><span class="val">Normal</span></div>
+        <div class="rowm"><span class="lab">Triglycerides</span><span class="val">Normal</span></div>
+        <p class="note">LDL-C and particle count agree. Here, &ldquo;normal&rdquo; means what you'd hope it means.</p>
       </div>
-      <svg viewBox="0 0 640 150" width="100%" height="150" role="img" aria-label="A chart showing fasting glucose staying flat and within normal range over years while fasting insulin rises steadily.">
-        <line x1="20" y1="120" x2="620" y2="120" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-        <line x1="20" y1="20" x2="20" y2="120" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
-        <!-- glucose flat -->
-        <path class="draw" d="M20 96 C 120 94, 240 95, 360 92 C 460 90, 540 90, 620 86" fill="none" stroke="#8fb7c9" stroke-width="2.5" stroke-linecap="round" pathLength="1"/>
-        <!-- insulin rising -->
-        <path class="draw" d="M20 108 C 140 104, 250 92, 360 74 C 470 56, 545 40, 620 30" fill="none" stroke="#e3c974" stroke-width="3" stroke-linecap="round" pathLength="1"/>
-        <text x="26" y="16" fill="#9fb4c8" font-size="12" font-family="Inter">level</text>
-        <text x="556" y="138" fill="#9fb4c8" font-size="12" font-family="Inter">years →</text>
-      </svg>
-      <figcaption>The same person, tracked over time. Glucose can hold steady inside the reference range while insulin rises to keep it there — the compensation is invisible on a standard screen.</figcaption>
-    </figure>
-  </div>
-</header>
- 
-<article>
-  <div class="wrap">
- 
-    <div class="articlemeta">
-      <span class="pill">Metabolic health</span>
-      <span class="who-by">Reviewed against CardioIQ's clinical knowledge base</span>
-      <span>· 9 min read</span>
-    </div>
- 
-    <p class="lede">You get your annual labs back. Fasting glucose is 88 mg/dL — textbook normal. HbA1c is 5.4%, well under the diabetes line. On paper, your metabolism looks fine.</p>
- 
-    <p>And yet: energy dips after meals, weight that settles around the midsection, triglycerides that keep creeping up. These can be early signals of something a routine screen is not built to catch — <strong>insulin resistance that has been present, and quietly influencing your arteries, long before glucose ever moves.</strong></p>
- 
-    <p>This article explains why that gap exists, which two numbers close it, and what a reasonable next step looks like — always in partnership with your own physician.</p>
- 
-    <hr class="section-rule">
- 
-    <h2>Glucose is a lagging indicator</h2>
- 
-    <p>Standard metabolic screening leans on two tests: <strong>fasting glucose</strong> (reference: below 100 mg/dL) and <strong>HbA1c</strong> (reference: below 5.7%). Both are genuinely good at one job — confirming diabetes once it has developed. They are far less useful for detecting the earlier stage, when the trajectory is still very changeable.</p>
- 
-    <h3>Why the numbers stay quiet</h3>
-    <p>When cells become less responsive to insulin — driven by genetics, visceral fat, low activity, poor sleep, and diet quality — the pancreas does not fail straight away. It compensates by producing <em>more</em> insulin to move the same glucose into cells. For a long stretch, sometimes a decade or more, this compensation works: insulin rises, glucose is pushed to stay in range, and both fasting glucose and HbA1c continue to read "normal."</p>
- 
-    <p>Meanwhile, chronically elevated insulin is associated with visceral fat accumulation (including in the liver), higher triglycerides and lower HDL, impaired blood-vessel function, and a more inflammatory internal environment. By the time glucose finally drifts into the prediabetes range, that quieter phase has often been underway for years.</p>
- 
-    <div class="gap-callout"><b>The gap in one line:</b> a normal glucose tells you the pancreas is still <em>winning</em> the fight. It does not tell you how hard it is fighting — or what that effort is costing your arteries.</div>
- 
-    <h2>The two numbers that close the gap</h2>
- 
-    <p>The missing measurement is <strong>fasting insulin</strong>, and the calculation built from it, <strong>HOMA-IR</strong>. Together they show how much insulin your body needs to keep glucose where it is — which is exactly the information a glucose value leaves out.</p>
- 
-    <p>This is also where CardioIQ's core idea applies: the gap between a <em>population-normal</em> range and a <em>longevity-optimal</em> one. A lab may flag a value only when it is frankly abnormal; the more useful question for prevention is where you sit relative to optimal.</p>
- 
-    <table class="reftable">
-      <caption>Fasting insulin — reference points (units: mU/L)</caption>
-      <thead>
-        <tr><th>Range</th><th class="normal">Typical lab "normal"</th><th class="optimal">Longevity-optimal frame</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="metric">Optimal</td><td class="normal">reported within 2–25</td><td class="optimal">roughly &lt; 5–6</td></tr>
-        <tr><td class="metric">Watch</td><td class="normal">still "in range"</td><td class="optimal">~ 7–10</td></tr>
-        <tr><td class="metric">Elevated</td><td class="normal">often still "in range"</td><td class="optimal">&gt; 10–12</td></tr>
-      </tbody>
-    </table>
-    <p class="tnote">These are widely-cited reference points, not diagnostic cut-offs. Units and ranges vary by laboratory and assay, and interpretation belongs to your physician.</p>
- 
-    <h3>HOMA-IR: putting glucose and insulin together</h3>
-    <p>HOMA-IR (Homeostatic Model Assessment of Insulin Resistance) combines fasting insulin and fasting glucose into a single estimate of insulin sensitivity.</p>
- 
-    <div class="card">
-      <h4>The calculation</h4>
-      <div class="formula">HOMA-IR = ( fasting insulin [mU/L] × fasting glucose [mmol/L] ) ÷ 22.5</div>
-      <p class="worked">To convert glucose from mg/dL to mmol/L, divide by 18.<br>
-      <b>Example:</b> glucose 90 mg/dL (5.0 mmol/L), insulin 15 mU/L → (15 × 5.0) ÷ 22.5 = <b>3.3</b>. That points to meaningful insulin resistance — even though the glucose reading alone looked reassuring.</p>
-    </div>
- 
-    <table class="reftable">
-      <caption>HOMA-IR — commonly-used reference points</caption>
-      <thead>
-        <tr><th>HOMA-IR</th><th class="optimal">Interpretation frame</th></tr>
-      </thead>
-      <tbody>
-        <tr><td class="metric normal">&lt; 1.0</td><td class="optimal">Optimal insulin sensitivity</td></tr>
-        <tr><td class="metric normal">1.0 – 1.9</td><td class="optimal">Normal to mild resistance</td></tr>
-        <tr><td class="metric normal">2.0 – 2.9</td><td class="optimal">Moderate resistance</td></tr>
-        <tr><td class="metric normal">≥ 3.0</td><td class="optimal">Significant resistance</td></tr>
-      </tbody>
-    </table>
-    <p class="tnote">Reference points only; thresholds differ across populations and assays. A number is a prompt for a conversation, not a verdict. If you want to go deeper on the metabolic side, our companion piece on <a href="/blog/fasting-insulin-longevity/">fasting insulin and longevity</a> looks more closely at these markers.</p>
- 
-    <h2>How insulin resistance ages arteries</h2>
- 
-    <p>The reason this matters for the heart is that insulin resistance influences several of the pathways that drive atherosclerosis — and it does so largely <em>independently</em> of glucose. A few of the better-understood links:</p>
- 
-    <h3>It reshapes your lipids toward the atherogenic pattern</h3>
-    <p>Insulin resistance tends to raise triglycerides, lower HDL, and shift LDL toward smaller, denser particles. Crucially, it is a leading reason that <strong>LDL-C and ApoB diverge</strong>. ApoB counts the actual number of atherogenic particles, and the EAS consensus positions it as the preferred marker of that particle burden — superior to LDL-C precisely when triglycerides are high or metabolic syndrome is present. UK Biobank and CPRD analyses show these two markers disagree in a meaningful minority of people — on the order of one in four or five. In that group, an LDL-C that looks fine can sit alongside an ApoB that does not.</p>
- 
-    <p>This is why insulin resistance and atherogenic particle burden are best read together, not separately. If you want the fuller picture on particle count, start with our <a href="/blog/apob-guide/">ApoB pillar</a>.</p>
- 
-    <h3>It promotes inflammation and vascular strain</h3>
-    <p>Insulin-resistant fat tissue releases inflammatory signals that raise markers such as hsCRP — the same inflammatory residual risk highlighted by the JUPITER trial. Alongside this, impaired blood-vessel dilation and rising blood pressure add to the load on the arterial wall. None of these show up on a glucose test.</p>
- 
-    <h2>What "normal glucose, high insulin" can look like</h2>
- 
-    <p>An illustration — assembled to show how the numbers fit together, <em>not</em> a real patient and not a diagnosis:</p>
- 
-    <div class="case">
-      <h3>A composite picture</h3>
-      <p class="who">52, active job, considers himself healthy</p>
-      <div class="labgrid">
-        <div><span>Fasting glucose</span><span>92 mg/dL</span></div>
-        <div><span>HbA1c</span><span>5.5%</span></div>
-        <div><span>Fasting insulin</span><span class="flag">18 mU/L</span></div>
-        <div><span>HOMA-IR</span><span class="flag">4.1</span></div>
-        <div><span>Triglycerides</span><span class="flag">185 mg/dL</span></div>
-        <div><span>HDL</span><span class="flag">38 mg/dL</span></div>
-        <div><span>ApoB</span><span class="flag">115 mg/dL</span></div>
-        <div><span>hsCRP</span><span class="flag">3.2 mg/L</span></div>
+      <div class="c2 bad">
+        <div class="tag">Discordant</div>
+        <div class="rowm"><span class="lab">LDL-C</span><span class="val">Normal</span></div>
+        <div class="rowm"><span class="lab">ApoB (particles)</span><span class="val">High</span></div>
+        <div class="rowm"><span class="lab">Triglycerides</span><span class="val">High</span></div>
+        <p class="note">Same LDL-C, more particles. This is the insulin-resistant pattern &mdash; where LDL-C alone reassures too easily.</p>
       </div>
-      <p>On the <b>standard glucose-and-HbA1c screen</b>, this profile reads as reassuring — the kind that earns a "looks fine, see you next year."</p>
-      <p>On a <b>fuller panel</b>, the same person shows meaningful insulin resistance, an atherogenic lipid pattern, and elevated inflammation — a very different conversation about cardiovascular risk. The extra tests didn't change the biology; they simply made it visible.</p>
-      <p><b>The boundary:</b> this is an interpretation of how such numbers relate, not a diagnosis. Only your physician, seeing your full history, can interpret your panel.</p>
     </div>
- 
-    <h2>Who might reasonably consider these tests</h2>
- 
-    <p>Fasting insulin and HOMA-IR are worth raising with your physician if you have an otherwise "normal" glucose alongside any of the following. None of these is a diagnosis on its own — they simply raise the value of looking closer:</p>
- 
-    <ul>
-      <li>Increasing waist circumference, or weight that concentrates around the midsection</li>
-      <li>An atherogenic lipid pattern: triglycerides above ~150 mg/dL, low HDL, a high TG/HDL ratio, or an elevated <strong>ApoB</strong> / non-HDL-C</li>
-      <li>Blood pressure that is drifting upward year over year</li>
-      <li>A family history of type 2 diabetes or premature cardiovascular disease</li>
-      <li>Related conditions such as fatty liver (raised ALT), PCOS, or sleep apnea</li>
-      <li>Simply being 40+ and wanting an honest metabolic baseline</li>
+
+    <h2>What's happening under the hood</h2>
+    <p>Insulin resistance is when your cells respond less to insulin, so your body makes more of it to compensate. That has knock-on effects on how you handle fats:</p>
+    <ul class="clean">
+      <li>Your liver ships out more triglyceride-rich particles, so <strong>triglycerides rise</strong>.</li>
+      <li>An exchange process then swaps triglycerides into your LDL and HDL particles. The reshaped LDL becomes <strong>small and dense</strong>, and <strong>HDL drops</strong>.</li>
+      <li>The net effect: more atherogenic particles (higher <strong>ApoB</strong>), higher triglycerides, lower HDL — even while LDL-C looks unremarkable.</li>
     </ul>
- 
-  <!-- Free check — contextual aside (Variant 2) -->
-  <div style="border-left:3px solid #188a7c;background:#f6f8fb;border-radius:0 10px 10px 0;padding:14px 18px;margin:26px 0;">
-    <p style="margin:0;color:#132232;"><strong>See it for your own numbers.</strong> The free <a href="/check/?utm_source=blog&amp;utm_medium=inline&amp;utm_content=insulin-resistance-gap" style="color:#188a7c;">Optimal vs Normal check</a> puts your glucose and fasting insulin next to both your lab's standard range and the longevity-optimal target — no sign-up.</p>
-  </div>
- 
-    <h2>What you can actually do about it</h2>
- 
-    <p>The encouraging part: early insulin resistance is one of the more <strong>modifiable</strong> risk factors in cardiovascular prevention. Lifestyle change is genuinely first-line here, and for many people it moves these numbers meaningfully.</p>
- 
-    <h3>Lifestyle — the foundation</h3>
-    <ul>
-      <li><strong>Nutrition:</strong> fewer refined carbohydrates and sugar-sweetened drinks; more fiber, whole foods, adequate protein, and unsaturated fats. Giving the body longer gaps between meals may help some people, though the right pattern is individual.</li>
-      <li><strong>Movement:</strong> a mix of resistance training and regular aerobic activity improves how the body handles glucose. Even a short walk after meals helps, and a single session can improve insulin sensitivity for a day or two.</li>
-      <li><strong>Weight, if relevant:</strong> for those carrying excess visceral fat, a modest reduction (around 5–10% of body weight) can improve insulin sensitivity substantially.</li>
-      <li><strong>Sleep and stress:</strong> short or poor-quality sleep and chronic stress both worsen insulin resistance. Protecting 7–9 hours and treating sleep apnea matter more than most people expect.</li>
+    <p>This is why the classic metabolic signature — high triglycerides with low HDL — is a warning sign even alongside a normal LDL-C. Often it's the <em>earliest</em> lipid signal that risk is building, showing up years before anything gets flagged.</p>
+
+    <div class="box gold">
+      <span class="k">A simple tell</span>
+      <p>A high triglyceride-to-HDL ratio is a rough, imperfect clue that your LDL-C may be under-stating your particle burden. It isn't a diagnosis and the exact numbers depend on your units and lab — but it's a good reason to look at <strong>ApoB</strong> rather than stop at LDL-C.</p>
+    </div>
+
+    <h2>The markers that actually reveal it</h2>
+    <p>If a normal LDL-C can mislead in this setting, what should you look at instead? A short, high-value list:</p>
+    <ul class="clean">
+      <li><strong>ApoB</strong> — counts atherogenic particles directly. Guidelines highlight it precisely when triglycerides are high or metabolic syndrome is present — the insulin-resistant case. It's the number that settles whether your particle burden is really &ldquo;normal.&rdquo; <a href="/blog/apob-guide/">More in the ApoB guide →</a></li>
+      <li><strong>Non-HDL-C</strong> — a free number hiding in your standard panel (total cholesterol minus HDL). When triglycerides are high, it approximates particle burden better than LDL-C alone, and needs no extra test.</li>
+      <li><strong>Triglycerides and HDL</strong> — the everyday signals; their pattern hints at insulin resistance before anything else does.</li>
+      <li><strong>Fasting insulin, glucose, and HOMA-IR</strong> — these look upstream at the insulin resistance itself, often while glucose still reads normal.</li>
     </ul>
- 
-    <h3>When lifestyle isn't enough</h3>
-    <p>If focused lifestyle change doesn't move the numbers, several <strong>classes of medication</strong> can improve insulin sensitivity or support weight loss and metabolic health. Which class — if any — is appropriate depends on your full risk picture, and that is a decision for you and your physician together. CardioIQ does not recommend specific drugs; that judgment belongs in the clinic.</p>
- 
-    <p>The same applies to supplements often discussed in this space. Evidence is mixed and dosing is individual, so treat them as something to raise with your physician rather than to self-prescribe.</p>
- 
-    <h2>Why this fits a longevity view of the heart</h2>
- 
-    <p>Cardiovascular disease doesn't begin on the day of a diagnosis. Under a cumulative-exposure model — lower risk factors, held for longer, starting earlier — the quiet insulin-resistant years are precisely the window where intervention changes the long-term trajectory. Waiting for glucose to become abnormal is, in effect, waiting for a later and harder starting point.</p>
- 
-    <p>Two accessible numbers — fasting insulin and HOMA-IR — turn that silent phase into something you can see, discuss, and act on while the trajectory is still very much yours to bend.</p>
- 
-    <div class="ask">
-      <h3>Questions to bring to your doctor</h3>
-      <ul>
-        <li class="say">"Can we add a fasting insulin to my next panel and calculate my HOMA-IR?"</li>
-        <li class="say">"My glucose is normal — but does my triglyceride, HDL, or ApoB pattern suggest insulin resistance?"</li>
-        <li class="say">"Given my family history, what's the right cardiovascular baseline for me now, not later?"</li>
-      </ul>
-    </div>
- 
-    <div class="cta">
-      <h3>Already have these numbers?</h3>
-      <p>CardioIQ interprets your lipid, ApoB, glucose–insulin, and inflammation markers against longevity-optimal targets — not just population ranges — in a structured, physician-grade report you can take to your own doctor. See exactly what that looks like.</p>
-      <a class="btn" href="https://cardioiq.health/reports/">See how CardioIQ reads your panel</a>
-    </div>
- 
+    <p>No single value is the whole story. Read together, they tell you whether a &ldquo;normal&rdquo; LDL-C can be trusted for <em>you</em> — which is the whole point of reading numbers against optimal, not just normal. <a href="/blog/normal-vs-optimal-cholesterol/">Why normal isn't the same as optimal →</a></p>
+
+    <h2>What makes this matter more — or less</h2>
+    <p>The gap between a normal LDL-C and your real risk tends to widen with higher triglycerides and lower HDL; a waist or weight trend suggesting metabolic strain; a family history of early heart disease or diabetes; prediabetes, diabetes, or high blood pressure; and simply more years of exposure. A high <strong>Lp(a)</strong> stacked on top adds risk this pattern won't reveal — which is why it's worth measuring once regardless. The more of these apply to you, the more worthwhile it is to look past LDL-C to ApoB.</p>
+
+    <h2>What to actually do</h2>
+    <p>None of this is a reason to panic, and none of it is a prescription. It's a reason to read your panel as a whole:</p>
+    <ol class="steps">
+      <li><strong>Look at the full metabolic picture</strong>, not just LDL-C — note your triglycerides, HDL, and, if you have them, fasting insulin or glucose.</li>
+      <li><strong>Ask for ApoB, or at least read your non-HDL-C.</strong> If your triglycerides are up, that's where the real answer is.</li>
+      <li><strong>Start with lifestyle.</strong> Insulin resistance is one of the most lifestyle-responsive levers there is — nutrition quality, regular activity, sleep, and weight all move it, and they move the whole lipid pattern with it.</li>
+      <li><strong>Bring it to your physician.</strong> If markers stay off-target, the next steps — including whether any therapy fits — are a decision to make together, based on your full risk, not something to self-prescribe.</li>
+    </ol>
+    <p>The encouraging part: because this lever responds so well to everyday habits, catching it early is genuinely high-leverage. This is prevention working exactly as it should — years ahead of a problem.</p>
+
     <div class="disclaimer">
-      <strong>Medical disclaimer.</strong> This article is for education only. It is not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. CardioIQ interprets biomarker data; it does not diagnose or treat disease and does not replace your treating physician. Reference ranges and calculations described here vary by laboratory, assay, and individual circumstances. Do not start, stop, or change any medication, supplement, or lifestyle program based on this article — discuss your results and any decisions with your physician.
+      <b>Medical disclaimer.</b> This article is educational and reflects general cardiovascular science — it is not a diagnosis, not medical advice, and not a substitute for care from your own physician, who interprets your results in the context of your full history and makes any treatment decisions. It does not recommend any specific test or therapy for any individual. Always discuss your results and any changes with a qualified clinician.
     </div>
- 
-  </div>
-</article>
- 
+
+    <div class="cta">
+      <h3>See whether your &ldquo;normal&rdquo; is really optimal</h3>
+      <p>CardioIQ reads your full lipid and metabolic picture — ApoB, Lp(a), and the markers that reveal insulin resistance — against longevity-optimal targets, in a physician-grade report built by a lipidologist.</p>
+      <a class="btn" href="/reports/">See how a CardioIQ report works</a>
+      <span class="sub">Part of our <a href="/blog/cardiovascular-longevity/">cardiovascular longevity</a> series.</span>
+    </div>
+
+    <div class="author">
+      <div class="av">TG</div>
+      <div class="meta">
+        <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b>
+        <span class="cred">Preventive Cardiologist &amp; Lipidologist</span><br>
+        President, Georgian Atherosclerosis Association · National Coordinator, EAS Lipid Clinic Network (Georgia) · Academic Director, CMEA. CardioIQ is built by a lipidologist, not a tech company.
+      </div>
+    </div>
+
+    <div class="refs">
+      <h4>References</h4>
+      <ol>
+        <li>Mach F, Baigent C, Catapano AL, et al. 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2020;41(1):111–188. doi:10.1093/eurheartj/ehz455</li>
+        <li>Mach F, Koskinas KC, Roeters van Lennep JE, et al. 2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2025;46(42):4359–4378. doi:10.1093/eurheartj/ehaf190</li>
+        <li>American Diabetes Association. Standards of Care in Diabetes — cardiovascular disease and risk management. <!-- TODO(Tea): add current year + citation/DOI for ADA Standards of Care before publish --></li>
+      </ol>
+    </div>
+  </article>
+</div>
+
 <footer>
   <div class="wrap">
-    <span>© CardioIQ — physician-built cardiovascular longevity intelligence.</span>
-    <span><a href="https://cardioiq.health/blog/apob-guide/">ApoB guide</a> &nbsp;·&nbsp; <a href="https://cardioiq.health">cardioiq.health</a></span>
+    <span>© 2026 CardioIQ · Physician-built cardiovascular intelligence</span>
+    <!-- TODO(Tea): "All articles" points to /blog/ — verify it resolves or route to /blog/apob-guide/ -->
+    <span><a href="/blog/apob-guide/">All articles</a> · <a href="/blog/cardiovascular-longevity/">Longevity hub</a> · <a href="/reports/">Reports</a></span>
   </div>
 </footer>
- 
+
+<!-- ===== Schema.org: MedicalWebPage + author for E-E-A-T ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": "Insulin Resistance and Cholesterol: When \"Normal\" LDL Still Misses Risk",
+  "description": "How insulin resistance raises atherogenic particle count (ApoB) while LDL-C reads normal, and the markers that reveal it.",
+  "url": "https://cardioiq.health/blog/insulin-resistance-cholesterol/",
+  "inLanguage": "en",
+  "datePublished": "2026-07-12",
+  "dateModified": "2026-07-12",
+  "author": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC",
+    "jobTitle": "Preventive Cardiologist & Lipidologist",
+    "url": "https://teagamezardashvili.com"
+  },
+  "reviewedBy": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CardioIQ",
+    "url": "https://cardioiq.health"
+  },
+  "about": ["insulin resistance","ApoB","LDL cholesterol","triglycerides","metabolic syndrome","non-HDL cholesterol"],
+  "isPartOf": {
+    "@type": "MedicalWebPage",
+    "name": "Cardiovascular Longevity",
+    "url": "https://cardioiq.health/blog/cardiovascular-longevity/"
+  }
+}
+</script>
+
 </body>
 </html>
