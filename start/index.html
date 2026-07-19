@@ -8,7 +8,7 @@
 <style>
   :root{
     --navy:#0B1E3D; --navy-soft:#16305a; --gold:#C9A227; --gold-light:#E3C24A;
-    --teal:#2A9D8F; --teal-deep:#1f7d72; --cream:#F7F4EC; --cream-mid:#EFE9DA;
+    --teal:#2A9D8F; --teal-deep:#1f7d72; --teal-bg:#E7F3F1; --cream:#F7F4EC; --cream-mid:#EFE9DA;
     --line:#E4DCC9; --text:#1B2A44; --text-muted:#5C6B82;
     --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --font-display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
@@ -26,7 +26,6 @@
   .lead{color:var(--text-muted);font-size:1.02rem;max-width:560px}
   .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;margin:22px 0}
   .label{display:block;font-size:0.9rem;font-weight:700;color:var(--text);margin:18px 0 7px}
-  .label:first-child{margin-top:0}
   .req{color:var(--teal-deep)}
   input[type=email],textarea,input[type=file]{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:var(--font-body);background:var(--cream)}
   input[type=email]:focus,textarea:focus{outline:2px solid var(--teal);outline-offset:1px;background:#fff}
@@ -37,16 +36,19 @@
   .tieropt{position:relative}
   .tieropt input{position:absolute;opacity:0;inset:0;cursor:pointer}
   .tieropt label{display:block;border:1.5px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;text-align:center}
-  .tieropt input:checked + label{border-color:var(--teal);background:var(--teal-bg,#E7F3F1);box-shadow:0 0 0 1px var(--teal)}
+  .tieropt input:checked + label{border-color:var(--teal);background:var(--teal-bg);box-shadow:0 0 0 1px var(--teal)}
   .tieropt .tn{font-weight:700;color:var(--navy)}
   .tieropt .tp{font-variant-numeric:tabular-nums;color:var(--text);font-size:1.05rem}
   .tieropt .td{font-size:0.75rem;color:var(--text-muted);margin-top:3px}
   .go{margin-top:22px;width:100%;background:var(--gold);color:var(--navy);border:none;padding:15px;border-radius:12px;font-size:1.05rem;font-weight:800;font-family:var(--font-body);cursor:pointer;box-shadow:0 4px 14px rgba(11,30,61,0.12)}
   .go:hover{background:var(--gold-light)}
+  .go:disabled{opacity:0.7;cursor:default}
+  .err{color:#b3402e;font-size:0.88rem;margin-top:10px;display:none}
   .privacy{font-size:0.82rem;color:var(--text-muted);margin-top:14px;text-align:center}
   .steps-bar{display:flex;gap:8px;align-items:center;font-size:0.82rem;color:var(--text-muted);margin-bottom:20px}
   .steps-bar b{color:var(--navy)}
   footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 46px;font-size:0.82rem;color:var(--text-muted);text-align:center}
+  #addfile{margin-top:9px;background:none;border:none;color:var(--teal-deep);font-weight:600;font-family:var(--font-body);font-size:0.9rem;cursor:pointer;padding:0}
 </style>
 </head>
 <body>
@@ -65,7 +67,17 @@
   <div class="card">
     <div class="steps-bar"><b>1. Your panel</b> &nbsp;→&nbsp; 2. Secure payment &nbsp;→&nbsp; 3. Report in your inbox</div>
 
-    <form id="intake" name="report-intake" method="POST" action="/paying/" data-netlify="true" enctype="multipart/form-data" netlify-honeypot="bot-field">
+    <!-- Hidden static form so Netlify detects all fields at build time -->
+    <form name="report-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="report-intake" />
+      <input name="tier" /><input type="email" name="email" />
+      <input type="file" name="lab_report" /><input type="file" name="lab_report_2" />
+      <input type="file" name="lab_report_3" /><input type="file" name="lab_report_4" />
+      <input type="file" name="lab_report_5" /><textarea name="notes"></textarea>
+      <input name="bot-field" />
+    </form>
+
+    <form id="intake" name="report-intake" method="POST" data-netlify="true" enctype="multipart/form-data" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="report-intake" />
       <input type="hidden" name="tier" id="tier-field" value="standard" />
       <p style="display:none"><label>Don't fill this out: <input name="bot-field" /></label></p>
@@ -83,19 +95,20 @@
 
       <label class="label">Upload your lab report(s) <span class="req">*</span></label>
       <div id="file-slots">
-        <input type="file" name="lab_report" class="labfile" accept=".pdf,.jpg,.jpeg,.png,.heic,.webp" required />
+        <input type="file" name="lab_report" class="labfile" accept=".pdf,.jpg,.jpeg,.png,.heic,.webp" />
         <input type="file" name="lab_report_2" class="labfile" accept=".pdf,.jpg,.jpeg,.png,.heic,.webp" style="display:none;margin-top:8px" />
         <input type="file" name="lab_report_3" class="labfile" accept=".pdf,.jpg,.jpeg,.png,.heic,.webp" style="display:none;margin-top:8px" />
         <input type="file" name="lab_report_4" class="labfile" accept=".pdf,.jpg,.jpeg,.png,.heic,.webp" style="display:none;margin-top:8px" />
         <input type="file" name="lab_report_5" class="labfile" accept=".pdf,.jpg,.jpeg,.png,.heic,.webp" style="display:none;margin-top:8px" />
       </div>
-      <button type="button" id="add-file" style="margin-top:9px;background:none;border:none;color:var(--teal-deep);font-weight:600;font-family:var(--font-body);font-size:0.9rem;cursor:pointer;padding:0">+ Add another lab file</button>
-      <div class="hint">A PDF or clear photo of each result — whatever your lab or doctor gave you. Have several panels or pages? Add each as a separate file. This is what the lipidologist reads.</div>
+      <button type="button" id="addfile">+ Add another lab file</button>
+      <div class="hint">A PDF or clear photo of each result. Several panels or pages? Add each as a separate file. If you can't upload, type your values in the box below instead.</div>
 
-      <label class="label" for="notes">Anything you'd like the lipidologist to know <span style="color:var(--text-muted);font-weight:400">(optional)</span></label>
-      <textarea name="notes" id="notes" placeholder="e.g. family history, current medications, what prompted you to test, or your key numbers if the upload is unclear."></textarea>
+      <label class="label" for="notes">Your values / anything the lipidologist should know <span style="color:var(--text-muted);font-weight:400">(optional if you uploaded)</span></label>
+      <textarea name="notes" id="notes" placeholder="e.g. LDL 120, ApoB 95, Lp(a) 140 nmol/L… plus family history, medications, or what prompted testing."></textarea>
 
       <button type="submit" class="go" id="submit-btn">Continue to secure payment →</button>
+      <div class="err" id="err"></div>
       <p class="privacy">🔒 Your panel is sent securely to Dr. Tea and used only to prepare your report. Payment is handled by PayPal on the next step.</p>
     </form>
   </div>
@@ -107,36 +120,57 @@
 
 <script>
 (function(){
+  var PAYPAL = {
+    essential: "https://www.paypal.com/ncp/payment/PD7GZHEXWTQQE",
+    standard:  "https://www.paypal.com/ncp/payment/VAPXHSQVM82ZY",
+    premium:   "https://www.paypal.com/ncp/payment/PF7AM3XCGMRV6"
+  };
   var params = new URLSearchParams(location.search);
   var tier = (params.get("tier") || "standard").toLowerCase();
-  if(!["essential","standard","premium"].includes(tier)) tier = "standard";
+  if(!PAYPAL[tier]) tier = "standard";
 
   var form = document.getElementById("intake");
   var tierField = document.getElementById("tier-field");
+  var errEl = document.getElementById("err");
+  var btn = document.getElementById("submit-btn");
 
   function setTier(t){
     tierField.value = t;
-    // Netlify redirects to the form's action URL on success -> carry the tier to /paying/
-    form.setAttribute("action", "/paying/?tier=" + t);
     var el = document.getElementById(t==="essential"?"t-ess":t==="premium"?"t-prem":"t-std");
     if(el) el.checked = true;
   }
   setTier(tier);
-
   document.querySelectorAll('input[name="tier_choice"]').forEach(function(r){
     r.addEventListener("change", function(){ setTier(this.value); });
   });
 
-  // Reveal additional file slots one at a time (pre-declared so Netlify detects them)
-  var addBtn = document.getElementById("add-file");
+  // reveal extra file slots
   var slots = Array.prototype.slice.call(document.querySelectorAll("#file-slots .labfile"));
-  if(addBtn){
-    addBtn.addEventListener("click", function(){
-      var next = slots.find(function(s){ return s.style.display === "none"; });
-      if(next){ next.style.display = "block"; }
-      if(!slots.some(function(s){ return s.style.display === "none"; })){ addBtn.style.display = "none"; }
-    });
-  }
+  var addBtn = document.getElementById("addfile");
+  addBtn.addEventListener("click", function(){
+    var next = slots.find(function(s){ return s.style.display === "none"; });
+    if(next) next.style.display = "block";
+    if(!slots.some(function(s){ return s.style.display === "none"; })) addBtn.style.display = "none";
+  });
+
+  function hasFile(){ return slots.some(function(s){ return s.files && s.files.length > 0; }); }
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    errEl.style.display = "none";
+    var email = document.getElementById("email").value.trim();
+    var notes = document.getElementById("notes").value.trim();
+    if(!email){ errEl.textContent = "Please enter your email."; errEl.style.display="block"; return; }
+    if(!hasFile() && !notes){ errEl.textContent = "Please upload your lab report, or type your values in the box."; errEl.style.display="block"; return; }
+
+    var chosen = tierField.value;
+    btn.disabled = true; btn.textContent = "Saving your panel…";
+
+    // Save to Netlify (multipart, includes files), then go to PayPal regardless of save outcome.
+    fetch("/", { method: "POST", body: new FormData(form) })
+      .then(function(){ window.location.href = PAYPAL[chosen]; })
+      .catch(function(){ window.location.href = PAYPAL[chosen]; });
+  });
 })();
 </script>
 </body>
