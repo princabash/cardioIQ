@@ -1,1 +1,51 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Redirecting to secure payment — CardioIQ</title>
+<meta name="robots" content="noindex" />
+<style>
+  :root{--navy:#0B1E3D;--gold:#C9A227;--cream:#F7F4EC;--text-muted:#5C6B82;
+    --font-body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --font-display:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+  body{font-family:var(--font-body);background:var(--cream);color:var(--navy);display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;text-align:center}
+  .box{max-width:440px;padding:30px}
+  .logo{font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:18px}
+  .logo span{color:var(--gold)}
+  h1{font-family:var(--font-display);font-size:1.4rem;margin-bottom:10px}
+  p{color:var(--text-muted);font-size:0.98rem;line-height:1.55}
+  a.btn{display:inline-block;margin-top:18px;background:var(--gold);color:var(--navy);text-decoration:none;font-weight:800;padding:13px 26px;border-radius:11px}
+  .spin{width:26px;height:26px;border:3px solid rgba(11,30,61,0.15);border-top-color:var(--gold);border-radius:50%;margin:0 auto 18px;animation:s 0.8s linear infinite}
+  @keyframes s{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="logo">Cardio<span>IQ</span></div>
+    <div class="spin"></div>
+    <h1>Panel received — taking you to secure payment</h1>
+    <p>Thanks. Your lab report is with us. You're being redirected to PayPal to complete your purchase. Your report arrives by email within 2 business days.</p>
+    <p id="fallback" style="display:none;">If you're not redirected automatically:</p>
+    <a class="btn" id="pay-link" href="/reports/#tiers" style="display:none;">Continue to payment →</a>
+  </div>
+<script>
+(function(){
+  var LINKS = {
+    essential: "https://www.paypal.com/ncp/payment/PD7GZHEXWTQQE",
+    standard:  "https://www.paypal.com/ncp/payment/VAPXHSQVM82ZY",
+    premium:   "https://www.paypal.com/ncp/payment/PF7AM3XCGMRV6"
+  };
+  var params = new URLSearchParams(location.search);
+  var tier = (params.get("tier") || "standard").toLowerCase();
+  var url = LINKS[tier] || LINKS.standard;
+  var link = document.getElementById("pay-link");
+  link.href = url;
+  // reveal manual link as a fallback, then auto-redirect
+  document.getElementById("fallback").style.display = "block";
+  link.style.display = "inline-block";
+  setTimeout(function(){ window.location.href = url; }, 1200);
+})();
+</script>
+</body>
+</html>
