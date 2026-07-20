@@ -3,269 +3,302 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-<title>The CardioIQ Blog — Lipids, ApoB, Lp(a) &amp; Longevity, Explained by a Lipidologist</title>
-<meta name="description" content="Physician-written guides to reading your cholesterol results — ApoB, Lp(a), insulin resistance, and how to tell 'normal' from optimal. Built by a preventive cardiologist and lipidologist.">
+<title>Blog — Cardiovascular Longevity, ApoB &amp; Lp(a) | CardioIQ</title>
+<meta name="description" content="Evidence-based guides on ApoB, Lp(a), and reading your lab results against longevity-optimal targets — not just population ranges. Physician-authored by Dr. Tea Gamezardashvili, MD PhD MHA FACC.">
 <link rel="canonical" href="https://cardioiq.health/blog/">
- 
 <meta property="og:type" content="website">
-<meta property="og:title" content="The CardioIQ Blog — Cardiovascular Intelligence, Explained">
-<meta property="og:description" content="Physician-written guides to reading your cholesterol results: ApoB, Lp(a), insulin resistance, and how to tell 'normal' from optimal.">
+<meta property="og:title" content="The CardioIQ Blog — ApoB, Lp(a) &amp; Cardiovascular Longevity">
+<meta property="og:description" content="Physician-authored guides that read your labs against optimal, not just normal.">
 <meta property="og:url" content="https://cardioiq.health/blog/">
 <meta property="og:site_name" content="CardioIQ">
-<!-- TODO(Tea): set og:image to a real 1200x630 asset -->
-<meta property="og:image" content="https://cardioiq.health/assets/og-blog.jpg">
-<meta name="twitter:card" content="summary_large_image">
- 
+
+<!-- Non-blocking web fonts (avoid the render-blocking @import pattern) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
- 
-<style>
-  :root{
-    --navy:#0b1a2b; --navy-2:#0f2438; --navy-3:#16324b;
-    --gold:#d4a94a; --gold-soft:#e7c877;
-    --teal:#3fb6a8; --teal-soft:#7ad4c9;
-    --ink:#e9eef4; --ink-2:#b7c4d1; --ink-3:#8496a6;
-    --line:rgba(255,255,255,.09);
-    --card:rgba(255,255,255,.03);
-    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
-    --serif:'Newsreader',Georgia,serif;
-    --maxw:860px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--navy); color:var(--ink); font-family:var(--sans); -webkit-font-smoothing:antialiased}
-  a{color:var(--teal-soft); text-decoration:none; transition:.2s}
- 
-  .topbar{border-bottom:1px solid var(--line); background:rgba(11,26,43,.85); backdrop-filter:blur(8px); position:sticky; top:0; z-index:10}
-  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:15px 22px; display:flex; align-items:center; justify-content:space-between}
-  .brand{font-weight:700; letter-spacing:.02em; color:#fff; font-size:19px}
-  .brand span{color:var(--gold)}
-  .nav a{color:var(--ink-2); font-size:14.5px; margin-left:22px}
-  .nav a:hover{color:#fff}
-  .nav a.btn{background:var(--teal); color:var(--navy); font-weight:600; padding:8px 16px; border-radius:8px}
-  .nav a.btn:hover{background:var(--teal-soft); color:var(--navy)}
- 
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
- 
-  header.hero{text-align:center; padding:70px 0 46px}
-  .hero .eyebrow{font-size:13px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--gold)}
-  .hero h1{font-family:var(--serif); font-weight:500; font-size:clamp(32px,5.6vw,50px); line-height:1.12; color:#fff; margin:16px 0 18px}
-  .hero p{max-width:600px; margin:0 auto; color:var(--ink-2); font-size:18px; line-height:1.6}
- 
-  .cluster{margin:0 0 52px}
-  .cluster-head{display:flex; align-items:baseline; gap:12px; border-bottom:1px solid var(--line); padding-bottom:12px; margin-bottom:22px}
-  .cluster-head h2{font-family:var(--serif); font-weight:500; font-size:25px; color:#fff}
-  .cluster-head .tag{font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--gold)}
-  .cluster-head .tag.teal{color:var(--teal-soft)}
- 
-  .cards{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-  .card{display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 22px; transition:.18s}
-  .card:hover{border-color:rgba(122,212,201,.4); background:rgba(255,255,255,.05); transform:translateY(-2px)}
-  .card .ct{font-family:var(--serif); font-size:19px; font-weight:500; color:#fff; line-height:1.3; margin-bottom:8px}
-  .card:hover .ct{color:var(--teal-soft)}
-  .card .cd{font-size:14.5px; color:var(--ink-2); line-height:1.55}
-  .card .pill{display:inline-block; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-soft); background:rgba(212,169,74,.1); border:1px solid rgba(212,169,74,.25); padding:3px 9px; border-radius:20px; margin-bottom:12px}
-  .card .arrow{color:var(--gold); font-size:14px; margin-top:12px; display:inline-block}
- 
-  .startcard{grid-column:1 / -1; display:grid; grid-template-columns:1fr 1fr; gap:0}
-  @media(max-width:640px){.cards{grid-template-columns:1fr}.startcard{grid-template-columns:1fr}}
- 
-  .cta-band{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid var(--line); border-radius:16px; padding:34px 30px; text-align:center; margin:20px 0 60px}
-  .cta-band h3{font-family:var(--serif); font-weight:500; color:#fff; font-size:24px; margin-bottom:10px}
-  .cta-band p{color:var(--ink-2); font-size:16px; max-width:500px; margin:0 auto 22px; line-height:1.6}
-  .cta-band a.btn{display:inline-block; background:var(--gold); color:var(--navy); font-weight:700; font-size:15px; padding:13px 30px; border-radius:10px}
-  .cta-band a.btn:hover{background:var(--gold-soft)}
- 
-  footer{border-top:1px solid var(--line); padding:28px 0 60px}
-  footer .wrap{font-size:13px; color:var(--ink-3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
-  footer a{color:var(--ink-3)} footer a:hover{color:var(--teal-soft)}
-</style>
-</head>
-<body>
- 
-<div class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="/">Cardio<span>IQ</span></a>
-    <nav class="nav">
-      <a href="/about/">About</a>
-      <a href="/blog/">Blog</a>
-      <a href="/reports/">Reports</a>
-      <a class="btn" href="/reports/">Get my report</a>
-    </nav>
-  </div>
-</div>
- 
-<div class="wrap">
-  <header class="hero">
-    <div class="eyebrow">The CardioIQ Blog</div>
-    <h1>Your cardiovascular results, read against optimal</h1>
-    <p>Physician-written guides to the numbers that actually predict heart risk — ApoB, Lp(a), lipids, and metabolic health. Written and reviewed by a preventive cardiologist and lipidologist.</p>
-  </header>
- 
-  <!-- ===== START HERE / COMMERCIAL CLUSTER (entry point for "results in hand") ===== -->
-  <section class="cluster">
-    <div class="cluster-head"><span class="tag teal">Start here</span><h2>Understanding your results</h2></div>
-    <div class="cards">
-      <a class="card" href="/blog/read-lipid-panel/">
-        <span class="pill">Start here</span>
-        <div class="ct">How to Read Your Lipid Panel — and What "Normal" Misses</div>
-        <div class="cd">A plain-language walk through every line of a standard cholesterol panel, plus the two numbers it usually leaves out.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/normal-cholesterol-still-at-risk/">
-        <span class="pill">Start here</span>
-        <div class="ct">Normal Cholesterol, Still at Risk? What a Standard Panel Misses</div>
-        <div class="cd">Your results came back "normal" but something nags at you? What a standard panel does — and doesn't — measure.</div>
-        <span class="arrow">Read →</span>
-      </a>
-     <a href="/blog/normal-vs-optimal-cholesterol/" style="display:block;text-decoration:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:22px 24px;margin:12px 0;font-family:'Inter',sans-serif;">
-  <div style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#d4a94a;margin-bottom:8px;">Longevity &amp; Prevention</div>
-  <div style="font-size:19px;font-weight:600;color:#fff;line-height:1.3;margin-bottom:8px;">Your Cholesterol Is &ldquo;Normal.&rdquo; Is It Optimal?</div>
-  <div style="font-size:14.5px;color:#b7c4d1;line-height:1.55;">&ldquo;Normal&rdquo; tells you how you compare to the population &mdash; not whether your arteries are protected for the decades ahead. The difference between normal and optimal, and why it matters.</div>
-</a>
-    </div>
-  </section>
- 
-  <!-- ===== ApoB CLUSTER ===== -->
-  <section class="cluster">
-    <div class="cluster-head"><span class="tag">ApoB</span><h2>Apolipoprotein B</h2></div>
-    <div class="cards">
-      <a class="card" href="/blog/apob-guide/">
-        <div class="ct">ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk</div>
-        <div class="cd">What ApoB measures, how it differs from LDL cholesterol, how to interpret your results, and what international guidelines recommend.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/apob-normal-range/">
-        <div class="ct">What Is a Normal ApoB Level? Ranges, Targets &amp; When to Test</div>
-        <div class="cd">What counts as a normal ApoB level, the optimal targets beyond "normal," and when it's worth getting tested.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <!-- apob-testing card HIDDEN: /blog/apob-testing/index.html was deleted in the repo, so this link would 404.
-           To restore: re-publish blog/apob-testing/index.html, then uncomment the block below. Otherwise delete this block. -->
-      <!--
-      <a class="card" href="/blog/apob-testing/">
-        <div class="ct">ApoB Testing: How to Get Tested and What to Expect</div>
-        <div class="cd">How to get an ApoB test, what the process involves, and how to make sense of the result.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      -->
-      <a class="card" href="/blog/apob-lpa-targets/">
-        <div class="ct">High Lp(a) and ApoB Targets: Why Standard Thresholds May Not Be Enough</div>
-        <div class="cd">Why the standard "normal" thresholds for ApoB and Lp(a) may not be low enough for your level of risk.</div>
-        <span class="arrow">Read →</span>
-      </a>
-    </div>
-  </section>
- 
-  <!-- ===== Lp(a) CLUSTER ===== -->
-  <section class="cluster">
-    <div class="cluster-head"><span class="tag">Lp(a)</span><h2>Lipoprotein(a)</h2></div>
-    <div class="cards">
-      <!-- TODO(Tea): verify title/description for lpa-guide against the live page -->
-      <a class="card" href="/blog/lpa-guide/">
-        <div class="ct">Lp(a): The Complete Guide to Lipoprotein(a) and Heart Risk</div>
-        <div class="cd">What Lp(a) is, why it's inherited, why it's rarely tested, and why it matters independently of the rest of your panel.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/lpa-vs-ldl/">
-        <div class="ct">Lp(a) vs LDL: Why a Normal Cholesterol Test Can Miss a Serious Risk Factor</div>
-        <div class="cd">How Lp(a) differs from LDL cholesterol, and why a normal standard test can miss it entirely.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <!-- TODO(Tea): verify title/description for lpa-high-level against the live page -->
-      <a class="card" href="/blog/lpa-high-level/">
-        <div class="ct">High Lp(a): What a Raised Level Means and What to Do</div>
-        <div class="cd">What a high Lp(a) result actually means for your risk, and the steps that genuinely help.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/lpa-family-screening/">
-        <div class="ct">Lp(a) and Family History: Who Should Be Tested?</div>
-        <div class="cd">Because Lp(a) is inherited, a high level is a signal to test close relatives — who should be tested, and how cascade screening works.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/pelacarsen-olpasiran/">
-        <div class="ct">Pelacarsen and Olpasiran: The New Generation of Lp(a)-Lowering Therapies</div>
-        <div class="cd">The emerging Lp(a)-lowering therapies, how they work, and where they stand in development today.</div>
-        <span class="arrow">Read →</span>
-      </a>
-    </div>
-  </section>
- 
-  <!-- ===== METABOLIC CLUSTER ===== -->
-  <section class="cluster">
-    <div class="cluster-head"><span class="tag">Metabolic health</span><h2>Insulin &amp; metabolic risk</h2></div>
-    <div class="cards">
-      <a class="card" href="/blog/insulin-resistance-gap/">
-        <div class="ct">The Insulin Resistance Gap: When Normal Glucose Hides Cardiovascular Risk</div>
-        <div class="cd">Why glucose can read "normal" for years while insulin resistance quietly ages your arteries — and the two numbers that reveal it.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/fasting-insulin-longevity/">
-        <div class="ct">Fasting Insulin and Longevity: Why "Normal" Isn't Always Optimal</div>
-        <div class="cd">Why a "normal" fasting insulin can still signal early metabolic risk — and what optimal looks like.</div>
-        <span class="arrow">Read →</span>
-      </a>
-    </div>
-  </section>
- 
-  <!-- ===== RISK & TREATMENT CLUSTER ===== -->
-  <section class="cluster">
-    <div class="cluster-head"><span class="tag">Risk &amp; treatment</span><h2>Understanding &amp; managing risk</h2></div>
-    <div class="cards">
-      <a class="card" href="/blog/score2-guide/">
-        <div class="ct">SCORE2: Understanding Your Cardiovascular Risk Score</div>
-        <div class="cd">What SCORE2 measures, what your risk category means, and why it sets your cholesterol targets — plus what it leaves out.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/familial-hypercholesterolemia/">
-        <div class="ct">Familial Hypercholesterolemia: Causes, Diagnosis &amp; Family Screening</div>
-        <div class="cd">A common inherited cause of very high cholesterol from birth — how it's recognised, why cascade screening matters, and how it's managed.</div>
-        <span class="arrow">Read →</span>
-      </a>
-      <a class="card" href="/blog/statins-guide/">
-        <div class="ct">Statins: How They Work, What They Do &amp; Side Effects</div>
-        <div class="cd">A calm, evidence-first look at the most-studied cardiovascular medicine — with every treatment decision left to your physician.</div>
-        <span class="arrow">Read →</span>
-      </a>
-    </div>
-  </section>
- 
-  <div class="cta-band">
-    <h3>Have your results in hand?</h3>
-    <p>CardioIQ reads your existing labs — lipids, ApoB, Lp(a) and more — against longevity-optimal targets, in a physician-grade report built by a lipidologist.</p>
-    <a class="btn" href="/reports/">Get my CardioIQ report</a>
-  </div>
-</div>
- 
-<footer>
-  <div class="wrap">
-    <span>© 2026 CardioIQ · Physician-built cardiovascular intelligence</span>
-    <span><a href="/about/">About</a> · <a href="/reports/">Reports</a> · <a href="/">cardioiq.health</a></span>
-  </div>
-</footer>
- 
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Blog",
+  "@type": "CollectionPage",
   "name": "The CardioIQ Blog",
+  "description": "Physician-authored guides on ApoB, Lp(a), and reading lab results against longevity-optimal targets.",
   "url": "https://cardioiq.health/blog/",
-  "description": "Physician-written guides to cardiovascular risk markers: ApoB, Lp(a), lipids, and metabolic health.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "CardioIQ",
-    "url": "https://cardioiq.health"
-  },
-  "author": {
-    "@type": "Person",
-    "name": "Tea Gamezardashvili",
-    "honorificSuffix": "MD, PhD, MHA, FACC",
-    "jobTitle": "Preventive Cardiologist & Lipidologist"
-  }
+  "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health/" }
 }
 </script>
- 
+
+<style>
+  :root{
+    /* Confirmed brand tokens (navy / gold / teal) */
+    --navy-900:#081627;
+    --navy-800:#0B1E3D;
+    --navy-700:#102a4e;
+    --gold:#C9A227;
+    --gold-lite:#E3C24A;
+    --teal:#2A9D8F;
+    --ink:#EAF0F7;
+    --muted:#9FB3C8;
+    --card:rgba(255,255,255,0.04);
+    --card-hover:rgba(255,255,255,0.065);
+    --gold-border:rgba(201,162,39,0.30);
+    --hairline:rgba(255,255,255,0.09);
+    --radius:16px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 78% -8%, rgba(42,157,143,0.10), transparent 60%),
+      radial-gradient(900px 520px at 8% 4%, rgba(201,162,39,0.08), transparent 55%),
+      var(--navy-900);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--gold-lite);text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  /* Nav */
+  .nav{position:sticky;top:0;z-index:20;background:rgba(8,22,39,0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:1.28rem;letter-spacing:0.01em;color:var(--ink);}
+  .brand b{color:var(--gold);}
+  .navlinks{display:flex;align-items:center;gap:26px;}
+  .navlinks a{color:var(--muted);font-size:0.95rem;font-weight:500;}
+  .navlinks a:hover,.navlinks a:focus-visible{color:var(--ink);}
+  .navlinks .cta{color:var(--navy-900);background:var(--gold);padding:9px 16px;border-radius:10px;font-weight:600;}
+  .navlinks .cta:hover{background:var(--gold-lite);}
+  .menubtn{display:none;}
+
+  /* Hero */
+  .hero{padding:74px 0 30px;}
+  .eyebrow{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  .hero h1{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(2.1rem,5vw,3.35rem);line-height:1.1;margin:14px 0 0;letter-spacing:-0.01em;max-width:16ch;}
+  .hero h1 em{font-style:italic;color:var(--gold-lite);}
+  .hero p.lede{color:var(--muted);font-size:1.12rem;max-width:60ch;margin:20px 0 0;}
+  .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;color:var(--muted);font-size:0.86rem;}
+  .trust span{display:inline-flex;align-items:center;gap:8px;}
+  .trust .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none;}
+
+  /* Section */
+  section.group{padding:40px 0 4px;}
+  .grouphead{display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--hairline);padding-top:26px;margin-bottom:22px;}
+  .grouphead h2{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:1.5rem;margin:0;}
+  .grouphead .tag{font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-weight:700;white-space:nowrap;}
+
+  /* Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+  .grid.pillars{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+  .card{
+    display:flex;flex-direction:column;
+    background:var(--card);border:1px solid var(--hairline);border-radius:var(--radius);
+    padding:22px 22px 20px;transition:transform .18s ease,border-color .18s ease,background .18s ease;
+    position:relative;
+  }
+  .card:hover{transform:translateY(-3px);border-color:var(--gold-border);background:var(--card-hover);}
+  .card .kicker{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;}
+  .card h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:1.22rem;line-height:1.28;margin:0 0 10px;}
+  .card h3 a{color:var(--ink);}
+  .card h3 a:hover{color:var(--gold-lite);}
+  .card p{color:var(--muted);font-size:0.96rem;margin:0 0 18px;}
+  .card .read{margin-top:auto;font-weight:600;color:var(--gold-lite);font-size:0.92rem;}
+  .card.feature{background:linear-gradient(180deg,rgba(201,162,39,0.06),rgba(255,255,255,0.02));border-color:var(--gold-border);}
+  .card.feature .kicker{color:var(--teal);}
+  /* Whole-card click target */
+  .card .stretch{position:absolute;inset:0;border-radius:var(--radius);}
+  .card:focus-within{border-color:var(--gold-border);}
+
+  /* CTA band */
+  .cta-band{margin:56px 0 10px;border:1px solid var(--gold-border);background:linear-gradient(180deg,rgba(42,157,143,0.08),rgba(255,255,255,0.02));border-radius:var(--radius);padding:34px 30px;text-align:center;}
+  .cta-band .eyebrow{color:var(--teal);}
+  .cta-band h2{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:1.7rem;margin:12px 0 8px;}
+  .cta-band p{color:var(--muted);max-width:56ch;margin:0 auto 22px;}
+  .cta-band a.btn{display:inline-block;color:var(--navy-900);background:var(--gold);font-weight:700;padding:13px 26px;border-radius:11px;}
+  .cta-band a.btn:hover{background:var(--gold-lite);}
+  .cta-band small{display:block;margin-top:14px;color:var(--muted);font-size:0.8rem;}
+
+  /* Footer */
+  footer{margin-top:64px;border-top:1px solid var(--hairline);padding:34px 0 46px;}
+  footer .wrap{display:flex;flex-direction:column;gap:16px;}
+  .flinks{display:flex;flex-wrap:wrap;gap:18px;}
+  .flinks a{color:var(--muted);font-size:0.92rem;}
+  .flinks a:hover{color:var(--ink);}
+  .disclaimer{color:var(--muted);font-size:0.8rem;max-width:78ch;opacity:0.85;}
+  .copy{color:var(--muted);font-size:0.8rem;opacity:0.7;}
+
+  @media (max-width:720px){
+    .navlinks{display:none;}
+    .hero{padding:52px 0 20px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important;}
+    .card:hover{transform:none;}
+  }
+  a:focus-visible,.card:focus-within{outline:2px solid var(--gold-lite);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="/">Cardio<b>IQ</b></a>
+    <div class="navlinks">
+      <a href="/about/">About</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/reports/">Reports</a>
+      <a class="cta" href="/reports/">Get my report</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">The CardioIQ Blog</div>
+    <h1>Cardiovascular longevity, read against <em>optimal</em> — not just normal.</h1>
+    <p class="lede">Physician-authored guides on the markers that actually drive risk — ApoB, Lp(a), and the metabolic picture a standard panel leaves out. Written by a lipidologist, anchored to guidelines, calibrated to longevity-optimal targets.</p>
+    <div class="trust">
+      <span><span class="dot"></span>Physician-built by a preventive cardiologist &amp; lipidologist</span>
+      <span><span class="dot"></span>Guideline-anchored — ESC/EAS, ACC/AHA</span>
+      <span><span class="dot"></span>Interpretation, not diagnosis</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="posts">
+  <!-- Sections render here from the POSTS data below -->
+</main>
+
+<div class="wrap">
+  <div class="cta-band">
+    <div class="eyebrow">Free · no sign-up</div>
+    <h2>See where your own numbers sit</h2>
+    <p>The Optimal vs Normal check shows any value you already have in two lenses — your lab's standard range and the longevity-optimal target a lipidologist works from. Everything stays in your browser.</p>
+    <a class="btn" href="/check/?utm_source=blog-index&amp;utm_medium=hub&amp;utm_content=blog-hub-cta">See where my numbers sit — free →</a>
+    <small>Not a diagnosis. A reference-frame starting point to discuss with your physician.</small>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/">CardioIQ</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/reports/">Reports</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/check/">Free check</a>
+    </div>
+    <p class="disclaimer"><strong>Medical disclaimer.</strong> These articles are for education only — not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. CardioIQ interprets biomarker data; it does not diagnose or treat disease and does not replace your treating physician. Reference ranges and units vary by laboratory and assay. Discuss your results and any decisions with your physician.</p>
+    <p class="copy">© 2026 CardioIQ · Physician-built cardiovascular longevity intelligence. For educational and informational purposes only. Not medical advice.</p>
+  </div>
+</footer>
+
+<script>
+/* ────────────────────────────────────────────────────────────────
+   MAINTENANCE: to add an article, add one object to POSTS below and
+   deploy. Group it with a `section` value that matches a SECTIONS row.
+   Only add a post here once its page is LIVE (avoids re-introducing
+   404s / orphan links). Uncertain slugs live in POSTS_UNVERIFIED and
+   do NOT render until you confirm them and move them up.
+   ──────────────────────────────────────────────────────────────── */
+
+const SECTIONS = [
+  { id:"start",   tag:"Start here",        title:"The two pillars" },
+  { id:"lpa",     tag:"Lp(a)",             title:"Understanding Lp(a)" },
+  { id:"optimal", tag:"Normal vs optimal", title:"When \u201Cnormal\u201D isn\u2019t the whole picture" }
+];
+
+/* CONFIRMED LIVE — linked from the live Lp(a) pillar and/or fetched directly. */
+const POSTS = [
+  {
+    section:"start", feature:true, kicker:"Pillar · ApoB",
+    title:"ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk",
+    url:"/blog/apob-guide/",
+    blurb:"Why the particle count \u2014 not the cholesterol number \u2014 is the truer measure of atherogenic burden, and what your target should be."
+  },
+  {
+    section:"start", feature:true, kicker:"Pillar · Lp(a)",
+    title:"Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk",
+    url:"/blog/lpa-guide/",
+    blurb:"The inherited risk factor most people are never tested for \u2014 what it is, what counts as high, and what to do about it."
+  },
+  {
+    section:"lpa", kicker:"Comparison",
+    title:"Lp(a) vs LDL: Why a Normal Cholesterol Test Can Miss a Serious Risk Factor",
+    url:"/blog/lpa-vs-ldl/",
+    blurb:"Two lookalike particles that call for opposite action \u2014 one you can lower, one you inherit."
+  },
+  {
+    section:"lpa", kicker:"Targets",
+    title:"High Lp(a) and ApoB Targets: Why Standard Thresholds May Not Be Enough",
+    url:"/blog/apob-lpa-targets/",
+    blurb:"When Lp(a) is high, how deliberately should you drive ApoB and LDL-C? A look at the targets that follow."
+  },
+  {
+    section:"lpa", kicker:"Investigational pipeline",
+    title:"Pelacarsen and Olpasiran: The New Generation of Lp(a)-Lowering Therapies",
+    url:"/blog/pelacarsen-olpasiran/",
+    blurb:"Where the investigational Lp(a)-lowering pipeline stands today \u2014 and what the outcome trials can\u2019t tell us yet."
+  },
+  {
+    section:"optimal", kicker:"What a standard panel misses",
+    title:"Normal Cholesterol, Still at Risk? What a Standard Panel Can Miss",
+    url:"/blog/normal-cholesterol-still-at-risk/",
+    blurb:"A \u201Cnormal\u201D result can sit on top of an elevated ApoB \u2014 and a routine panel never measures Lp(a) at all."
+  },
+  {
+    section:"optimal", kicker:"Normal vs optimal",
+    title:"Your Cholesterol Is \u201CNormal.\u201D Is It Optimal?",
+    url:"/blog/normal-vs-optimal-cholesterol/",
+    blurb:"The gap between the range that rules out disease and the target that aims for the lowest long-term risk."
+  }
+];
+
+/* VERIFY LIVE BEFORE ENABLING — move an entry into POSTS (with a valid
+   `section`) only after confirming the page deploys with no 404.
+   Candidates referenced across project docs but not yet confirmed live here: */
+const POSTS_UNVERIFIED = [
+  // { section:"optimal", kicker:"Decision", title:"Standard vs Advanced Lipid Panel (ApoB, Lp(a))", url:"/blog/standard-vs-advanced-lipid-panel/", blurb:"Which panel actually answers the question you have \u2014 and how to read the advanced markers." },
+  // { section:"start",   kicker:"Testing",  title:"ApoB Testing: How to Order It and What It Costs", url:"/blog/apob-testing/", blurb:"A practical guide to getting ApoB measured and interpreting the result." },
+  // { section:"lpa",     kicker:"Metabolic", title:"Insulin Resistance and Cholesterol", url:"/blog/insulin-resistance-cholesterol/", blurb:"The metabolic driver behind ApoB/LDL-C discordance." },
+  // { section:"start",   kicker:"Hub",      title:"Cardiovascular Longevity", url:"/blog/cardiovascular-longevity/", blurb:"The organizing picture: prevention measured in decades." }
+];
+
+/* ── Render ── */
+(function renderPosts(){
+  const mount = document.getElementById("posts");
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  SECTIONS.forEach(sec => {
+    const items = POSTS.filter(p => p.section === sec.id);
+    if (!items.length) return;
+    const section = document.createElement("section");
+    section.className = "group";
+    section.setAttribute("aria-labelledby", "h-" + sec.id);
+    section.innerHTML =
+      '<div class="grouphead"><span class="tag">' + esc(sec.tag) + '</span>' +
+      '<h2 id="h-' + sec.id + '">' + esc(sec.title) + '</h2></div>';
+    const grid = document.createElement("div");
+    grid.className = "grid" + (sec.id === "start" ? " pillars" : "");
+    items.forEach(p => {
+      const card = document.createElement("article");
+      card.className = "card" + (p.feature ? " feature" : "");
+      card.innerHTML =
+        '<div class="kicker">' + esc(p.kicker) + '</div>' +
+        '<h3><a href="' + esc(p.url) + '">' + esc(p.title) + '</a></h3>' +
+        '<p>' + esc(p.blurb) + '</p>' +
+        '<span class="read">Read \u2192</span>' +
+        '<a class="stretch" href="' + esc(p.url) + '" aria-label="' + esc(p.title) + '" tabindex="-1"></a>';
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    mount.appendChild(section);
+  });
+})();
+</script>
 </body>
 </html>
