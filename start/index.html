@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Start your report — CardioIQ</title>
 <meta name="robots" content="noindex" />
+<!-- Dodo Payments overlay SDK -->
+<script src="https://cdn.jsdelivr.net/npm/dodopayments-checkout@latest/dist/index.js"></script>
 <style>
   :root{
     --navy:#0B1E3D; --navy-soft:#16305a; --gold:#C9A227; --gold-light:#E3C24A;
@@ -49,6 +51,9 @@
   .steps-bar b{color:var(--navy)}
   footer{border-top:1px solid var(--line);margin-top:34px;padding:22px 0 46px;font-size:0.82rem;color:var(--text-muted);text-align:center}
   #addfile{margin-top:9px;background:none;border:none;color:var(--teal-deep);font-weight:600;font-family:var(--font-body);font-size:0.9rem;cursor:pointer;padding:0}
+  /* NEW: secondary PayPal fallback link under the main button */
+  .altpay{display:block;text-align:center;margin-top:12px;font-size:0.88rem;color:var(--text-muted);text-decoration:none}
+  .altpay:hover{color:var(--teal-deep)}
 </style>
 </head>
 <body>
@@ -108,8 +113,10 @@
       <textarea name="notes" id="notes" placeholder="e.g. LDL 120, ApoB 95, Lp(a) 140 nmol/L… plus family history, medications, or what prompted testing."></textarea>
 
       <button type="submit" class="go" id="submit-btn">Continue to secure payment →</button>
+      <!-- NEW: PayPal kept as a one-click fallback, dynamically pointed at the selected tier -->
+      <a href="#" class="altpay" id="paypal-fallback">Prefer to pay with PayPal instead?</a>
       <div class="err" id="err"></div>
-      <p class="privacy">🔒 Your panel is sent securely to Dr. Tea and used only to prepare your report. Payment is handled by PayPal on the next step.</p>
+      <p class="privacy">🔒 Your panel is sent securely to Dr. Tea and used only to prepare your report. Card payment via Dodo Payments (Visa, Mastercard, Apple Pay, Google Pay); PayPal also available.</p>
     </form>
   </div>
 </div>
@@ -120,11 +127,59 @@
 
 <script>
 (function(){
+  // ---- PayPal: kept as fallback only ----
   var PAYPAL = {
     essential: "https://www.paypal.com/ncp/payment/PD7GZHEXWTQQE",
     standard:  "https://www.paypal.com/ncp/payment/VAPXHSQVM82ZY",
     premium:   "https://www.paypal.com/ncp/payment/PF7AM3XCGMRV6"
   };
+
+  // ---- Dodo: primary checkout ----
+  var DODO_PRODUCTS = {
+    essential: "pdt_0Njmd7Rc6IldQ28k98F8D", // confirmed 2026-07-23
+    standard:  "pdt_0NjmgCQQPFhDcZzoOgH1s", // confirmed 2026-07-23
+    premium:   "pdt_0Njmh1glPHKx0u6R1cVF8"  // confirmed 2026-07-23
+  };
+  var TIER_PRICES = { essential: 29, standard: 49, premium: 69 };
+  // Live thank-you page, already wired to Plausible's "Purchase" revenue event.
+  // Requires BOTH tier and amount in the query string.
+  var REDIRECT_BASE = "https://cardioiq.health/thank-you/";
+
+  var dodoInitialized = false;
+  function initDodo(){
+    if (dodoInitialized || typeof DodoPaymentsCheckout === "undefined") return;
+    DodoPaymentsCheckout.DodoPayments.Initialize({
+      mode: "test", // switch to "live" once test purchase is confirmed working end-to-end
+      displayType: "overlay",
+      onEvent: function(event){
+        if (event.event_type === "checkout.error") {
+          console.error("Dodo checkout error:", event.data && event.data.message);
+        }
+        if (event.event_type === "checkout.opened" && window.plausible) {
+          window.plausible("Card Checkout Opened", { props: { tier: tierField.value } });
+        }
+      }
+    });
+    dodoInitialized = true;
+  }
+
+  function dodoCheckoutUrl(t){
+    var productId = DODO_PRODUCTS[t];
+    var amount = TIER_PRICES[t];
+    var redirectUrl = encodeURIComponent(REDIRECT_BASE + "?tier=" + t + "&amount=" + amount);
+    return "https://checkout.dodopayments.com/buy/" + productId + "?redirect_url=" + redirectUrl;
+  }
+
+  function openDodo(t){
+    initDodo();
+    try {
+      DodoPaymentsCheckout.DodoPayments.Checkout.open({ checkoutUrl: dodoCheckoutUrl(t) });
+    } catch(e) {
+      // Fallback: plain redirect if the overlay fails for any reason — checkout still works.
+      window.location.href = dodoCheckoutUrl(t);
+    }
+  }
+
   var params = new URLSearchParams(location.search);
   var tier = (params.get("tier") || "standard").toLowerCase();
   if(!PAYPAL[tier]) tier = "standard";
@@ -133,16 +188,22 @@
   var tierField = document.getElementById("tier-field");
   var errEl = document.getElementById("err");
   var btn = document.getElementById("submit-btn");
+  var paypalFallback = document.getElementById("paypal-fallback");
 
   function setTier(t){
     tierField.value = t;
     var el = document.getElementById(t==="essential"?"t-ess":t==="premium"?"t-prem":"t-std");
     if(el) el.checked = true;
+    paypalFallback.href = PAYPAL[t]; // kept in sync with the selected tier
   }
   setTier(tier);
   document.querySelectorAll('input[name="tier_choice"]').forEach(function(r){
     r.addEventListener("change", function(){ setTier(this.value); });
   });
+
+  // Warm up the SDK once the page is idle.
+  if (document.readyState === "complete") { initDodo(); }
+  else { window.addEventListener("load", initDodo); }
 
   // reveal extra file slots
   var slots = Array.prototype.slice.call(document.querySelectorAll("#file-slots .labfile"));
@@ -166,10 +227,20 @@
     var chosen = tierField.value;
     btn.disabled = true; btn.textContent = "Saving your panel…";
 
-    // Save to Netlify (multipart, includes files), then go to PayPal regardless of save outcome.
+    // Save to Netlify (multipart, includes files), then open Dodo checkout regardless of save outcome.
     fetch("/", { method: "POST", body: new FormData(form) })
-      .then(function(){ window.location.href = PAYPAL[chosen]; })
-      .catch(function(){ window.location.href = PAYPAL[chosen]; });
+      .then(function(){ btn.disabled = false; btn.textContent = "Continue to secure payment →"; openDodo(chosen); })
+      .catch(function(){ btn.disabled = false; btn.textContent = "Continue to secure payment →"; openDodo(chosen); });
+  });
+
+  // Manual PayPal fallback click — still save the panel first if not already sent.
+  paypalFallback.addEventListener("click", function(e){
+    e.preventDefault();
+    var email = document.getElementById("email").value.trim();
+    if(!email){ errEl.textContent = "Please enter your email first."; errEl.style.display="block"; return; }
+    fetch("/", { method: "POST", body: new FormData(form) })
+      .then(function(){ window.location.href = PAYPAL[tierField.value]; })
+      .catch(function(){ window.location.href = PAYPAL[tierField.value]; });
   });
 })();
 </script>
