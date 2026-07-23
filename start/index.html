@@ -54,6 +54,16 @@
   /* NEW: secondary PayPal fallback link under the main button */
   .altpay{display:block;text-align:center;margin-top:12px;font-size:0.88rem;color:var(--text-muted);text-decoration:none}
   .altpay:hover{color:var(--teal-deep)}
+  /* NEW: "About you" clinical intake fields */
+  select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font-size:1rem;font-family:var(--font-body);background:var(--cream);color:var(--text)}
+  select:focus{outline:2px solid var(--teal);outline-offset:1px;background:#fff}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:480px){.grid2{grid-template-columns:1fr}}
+  .aboutyou-intro{font-size:0.86rem;color:var(--text-muted);margin:18px 0 4px}
+  .bprow{display:flex;gap:10px;align-items:center}
+  .bprow input[type=number]{width:100%}
+  .chk{display:flex;align-items:center;gap:7px;font-size:0.85rem;color:var(--text-muted);white-space:nowrap;margin-top:2px}
+  .chk input{width:auto}
 </style>
 </head>
 <body>
@@ -76,6 +86,9 @@
     <form name="report-intake" data-netlify="true" netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="report-intake" />
       <input name="tier" /><input type="email" name="email" />
+      <input name="age" /><input name="sex" /><input name="smoking" /><input name="existing_dx" />
+      <input name="diabetes" /><input name="on_lipid_med" /><input name="family_history" />
+      <input name="bp_systolic" /><input name="on_bp_med" /><input name="fasting" />
       <input type="file" name="lab_report" /><input type="file" name="lab_report_2" />
       <input type="file" name="lab_report_3" /><input type="file" name="lab_report_4" />
       <input type="file" name="lab_report_5" /><textarea name="notes"></textarea>
@@ -93,6 +106,91 @@
         <div class="tieropt"><input type="radio" name="tier_choice" id="t-std" value="standard" checked><label for="t-std"><span class="tn">Standard</span><div class="tp">$49</div><div class="td">+ ApoB, Lp(a)</div></label></div>
         <div class="tieropt"><input type="radio" name="tier_choice" id="t-prem" value="premium"><label for="t-prem"><span class="tn">Premium</span><div class="tp">$69</div><div class="td">+ physician summary</div></label></div>
       </div>
+
+      <div class="aboutyou-intro">A few quick questions — these let us apply the right risk framework to your numbers. Takes about 30 seconds.</div>
+
+      <div class="grid2">
+        <div>
+          <label class="label" for="age">Age <span class="req">*</span></label>
+          <input type="number" name="age" id="age" min="18" max="110" placeholder="e.g. 42" required />
+        </div>
+        <div>
+          <label class="label" for="sex">Sex assigned at birth <span class="req">*</span></label>
+          <select name="sex" id="sex" required>
+            <option value="">Select…</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">Used only to apply the correct risk equation (SCORE2) — not a statement about gender identity.</div>
+
+      <div class="grid2" style="margin-top:14px">
+        <div>
+          <label class="label" for="smoking">Smoking status <span class="req">*</span></label>
+          <select name="smoking" id="smoking" required>
+            <option value="">Select…</option>
+            <option value="never">Never smoked</option>
+            <option value="former">Former (quit 12+ months ago)</option>
+            <option value="current">Current smoker</option>
+          </select>
+        </div>
+        <div>
+          <label class="label" for="diabetes">Diabetes status <span class="req">*</span></label>
+          <select name="diabetes" id="diabetes" required>
+            <option value="">Select…</option>
+            <option value="none">None</option>
+            <option value="prediabetes">Prediabetes</option>
+            <option value="type2">Type 2 diabetes</option>
+            <option value="type1">Type 1 diabetes</option>
+          </select>
+        </div>
+      </div>
+
+      <label class="label" for="existing_dx">Have you been diagnosed with heart attack, stroke, or peripheral artery disease? <span class="req">*</span></label>
+      <select name="existing_dx" id="existing_dx" required>
+        <option value="">Select…</option>
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+      </select>
+      <div class="hint">This changes which risk framework applies — an existing diagnosis is scored differently than prevention in someone without one.</div>
+
+      <div class="grid2" style="margin-top:14px">
+        <div>
+          <label class="label" for="on_lipid_med">On a cholesterol-lowering medication? <span class="req">*</span></label>
+          <select name="on_lipid_med" id="on_lipid_med" required>
+            <option value="">Select…</option>
+            <option value="no">No</option>
+            <option value="yes">Yes (statin, ezetimibe, PCSK9i, etc.)</option>
+          </select>
+        </div>
+        <div>
+          <label class="label" for="family_history">Family history of early heart disease? <span class="req">*</span></label>
+          <select name="family_history" id="family_history" required>
+            <option value="">Select…</option>
+            <option value="no">No</option>
+            <option value="yes">Yes</option>
+            <option value="unsure">Not sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="hint">"Early" = a parent or sibling with a heart attack or stroke before 55 (if male) or 65 (if female).</div>
+
+      <label class="label" for="bp_systolic">Blood pressure (systolic, top number) <span style="color:var(--text-muted);font-weight:400">— optional</span></label>
+      <div class="bprow">
+        <input type="number" name="bp_systolic" id="bp_systolic" min="70" max="260" placeholder="e.g. 128" />
+        <label class="chk"><input type="checkbox" name="on_bp_med" id="on_bp_med" value="yes" /> On BP medication</label>
+      </div>
+      <div class="hint">Don't know it offhand? Leave blank — it's helpful but not required.</div>
+
+      <label class="label" for="fasting">Was this blood draw fasting (8+ hours, water only)? <span class="req">*</span></label>
+      <select name="fasting" id="fasting" required>
+        <option value="">Select…</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+        <option value="unsure">Not sure</option>
+      </select>
+      <div class="hint">Affects how triglycerides and glucose are interpreted — not required to have fasted, just tell us either way.</div>
 
       <label class="label" for="email">Your email <span class="req">*</span></label>
       <input type="email" name="email" id="email" placeholder="you@email.com" required />
@@ -226,6 +324,20 @@
     errEl.style.display = "none";
     var email = document.getElementById("email").value.trim();
     var notes = document.getElementById("notes").value.trim();
+    var requiredSelects = [
+      ["age", "your age"],
+      ["sex", "sex assigned at birth"],
+      ["smoking", "smoking status"],
+      ["diabetes", "diabetes status"],
+      ["existing_dx", "existing heart attack/stroke/PAD diagnosis"],
+      ["on_lipid_med", "cholesterol-lowering medication status"],
+      ["family_history", "family history"],
+      ["fasting", "fasting status"]
+    ];
+    for (var i = 0; i < requiredSelects.length; i++){
+      var f = document.getElementById(requiredSelects[i][0]);
+      if(!f.value){ errEl.textContent = "Please answer: " + requiredSelects[i][1] + "."; errEl.style.display="block"; f.focus(); return; }
+    }
     if(!email){ errEl.textContent = "Please enter your email."; errEl.style.display="block"; return; }
     if(!hasFile() && !notes){ errEl.textContent = "Please upload your lab report, or type your values in the box."; errEl.style.display="block"; return; }
 
@@ -241,7 +353,13 @@
   // Manual PayPal fallback click — still save the panel first if not already sent.
   paypalFallback.addEventListener("click", function(e){
     e.preventDefault();
+    errEl.style.display = "none";
     var email = document.getElementById("email").value.trim();
+    var requiredIds = ["age","sex","smoking","diabetes","existing_dx","on_lipid_med","family_history","fasting"];
+    for (var i = 0; i < requiredIds.length; i++){
+      var f = document.getElementById(requiredIds[i]);
+      if(!f.value){ errEl.textContent = "Please answer all required questions above first."; errEl.style.display="block"; f.focus(); return; }
+    }
     if(!email){ errEl.textContent = "Please enter your email first."; errEl.style.display="block"; return; }
     fetch("/", { method: "POST", body: new FormData(form) })
       .then(function(){ window.location.href = PAYPAL[tierField.value]; })
