@@ -145,11 +145,16 @@
   // Requires BOTH tier and amount in the query string.
   var REDIRECT_BASE = "https://cardioiq.health/thank-you/";
 
+  var DODO_MODE = "test"; // switch to "live" once test purchase is confirmed working end-to-end
+  var CHECKOUT_HOST = DODO_MODE === "live"
+    ? "https://checkout.dodopayments.com"
+    : "https://test.checkout.dodopayments.com";
+
   var dodoInitialized = false;
   function initDodo(){
     if (dodoInitialized || typeof DodoPaymentsCheckout === "undefined") return;
     DodoPaymentsCheckout.DodoPayments.Initialize({
-      mode: "test", // switch to "live" once test purchase is confirmed working end-to-end
+      mode: DODO_MODE,
       displayType: "overlay",
       onEvent: function(event){
         if (event.event_type === "checkout.error") {
@@ -167,7 +172,7 @@
     var productId = DODO_PRODUCTS[t];
     var amount = TIER_PRICES[t];
     var redirectUrl = encodeURIComponent(REDIRECT_BASE + "?tier=" + t + "&amount=" + amount);
-    return "https://checkout.dodopayments.com/buy/" + productId + "?redirect_url=" + redirectUrl;
+    return CHECKOUT_HOST + "/buy/" + productId + "?redirect_url=" + redirectUrl;
   }
 
   function openDodo(t){
