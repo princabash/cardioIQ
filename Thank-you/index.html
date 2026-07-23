@@ -64,10 +64,8 @@
       <div class="step">
         <div class="num">1</div>
         <div>
-          <h3>Send us your panel</h3>
-          <!-- TODO(Tea): wire this to the REAL submission step — e.g. link to an upload form,
-               or "check your email for a secure upload link", or "reply to your receipt with your lab PDF". -->
-          <p>If you haven't uploaded your labs yet, check your email for a secure upload link and add the values from your existing panel — lipids, ApoB, Lp(a), insulin, and inflammation markers.</p>
+          <h3>Your panel is already in</h3>
+          <p>You sent your labs before checkout, so there's nothing more to upload — your panel is already on its way to interpretation.</p>
         </div>
       </div>
       <div class="step">
@@ -80,8 +78,8 @@
       <div class="step">
         <div class="num">3</div>
         <div>
-          <h3>Your report is ready in about 90 seconds</h3>
-          <p>Your structured report is generated right away — you'll see it on screen and get a copy by email.<span id="premium-note" style="display:none;"> Your Premium expert follow-up question is answered personally by Dr. Tea within <strong>2 business days</strong>.</span></p>
+          <h3>Your report arrives in about 90 seconds</h3>
+          <p>Your structured report is generated right away and sent to your inbox.<span id="premium-note" style="display:none;"> Your Premium expert follow-up question is answered personally by Dr. Tea within <strong>2 business days</strong>.</span></p>
         </div>
       </div>
     </div>
@@ -90,7 +88,7 @@
       Your lab values are used only to prepare your report — kept private, never sold or shared.
     </div>
  
-    <p class="support">Questions? Reply to your payment receipt, or email <a href="mailto:info@cardioiq.health">info@cardioiq.health</a>.</p>
+    <p class="support">Report not in your inbox yet? Reply to your payment receipt, or email <a href="mailto:info@cardioiq.health">info@cardioiq.health</a>.</p>
  
     <p class="boundary">Your CardioIQ report is educational interpretation, not a diagnosis — built to inform the conversation with your physician, never to replace it.</p>
  
@@ -98,9 +96,9 @@
   </div>
  
 <!-- ===== Conversion tracking =====
-     PayPal (and other off-site checkouts) return here after payment, so this page load = the sale.
-     Set the PayPal button "Return URL" to:  https://cardioiq.health/thank-you/?tier=standard&amount=49
-     Then create a goal named "Purchase" in Plausible. Revenue + tier are passed automatically below. -->
+     PayPal and Dodo Payments both return here after payment, so this page load = the sale.
+     Return/redirect URL: https://cardioiq.health/thank-you/?tier=standard&amount=49
+     "Purchase" goal in Plausible. Revenue + tier are passed automatically below. -->
 <script>
   (function(){
     var q=new URLSearchParams(location.search);
