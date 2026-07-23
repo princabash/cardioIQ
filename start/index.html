@@ -64,6 +64,14 @@
   .bprow input[type=number]{width:100%}
   .chk{display:flex;align-items:center;gap:7px;font-size:0.85rem;color:var(--text-muted);white-space:nowrap;margin-top:2px}
   .chk input{width:auto}
+  /* NEW: metric/imperial toggle + measurement row */
+  .unittoggle{display:flex;gap:8px;margin:6px 0 12px}
+  .unittoggle label{flex:1;text-align:center;border:1.5px solid var(--line);border-radius:10px;padding:8px;font-size:0.85rem;cursor:pointer;color:var(--text-muted)}
+  .unittoggle input{position:absolute;opacity:0;pointer-events:none}
+  .unittoggle input:checked + label{border-color:var(--teal);background:var(--teal-bg);color:var(--navy);font-weight:700}
+  .measrow{display:flex;align-items:center;gap:8px}
+  .measrow input[type=number]{width:100%}
+  .measunit{font-size:0.85rem;color:var(--text-muted);white-space:nowrap;min-width:34px}
 </style>
 </head>
 <body>
@@ -87,8 +95,10 @@
       <input type="hidden" name="form-name" value="report-intake" />
       <input name="tier" /><input type="email" name="email" />
       <input name="age" /><input name="sex" /><input name="smoking" /><input name="existing_dx" />
-      <input name="diabetes" /><input name="on_lipid_med" /><input name="family_history" />
+      <input name="diabetes" /><input name="diabetes_duration" /><input name="diabetes_organ_damage" />
+      <input name="on_lipid_med" /><input name="family_history" /><input name="dyslipidemia_dx" />
       <input name="bp_systolic" /><input name="on_bp_med" /><input name="fasting" />
+      <input name="unit_system" /><input name="height" /><input name="weight" /><input name="waist_circumference" />
       <input type="file" name="lab_report" /><input type="file" name="lab_report_2" />
       <input type="file" name="lab_report_3" /><input type="file" name="lab_report_4" />
       <input type="file" name="lab_report_5" /><textarea name="notes"></textarea>
@@ -147,6 +157,25 @@
         </div>
       </div>
 
+      <div id="diabetes-followup" style="display:none">
+        <div class="grid2" style="margin-top:14px">
+          <div>
+            <label class="label" for="diabetes_duration">Years since diabetes diagnosis <span class="req">*</span></label>
+            <input type="number" name="diabetes_duration" id="diabetes_duration" min="0" max="80" placeholder="e.g. 6" />
+          </div>
+          <div>
+            <label class="label" for="diabetes_organ_damage">Any diabetes-related kidney, eye, or nerve damage? <span class="req">*</span></label>
+            <select name="diabetes_organ_damage" id="diabetes_organ_damage">
+              <option value="">Select…</option>
+              <option value="no">No</option>
+              <option value="yes">Yes (nephropathy, retinopathy, or neuropathy)</option>
+              <option value="unsure">Not sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="hint">These two determine your risk category under diabetes-specific guideline rules — a different framework than non-diabetic risk scoring.</div>
+      </div>
+
       <label class="label" for="existing_dx">Have you been diagnosed with heart attack, stroke, or peripheral artery disease? <span class="req">*</span></label>
       <select name="existing_dx" id="existing_dx" required>
         <option value="">Select…</option>
@@ -174,14 +203,14 @@
           </select>
         </div>
       </div>
-      <div class="hint">"Early" = a parent or sibling with a heart attack or stroke before 55 (if male) or 65 (if female).</div>
+      <div class="hint">"Early" = a parent or sibling with a heart attack or stroke before 55 (if male) or 60 (if female).</div>
 
-      <label class="label" for="bp_systolic">Blood pressure (systolic, top number) <span style="color:var(--text-muted);font-weight:400">— optional</span></label>
+      <label class="label" for="bp_systolic">Blood pressure (systolic, top number) <span class="req">*</span></label>
       <div class="bprow">
-        <input type="number" name="bp_systolic" id="bp_systolic" min="70" max="260" placeholder="e.g. 128" />
+        <input type="number" name="bp_systolic" id="bp_systolic" min="70" max="260" placeholder="e.g. 128" required />
         <label class="chk"><input type="checkbox" name="on_bp_med" id="on_bp_med" value="yes" /> On BP medication</label>
       </div>
-      <div class="hint">Don't know it offhand? Leave blank — it's helpful but not required.</div>
+      <div class="hint">Required for the SCORE2 calculation — don't have it handy? A recent home reading or your last doctor's visit both work.</div>
 
       <label class="label" for="fasting">Was this blood draw fasting (8+ hours, water only)? <span class="req">*</span></label>
       <select name="fasting" id="fasting" required>
@@ -191,6 +220,45 @@
         <option value="unsure">Not sure</option>
       </select>
       <div class="hint">Affects how triglycerides and glucose are interpreted — not required to have fasted, just tell us either way.</div>
+
+      <label class="label" for="dyslipidemia_dx">Previously diagnosed with dyslipidemia / high cholesterol? <span class="req">*</span></label>
+      <select name="dyslipidemia_dx" id="dyslipidemia_dx" required>
+        <option value="">Select…</option>
+        <option value="no">No</option>
+        <option value="yes">Yes</option>
+        <option value="unsure">Not sure</option>
+      </select>
+      <div class="hint">A prior diagnosis (with or without treatment) is different from this being your first lipid panel — helps us frame your results correctly.</div>
+
+      <span class="label">Units <span class="req">*</span></span>
+      <div class="unittoggle">
+        <input type="radio" name="unit_system" id="unit-metric" value="metric" checked><label for="unit-metric">Metric (cm, kg)</label>
+        <input type="radio" name="unit_system" id="unit-imperial" value="imperial"><label for="unit-imperial">Imperial (in, lb)</label>
+      </div>
+
+      <div class="grid2">
+        <div>
+          <label class="label" for="height">Height <span class="req">*</span></label>
+          <div class="measrow">
+            <input type="number" name="height" id="height" min="1" step="0.1" placeholder="e.g. 170" required />
+            <span class="measunit" id="height-unit">cm</span>
+          </div>
+        </div>
+        <div>
+          <label class="label" for="weight">Weight <span class="req">*</span></label>
+          <div class="measrow">
+            <input type="number" name="weight" id="weight" min="1" step="0.1" placeholder="e.g. 68" required />
+            <span class="measunit" id="weight-unit">kg</span>
+          </div>
+        </div>
+      </div>
+
+      <label class="label" for="waist_circumference">Waist circumference <span class="req">*</span></label>
+      <div class="measrow" style="max-width:220px">
+        <input type="number" name="waist_circumference" id="waist_circumference" min="1" step="0.1" placeholder="e.g. 84" required />
+        <span class="measunit" id="waist-unit">cm</span>
+      </div>
+      <div class="hint">Measured around the belly button, standing, without holding your breath in.</div>
 
       <label class="label" for="email">Your email <span class="req">*</span></label>
       <input type="email" name="email" id="email" placeholder="you@email.com" required />
@@ -308,6 +376,41 @@
   if (document.readyState === "complete") { initDodo(); }
   else { window.addEventListener("load", initDodo); }
 
+  // Show diabetes follow-up fields only when relevant
+  var diabetesSelect = document.getElementById("diabetes");
+  var diabetesFollowup = document.getElementById("diabetes-followup");
+  var diabetesDuration = document.getElementById("diabetes_duration");
+  var diabetesOrganDamage = document.getElementById("diabetes_organ_damage");
+  function syncDiabetesFollowup(){
+    var needsFollowup = (diabetesSelect.value === "type1" || diabetesSelect.value === "type2");
+    diabetesFollowup.style.display = needsFollowup ? "block" : "none";
+    diabetesDuration.required = needsFollowup;
+    diabetesOrganDamage.required = needsFollowup;
+  }
+  diabetesSelect.addEventListener("change", syncDiabetesFollowup);
+  syncDiabetesFollowup();
+
+  // Metric/imperial unit label switching
+  var heightUnitEl = document.getElementById("height-unit");
+  var weightUnitEl = document.getElementById("weight-unit");
+  var waistUnitEl = document.getElementById("waist-unit");
+  var heightInput = document.getElementById("height");
+  var weightInput = document.getElementById("weight");
+  var waistInput = document.getElementById("waist_circumference");
+  function syncUnits(){
+    var imperial = document.getElementById("unit-imperial").checked;
+    heightUnitEl.textContent = imperial ? "in" : "cm";
+    weightUnitEl.textContent = imperial ? "lb" : "kg";
+    waistUnitEl.textContent = imperial ? "in" : "cm";
+    heightInput.placeholder = imperial ? "e.g. 67" : "e.g. 170";
+    weightInput.placeholder = imperial ? "e.g. 150" : "e.g. 68";
+    waistInput.placeholder = imperial ? "e.g. 33" : "e.g. 84";
+  }
+  document.querySelectorAll('input[name="unit_system"]').forEach(function(r){
+    r.addEventListener("change", syncUnits);
+  });
+  syncUnits();
+
   // reveal extra file slots
   var slots = Array.prototype.slice.call(document.querySelectorAll("#file-slots .labfile"));
   var addBtn = document.getElementById("addfile");
@@ -332,8 +435,17 @@
       ["existing_dx", "existing heart attack/stroke/PAD diagnosis"],
       ["on_lipid_med", "cholesterol-lowering medication status"],
       ["family_history", "family history"],
-      ["fasting", "fasting status"]
+      ["fasting", "fasting status"],
+      ["bp_systolic", "blood pressure"],
+      ["dyslipidemia_dx", "previous dyslipidemia diagnosis"],
+      ["height", "height"],
+      ["weight", "weight"],
+      ["waist_circumference", "waist circumference"]
     ];
+    if (diabetesSelect.value === "type1" || diabetesSelect.value === "type2"){
+      requiredSelects.push(["diabetes_duration", "years since diabetes diagnosis"]);
+      requiredSelects.push(["diabetes_organ_damage", "diabetes-related organ damage"]);
+    }
     for (var i = 0; i < requiredSelects.length; i++){
       var f = document.getElementById(requiredSelects[i][0]);
       if(!f.value){ errEl.textContent = "Please answer: " + requiredSelects[i][1] + "."; errEl.style.display="block"; f.focus(); return; }
@@ -355,7 +467,10 @@
     e.preventDefault();
     errEl.style.display = "none";
     var email = document.getElementById("email").value.trim();
-    var requiredIds = ["age","sex","smoking","diabetes","existing_dx","on_lipid_med","family_history","fasting"];
+    var requiredIds = ["age","sex","smoking","diabetes","existing_dx","on_lipid_med","family_history","fasting","bp_systolic","dyslipidemia_dx","height","weight","waist_circumference"];
+    if (diabetesSelect.value === "type1" || diabetesSelect.value === "type2"){
+      requiredIds.push("diabetes_duration", "diabetes_organ_damage");
+    }
     for (var i = 0; i < requiredIds.length; i++){
       var f = document.getElementById(requiredIds[i]);
       if(!f.value){ errEl.textContent = "Please answer all required questions above first."; errEl.style.display="block"; f.focus(); return; }
