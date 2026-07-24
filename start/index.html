@@ -302,16 +302,16 @@
 
   // ---- Dodo: primary checkout ----
   var DODO_PRODUCTS = {
-    essential: "pdt_0Njmd7Rc6IldQ28k98F8D", // confirmed 2026-07-23
-    standard:  "pdt_0NjmgCQQPFhDcZzoOgH1s", // confirmed 2026-07-23
-    premium:   "pdt_0Njmh1glPHKx0u6R1cVF8"  // confirmed 2026-07-23
+    essential: "pdt_0NjrVxRFdNoY3CFhb5lwN", // LIVE — confirmed 2026-07-24
+    standard:  "pdt_0NjrWBOJXNlbGx29fPYoN", // LIVE — confirmed 2026-07-24
+    premium:   "pdt_0NjrWNiZPBNNGPUjBjITj"  // LIVE — confirmed 2026-07-24
   };
   var TIER_PRICES = { essential: 29, standard: 49, premium: 69 };
   // Live thank-you page, already wired to Plausible's "Purchase" revenue event.
   // Requires BOTH tier and amount in the query string.
   var REDIRECT_BASE = "https://cardioiq.health/thank-you/";
 
-  var DODO_MODE = "test"; // switch to "live" once test purchase is confirmed working end-to-end
+  var DODO_MODE = "live"; // switched from "test" 2026-07-24 — test-mode purchase confirmed working
   var CHECKOUT_HOST = DODO_MODE === "live"
     ? "https://checkout.dodopayments.com"
     : "https://test.checkout.dodopayments.com";
