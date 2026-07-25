@@ -848,12 +848,9 @@ document.querySelectorAll('input[name="unit_system"]').forEach(function(r){r.add
 function rebuildFaq(){const list=document.getElementById('faq-list');list.innerHTML='';FAQ_DATA[currentLang].forEach(item=>{const div=document.createElement('div');div.className='faq-item';div.innerHTML='<div class="faq-q" onclick="this.parentElement.classList.toggle(\'open\')">'+item.q+'</div><div class="faq-a">'+item.a+'</div>';list.appendChild(div);});}
  
 function openModal(plan){
-  selectedPlan=plan||'standard';
-  const names={essential:T.plan1_name,standard:T.plan2_name,premium:T.plan3_name};
-  document.getElementById('modal-title').textContent=names[plan]||'CardioIQ';
-  document.getElementById('modal').classList.add('open');
-  document.body.style.overflow='hidden';
-  resetModal();
+  // Homepage no longer runs its own checkout flow — send everyone to /start/,
+  // which is the single, tested intake + Dodo checkout implementation.
+  window.location.href = '/start/?tier=' + (plan || 'standard');
 }
 function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
 document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal();});
