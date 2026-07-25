@@ -12,20 +12,39 @@ const MAX_FILE_BYTES = 10 * 1024 * 1024; // 10MB, matches client upload limit
 // This does NOT generate a report and does NOT call the Anthropic API — it
 // only stores data. Nothing here costs API spend, so it's safe to call before
 // payment is confirmed.
-module.exports = async function handler(req, res) {
-  res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Content-Type', 'application/json');
+//
+// NOTE: Netlify Functions use the (event, context) -> { statusCode, headers, body }
+// contract, NOT the Express/Vercel (req, res) contract. Mixing the two causes
+// a 502 at invocation time before any of this code even runs.
+exports.handler = async function (event) {
+  const headers = {
+    'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Content-Type': 'application/json'
+  };
 
-  if (req.method === 'OPTIONS') return res.status(200).end();
-  if (req.method !== 'POST') return res.status(405).json({ error: 'Method Not Allowed' });
+  if (event.httpMethod === 'OPTIONS') {
+    return { statusCode: 200, headers, body: '' };
+  }
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, headers, body: JSON.stringify({ error: 'Method Not Allowed' }) };
+  }
 
   try {
-    const p = req.body;
-    if (!p || !p.age || !p.sex) return res.status(400).json({ error: 'Missing required patient data' });
+    let p;
+    try {
+      p = JSON.parse(event.body || '{}');
+    } catch (parseErr) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid JSON body' }) };
+    }
+
+    if (!p || !p.age || !p.sex) {
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'Missing required patient data' }) };
+    }
 
     if (p.fileBase64 && Buffer.byteLength(p.fileBase64, 'base64') > MAX_FILE_BYTES) {
-      return res.status(400).json({ error: 'File too large' });
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'File too large' }) };
     }
 
     const stashId = crypto.randomUUID();
@@ -36,9 +55,9 @@ module.exports = async function handler(req, res) {
       createdAt: new Date().toISOString()
     }));
 
-    return res.status(200).json({ stash_id: stashId });
+    return { statusCode: 200, headers, body: JSON.stringify({ stash_id: stashId }) };
 
   } catch (err) {
-    return res.status(500).json({ error: err.message });
+    return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
   }
 };
