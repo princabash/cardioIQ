@@ -962,7 +962,7 @@ async function stashIntake(){
       payload.fileMimeType=uploadedFile.type;
     }catch(e){ console.error('File read failed:', e); }
   }
-  const res=await fetch('https://cardioiq.netlify.app/.netlify/functions/stash-intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+  const res=await fetch('/.netlify/functions/stash-intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
   const data=await res.json();
   if(!data.stash_id) throw new Error(data.error||'Could not save your information');
   return data.stash_id;
