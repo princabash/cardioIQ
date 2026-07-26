@@ -208,9 +208,11 @@
    ──────────────────────────────────────────────────────────────── */
 
 const SECTIONS = [
-  { id:"start",   tag:"Start here",        title:"The two pillars" },
-  { id:"lpa",     tag:"Lp(a)",             title:"Understanding Lp(a)" },
-  { id:"optimal", tag:"Normal vs optimal", title:"When \u201Cnormal\u201D isn\u2019t the whole picture" }
+  { id:"start",     tag:"Start here",         title:"The two pillars" },
+  { id:"apob",      tag:"ApoB",               title:"Understanding ApoB" },
+  { id:"lpa",       tag:"Lp(a)",              title:"Understanding Lp(a)" },
+  { id:"metabolic", tag:"Metabolic health",   title:"Insulin, glucose \u0026 metabolic risk" },
+  { id:"optimal",   tag:"Normal vs optimal",  title:"When \u201Cnormal\u201D isn\u2019t the whole picture" }
 ];
 
 /* CONFIRMED LIVE — linked from the live Lp(a) pillar and/or fetched directly. */
@@ -256,6 +258,42 @@ const POSTS = [
     title:"Your Cholesterol Is \u201CNormal.\u201D Is It Optimal?",
     url:"/blog/normal-vs-optimal-cholesterol/",
     blurb:"The gap between the range that rules out disease and the target that aims for the lowest long-term risk."
+  },
+  {
+    section:"apob", kicker:"Ranges \u0026 targets",
+    title:"What Is a Normal ApoB Level? Ranges, Targets \u0026 When to Test",
+    url:"/blog/apob-normal-range/",
+    blurb:"The numbers a standard lab flags as normal, the tighter targets longevity-focused care works from, and when it\u2019s worth asking your doctor to order the test."
+  },
+  {
+    section:"metabolic", kicker:"Metabolic health",
+    title:"Fasting Insulin and Longevity: Why \u201CNormal\u201D Isn\u2019t Always Optimal",
+    url:"/blog/fasting-insulin-longevity/",
+    blurb:"A standard panel can call your insulin normal years before a longevity-optimal range would flag it \u2014 here\u2019s the gap, and why it matters."
+  },
+  {
+    section:"metabolic", kicker:"Metabolic health",
+    title:"The Insulin Resistance Gap: When Normal Glucose Hides Cardiovascular Risk",
+    url:"/blog/insulin-resistance-gap/",
+    blurb:"Glucose can look fine while insulin resistance is already driving risk underneath it \u2014 the markers that catch it earlier."
+  },
+  {
+    section:"optimal", kicker:"Decision guide",
+    title:"Standard vs Advanced Lipid Panel: Which Do You Actually Need?",
+    url:"/blog/standard-vs-advanced-lipid-panel/",
+    blurb:"What a basic panel tells you, what ApoB and Lp(a) add on top, and how to decide which one is actually worth ordering."
+  },
+  {
+    section:"start", kicker:"The big picture",
+    title:"Cardiovascular Longevity: The Biggest Lever Your Standard Labs Miss",
+    url:"/blog/cardiovascular-longevity/",
+    blurb:"How ApoB, Lp(a), and metabolic health fit together into one long-horizon view of cardiovascular risk."
+  },
+  {
+    section:"start", kicker:"Methodology",
+    title:"How CardioIQ Stratifies Risk: SCORE2, ApoB \u0026 Lp(a) Explained",
+    url:"/blog/how-cardioiq-works/",
+    blurb:"The guideline logic behind every CardioIQ report \u2014 how SCORE2, ApoB, and Lp(a) combine into your risk category."
   }
 ];
 
