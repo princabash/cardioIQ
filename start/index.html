@@ -334,20 +334,24 @@
     dodoInitialized = true;
   }
 
-  function dodoCheckoutUrl(t){
+  function dodoCheckoutUrl(t, stashId){
     var productId = DODO_PRODUCTS[t];
     var amount = TIER_PRICES[t];
-    var redirectUrl = encodeURIComponent(REDIRECT_BASE + "?tier=" + t + "&amount=" + amount);
+    // Dodo appends its own params (payment_id, status, email) with "&" on
+    // return, so our own params must already be in the redirect_url before
+    // it's URL-encoded here. stash_id lets the return page find this
+    // customer's stashed intake data and trigger report generation.
+    var redirectUrl = encodeURIComponent(REDIRECT_BASE + "?tier=" + t + "&amount=" + amount + "&stash_id=" + encodeURIComponent(stashId));
     return CHECKOUT_HOST + "/buy/" + productId + "?redirect_url=" + redirectUrl;
   }
 
-  function openDodo(t){
+  function openDodo(t, stashId){
     initDodo();
     try {
-      DodoPaymentsCheckout.DodoPayments.Checkout.open({ checkoutUrl: dodoCheckoutUrl(t) });
+      DodoPaymentsCheckout.DodoPayments.Checkout.open({ checkoutUrl: dodoCheckoutUrl(t, stashId) });
     } catch(e) {
       // Fallback: plain redirect if the overlay fails for any reason — checkout still works.
-      window.location.href = dodoCheckoutUrl(t);
+      window.location.href = dodoCheckoutUrl(t, stashId);
     }
   }
 
@@ -422,6 +426,77 @@
 
   function hasFile(){ return slots.some(function(s){ return s.files && s.files.length > 0; }); }
 
+  // Reads a File as a base64 string (without the data: URL prefix).
+  function readFileAsBase64(file){
+    return new Promise(function(resolve, reject){
+      var reader = new FileReader();
+      reader.onload = function(){ resolve(reader.result.split(",")[1]); };
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Converts height/weight/waist to metric regardless of which unit system
+  // was selected on the form — buildUserPrompt on the backend assumes cm/kg,
+  // so sending raw imperial numbers under those keys would silently corrupt
+  // every downstream BMI/clinical calculation.
+  function toMetric(){
+    var imperial = document.getElementById("unit-imperial").checked;
+    var h = parseFloat(heightInput.value) || null;
+    var w = parseFloat(weightInput.value) || null;
+    var waist = parseFloat(waistInput.value) || null;
+    if (imperial){
+      if (h != null) h = Math.round(h * 2.54 * 10) / 10;       // in -> cm
+      if (w != null) w = Math.round(w * 0.453592 * 10) / 10;   // lb -> kg
+      if (waist != null) waist = Math.round(waist * 2.54 * 10) / 10; // in -> cm
+    }
+    return { heightCm: h, weightKg: w, waistCm: waist };
+  }
+
+  function computeBmi(heightCm, weightKg){
+    if (!heightCm || !weightKg) return null;
+    var m = heightCm / 100;
+    return Math.round((weightKg / (m * m)) * 10) / 10;
+  }
+
+  // Builds the full intake payload for stash-intake.js, using the field
+  // names buildUserPrompt() on the backend actually expects.
+  async function buildIntakePayload(){
+    var metric = toMetric();
+    var bmi = computeBmi(metric.heightCm, metric.weightKg);
+    var payload = {
+      email: document.getElementById("email").value.trim(),
+      selectedPlan: tierField.value,
+      age: document.getElementById("age").value,
+      sex: document.getElementById("sex").value,
+      smoker: document.getElementById("smoking").value,
+      heightCm: metric.heightCm,
+      weightKg: metric.weightKg,
+      waistCm: metric.waistCm,
+      bmi: bmi,
+      bp: document.getElementById("bp_systolic").value,
+      onBpMed: document.getElementById("on_bp_med").checked,
+      fasting: document.getElementById("fasting").value,
+      existingDx: document.getElementById("existing_dx").value,
+      dyslipid: document.getElementById("dyslipidemia_dx").value,
+      onLipidMed: document.getElementById("on_lipid_med").value,
+      familyHx: document.getElementById("family_history").value,
+      diabDuration: document.getElementById("diabetes_duration").value || null,
+      diabOrgan: document.getElementById("diabetes_organ_damage").value || null,
+      notes: document.getElementById("notes").value.trim()
+    };
+    // Only the first uploaded lab file is sent — multi-file lab reports
+    // (up to 5 slots are offered on this form) aren't wired into the AI
+    // pipeline yet; this is a known limitation, not an oversight.
+    var fileSlot = slots.find(function(s){ return s.files && s.files.length > 0; });
+    if (fileSlot){
+      var file = fileSlot.files[0];
+      payload.fileBase64 = await readFileAsBase64(file);
+      payload.fileMimeType = file.type || "application/octet-stream";
+    }
+    return payload;
+  }
+
   form.addEventListener("submit", function(e){
     e.preventDefault();
     errEl.style.display = "none";
@@ -456,10 +531,36 @@
     var chosen = tierField.value;
     btn.disabled = true; btn.textContent = "Saving your panel…";
 
-    // Save to Netlify (multipart, includes files), then open Dodo checkout regardless of save outcome.
-    fetch("/", { method: "POST", body: new FormData(form) })
-      .then(function(){ btn.disabled = false; btn.textContent = "Continue to secure payment →"; openDodo(chosen); })
-      .catch(function(){ btn.disabled = false; btn.textContent = "Continue to secure payment →"; openDodo(chosen); });
+    // Netlify Forms save stays as a parallel, non-blocking backup/audit trail —
+    // it does not gate checkout and isn't used for report automation.
+    fetch("/", { method: "POST", body: new FormData(form) }).catch(function(){});
+
+    // stash-intake IS on the critical path: Dodo checkout must not open
+    // without a stash_id, or the return page will have no way to find this
+    // customer's intake data and the report will never generate.
+    buildIntakePayload()
+      .then(function(payload){
+        return fetch("/.netlify/functions/stash-intake", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        btn.disabled = false; btn.textContent = "Continue to secure payment →";
+        if (!data || !data.stash_id){
+          errEl.textContent = "Could not save your panel — please try again or contact info@cardioiq.health.";
+          errEl.style.display = "block";
+          return;
+        }
+        openDodo(chosen, data.stash_id);
+      })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = "Continue to secure payment →";
+        errEl.textContent = "Could not save your panel — please check your connection and try again.";
+        errEl.style.display = "block";
+      });
   });
 
   // Manual PayPal fallback click — still save the panel first if not already sent.
