@@ -78,8 +78,8 @@
       <div class="step">
         <div class="num">3</div>
         <div>
-          <h3>Your report arrives in about 90 seconds</h3>
-          <p>Your structured report is generated right away and sent to your inbox.<span id="premium-note" style="display:none;"> Your Premium expert follow-up question is answered personally by Dr. Tea within <strong>2 business days</strong>.</span></p>
+          <h3 id="step3-title">Your report arrives in about 90 seconds</h3>
+          <p id="step3-body">Your structured report is generated right away and sent to your inbox.<span id="premium-note" style="display:none;"> Your Premium expert follow-up question is answered personally by Dr. Tea within <strong>2 business days</strong>.</span></p>
         </div>
       </div>
     </div>
@@ -104,8 +104,20 @@
     var q=new URLSearchParams(location.search);
     var tier=q.get('tier')||'unknown';
     var amount=parseFloat(q.get('amount'));
+    var method=(q.get('method')||'dodo').toLowerCase();
     var props={tier:tier, source:q.get('utm_source')||'direct'};
     if(tier==='premium'){var pn=document.getElementById('premium-note');if(pn)pn.style.display='inline';}
+
+    // PayPal purchases are fulfilled manually (not the instant Dodo pipeline) —
+    // show the accurate turnaround so we never promise "90 seconds" for a
+    // channel that actually takes up to 2 business days.
+    if(method==='paypal'){
+      var t=document.getElementById('step3-title');
+      var b=document.getElementById('step3-body');
+      if(t) t.textContent='Your report arrives within 2 business days';
+      if(b) b.innerHTML='Paid via PayPal, your report is prepared and sent by our team — you\'ll have it in your inbox within <strong>2 business days</strong>.'
+        + (tier==='premium' ? ' Your Premium expert follow-up question is answered personally by Dr. Tea within the same window.' : '');
+    }
     try{
       if(!isNaN(amount)){
         plausible('Purchase',{props:props, revenue:{currency:'USD', amount:amount}});
@@ -115,6 +127,25 @@
     }catch(e){}
     // If you also run GA4, uncomment and set your ID:
     // if(typeof gtag==='function'){ gtag('event','purchase',{currency:'USD', value:isNaN(amount)?0:amount, items:[{item_name:tier}]}); }
+
+    // Trigger report generation + email delivery for Dodo purchases only —
+    // PayPal is fulfilled manually (see the copy swap above). This is a
+    // background function: it returns an empty 202 immediately, so there is
+    // nothing meaningful to await here. Any failure past this point is
+    // reported to Tea by email directly from the function, not to this page.
+    var stashId = q.get('stash_id');
+    var paymentId = q.get('payment_id');
+    if (method !== 'paypal' && stashId && paymentId){
+      fetch('/.netlify/functions/generate-report-background', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ stash_id: stashId, payment_id: paymentId, tier: tier })
+      }).catch(function(){
+        // Even the fire-and-forget request itself failing (e.g. offline) is
+        // silent to the customer by design — the alertFailure email inside
+        // the function is the real safety net, not this page.
+      });
+    }
   })();
 </script>
 </body>
