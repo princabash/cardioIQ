@@ -290,15 +290,17 @@ async function buildReportPdf(reportText, meta) {
   return doc.save(); // Uint8Array
 }
 
-// ---- Email delivery (Google Workspace SMTP via nodemailer + App Password) ----
+// ---- Email delivery (Zoho Mail SMTP via nodemailer + App Password) ----
+// info@cardioiq.health is hosted on Zoho Mail (mail.zoho.eu), not Google
+// Workspace — EU data-center host, per Zoho's regional SMTP endpoints.
 function buildTransport() {
   return nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: 'smtp.zoho.eu',
     port: 465,
     secure: true,
     auth: {
       user: FROM_EMAIL,
-      pass: process.env.GMAIL_APP_PASSWORD
+      pass: process.env.ZOHO_APP_PASSWORD
     }
   });
 }
@@ -414,7 +416,14 @@ exports.handler = async function (event, context) {
     // NOTE: deletion is deferred until AFTER the email successfully sends —
     // deleting it here would mean any downstream failure (Claude, PDF, SMTP)
     // permanently loses the customer's intake data with no way to retry.
-    const store = getStore('cardioiq-intake-stash');
+    // Explicit siteID/token instead of relying on auto-injection — works
+    // around Netlify's known MissingBlobsEnvironmentError, which several
+    // sites hit even with otherwise-correct usage inside the handler.
+    const store = getStore({
+      name: 'cardioiq-intake-stash',
+      siteID: process.env.BLOBS_SITE_ID,
+      token: process.env.BLOBS_TOKEN
+    });
     const raw = await store.get(stash_id, { type: 'json' });
     if (!raw) {
       await alertFailure('stash lookup', 'Payment succeeded but intake data not found (already used or expired)', { payment_id, tier, stash_id });
