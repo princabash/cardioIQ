@@ -48,7 +48,13 @@ exports.handler = async function (event) {
     }
 
     const stashId = crypto.randomUUID();
-    const store = getStore('cardioiq-intake-stash');
+    // Explicit siteID/token instead of relying on auto-injection — works
+    // around Netlify's known MissingBlobsEnvironmentError.
+    const store = getStore({
+      name: 'cardioiq-intake-stash',
+      siteID: process.env.BLOBS_SITE_ID,
+      token: process.env.BLOBS_TOKEN
+    });
 
     await store.set(stashId, JSON.stringify({
       ...p,
