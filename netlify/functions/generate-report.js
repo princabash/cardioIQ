@@ -1,19 +1,39 @@
 const https = require('https');
+const path = require('path');
+const fs = require('fs');
 const { getStore } = require('@netlify/blobs');
+const { PDFDocument, rgb } = require('pdf-lib');
+const fontkit = require('@pdf-lib/fontkit');
+const nodemailer = require('nodemailer');
 
 const ALLOWED_ORIGIN = 'https://cardioiq.health';
 const TIER_PRICES = { essential: 29, standard: 49, premium: 69 }; // USD, must match live Dodo products
+const FROM_EMAIL = 'info@cardioiq.health';
+const TIER_LABELS = { essential: 'Essential', standard: 'Standard', premium: 'Premium' };
+
+// Fonts are bundled alongside this function (see netlify/functions/fonts/).
+// StandardFonts (Helvetica) cannot encode Georgian/Cyrillic script or emoji —
+// Noto Sans Georgian covers Latin + Georgian + Cyrillic in one font, so the
+// same pair (regular/bold) works for all three report languages.
+const FONT_REGULAR_PATH = path.join(__dirname, 'fonts', 'NotoSansGeorgian.ttf');
+const FONT_BOLD_PATH = path.join(__dirname, 'fonts', 'NotoSansGeorgian-Bold.ttf');
+
+// The system prompt asks Claude for 🔴🟡🟢 status markers, but no bundled
+// font reliably covers emoji glyphs — swap them for plain-text equivalents
+// before layout rather than risk a WinAnsi/glyph-coverage crash mid-render.
+function sanitizeForPdf(text) {
+  return text
+    .replace(/🔴/g, '[High]')
+    .replace(/🟡/g, '[Moderate]')
+    .replace(/🟢/g, '[Good]')
+    .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, ''); // strip any other stray emoji
+}
 
 // ---- Server-side system prompt (never sent to or from the browser) ----
-function buildSystemPrompt(reportLang, selectedPlan) {
+function buildSystemPrompt(selectedPlan) {
   return `You are CardioIQ — a Clinical Intelligence Engine calibrated by Dr. Tea Gamezardashvili MD PhD FACC, President of the Georgian Atherosclerosis Association, National Coordinator of the EAS Lipid Clinic Network.
 CRITICAL: You have enough tokens. Do NOT use tables for Longevity Intelligence, Nutrition and Exercise sections — use short paragraphs instead to save space. Complete ALL sections including Cardiologist Letter. Never truncate.
-LANGUAGE RULE — ABSOLUTE: Your ENTIRE response must be written in ${reportLang}.
-- If ${reportLang} is Georgian: use only Georgian script (ქართული). Zero English except medical abbreviations (LDL, ApoB, etc).
-- If ${reportLang} is Russian: use only Cyrillic. Zero English except medical abbreviations.
-- If ${reportLang} is English: use only English.
-This is non-negotiable. Every section title, every sentence, every word must be in ${reportLang}.
-GEORGIAN OUTPUT RULE: Write Georgian text at B1 level — simple, clear, medical but accessible. If unsure of a Georgian word, use the English medical term instead of guessing. Never invent words.
+LANGUAGE: Write the entire report in English. Every section title, every sentence, every word must be in English.
 
 LONGEVITY OPTIMAL intervals (use these, not standard lab ranges):
 - LDL-C: <55 mg/dL (Very High Risk), <70 mg/dL (High Risk)
@@ -41,28 +61,6 @@ RISK FRAMEWORK RULES (apply before interpreting any biomarker):
   triglycerides, glucose, and any calculated indices that depend on them (TyG, AIP), noting the
   draw wasn't fasting rather than presenting those numbers as reliable.
 
-LANGUAGE RULE:
-- If ${reportLang} is English or Russian: write fully in that language.
-- If ${reportLang} is Georgian: write the ENTIRE report in ENGLISH.
-  Georgian readers will receive the English version — translation quality
-  is not sufficient. Use English only, with section titles in both:
-  ### Executive Summary — მოკლე შეჯამება
-  ### Biomarker Intelligence — ბიომარკერები
-  ### Cardiovascular Risk — კარდიოვასკულური რისკი
-  ### Longevity Intelligence — სიცოცხლის ხანგრძლივობა
-  ### Nutrition — კვება
-  ### Exercise — ვარჯიში
-  ### Lifestyle Scores — ცხოვრების სტილი
-  ### Three Priorities — სამი პრიორიტეტი
-  ### Doctor Questions — კითხვები ექიმისთვის
-  ### Cardiologist Letter — წერილი
-- NEVER write transliterations: დრაივერი, სქორი, პროფაილი, ფაქტორი (English loan words)
-- WRITE INSTEAD: რისკის შემცველი, შეფასება, პროფილი, მაჩვენებელი
-- Albuminuria = ალბუმინურია
-- Risk driver = რისკის მთავარი ფაქტორი
-- Risk score = რისკის შეფასება
-- Tables in Georgian: avoid markdown tables — use numbered lists instead.
-- Biomarker names stay in Latin (LDL-C, ApoB, HbA1c) but ALL explanations in Georgian
 - Keep each section maximum 120 words to avoid truncation
 - Total report must fit within 5000 tokens
 You MUST complete ALL sections. Do not truncate. Do not skip any section.
@@ -113,7 +111,12 @@ function buildUserPrompt(p) {
     (p.diabOrgan ? '\nDiabetes-related organ damage (nephropathy/retinopathy/neuropathy): ' + p.diabOrgan : '') +
     '\nHistory: ' + (p.checkedCond || 'None') + '\nSurgeries: ' + (p.surgeries || 'None') + '\nMedications: ' + (p.meds || 'None') + '\nFamily history: ' + (p.familyHx || 'None') +
     '\nPlan: ' + p.selectedPlan + (p.selectedPlan === 'premium' ? ' Include Dutch Lipid Clinic FH score.' : '') +
-    (p.hasDocument ? '\n\n[A lab report document is attached — extract biomarker values from it directly.]' : '\n\n[No lab document was attached — work only from the values in the notes above, if any were given, and state clearly that biomarker interpretation is limited without an uploaded panel.]');
+    (p.notes ? '\n\nPatient-entered lab values / notes (manually typed, no document uploaded):\n' + p.notes : '') +
+    (p.hasDocument
+      ? '\n\n[A lab report document is attached — extract biomarker values from it directly.]'
+      : (p.notes
+          ? '\n\n[No lab document was attached — use the patient-entered notes above as the source for biomarker values.]'
+          : '\n\n[No lab document or notes were provided — state clearly that biomarker interpretation is limited without lab values.]'));
 }
 
 function callAnthropic(system, content, maxTokens) {
@@ -173,6 +176,180 @@ function verifyDodoPayment(paymentId) {
 
 const SUCCESS_STATUSES = ['succeeded', 'completed', 'successful'];
 
+// ---- PDF generation (pdf-lib — no headless-browser dependency, safe for ----
+// ---- serverless functions) --------------------------------------------
+// Parses the ### section-header markdown the system prompt asks Claude to
+// produce and lays it out as a simple, clean multi-page A4 report. Inline
+// markdown emphasis (**bold**) is stripped rather than rendered, to keep the
+// layout logic simple and robust — a deliberate v1 simplification.
+async function buildReportPdf(reportText, meta) {
+  const PAGE_W = 595.28, PAGE_H = 841.89; // A4 in points
+  const MARGIN = 54;
+  const CONTENT_W = PAGE_W - MARGIN * 2;
+
+  const doc = await PDFDocument.create();
+  doc.registerFontkit(fontkit);
+  const font = await doc.embedFont(fs.readFileSync(FONT_REGULAR_PATH));
+  const bold = await doc.embedFont(fs.readFileSync(FONT_BOLD_PATH));
+  reportText = sanitizeForPdf(reportText);
+
+  const navy = rgb(0x0B / 255, 0x1F / 255, 0x3A / 255);
+  const teal = rgb(0x1A / 255, 0x6B / 255, 0x72 / 255);
+  const body = rgb(0.14, 0.16, 0.19);
+
+  let page = doc.addPage([PAGE_W, PAGE_H]);
+  let y = PAGE_H - MARGIN;
+
+  function newPageIfNeeded(nextLineHeight) {
+    if (y - nextLineHeight < MARGIN) {
+      page = doc.addPage([PAGE_W, PAGE_H]);
+      y = PAGE_H - MARGIN;
+    }
+  }
+
+  function wrapLine(text, useFont, size) {
+    const words = text.split(/\s+/).filter(Boolean);
+    const lines = [];
+    let current = '';
+    for (const word of words) {
+      const trial = current ? current + ' ' + word : word;
+      if (useFont.widthOfTextAtSize(trial, size) > CONTENT_W && current) {
+        lines.push(current);
+        current = word;
+      } else {
+        current = trial;
+      }
+    }
+    if (current) lines.push(current);
+    return lines;
+  }
+
+  function drawParagraph(text, { size = 10.5, useFont = font, color = body, lineGap = 5, spaceBefore = 0, spaceAfter = 10 } = {}) {
+    if (!text.trim()) return;
+    y -= spaceBefore;
+    const lineHeight = size + lineGap;
+    const lines = wrapLine(text.trim(), useFont, size);
+    for (const line of lines) {
+      newPageIfNeeded(lineHeight);
+      page.drawText(line, { x: MARGIN, y, size, font: useFont, color });
+      y -= lineHeight;
+    }
+    y -= spaceAfter;
+  }
+
+  // ---- Header block ----
+  page.drawText('CardioIQ', { x: MARGIN, y, size: 20, font: bold, color: navy });
+  y -= 26;
+  page.drawText('Clinical Intelligence Report — ' + (TIER_LABELS[meta.tier] || meta.tier), {
+    x: MARGIN, y, size: 11, font, color: teal
+  });
+  y -= 18;
+  const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  page.drawText('Prepared ' + dateStr + (meta.age ? ' · Age ' + meta.age : '') + (meta.sex ? ' · ' + meta.sex : ''), {
+    x: MARGIN, y, size: 9.5, font, color: rgb(0.4, 0.45, 0.5)
+  });
+  y -= 22;
+  page.drawLine({ start: { x: MARGIN, y }, end: { x: PAGE_W - MARGIN, y }, thickness: 1, color: rgb(0.85, 0.85, 0.82) });
+  y -= 22;
+
+  // ---- Body: parse ### headers vs paragraphs, strip markdown emphasis ----
+  const rawLines = reportText.replace(/\r\n/g, '\n').split('\n');
+  let paragraphBuffer = '';
+  function flushParagraph() {
+    if (paragraphBuffer.trim()) {
+      const clean = paragraphBuffer.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1');
+      drawParagraph(clean, { size: 10.5, useFont: font, color: body, spaceAfter: 10 });
+    }
+    paragraphBuffer = '';
+  }
+
+  for (const rawLine of rawLines) {
+    const line = rawLine.trim();
+    if (line.startsWith('### ')) {
+      flushParagraph();
+      newPageIfNeeded(26);
+      y -= 6;
+      const headerText = line.replace(/^###\s*/, '').replace(/\*\*/g, '');
+      drawParagraph(headerText, { size: 13, useFont: bold, color: navy, spaceBefore: 4, spaceAfter: 8 });
+    } else if (line === '') {
+      flushParagraph();
+    } else {
+      paragraphBuffer += (paragraphBuffer ? ' ' : '') + line;
+    }
+  }
+  flushParagraph();
+
+  // ---- Footer disclaimer on every page ----
+  const pages = doc.getPages();
+  pages.forEach((p, i) => {
+    p.drawText('Educational interpretation, not a medical diagnosis. Consult your physician. · Page ' + (i + 1) + '/' + pages.length, {
+      x: MARGIN, y: 30, size: 8, font, color: rgb(0.55, 0.58, 0.6)
+    });
+  });
+
+  return doc.save(); // Uint8Array
+}
+
+// ---- Email delivery (Google Workspace SMTP via nodemailer + App Password) ----
+function buildTransport() {
+  return nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: FROM_EMAIL,
+      pass: process.env.GMAIL_APP_PASSWORD
+    }
+  });
+}
+
+async function sendReportEmail(toEmail, pdfBytes, tier) {
+  const transporter = buildTransport();
+  const tierLabel = TIER_LABELS[tier] || tier;
+  await transporter.sendMail({
+    from: 'CardioIQ <' + FROM_EMAIL + '>',
+    to: toEmail,
+    subject: 'Your CardioIQ ' + tierLabel + ' Report is ready',
+    text:
+      'Your CardioIQ report is attached as a PDF.\n\n' +
+      'This is an educational interpretation of your lab values, not a medical diagnosis — ' +
+      'built to inform the conversation with your physician, never to replace it.\n\n' +
+      'Questions? Reply to this email or reach us at info@cardioiq.health.\n\n' +
+      '— Dr. Tea Gamezardashvili, MD, PhD, MHA, FACC',
+    attachments: [
+      { filename: 'CardioIQ-' + tierLabel + '-Report.pdf', content: Buffer.from(pdfBytes), contentType: 'application/pdf' }
+    ]
+  });
+}
+
+// Background functions return an empty 202 to the browser immediately — the
+// caller never sees whatever this handler returns. Without this, a failed
+// generation/PDF/email step would fail silently with only a log entry to
+// notice it (exactly the failure mode that started this whole investigation).
+// So on any failure path, alert Tea directly instead of just returning JSON.
+async function alertFailure(stage, detail, context) {
+  try {
+    const transporter = buildTransport();
+    await transporter.sendMail({
+      from: 'CardioIQ Alerts <' + FROM_EMAIL + '>',
+      to: FROM_EMAIL,
+      subject: '⚠ CardioIQ report delivery failed — ' + stage,
+      text:
+        'Stage: ' + stage + '\n' +
+        'Detail: ' + detail + '\n' +
+        'Payment ID: ' + (context.payment_id || 'unknown') + '\n' +
+        'Tier: ' + (context.tier || 'unknown') + '\n' +
+        'Customer email: ' + (context.email || 'unknown') + '\n' +
+        'Stash ID: ' + (context.stash_id || 'unknown') + ' (left intact for retry — not yet deleted)\n' +
+        'Time: ' + new Date().toISOString()
+    });
+  } catch (alertErr) {
+    // If even the alert email fails (e.g. SMTP itself is down), there's
+    // nothing left to do but let the function logs be the last resort.
+    console.error('Failed to send failure alert:', alertErr.message);
+  }
+}
+
 exports.handler = async function (event, context) {
   const headers = {
     'Access-Control-Allow-Origin': ALLOWED_ORIGIN,
@@ -206,34 +383,50 @@ exports.handler = async function (event, context) {
 
     // 1. Verify the payment actually succeeded — server-side, not from the URL.
     if (!process.env.DODO_PAYMENTS_API_KEY) {
+      await alertFailure('config', 'DODO_PAYMENTS_API_KEY not set', { payment_id, tier, stash_id });
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'DODO_PAYMENTS_API_KEY not set' }) };
     }
     const verification = await verifyDodoPayment(payment_id);
     if (verification.status !== 200 || !verification.body) {
+      await alertFailure('payment verification', 'Could not verify payment (status ' + verification.status + ')', { payment_id, tier, stash_id });
       return { statusCode: 402, headers, body: JSON.stringify({ error: 'Could not verify payment' }) };
     }
     const paidStatus = String(verification.body.status || '').toLowerCase();
     if (!SUCCESS_STATUSES.includes(paidStatus)) {
+      // Not necessarily an error — customer may have abandoned checkout.
+      // No alert needed here; this is an expected non-payment path.
       return { statusCode: 402, headers, body: JSON.stringify({ error: 'Payment not confirmed (status: ' + paidStatus + ')' }) };
     }
     // 2. Confirm the paid amount matches the tier requested — prevents paying
     // for Essential and requesting a Premium report.
+    // NOTE: confirmed with Dodo — verification.body.amount is always in USD
+    // cents regardless of what a dashboard UI may display in local currency
+    // (e.g. GEL) for a given card. There is no separate `currency` field to
+    // cross-check, so this comparison against the static USD TIER_PRICES is
+    // correct as-is.
     const paidAmount = verification.body.amount != null ? verification.body.amount / 100 : null; // Dodo amounts are in cents
     if (paidAmount != null && Math.round(paidAmount) < TIER_PRICES[tier]) {
+      await alertFailure('amount mismatch', 'Paid ' + paidAmount + ' for tier ' + tier + ' (expected >= ' + TIER_PRICES[tier] + ')', { payment_id, tier, stash_id });
       return { statusCode: 402, headers, body: JSON.stringify({ error: 'Paid amount does not match requested tier' }) };
     }
 
-    // 3. Payment confirmed — retrieve the stashed intake data (single use).
+    // 3. Payment confirmed — retrieve the stashed intake data.
+    // NOTE: deletion is deferred until AFTER the email successfully sends —
+    // deleting it here would mean any downstream failure (Claude, PDF, SMTP)
+    // permanently loses the customer's intake data with no way to retry.
     const store = getStore('cardioiq-intake-stash');
     const raw = await store.get(stash_id, { type: 'json' });
     if (!raw) {
+      await alertFailure('stash lookup', 'Payment succeeded but intake data not found (already used or expired)', { payment_id, tier, stash_id });
       return { statusCode: 404, headers, body: JSON.stringify({ error: 'Intake data not found or already used' }) };
     }
-    await store.delete(stash_id);
 
     const p = raw;
-    const reportLang = p.lang === 'ka' ? 'Georgian (ქართული)' : p.lang === 'ru' ? 'Russian (русский)' : 'English';
-    const system = buildSystemPrompt(reportLang, p.selectedPlan);
+    if (!p.email) {
+      await alertFailure('missing email', 'Payment succeeded but stashed intake has no email address', { payment_id, tier, stash_id });
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'No email address in stashed intake data' }) };
+    }
+    const system = buildSystemPrompt(p.selectedPlan);
     const userText = buildUserPrompt({ ...p, hasDocument: !!p.fileBase64 });
 
     const content = [{ type: 'text', text: userText }];
@@ -247,9 +440,47 @@ exports.handler = async function (event, context) {
 
     const maxTokens = p.selectedPlan === 'premium' ? 8000 : 5000;
     const result = await callAnthropic(system, content, maxTokens);
-    return { statusCode: result.status, headers, body: result.body };
+
+    if (result.status !== 200) {
+      // Claude call failed — stash stays intact, safe to retry this same request later.
+      await alertFailure('report generation', 'Claude API returned status ' + result.status + ': ' + result.body, { payment_id, tier, stash_id, email: p.email });
+      return { statusCode: 502, headers, body: JSON.stringify({ error: 'Report generation failed', detail: result.body }) };
+    }
+
+    let reportText;
+    try {
+      const parsed = JSON.parse(result.body);
+      reportText = (parsed.content || []).map(block => block.text || '').join('\n');
+      if (!reportText.trim()) throw new Error('Empty report text');
+    } catch (e) {
+      await alertFailure('parsing report', e.message, { payment_id, tier, stash_id, email: p.email });
+      return { statusCode: 502, headers, body: JSON.stringify({ error: 'Could not parse report content', detail: e.message }) };
+    }
+
+    let pdfBytes;
+    try {
+      pdfBytes = await buildReportPdf(reportText, { tier, age: p.age, sex: p.sex });
+    } catch (e) {
+      await alertFailure('PDF generation', e.message, { payment_id, tier, stash_id, email: p.email });
+      return { statusCode: 500, headers, body: JSON.stringify({ error: 'PDF generation failed', detail: e.message }) };
+    }
+
+    try {
+      await sendReportEmail(p.email, pdfBytes, tier);
+    } catch (e) {
+      // Email failed — stash stays intact so this can be retried without
+      // re-charging the customer or losing their intake data.
+      await alertFailure('email delivery', e.message, { payment_id, tier, stash_id, email: p.email });
+      return { statusCode: 502, headers, body: JSON.stringify({ error: 'Email delivery failed', detail: e.message }) };
+    }
+
+    // Only now that the email is confirmed sent do we consume the stash.
+    await store.delete(stash_id);
+
+    return { statusCode: 200, headers, body: JSON.stringify({ success: true, sent_to: p.email }) };
 
   } catch (err) {
+    await alertFailure('unexpected error', err.message, { payment_id: (typeof payment_id !== 'undefined' ? payment_id : null), tier: (typeof tier !== 'undefined' ? tier : null) });
     return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
   }
 };
