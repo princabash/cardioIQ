@@ -1,22 +1,28 @@
 [build]
   publish = "."
   functions = "netlify/functions"
- 
+
 [functions]
   node_bundler = "esbuild"
- 
+  # Netlify's function bundler only auto-includes files it can trace via
+  # require()/import — it can't see fs.readFileSync("fonts/...") at build
+  # time, so the .ttf files must be listed explicitly or they're silently
+  # dropped from the deployed function bundle (ENOENT at runtime).
+  included_files = ["netlify/functions/fonts/**"]
+
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Cache-Control = "no-cache, no-store, must-revalidate"
- 
+
 [[headers]]
   for = "/index.html"
   [headers.values]
     Cache-Control = "no-cache, no-store, must-revalidate"
- [[headers]]
+
+[[headers]]
   for = "/*.pdf"
   [headers.values]
     Content-Type = "application/pdf"
