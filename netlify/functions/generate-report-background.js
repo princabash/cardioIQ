@@ -1,7 +1,6 @@
 const https = require('https');
 const { getStore } = require('@netlify/blobs');
-const { PDFDocument, rgb } = require('pdf-lib');
-const fontkit = require('@pdf-lib/fontkit');
+const { PDFDocument, StandardFonts, rgb } = require('pdf-lib');
 const nodemailer = require('nodemailer');
 
 const ALLOWED_ORIGIN = 'https://cardioiq.health';
@@ -9,11 +8,13 @@ const TIER_PRICES = { essential: 29, standard: 49, premium: 69 }; // USD, must m
 const FROM_EMAIL = 'info@cardioiq.health';
 const TIER_LABELS = { essential: 'Essential', standard: 'Standard', premium: 'Premium' };
 
-// Fonts are bundled alongside this function (see netlify/functions/fonts/).
-// StandardFonts (Helvetica) cannot encode Georgian/Cyrillic script or emoji —
-// Noto Sans Georgian covers Latin + Georgian + Cyrillic in one font, so the
-// same pair (regular/bold) works for all three report languages.
-const { NOTO_SANS_GEORGIAN_REGULAR_B64, NOTO_SANS_GEORGIAN_BOLD_B64 } = require('./fonts-data.js');
+// Report content is English-only (see buildSystemPrompt), so pdf-lib's
+// built-in StandardFonts (WinAnsi encoding) fully covers it — no custom
+// font embedding needed. A prior version embedded a custom Georgian/
+// Cyrillic font via fontkit, but that produced corrupted glyph mapping in
+// production (confirmed via pdftotext/pdffonts on a real generated PDF)
+// despite working correctly in local testing — an environment-specific
+// pdf-lib/fontkit issue not worth chasing further given English-only scope.
 
 // The system prompt asks Claude for 🔴🟡🟢 status markers, but no bundled
 // font reliably covers emoji glyphs — swap them for plain-text equivalents
@@ -185,9 +186,8 @@ async function buildReportPdf(reportText, meta) {
   const CONTENT_W = PAGE_W - MARGIN * 2;
 
   const doc = await PDFDocument.create();
-  doc.registerFontkit(fontkit);
-  const font = await doc.embedFont(Buffer.from(NOTO_SANS_GEORGIAN_REGULAR_B64, 'base64'));
-  const bold = await doc.embedFont(Buffer.from(NOTO_SANS_GEORGIAN_BOLD_B64, 'base64'));
+  const font = await doc.embedFont(StandardFonts.Helvetica);
+  const bold = await doc.embedFont(StandardFonts.HelveticaBold);
   reportText = sanitizeForPdf(reportText);
 
   const navy = rgb(0x0B / 255, 0x1F / 255, 0x3A / 255);
