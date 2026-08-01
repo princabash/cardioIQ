@@ -242,7 +242,22 @@ async function buildReportPdf(reportText, meta) {
 
   const navy = rgb(0x0B / 255, 0x1F / 255, 0x3A / 255);
   const teal = rgb(0x1A / 255, 0x6B / 255, 0x72 / 255);
+  const gold = rgb(0xC9 / 255, 0xA2 / 255, 0x27 / 255);
+  const red = rgb(0.72, 0.16, 0.16);
+  const amber = rgb(0.72, 0.5, 0.05);
+  const green = rgb(0.12, 0.52, 0.32);
   const body = rgb(0.14, 0.16, 0.19);
+
+  // Classifies a status word/phrase into a badge color — used for both
+  // Biomarker Intelligence lines ("... — CRITICAL") and anywhere else the
+  // model emits an ALL-CAPS status word after an em dash.
+  function classifyStatus(word) {
+    const w = word.toUpperCase();
+    if (/CRITICAL|HIGH|UNCONTROLLED|OBESE|POOR|VERY HIGH/.test(w)) return red;
+    if (/BORDERLINE|ELEVATED|MODERATE|MISSING|UNCLEAR|NOTE/.test(w)) return amber;
+    if (/OPTIMAL|GOOD|NORMAL|CONTROLLED|EXCELLENT/.test(w)) return green;
+    return teal;
+  }
 
   let page = doc.addPage([PAGE_W, PAGE_H]);
   let y = PAGE_H - MARGIN;
@@ -284,11 +299,11 @@ async function buildReportPdf(reportText, meta) {
     y -= spaceAfter;
   }
 
-  // Renders a single bullet/numbered-list item with a hanging indent: the
-  // marker ("•" or "1.") sits at the left margin, wrapped continuation
-  // lines align under the text start rather than under the marker.
-  function drawBulletItem(marker, text, { size = 10.5, useFont = font, color = body, lineGap = 5, spaceAfter = 6 } = {}) {
-    const indent = 18;
+  // Renders a single bullet/numbered-list item with a hanging indent and a
+  // colored badge marker: a filled gold circle with the number for numbered
+  // items, a small teal dot for dash bullets.
+  function drawBulletItem(marker, text, { size = 10.5, useFont = font, color = body, lineGap = 5, spaceAfter = 8 } = {}) {
+    const indent = 22;
     const contentWidth = CONTENT_W - indent;
     const lineHeight = size + lineGap;
     const words = text.trim().split(/\s+/).filter(Boolean);
@@ -305,10 +320,20 @@ async function buildReportPdf(reportText, meta) {
     }
     if (current) lines.push(current);
 
+    const isNumbered = /^\d+\.$/.test(marker);
+
     lines.forEach((line, i) => {
       newPageIfNeeded(lineHeight);
       if (i === 0) {
-        page.drawText(marker, { x: MARGIN, y, size, font: useFont, color: teal });
+        const cy = y + size * 0.32; // vertically center badge on the text baseline
+        if (isNumbered) {
+          const num = marker.replace('.', '');
+          page.drawCircle({ x: MARGIN + 6, y: cy, size: 7.5, color: gold });
+          const numWidth = bold.widthOfTextAtSize(num, 8);
+          page.drawText(num, { x: MARGIN + 6 - numWidth / 2, y: cy - 2.8, size: 8, font: bold, color: navy });
+        } else {
+          page.drawCircle({ x: MARGIN + 5, y: cy, size: 3, color: teal });
+        }
       }
       page.drawText(line, { x: MARGIN + indent, y, size, font: useFont, color });
       y -= lineHeight;
@@ -316,20 +341,63 @@ async function buildReportPdf(reportText, meta) {
     y -= spaceAfter;
   }
 
-  // ---- Header block ----
-  page.drawText('CardioIQ', { x: MARGIN, y, size: 20, font: bold, color: navy });
-  y -= 26;
-  page.drawText('Clinical Intelligence Report — ' + (TIER_LABELS[meta.tier] || meta.tier), {
-    x: MARGIN, y, size: 11, font, color: teal
-  });
-  y -= 18;
+  // Renders a structured "Label: value ... — STATUS" line (biomarkers,
+  // lifestyle scores) with the trailing ALL-CAPS status word drawn as a
+  // colored pill badge instead of plain text.
+  function drawDataLine(text, { size = 10.5 } = {}) {
+    const statusMatch = text.match(/—\s*([A-Z][A-Z /]{2,})\s*$/);
+    if (!statusMatch) { drawParagraph(text, { size }); return; }
+
+    const statusWord = statusMatch[1].trim();
+    const prefix = text.slice(0, statusMatch.index).trim();
+    const color = classifyStatus(statusWord);
+    const lineHeight = size + 5;
+    const badgePadding = 6, badgeH = 14;
+    const badgeTextWidth = bold.widthOfTextAtSize(statusWord, 8.5);
+    const badgeW = badgeTextWidth + badgePadding * 2;
+
+    // Wrap the prefix leaving room for the badge on the final line.
+    const lines = wrapLine(prefix, font, size);
+    for (let i = 0; i < lines.length - 1; i++) {
+      newPageIfNeeded(lineHeight);
+      page.drawText(lines[i], { x: MARGIN, y, size, font, color: body });
+      y -= lineHeight;
+    }
+    const lastLine = lines[lines.length - 1] || '';
+    newPageIfNeeded(lineHeight + 4);
+    page.drawText(lastLine, { x: MARGIN, y, size, font, color: body });
+    const lastLineWidth = font.widthOfTextAtSize(lastLine, size);
+    let badgeX = MARGIN + lastLineWidth + 8;
+    if (badgeX + badgeW > PAGE_W - MARGIN) {
+      y -= lineHeight;
+      newPageIfNeeded(lineHeight);
+      badgeX = MARGIN;
+    }
+    page.drawRectangle({ x: badgeX, y: y - 3, width: badgeW, height: badgeH, color, opacity: 0.14 });
+    page.drawText(statusWord, { x: badgeX + badgePadding, y: y - 0.5, size: 8.5, font: bold, color });
+    y -= lineHeight + 6;
+  }
+
+  // ---- Header block: colored navy band across the top of page 1 ----
+  const bandHeight = 92;
+  page.drawRectangle({ x: 0, y: PAGE_H - bandHeight, width: PAGE_W, height: bandHeight, color: navy });
+  page.drawText('CardioIQ', { x: MARGIN, y: PAGE_H - 40, size: 22, font: bold, color: gold });
+  page.drawText('Clinical Intelligence Report', { x: MARGIN, y: PAGE_H - 62, size: 12, font, color: rgb(1, 1, 1) });
+
+  // Tier badge chip, top-right of the band
+  const tierLabel = (TIER_LABELS[meta.tier] || meta.tier || '').toUpperCase();
+  const tierTextW = bold.widthOfTextAtSize(tierLabel, 9);
+  const chipW = tierTextW + 20, chipH = 20;
+  const chipX = PAGE_W - MARGIN - chipW, chipY = PAGE_H - 46;
+  page.drawRectangle({ x: chipX, y: chipY, width: chipW, height: chipH, color: gold });
+  page.drawText(tierLabel, { x: chipX + 10, y: chipY + 6, size: 9, font: bold, color: navy });
+
   const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   page.drawText('Prepared ' + dateStr + (meta.age ? ' · Age ' + meta.age : '') + (meta.sex ? ' · ' + meta.sex : ''), {
-    x: MARGIN, y, size: 9.5, font, color: rgb(0.4, 0.45, 0.5)
+    x: MARGIN, y: PAGE_H - bandHeight + 14, size: 9, font, color: rgb(0.82, 0.85, 0.9)
   });
-  y -= 22;
-  page.drawLine({ start: { x: MARGIN, y }, end: { x: PAGE_W - MARGIN, y }, thickness: 1, color: rgb(0.85, 0.85, 0.82) });
-  y -= 22;
+
+  y = PAGE_H - bandHeight - 26;
 
   // ---- Body: parse ### headers vs paragraphs, strip markdown emphasis ----
   const rawLines = reportText.replace(/\r\n/g, '\n').split('\n');
@@ -346,17 +414,23 @@ async function buildReportPdf(reportText, meta) {
     const line = rawLine.trim();
     const bulletMatch = line.match(/^[-•]\s+(.*)/);
     const numberedMatch = line.match(/^(\d+)\.\s+(.*)/);
+    const dataLineMatch = /—\s*[A-Z][A-Z /]{2,}\s*$/.test(line);
     if (line.startsWith('### ') || line.startsWith('# ')) {
       flushParagraph();
       newPageIfNeeded(26);
       y -= 6;
       const headerText = line.replace(/^#{1,3}\s*/, '').replace(/\*\*/g, '');
+      page.drawRectangle({ x: MARGIN - 10, y: y - 2, width: 3, height: 16, color: gold });
       drawParagraph(headerText, { size: 13, useFont: bold, color: navy, spaceBefore: 4, spaceAfter: 8 });
     } else if (/^-{3,}$/.test(line) || line === '') {
       // Standalone "---" horizontal-rule lines are dropped rather than
       // rendered as literal text — a blank-line paragraph break is enough
       // visual separation between sections.
       flushParagraph();
+    } else if (dataLineMatch && !bulletMatch && !numberedMatch) {
+      flushParagraph();
+      const clean = line.replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1');
+      drawDataLine(clean);
     } else if (bulletMatch) {
       flushParagraph();
       const clean = bulletMatch[1].replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/\|/g, ' ');
