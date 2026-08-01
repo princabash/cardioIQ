@@ -329,7 +329,29 @@ async function sendReportEmail(toEmail, pdfBytes, tier) {
 // generation/PDF/email step would fail silently with only a log entry to
 // notice it (exactly the failure mode that started this whole investigation).
 // So on any failure path, alert Tea directly instead of just returning JSON.
+// Debug logging goes to Netlify Blobs — NOT email — because email delivery
+// itself is one of the things that can be broken (Zoho SMTP misconfig, etc).
+// If email were the only channel, a broken SMTP config would silently lose
+// its own failure reports, which is exactly the blind spot we hit once
+// already in this project. Blobs is confirmed working independently.
+async function logDebug(stage, detail, context) {
+  try {
+    const store = getStore({
+      name: 'cardioiq-debug-log',
+      siteID: process.env.BLOBS_SITE_ID,
+      token: process.env.BLOBS_TOKEN
+    });
+    const key = new Date().toISOString() + '_' + (context.payment_id || 'unknown');
+    await store.set(key, JSON.stringify({ stage, detail, context, time: new Date().toISOString() }));
+  } catch (e) {
+    // If even Blobs logging fails, there's genuinely nothing left to fall
+    // back on inside this function — console.error is the last resort.
+    console.error('logDebug itself failed:', e.message);
+  }
+}
+
 async function alertFailure(stage, detail, context) {
+  await logDebug(stage, detail, context);
   try {
     const transporter = buildTransport();
     await transporter.sendMail({
@@ -384,6 +406,7 @@ exports.handler = async function (event, context) {
     }
 
     // 1. Verify the payment actually succeeded — server-side, not from the URL.
+    await logDebug('started', 'Handler invoked', { payment_id, tier, stash_id });
     if (!process.env.DODO_PAYMENTS_API_KEY) {
       await alertFailure('config', 'DODO_PAYMENTS_API_KEY not set', { payment_id, tier, stash_id });
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'DODO_PAYMENTS_API_KEY not set' }) };
@@ -431,6 +454,7 @@ exports.handler = async function (event, context) {
     }
 
     const p = raw;
+    await logDebug('checkpoint', 'Stash retrieved, email=' + (p.email || 'MISSING'), { payment_id, tier, stash_id });
     if (!p.email) {
       await alertFailure('missing email', 'Payment succeeded but stashed intake has no email address', { payment_id, tier, stash_id });
       return { statusCode: 400, headers, body: JSON.stringify({ error: 'No email address in stashed intake data' }) };
@@ -448,6 +472,7 @@ exports.handler = async function (event, context) {
     }
 
     const maxTokens = p.selectedPlan === 'premium' ? 8000 : 5000;
+    await logDebug('checkpoint', 'Payment verified, calling Claude', { payment_id, tier, stash_id, email: p.email });
     const result = await callAnthropic(system, content, maxTokens);
 
     if (result.status !== 200) {
@@ -465,6 +490,7 @@ exports.handler = async function (event, context) {
       await alertFailure('parsing report', e.message, { payment_id, tier, stash_id, email: p.email });
       return { statusCode: 502, headers, body: JSON.stringify({ error: 'Could not parse report content', detail: e.message }) };
     }
+    await logDebug('checkpoint', 'Report text received (' + reportText.length + ' chars), building PDF', { payment_id, tier, stash_id, email: p.email });
 
     let pdfBytes;
     try {
@@ -473,6 +499,7 @@ exports.handler = async function (event, context) {
       await alertFailure('PDF generation', e.message, { payment_id, tier, stash_id, email: p.email });
       return { statusCode: 500, headers, body: JSON.stringify({ error: 'PDF generation failed', detail: e.message }) };
     }
+    await logDebug('checkpoint', 'PDF built (' + pdfBytes.length + ' bytes), sending email', { payment_id, tier, stash_id, email: p.email });
 
     try {
       await sendReportEmail(p.email, pdfBytes, tier);
@@ -482,6 +509,7 @@ exports.handler = async function (event, context) {
       await alertFailure('email delivery', e.message, { payment_id, tier, stash_id, email: p.email });
       return { statusCode: 502, headers, body: JSON.stringify({ error: 'Email delivery failed', detail: e.message }) };
     }
+    await logDebug('success', 'Email sent successfully', { payment_id, tier, stash_id, email: p.email });
 
     // Only now that the email is confirmed sent do we consume the stash.
     await store.delete(stash_id);
