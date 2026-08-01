@@ -1,6 +1,4 @@
 const https = require('https');
-const path = require('path');
-const fs = require('fs');
 const { getStore } = require('@netlify/blobs');
 const { PDFDocument, rgb } = require('pdf-lib');
 const fontkit = require('@pdf-lib/fontkit');
@@ -15,8 +13,7 @@ const TIER_LABELS = { essential: 'Essential', standard: 'Standard', premium: 'Pr
 // StandardFonts (Helvetica) cannot encode Georgian/Cyrillic script or emoji —
 // Noto Sans Georgian covers Latin + Georgian + Cyrillic in one font, so the
 // same pair (regular/bold) works for all three report languages.
-const FONT_REGULAR_PATH = path.join(__dirname, 'fonts', 'NotoSansGeorgian.ttf');
-const FONT_BOLD_PATH = path.join(__dirname, 'fonts', 'NotoSansGeorgian-Bold.ttf');
+const { NOTO_SANS_GEORGIAN_REGULAR_B64, NOTO_SANS_GEORGIAN_BOLD_B64 } = require('./fonts-data.js');
 
 // The system prompt asks Claude for 🔴🟡🟢 status markers, but no bundled
 // font reliably covers emoji glyphs — swap them for plain-text equivalents
@@ -189,8 +186,8 @@ async function buildReportPdf(reportText, meta) {
 
   const doc = await PDFDocument.create();
   doc.registerFontkit(fontkit);
-  const font = await doc.embedFont(fs.readFileSync(FONT_REGULAR_PATH));
-  const bold = await doc.embedFont(fs.readFileSync(FONT_BOLD_PATH));
+  const font = await doc.embedFont(Buffer.from(NOTO_SANS_GEORGIAN_REGULAR_B64, 'base64'));
+  const bold = await doc.embedFont(Buffer.from(NOTO_SANS_GEORGIAN_BOLD_B64, 'base64'));
   reportText = sanitizeForPdf(reportText);
 
   const navy = rgb(0x0B / 255, 0x1F / 255, 0x3A / 255);
