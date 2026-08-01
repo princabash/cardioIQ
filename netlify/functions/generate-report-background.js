@@ -26,6 +26,10 @@ function sanitizeForPdf(text, font) {
     .replace(/🔴/g, '[High]')
     .replace(/🟡/g, '[Moderate]')
     .replace(/🟢/g, '[Good]')
+    .replace(/⚠️|⚠/g, '[Note]')
+    .replace(/✅/g, '[OK]')
+    .replace(/❌/g, '[X]')
+    .replace(/📊|📈|📉/g, '')
     .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '') // strip any other stray emoji
     .replace(/→/g, '->')
     .replace(/←/g, '<-')
@@ -59,13 +63,27 @@ function sanitizeForPdf(text, font) {
 // ---- Server-side system prompt (never sent to or from the browser) ----
 function buildSystemPrompt(selectedPlan) {
   return `You are CardioIQ — a Clinical Intelligence Engine calibrated by Dr. Tea Gamezardashvili MD PhD FACC, President of the Georgian Atherosclerosis Association, National Coordinator of the EAS Lipid Clinic Network.
-CRITICAL: You have enough tokens. Do NOT use tables for Longevity Intelligence, Nutrition and Exercise sections — use short paragraphs instead to save space. Complete ALL sections including Cardiologist Letter. Never truncate.
+CRITICAL: You have enough tokens. Complete ALL sections including Cardiologist Letter. Never truncate.
 LANGUAGE: Write the entire report in English. Every section title, every sentence, every word must be in English.
+
+TONE — applies to every section: calm, evidence-based, physician-first authority. No hype, no fear-based language, no disaster metaphors or clichés. Urgency comes from clear clinical facts and specific next steps, not from dramatic wording.
+
+OUTPUT FORMAT — ABSOLUTE RULES (this report is rendered into a PDF by a simple
+plain-text layout engine, not a markdown renderer — violating these rules
+produces a broken, unreadable document):
+- NEVER use markdown pipe tables (lines with "|" characters) anywhere, in any section, including Biomarker Intelligence and Lifestyle Scores. Tables render as unreadable wrapped text, not grids.
+- NEVER use "---" or any horizontal-rule line to separate sections. Section headers (###) alone are the only separators.
+- NEVER add your own title, patient-summary banner, or "# " top-level heading at the start of the report (e.g. do not write "# CARDIOIQ REPORT" or "Patient: 56F | ..."). The report already has a title page — begin directly with "### Executive Summary".
+- For any per-item data (biomarkers, lifestyle scores, priorities), write ONE ITEM PER LINE in this exact structured format instead of a table:
+  Label: Result (Standard Normal: X · Longevity Optimal: Y) — STATUS
+  Example: LDL-C: 200 mg/dL (Standard: <100 · Optimal: <55) — CRITICAL
+- Use plain status words in ALL CAPS (CRITICAL, ELEVATED, BORDERLINE, OPTIMAL, GOOD) instead of emoji or color words — do not use 🔴🟡🟢 or [High]/[Moderate]/[Good] tags.
+- Numbered lists (1. 2. 3.) and dash bullets (- item) are fine and render correctly — use them freely for priorities, questions, and action steps. Put each numbered or dashed item on its OWN line (a real line break before each one) — do not run multiple numbered items together in one paragraph separated only by "1. ... 2. ... 3. ...".
 
 LONGEVITY OPTIMAL intervals (use these, not standard lab ranges):
 - LDL-C: <55 mg/dL (Very High Risk), <70 mg/dL (High Risk)
-- ApoB: <70 mg/dL | Fasting insulin: 2–5 µIU/mL | hs-CRP: <0.5 mg/L
-- HbA1c: 4.8–5.3% | Lp(a): <30 nmol/L | Triglycerides: <100 mg/dL
+- ApoB: <70 mg/dL · Fasting insulin: 2–5 µIU/mL · hs-CRP: <0.5 mg/L
+- HbA1c: 4.8–5.3% · Lp(a): <30 nmol/L · Triglycerides: <100 mg/dL
 
 RISK FRAMEWORK RULES (apply before interpreting any biomarker):
 - If patient data indicates an existing ASCVD diagnosis (prior MI, stroke, or PAD), this is
@@ -73,10 +91,10 @@ RISK FRAMEWORK RULES (apply before interpreting any biomarker):
   category per ESC/EAS guidance.
 - If diabetes is present, use the ESC/EAS diabetes-specific tier ladder rather than plain SCORE2:
   very-high risk if organ damage (nephropathy/retinopathy/neuropathy) present, OR early-onset
-  type 1 diabetes with duration >20 years, OR ≥3 major risk factors present (current smoking,
-  hypertension, dyslipidemia, obesity [BMI≥30], family history of premature CVD); high risk if
-  no organ damage but duration ≥10 years or 1 additional risk factor; moderate risk if young
-  (type 1 <35y / type 2 <50y) with duration <10 years and no other risk factors. No diabetic
+  type 1 diabetes with duration >20 years, OR at least 3 major risk factors present (current smoking,
+  hypertension, dyslipidemia, obesity [BMI over 30], family history of premature CVD); high risk if
+  no organ damage but duration 10+ years or 1 additional risk factor; moderate risk if young
+  (type 1 under 35y / type 2 under 50y) with duration under 10 years and no other risk factors. No diabetic
   patient is ever "low risk" under this framework.
 - Otherwise, calculate using SCORE2/SCORE2-OP with the age, sex, smoking status, and blood
   pressure provided.
@@ -96,7 +114,7 @@ ${selectedPlan==='premium' ? 'Total report: maximum 7000 tokens. All sections re
 Cardiometabolic score (0-100), top 3 risk drivers, cardiovascular age vs chronological age.
 
 ### Biomarker Intelligence
-For each biomarker: Result | Standard Normal | Longevity Optimal | Status 🔴🟡🟢
+One line per biomarker in the structured "Label: Result (Standard: X · Optimal: Y) — STATUS" format described above. Do not use a table.
 
 ### Cardiovascular Risk Assessment
 SCORE2/ASCVD risk category, Heart Age vs Chronological Age.
@@ -111,7 +129,7 @@ Personalised dietary recommendations based on this patient's biomarker pattern.
 Specific aerobic + resistance protocol for this patient's risk profile.
 
 ### Lifestyle Scores
-Nutrition / Sleep / Exercise / Stress — each 0-100 with explanation.
+One line per domain (Nutrition / Sleep / Exercise / Stress) in the structured format: "Domain: NN/100 — explanation". Do not use a table.
 
 ### Three Immediate Priorities
 Ranked 1-2-3 by cardiovascular impact. Specific and actionable.
@@ -120,7 +138,10 @@ Ranked 1-2-3 by cardiovascular impact. Specific and actionable.
 5 personalised questions this patient should ask their physician.
 
 ### Cardiologist's Letter
-A warm personal letter from Dr. Tea Gamezardashvili directly to the patient. Clinically precise and emotionally supportive.
+A warm, personal letter from Dr. Tea Gamezardashvili directly to the patient — but its tone must match the calm, evidence-based, physician-first authority of the rest of the report. Warmth comes from directness and clear guidance, not from dramatic language.
+- Do NOT use disaster metaphors or clichés (e.g. "perfect storm," "driving a car with no brakes," "ticking time bomb"). Do NOT use fear-based or hype language, and avoid the word "survival" unless clinically precise and necessary.
+- State facts and next steps plainly and confidently — the same register as the Executive Summary, just addressed personally to the patient in second person.
+- Sign off simply as "Dr. Tea Gamezardashvili, MD, PhD, FACC" — do NOT list her institutional titles (President of GAA, EAS Coordinator, etc.) in the letter signature; that context already appears elsewhere in the report and repeating it here reads as promotional inside a personal letter.
 
 ### Disclaimer
 Educational report only. Not a medical diagnosis. Consult your physician.`;
@@ -263,6 +284,38 @@ async function buildReportPdf(reportText, meta) {
     y -= spaceAfter;
   }
 
+  // Renders a single bullet/numbered-list item with a hanging indent: the
+  // marker ("•" or "1.") sits at the left margin, wrapped continuation
+  // lines align under the text start rather than under the marker.
+  function drawBulletItem(marker, text, { size = 10.5, useFont = font, color = body, lineGap = 5, spaceAfter = 6 } = {}) {
+    const indent = 18;
+    const contentWidth = CONTENT_W - indent;
+    const lineHeight = size + lineGap;
+    const words = text.trim().split(/\s+/).filter(Boolean);
+    const lines = [];
+    let current = '';
+    for (const word of words) {
+      const trial = current ? current + ' ' + word : word;
+      if (useFont.widthOfTextAtSize(trial, size) > contentWidth && current) {
+        lines.push(current);
+        current = word;
+      } else {
+        current = trial;
+      }
+    }
+    if (current) lines.push(current);
+
+    lines.forEach((line, i) => {
+      newPageIfNeeded(lineHeight);
+      if (i === 0) {
+        page.drawText(marker, { x: MARGIN, y, size, font: useFont, color: teal });
+      }
+      page.drawText(line, { x: MARGIN + indent, y, size, font: useFont, color });
+      y -= lineHeight;
+    });
+    y -= spaceAfter;
+  }
+
   // ---- Header block ----
   page.drawText('CardioIQ', { x: MARGIN, y, size: 20, font: bold, color: navy });
   y -= 26;
@@ -291,16 +344,32 @@ async function buildReportPdf(reportText, meta) {
 
   for (const rawLine of rawLines) {
     const line = rawLine.trim();
-    if (line.startsWith('### ')) {
+    const bulletMatch = line.match(/^[-•]\s+(.*)/);
+    const numberedMatch = line.match(/^(\d+)\.\s+(.*)/);
+    if (line.startsWith('### ') || line.startsWith('# ')) {
       flushParagraph();
       newPageIfNeeded(26);
       y -= 6;
-      const headerText = line.replace(/^###\s*/, '').replace(/\*\*/g, '');
+      const headerText = line.replace(/^#{1,3}\s*/, '').replace(/\*\*/g, '');
       drawParagraph(headerText, { size: 13, useFont: bold, color: navy, spaceBefore: 4, spaceAfter: 8 });
-    } else if (line === '') {
+    } else if (/^-{3,}$/.test(line) || line === '') {
+      // Standalone "---" horizontal-rule lines are dropped rather than
+      // rendered as literal text — a blank-line paragraph break is enough
+      // visual separation between sections.
       flushParagraph();
+    } else if (bulletMatch) {
+      flushParagraph();
+      const clean = bulletMatch[1].replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/\|/g, ' ');
+      drawBulletItem('•', clean);
+    } else if (numberedMatch) {
+      flushParagraph();
+      const clean = numberedMatch[2].replace(/\*\*(.*?)\*\*/g, '$1').replace(/\*(.*?)\*/g, '$1').replace(/\|/g, ' ');
+      drawBulletItem(numberedMatch[1] + '.', clean);
     } else {
-      paragraphBuffer += (paragraphBuffer ? ' ' : '') + line;
+      // Defensive: strip stray "|" characters even though the prompt now
+      // forbids markdown tables — belt-and-suspenders against a model that
+      // ignores the instruction on some run.
+      paragraphBuffer += (paragraphBuffer ? ' ' : '') + line.replace(/\|/g, ' ');
     }
   }
   flushParagraph();
