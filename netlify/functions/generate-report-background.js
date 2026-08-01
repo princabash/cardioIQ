@@ -19,12 +19,41 @@ const TIER_LABELS = { essential: 'Essential', standard: 'Standard', premium: 'Pr
 // The system prompt asks Claude for 🔴🟡🟢 status markers, but no bundled
 // font reliably covers emoji glyphs — swap them for plain-text equivalents
 // before layout rather than risk a WinAnsi/glyph-coverage crash mid-render.
-function sanitizeForPdf(text) {
-  return text
+function sanitizeForPdf(text, font) {
+  // Known substitutions first — keeps common symbols readable instead of
+  // dropping/replacing them with a generic fallback character.
+  text = text
     .replace(/🔴/g, '[High]')
     .replace(/🟡/g, '[Moderate]')
     .replace(/🟢/g, '[Good]')
-    .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, ''); // strip any other stray emoji
+    .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '') // strip any other stray emoji
+    .replace(/→/g, '->')
+    .replace(/←/g, '<-')
+    .replace(/≥/g, '>=')
+    .replace(/≤/g, '<=')
+    .replace(/×/g, 'x')
+    .replace(/÷/g, '/')
+    .replace(/✓/g, '[OK]')
+    .replace(/✗/g, '[X]');
+
+  // General fallback: WinAnsi (StandardFonts) only covers a specific
+  // character set, and Claude can produce arbitrary Unicode symbols we
+  // haven't anticipated above (this is exactly how the → crash happened).
+  // Test each *unique* character once against the actual embedded font and
+  // replace anything unencodable with '?' rather than crashing mid-render.
+  const cache = new Map();
+  function isEncodable(ch) {
+    if (cache.has(ch)) return cache.get(ch);
+    let ok = true;
+    try { font.widthOfTextAtSize(ch, 10); } catch (e) { ok = false; }
+    cache.set(ch, ok);
+    return ok;
+  }
+  let safe = '';
+  for (const ch of text) {
+    safe += (ch === '\n' || ch === '\t' || isEncodable(ch)) ? ch : '?';
+  }
+  return safe;
 }
 
 // ---- Server-side system prompt (never sent to or from the browser) ----
@@ -188,7 +217,7 @@ async function buildReportPdf(reportText, meta) {
   const doc = await PDFDocument.create();
   const font = await doc.embedFont(StandardFonts.Helvetica);
   const bold = await doc.embedFont(StandardFonts.HelveticaBold);
-  reportText = sanitizeForPdf(reportText);
+  reportText = sanitizeForPdf(reportText, font);
 
   const navy = rgb(0x0B / 255, 0x1F / 255, 0x3A / 255);
   const teal = rgb(0x1A / 255, 0x6B / 255, 0x72 / 255);
