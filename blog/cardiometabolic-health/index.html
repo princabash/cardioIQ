@@ -1,1 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cardiometabolic Health: The Reference Frame Behind Your Lipids | CardioIQ</title>
+<meta name="description" content="Fasting triglycerides, glucose, and calculated indices like TyG and AIP can flag metabolic strain years before a diagnosis. A lipidologist's reference-frame guide to reading them.">
+<link rel="canonical" href="https://cardioiq.health/blog/cardiometabolic-health/">
 
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cardiometabolic Health: The Reference Frame Behind Your Lipids">
+<meta property="og:description" content="Fasting triglycerides, glucose, and calculated indices like TyG and AIP can flag metabolic strain years before a diagnosis — read against longevity-optimal targets, not just the standard range.">
+<meta property="og:url" content="https://cardioiq.health/blog/cardiometabolic-health/">
+<meta property="og:site_name" content="CardioIQ">
+<!-- TODO(Tea): set og:image to a real 1200x630 asset on the domain -->
+<meta property="og:image" content="https://cardioiq.health/assets/og-cardiometabolic-health.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": "Cardiometabolic Health: The Reference Frame Behind Your Lipids",
+  "description": "A reference-frame guide to fasting triglycerides, glucose, and calculated metabolic indices (TyG, AIP), interpreted against longevity-optimal targets rather than population-normal ranges.",
+  "url": "https://cardioiq.health/blog/cardiometabolic-health/",
+  "inLanguage": "en",
+  "datePublished": "2026-08-04",
+  "dateModified": "2026-08-04",
+  "medicalAudience": {
+    "@type": "MedicalAudience",
+    "audienceType": "Patient"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC",
+    "jobTitle": "Preventive Cardiologist & Lipidologist",
+    "url": "https://teagamezardashvili.com"
+  },
+  "reviewedBy": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CardioIQ",
+    "url": "https://cardioiq.health"
+  },
+  "about": ["insulin resistance","TyG Index","atherogenic index of plasma","triglycerides","cardiometabolic health","ApoB"],
+  "isPartOf": {
+    "@type": "MedicalWebPage",
+    "name": "Cardiovascular Longevity",
+    "url": "https://cardioiq.health/blog/cardiovascular-longevity/"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a high TyG Index or AIP a diagnosis of insulin resistance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. TyG and AIP are calculated reference points from routine lipid and glucose values. They are not guideline-mandated diagnostic cutoffs, and no professional society has issued a formal threshold for either. They're directional context for a conversation with your physician, not a standalone diagnosis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need a fasting insulin test to check my metabolic health?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not necessarily. The TyG Index is designed specifically so insulin resistance can be estimated from triglycerides and fasting glucose alone, without an insulin assay. A fasting insulin test adds precision (for HOMA-IR) but isn't required to get a useful reference point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My triglycerides are normal, but my AIP is in the higher range. What does that mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AIP factors in the ratio between triglycerides and HDL-C, not triglycerides alone, so it can flag a pattern that a single normal-range triglyceride value misses. This is exactly why it's shown as an additional reference point, not a replacement for the standard panel — discuss the full picture with your physician."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --navy: #12283F;
+    --navy-soft: #3B5166;
+    --navy-faint: #7C8FA0;
+    --bg: #FAF9F5;
+    --bg-panel: #FFFFFF;
+    --teal: #0E7C74;
+    --teal-soft: #E4F3F1;
+    --teal-line: #BFE0DB;
+    --gold: #A8752A;
+    --gold-soft: #FBF1DE;
+    --gold-line: #E9D3A4;
+    --line: #E7E3D9;
+    --line-strong: #D7D1C2;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--navy-soft);
+    font-family: 'IBM Plex Sans', -apple-system, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--navy);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  a { color: var(--teal); }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-panel);
+  }
+  .topbar-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+  .brand span { color: var(--teal); }
+  .topbar-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy-soft);
+    text-decoration: none;
+    border: 1px solid var(--line-strong);
+    padding: 7px 14px;
+    border-radius: 100px;
+  }
+
+  /* ---------- Breadcrumb ---------- */
+  .breadcrumb-bar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .breadcrumb-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 13px;
+    color: var(--navy-faint);
+  }
+  .breadcrumb-inner a {
+    color: var(--navy-faint);
+    text-decoration: none;
+  }
+  .breadcrumb-inner a:hover { color: var(--teal); }
+  .breadcrumb-inner .current { color: var(--navy-soft); font-weight: 500; }
+
+  /* ---------- Mechanism diagram ---------- */
+  .diagram-panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 20px 18px;
+    margin: 22px 0 20px;
+  }
+  .diagram-panel svg { width: 100%; height: auto; display: block; }
+  .diagram-caption {
+    font-size: 13px;
+    color: var(--navy-faint);
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 56px 0 8px; }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 38px;
+    margin: 0 0 20px;
+    letter-spacing: -0.01em;
+  }
+  .dek {
+    font-size: 19px;
+    color: var(--navy-soft);
+    max-width: 62ch;
+    margin: 0 0 28px;
+  }
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--navy-faint);
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+  }
+  .byline strong { color: var(--navy-soft); font-weight: 600; }
+
+  /* ---------- CRL step nav (meaningful sequence) ---------- */
+  .steps {
+    margin: 40px 0 48px;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 24px;
+  }
+  .steps-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-faint);
+    margin-bottom: 14px;
+  }
+  .steps ol {
+    list-style: none;
+    margin: 0; padding: 0;
+    counter-reset: step;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 12px;
+    padding: 7px 0;
+    font-size: 15px;
+  }
+  .steps li::before {
+    content: counter(step);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--teal);
+    background: var(--teal-soft);
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .steps a { color: var(--navy-soft); text-decoration: none; font-weight: 500; }
+  .steps a:hover { color: var(--teal); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy-faint);
+    margin-bottom: 10px;
+  }
+  h2 { font-size: 27px; margin: 0 0 18px; }
+  h3 { font-size: 19px; margin: 26px 0 10px; }
+  p { margin: 0 0 16px; }
+  ul, ol.plain { margin: 0 0 16px; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+
+  /* ---------- Reference-frame cards (signature element) ---------- */
+  .frame-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 24px 0 8px;
+  }
+  .frame-row {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 14px;
+    align-items: center;
+  }
+  .frame-row.header {
+    background: transparent;
+    border: none;
+    padding: 0 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy-faint);
+  }
+  .frame-marker { font-weight: 600; color: var(--navy); font-size: 15px; }
+  .frame-marker small { display: block; font-weight: 400; color: var(--navy-faint); font-size: 12.5px; margin-top: 2px; }
+  .pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13.5px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .pill.standard { background: #F1EFE9; color: var(--navy-soft); border: 1px solid var(--line-strong); }
+  .pill.optimal { background: var(--teal-soft); color: var(--teal); border: 1px solid var(--teal-line); }
+  .pill.watch { background: var(--gold-soft); color: var(--gold); border: 1px solid var(--gold-line); }
+
+  .frame-note {
+    font-size: 14.5px;
+    color: var(--navy-faint);
+    background: var(--bg-panel);
+    border-left: 3px solid var(--teal-line);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin-top: 18px;
+  }
+
+  /* ---------- Evidence source list ---------- */
+  .sources {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sources li {
+    font-size: 14.5px;
+    color: var(--navy-soft);
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+  .sources code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--teal);
+  }
+
+  /* ---------- Modifier cards ---------- */
+  .mod-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0 8px;
+  }
+  .mod-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .mod-card h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    margin: 0 0 6px;
+  }
+  .mod-card p { font-size: 14.5px; margin: 0; color: var(--navy-soft); }
+
+  /* ---------- Boundary / disclaimer ---------- */
+  .boundary {
+    background: var(--bg-panel);
+    border: 1px solid var(--navy);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-top: 8px;
+  }
+  .boundary p:last-child { margin-bottom: 0; }
+
+  .disclaimer {
+    font-size: 13px;
+    color: var(--navy-faint);
+    background: #F2F0EA;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 20px;
+  }
+
+  /* ---------- FAQ ---------- */
+  details {
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 4px 18px;
+    margin-bottom: 10px;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--navy);
+    padding: 14px 0;
+    font-size: 15.5px;
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before {
+    content: "+";
+    color: var(--teal);
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  details[open] summary::before { content: "–"; }
+  details p { padding-bottom: 16px; font-size: 15px; }
+
+  /* ---------- Related links ---------- */
+  .related {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .related a {
+    display: block;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: 500;
+    font-size: 15px;
+  }
+  .related a small { display: block; font-weight: 400; color: var(--navy-faint); font-size: 13px; margin-top: 3px; }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    background: linear-gradient(135deg, #EFF6F5 0%, #F6F1E5 100%);
+    border: 1px solid var(--teal-line);
+    border-radius: 16px;
+    padding: 32px 30px;
+    text-align: center;
+    margin: 12px 0 8px;
+  }
+  .cta h3 { margin-top: 0; font-size: 22px; }
+  .cta p { color: var(--navy-soft); max-width: 48ch; margin-left: auto; margin-right: auto; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--navy);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 28px;
+    border-radius: 100px;
+    margin-top: 8px;
+  }
+  .cta-sub { font-size: 13px; color: var(--navy-faint); margin-top: 12px; }
+
+  footer {
+    text-align: center;
+    padding: 40px 24px 60px;
+    font-size: 13px;
+    color: var(--navy-faint);
+  }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 29px; }
+    .frame-row { grid-template-columns: 1fr; gap: 8px; }
+    .frame-row.header { display: none; }
+    .mod-grid { grid-template-columns: 1fr; }
+    .topbar-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="/" class="brand">Cardio<span>IQ</span></a>
+    <a href="/reports/" class="topbar-link">See my report options</a>
+  </div>
+</div>
+
+
+<div class="breadcrumb-bar">
+  <div class="wrap breadcrumb-inner">
+    <a href="/">Home</a>
+    <span>/</span>
+    <a href="/blog/">Blog</a>
+    <span>/</span>
+    <span class="current">Cardiometabolic Health</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Cardiometabolic Health</div>
+    <h1>Your Cholesterol Panel Can Look Fine While Your Metabolic Engine Is Already Under Strain</h1>
+    <p class="dek">Fasting triglycerides, glucose, and a few calculated indices — from data most labs already collect — can flag metabolic strain years before it shows up as a diagnosis. Here's how to read them against longevity-optimal targets, not just the standard range.</p>
+    <div class="byline">
+      <span>Reviewed by <strong>Dr. Tea Gamezardashvili, MD, PhD, MHA, FACC</strong> — Preventive Cardiologist &amp; Lipidologist · President, Georgian Atherosclerosis Association</span>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="steps-label">In this guide</div>
+    <ol>
+      <li><a href="#finding">What we're actually measuring</a></li>
+      <li><a href="#reference-frame">Standard range vs. longevity-optimal</a></li>
+      <li><a href="#mechanism">Why it matters</a></li>
+      <li><a href="#evidence">What the evidence says</a></li>
+      <li><a href="#modifiers">What changes the picture</a></li>
+      <li><a href="#action">What to do with this</a></li>
+      <li><a href="#boundary">Where this ends, and your physician begins</a></li>
+    </ol>
+  </div>
+
+  <section id="finding">
+    <div class="kicker">01 — Finding</div>
+    <h2>A cluster of numbers, not a single value</h2>
+    <p>Insulin resistance rarely shows up as one abnormal result. It shows up as a pattern across several values that are already sitting in a standard fasting panel: triglycerides, fasting glucose, and HDL-C. If fasting insulin was drawn, that adds another data point.</p>
+    <p>From those same numbers, a few things can be calculated without any additional blood draw: the triglyceride-to-HDL ratio, HOMA-IR (if insulin was measured), the <strong>TyG Index</strong>, and the <strong>Atherogenic Index of Plasma (AIP)</strong>. None of these require a new test. They're a different way of reading data you may already have.</p>
+  </section>
+
+  <section id="reference-frame">
+    <div class="kicker">02 — Reference frame</div>
+    <h2>Population-normal and longevity-optimal, side by side</h2>
+    <p>A "normal" lab result means you're inside the range used to flag disease. It doesn't necessarily mean your metabolic markers are sitting where they'd ideally be for long-term cardiovascular health. Both are useful — they're just answering different questions, so we show them separately rather than collapsing them into one number.</p>
+
+    <div class="frame-grid">
+      <div class="frame-row header">
+        <div>Marker</div><div>Standard range</div><div>Longevity-optimal</div>
+      </div>
+      <div class="frame-row">
+        <div class="frame-marker">Triglycerides<small>fasting, mg/dL</small></div>
+        <span class="pill standard">&lt; 150</span>
+        <span class="pill optimal">&lt; 100</span>
+      </div>
+      <div class="frame-row">
+        <div class="frame-marker">Fasting glucose<small>mg/dL</small></div>
+        <span class="pill standard">&lt; 100</span>
+        <span class="pill optimal">&lt; 90</span>
+      </div>
+      <div class="frame-row">
+        <div class="frame-marker">TG : HDL-C ratio<small>calculated</small></div>
+        <span class="pill standard">no formal cutoff</span>
+        <span class="pill optimal">&lt; 1.5 optimal</span>
+      </div>
+      <div class="frame-row">
+        <div class="frame-marker">TyG Index<small>calculated — ln[TG × glucose / 2]</small></div>
+        <span class="pill standard">no formal cutoff</span>
+        <span class="pill optimal">&lt; 8.5 lower end</span>
+      </div>
+      <div class="frame-row">
+        <div class="frame-marker">AIP<small>calculated — log₁₀(TG / HDL-C), mmol/L</small></div>
+        <span class="pill standard">no formal cutoff</span>
+        <span class="pill watch">&lt; 0.11 lower · 0.11–0.21 mid · ≥ 0.21 higher</span>
+      </div>
+    </div>
+
+    <p class="frame-note">Triglycerides and fasting glucose have guideline-anchored thresholds (ESC/EAS, ADA). TyG, AIP, and TG:HDL don't — they're literature and practice reference ranges, useful as directional context, not a pass/fail grade. No professional society has issued a formal cutoff for either index. We display them the same way we display every marker: teal for "sitting at an optimal reference point," soft gold for "worth a closer look" — never a red flag, never a risk score.</p>
+  </section>
+
+  <section id="mechanism">
+    <div class="kicker">03 — Mechanism</div>
+    <h2>Why these numbers move together</h2>
+    <p>When cells become less responsive to insulin, the liver changes how it packages and clears fat in the bloodstream. That shift tends to raise triglycerides, lower HDL-C, and push LDL toward smaller, denser particles that carry more ApoB per unit of cholesterol. That's also why someone can have an unremarkable LDL-C and still carry more atherogenic particles than the LDL-C number alone suggests — the same discordance discussed in our <a href="/blog/apob-guide/">ApoB guide</a>.</p>
+
+    <div class="diagram-panel">
+      <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: reduced insulin sensitivity leads through the liver to higher triglycerides, lower HDL-C, and smaller denser LDL particles, which increases ApoB particle burden.">
+        <!-- connecting lines -->
+        <path d="M 118 60 L 118 110" stroke="#D7D1C2" stroke-width="2" fill="none"/>
+        <path d="M 118 170 L 118 230" stroke="#D7D1C2" stroke-width="2" fill="none"/>
+        <path d="M 226 150 L 300 150" stroke="#D7D1C2" stroke-width="2" fill="none"/>
+        <path d="M 226 150 L 300 90"  stroke="#D7D1C2" stroke-width="2" fill="none"/>
+        <path d="M 226 150 L 300 210" stroke="#D7D1C2" stroke-width="2" fill="none"/>
+        <path d="M 452 90  L 520 150" stroke="#D7D1C2" stroke-width="2" fill="none"/>
+        <path d="M 452 150 L 520 150" stroke="#D7D1C2" stroke-width="2" fill="none"/>
+        <path d="M 452 210 L 520 150" stroke="#D7D1C2" stroke-width="2" fill="none"/>
+
+        <!-- arrowheads -->
+        <g fill="#A8752A">
+          <polygon points="300,150 292,146 292,154"/>
+          <polygon points="300,90 292,86 292,94"/>
+          <polygon points="300,210 292,206 292,214"/>
+          <polygon points="520,150 512,146 512,154"/>
+        </g>
+
+        <!-- Node: reduced insulin sensitivity -->
+        <rect x="18" y="20" width="200" height="44" rx="10" fill="#FBF1DE" stroke="#E9D3A4"/>
+        <text x="118" y="47" text-anchor="middle" font-family="IBM Plex Sans" font-size="13.5" font-weight="600" fill="#12283F">Reduced insulin</text>
+        <text x="118" y="61" text-anchor="middle" font-family="IBM Plex Sans" font-size="13.5" font-weight="600" fill="#12283F">sensitivity</text>
+
+        <!-- Node: liver -->
+        <rect x="18" y="110" width="200" height="80" rx="10" fill="#FFFFFF" stroke="#D7D1C2"/>
+        <text x="118" y="135" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" letter-spacing="0.08em" fill="#7C8FA0">MECHANISM</text>
+        <text x="118" y="158" text-anchor="middle" font-family="IBM Plex Sans" font-size="13.5" font-weight="600" fill="#12283F">Liver changes how it</text>
+        <text x="118" y="174" text-anchor="middle" font-family="IBM Plex Sans" font-size="13.5" font-weight="600" fill="#12283F">packages &amp; clears fat</text>
+
+        <!-- Node: TyG / AIP -->
+        <rect x="18" y="230" width="200" height="44" rx="10" fill="#E4F3F1" stroke="#BFE0DB"/>
+        <text x="118" y="257" text-anchor="middle" font-family="IBM Plex Mono" font-size="13" font-weight="500" fill="#0E7C74">Reflected in TyG &amp; AIP</text>
+
+        <!-- Three parallel effect nodes -->
+        <rect x="300" y="68"  width="152" height="44" rx="10" fill="#FFFFFF" stroke="#D7D1C2"/>
+        <text x="376" y="95" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#12283F">↑ Triglycerides</text>
+
+        <rect x="300" y="128" width="152" height="44" rx="10" fill="#FFFFFF" stroke="#D7D1C2"/>
+        <text x="376" y="155" text-anchor="middle" font-family="IBM Plex Sans" font-size="13" font-weight="600" fill="#12283F">↓ HDL-C</text>
+
+        <rect x="300" y="188" width="152" height="44" rx="10" fill="#FFFFFF" stroke="#D7D1C2"/>
+        <text x="376" y="211" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" font-weight="600" fill="#12283F">Smaller, denser</text>
+        <text x="376" y="225" text-anchor="middle" font-family="IBM Plex Sans" font-size="12.5" font-weight="600" fill="#12283F">LDL particles</text>
+
+        <!-- Final node: ApoB discordance -->
+        <rect x="522" y="110" width="150" height="80" rx="10" fill="#12283F"/>
+        <text x="597" y="135" text-anchor="middle" font-family="IBM Plex Sans" font-size="12" letter-spacing="0.06em" fill="#9FC7C2">RESULT</text>
+        <text x="597" y="158" text-anchor="middle" font-family="IBM Plex Sans" font-size="13.5" font-weight="600" fill="#FFFFFF">More ApoB particles</text>
+        <text x="597" y="174" text-anchor="middle" font-family="IBM Plex Sans" font-size="13.5" font-weight="600" fill="#FFFFFF">per LDL-C reading</text>
+      </svg>
+      <div class="diagram-caption">A simplified view of why triglycerides, HDL-C, and particle size tend to move together — and why LDL-C alone can understate ApoB particle burden.</div>
+    </div>
+  </section>
+
+  <section id="evidence">
+    <div class="kicker">04 — Evidence</div>
+    <h2>Where these reference points come from</h2>
+    <p>The guideline-anchored values above (triglycerides, fasting glucose) follow ESC/EAS lipid guidance and the ADA Standards of Care. The calculated indices rest on a smaller, more specific evidence base:</p>
+    <ul class="sources">
+      <li><strong>TyG Index</strong> — first described and validated against the hyperinsulinemic-euglycemic clamp (the reference-standard test for insulin sensitivity) by Guerrero-Romero and colleagues. <em>J Clin Endocrinol Metab</em> 2010;95(7):3347–3351, <code>doi:10.1210/jc.2010-0288</code>.</li>
+      <li><strong>AIP</strong> — described by Dobiásová and Frohlich as a marker of plasma atherogenicity, correlating with lipoprotein particle size and cholesterol esterification rate. <em>Clin Biochem</em> 2001;34(7):583–588, <code>doi:10.1016/s0009-9120(01)00263-6</code>.</li>
+    </ul>
+    <p style="margin-top:16px; font-size:14.5px; color:var(--navy-faint);">Both are established, peer-reviewed indices — and both remain practice/literature reference ranges rather than society-issued diagnostic cutoffs. We treat them with the same discipline as HOMA-IR and TG:HDL: shown as one input among several, not a verdict on their own.</p>
+  </section>
+
+  <section id="modifiers">
+    <div class="kicker">05 — Modifiers</div>
+    <h2>What changes how these numbers should be read</h2>
+    <div class="mod-grid">
+      <div class="mod-card">
+        <h4>Fasting status</h4>
+        <p>Triglycerides and glucose — and everything calculated from them — depend on a true fasting draw. A non-fasting sample makes TyG, AIP, and TG:HDL unreliable to interpret.</p>
+      </div>
+      <div class="mod-card">
+        <h4>ApoB / LDL discordance</h4>
+        <p>Insulin resistance is a recognized amplifier of the gap between LDL-C and ApoB. If your LDL-C looks reassuring, this is one reason ApoB can still tell a different story.</p>
+      </div>
+      <div class="mod-card">
+        <h4>Units, for AIP specifically</h4>
+        <p>AIP's published reference tiers are derived in mmol/L. If your results are in mg/dL, triglycerides and HDL-C need converting before the ratio is calculated — our <a href="/check/">free check tool</a> handles this automatically.</p>
+      </div>
+      <div class="mod-card">
+        <h4>Age and family history</h4>
+        <p>Metabolic patterns shift with age, and a family history of type 2 diabetes or early cardiovascular disease changes how much weight these reference points deserve in the bigger picture.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="action">
+    <div class="kicker">06 — Action frame</div>
+    <h2>What's worth discussing with your physician</h2>
+    <p>If your numbers land in the "worth a closer look" range, the starting point is almost always the same regardless of which specific marker flagged it: diet quality (particularly refined carbohydrate and added sugar intake), regular movement, and sleep — the same foundations covered in our <a href="/blog/cardiovascular-longevity/">longevity framework</a>. These aren't a prescription; they're the conversation starters worth bringing to your next visit.</p>
+    <p>If lifestyle changes aren't enough on their own, your physician may discuss further evaluation or treatment options with you directly — that decision, and any medication class involved, is between you and your treating physician, not something a report can determine.</p>
+  </section>
+
+  <section id="boundary">
+    <div class="kicker">07 — Boundary</div>
+    <div class="boundary">
+      <p><strong>This is a reference-frame starting point, not a diagnosis.</strong> TyG, AIP, and the other calculated indices above are directional tools meant to inform a conversation, not replace clinical judgment. Your physician has access to your full history, exam findings, and additional context a lab panel can't capture — they decide what, if anything, changes based on these numbers.</p>
+    </div>
+    <div class="disclaimer">
+      This article is for educational purposes and reflects general reference ranges drawn from peer-reviewed literature and professional society guidelines. It is not a substitute for individualized medical advice, diagnosis, or treatment. Always consult your physician or a qualified healthcare provider with questions about your own health or before making changes based on lab results.
+    </div>
+  </section>
+
+  <section>
+    <div class="kicker">Related reading</div>
+    <div class="related">
+      <a href="/blog/fasting-insulin-longevity/">Fasting Insulin and Longevity<small>Why fasting insulin often tells a different story than fasting glucose alone</small></a>
+      <a href="/blog/insulin-resistance-gap/">The Insulin Resistance Gap<small>What standard panels miss, and what to ask for instead</small></a>
+      <a href="/blog/apob-guide/">ApoB: The Complete Guide<small>Why particle number can diverge from LDL-C — and when it matters</small></a>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h3>See your own numbers against these reference points</h3>
+    <p>A Standard report includes your extended cardiometabolic panel — read by a lipidologist against longevity-optimal targets, not just the standard range.</p>
+    <a href="/reports/" class="cta-btn">See report options</a>
+    <div class="cta-sub">From $49 · A physician reads your labs — not an algorithm</div>
+  </div>
+
+</div>
+
+<footer>
+  CardioIQ · Physician-built cardiovascular lab interpretation<br>
+  © 2026 CardioIQ. This content does not constitute medical advice.
+</footer>
+
+</body>
+</html>
