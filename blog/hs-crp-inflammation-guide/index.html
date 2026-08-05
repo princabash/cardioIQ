@@ -1,1 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hs-CRP: What It Measures, and Why It's Part of Your Cardiovascular Picture | CardioIQ</title>
+<meta name="description" content="hs-CRP is a simple blood test for low-grade inflammation that most standard panels skip. What counts as low, average, or high — and how a lipidologist reads it alongside your other numbers. Reviewed by Dr. Tea Gamezardashvili, MD PhD MHA FACC.">
+<link rel="canonical" href="https://cardioiq.health/blog/hs-crp-inflammation-guide/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hs-CRP: What It Measures, and Why It's Part of Your Cardiovascular Picture">
+<meta property="og:description" content="A simple blood test for low-grade inflammation most standard panels skip. What counts as low, average, or high — reviewed by a lipidologist.">
+<meta property="og:url" content="https://cardioiq.health/blog/hs-crp-inflammation-guide/">
+<!-- TODO(Tea): replace with real 1200x630 og:image — placeholder, matches known site-wide gap -->
+<meta property="og:image" content="https://cardioiq.health/assets/og/hs-crp-inflammation-guide.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0B1E3D;
+    --navy-2:#0F2748;
+    --gold:#C9A227;
+    --gold-text:#E3C24A;
+    --teal:#2A9D8F;
+    --ink:#EDEFF4;
+    --ink-dim:#B7C0D1;
+    --line:rgba(255,255,255,0.10);
+    --box:rgba(255,255,255,0.04);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--navy);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.65;
+    font-size:1.05rem;
+  }
+  h1,h2,h3,.serif{font-family:'Newsreader',Georgia,serif;font-weight:600;color:#fff;}
+  a{color:var(--gold-text);}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  header.site{border-bottom:1px solid var(--line);background:var(--navy-2);}
+  .nav{max-width:960px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .nav a.brand{font-family:'Newsreader',serif;font-weight:600;font-size:1.2rem;color:#fff;text-decoration:none;}
+  .nav .links{display:flex;gap:22px;align-items:center;font-size:0.92rem;}
+  .nav .links a{color:var(--ink-dim);text-decoration:none;}
+  .nav .cta-btn{background:var(--gold);color:var(--navy)!important;padding:8px 16px;border-radius:9px;font-weight:700;}
+  .eyebrow{font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);font-weight:700;margin:40px 0 14px;}
+  h1.title{font-size:2.1rem;line-height:1.25;margin:0 0 16px;}
+  .dek{font-size:1.15rem;color:var(--ink-dim);margin:0 0 28px;}
+  .byline{display:flex;gap:14px;align-items:center;border:1px solid var(--line);background:var(--box);border-radius:14px;padding:16px 18px;margin-bottom:30px;}
+  .byline .avatar{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Newsreader',serif;flex-shrink:0;}
+  .byline .meta-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--ink-dim);}
+  .byline .name a{color:#fff;text-decoration:none;font-weight:600;}
+  .byline .cred{font-size:0.88rem;color:var(--ink-dim);}
+  .related{border:1px solid var(--line);background:var(--box);border-radius:14px;padding:18px 20px;margin-bottom:34px;}
+  .related .h{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--teal);font-weight:700;margin-bottom:10px;}
+  .related ul{margin:0;padding-left:18px;font-size:0.95rem;}
+  .related li{margin-bottom:6px;}
+  .toc{border:1px solid var(--line);background:var(--box);border-radius:14px;padding:18px 22px;margin-bottom:34px;}
+  .toc .h{font-family:'Newsreader',serif;font-size:1.05rem;color:#fff;margin:0 0 10px;}
+  .toc ol{margin:0;padding-left:20px;font-size:0.95rem;}
+  .toc li{margin-bottom:4px;}
+  .toc a{text-decoration:none;}
+  .quick{border:1px solid rgba(201,162,39,0.4);background:rgba(201,162,39,0.07);border-radius:14px;padding:20px 22px;margin:30px 0;}
+  .quick .h{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold-text);font-weight:700;margin-bottom:8px;}
+  .quick .h2q{font-family:'Newsreader',serif;font-size:1.15rem;color:#fff;margin:0 0 10px;}
+  section{margin:38px 0;}
+  h2{font-size:1.5rem;margin:0 0 14px;scroll-margin-top:24px;}
+  h3{font-size:1.15rem;color:#fff;margin:22px 0 8px;}
+  p{margin:0 0 16px;color:var(--ink);}
+  ul,ol{margin:0 0 16px;padding-left:22px;}
+  li{margin-bottom:6px;}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:0.94rem;}
+  th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;}
+  th{background:var(--box);color:#fff;font-weight:600;}
+  .note{font-size:0.88rem;color:var(--ink-dim);}
+  .aside{border-left:3px solid var(--teal);background:rgba(255,255,255,0.03);border-radius:0 12px 12px 0;padding:16px 20px;margin:26px 0;}
+  .end-cta{border:1px solid rgba(201,162,39,0.35);background:rgba(255,255,255,0.04);border-radius:16px;padding:26px;margin:34px 0;text-align:center;}
+  .end-cta .h{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+  .end-cta p{margin:0 0 18px;font-size:1.05rem;}
+  .end-cta a.btn{display:inline-block;color:var(--navy);background:var(--gold);text-decoration:none;font-weight:700;padding:13px 26px;border-radius:11px;font-size:1rem;}
+  .disclaimer{border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.03);border-radius:14px;padding:20px 22px;margin:34px 0;font-size:0.92rem;color:var(--ink-dim);}
+  .disclaimer .icon{font-size:1.1rem;margin-right:6px;}
+  .refs{font-size:0.88rem;color:var(--ink-dim);border-top:1px solid var(--line);padding-top:20px;margin-top:34px;}
+  .refs ol{padding-left:20px;}
+  .refs li{margin-bottom:8px;}
+  footer.site{border-top:1px solid var(--line);background:var(--navy-2);margin-top:60px;padding:26px 0;text-align:center;font-size:0.85rem;color:var(--ink-dim);}
+  footer.site a{color:var(--ink-dim);text-decoration:none;margin:0 6px;}
+  .faq dt{font-weight:600;color:#fff;margin-top:18px;font-family:'Newsreader',serif;font-size:1.05rem;}
+  .faq dd{margin:6px 0 0;color:var(--ink);}
+</style>
+</head>
+<body>
 
+<header class="site">
+  <div class="nav">
+    <a class="brand" href="https://cardioiq.health/">CardioIQ</a>
+    <div class="links">
+      <a href="https://cardioiq.health/about/">About</a>
+      <a href="https://cardioiq.health/blog/">Blog</a>
+      <a href="https://cardioiq.health/reports/">Reports</a>
+      <a class="cta-btn" href="https://cardioiq.health/reports/">Get my report</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="eyebrow">Inflammation · Evidence-Based Guide</div>
+  <h1 class="title">hs-CRP: What It Measures, and Why It's Part of Your Cardiovascular Picture</h1>
+  <p class="dek">A simple, widely available blood test for low-grade inflammation — not on every standard panel, and easy to misread on its own. What the numbers mean, and how a lipidologist places them alongside the rest of your results.</p>
+
+  <div class="byline">
+    <div class="avatar">TG</div>
+    <div>
+      <div class="meta-label">Medically Reviewed By</div>
+      <div class="name"><a href="https://cardioiq.health/about/">Dr. Tea Gamezardashvili</a></div>
+      <div class="cred">MD, PhD, MHA, FACC · Preventive Cardiologist &amp; Lipidologist</div>
+    </div>
+  </div>
+
+  <div class="related">
+    <div class="h">Related Articles</div>
+    <ul>
+      <li><a href="https://cardioiq.health/blog/apob-guide/">→ ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk</a></li>
+      <li><a href="https://cardioiq.health/blog/lpa-guide/">→ Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk</a></li>
+      <li><a href="https://cardioiq.health/blog/how-cardioiq-works/">→ How CardioIQ Stratifies Risk: SCORE2, ApoB &amp; Lp(a) Explained</a></li>
+      <li><a href="https://cardioiq.health/blog/normal-vs-optimal-cholesterol/">→ Your Cholesterol Is "Normal." Is It Optimal?</a></li>
+    </ul>
+  </div>
+
+  <div class="toc">
+    <div class="h">In This Guide</div>
+    <ol>
+      <li><a href="#what-is-hs-crp">What Is hs-CRP?</a></li>
+      <li><a href="#reference-frame">Standard Range vs. Longevity-Optimal Target</a></li>
+      <li><a href="#mechanism">Why Inflammation Belongs in a Cardiovascular Picture</a></li>
+      <li><a href="#evidence">What the Evidence Shows</a></li>
+      <li><a href="#modifiers">What Can Move Your Result — Besides Cardiovascular Risk</a></li>
+      <li><a href="#action">What to Do With Your hs-CRP Result</a></li>
+      <li><a href="#faq">Common Questions</a></li>
+    </ol>
+  </div>
+
+  <p>Most standard cholesterol panels tell you about the particles circulating in your blood — LDL-C, HDL-C, triglycerides. None of them tell you whether your blood vessels are quietly inflamed. <strong>hs-CRP</strong> (high-sensitivity C-reactive protein) is a simple, inexpensive blood test that fills that gap. It's not a diagnosis on its own, and a single high or low number rarely tells the whole story — but read correctly, it adds a dimension your lipid numbers can't.</p>
+
+  <div class="quick">
+    <div class="h">Quick Answer</div>
+    <div class="h2q">hs-CRP in one paragraph</div>
+    <p style="margin:0;">hs-CRP is a blood marker of low-grade, chronic inflammation — a different signal from cholesterol particle counts like ApoB or LDL-C. Lower is generally better: under 1 mg/L is considered low, 1–3 mg/L average, and above 3 mg/L high (assuming no recent illness or injury). The 2025 ESC/EAS Focused Update recognizes hs-CRP persistently above 2 mg/L as a <strong>risk modifier</strong> — a factor that can nudge your overall risk category, not a stand-alone verdict. It is a measurement to bring to your physician, not something to interpret — or act on — in isolation.</p>
+  </div>
+
+  <section id="what-is-hs-crp">
+    <h2>What Is hs-CRP?</h2>
+    <p>C-reactive protein is made by your liver in response to inflammation anywhere in the body — from a cold, an injury, arthritis, or the low-grade, largely silent inflammation that can accompany atherosclerosis (the build-up of plaque in artery walls). The "hs" in hs-CRP stands for <strong>high-sensitivity</strong>: a version of the test precise enough to detect the small, chronic elevations relevant to cardiovascular risk, as distinct from the much larger spikes seen during an acute infection.</p>
+    <p>Because CRP responds to inflammation broadly — not to cardiovascular disease specifically — it is best understood as a <em>general</em> signal that becomes useful for heart health only when read in the right context, and alongside everything else on your panel.</p>
+  </section>
+
+  <section id="reference-frame">
+    <h2>Standard Range vs. Longevity-Optimal Target</h2>
+    <p>As with cholesterol, it helps to separate a lab's population-based flag from a stricter, longevity-oriented target. Neither is "the" right answer on its own — they answer different questions.</p>
+    <table>
+      <thead>
+        <tr><th>Category</th><th>hs-CRP (mg/L)</th><th>What it signals</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Low</td><td>below 1</td><td>Low cardiovascular-inflammatory risk contribution</td></tr>
+        <tr><td>Average</td><td>1–3</td><td>Moderate — often an early or mild signal, not a verdict</td></tr>
+        <tr><td>High</td><td>above 3</td><td>Associated with higher cardiovascular risk — <em>if</em> acute illness/injury is ruled out</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Categories per the CDC/AHA scientific statement on CRP and cardiovascular disease (Pearson et al., 2003). Reference points only — not diagnostic cut-offs; interpretation belongs to your physician.</p>
+    <p>Separately, the <strong>2025 ESC/EAS Focused Update</strong> names hs-CRP persistently above <strong>2 mg/L</strong> as one of a small set of risk modifiers that can be used, alongside other factors, to refine a person's overall risk category. This is a different, narrower use of the number than the CDC/AHA low/average/high bands above — it is a guideline-specific modifier threshold, not a replacement for them.</p>
+    <p>For a longevity-optimal target — a stricter goal aimed at minimizing inflammatory burden over time rather than simply ruling out acute risk — the figure most often used in practice is <strong>under 1 mg/L, ideally under 0.5 mg/L.</strong> This is a practice-based target, not a formal guideline recommendation, and is best read as a direction to aim for rather than a pass/fail line.</p>
+    <div class="aside">
+      <p style="margin:0;"><strong>See it for your own number.</strong> The free <a href="https://cardioiq.health/check/?utm_source=blog&utm_medium=inline&utm_content=hs-crp-inflammation-guide">Optimal vs Normal check</a> puts any value you already have next to both the standard reference range and the longevity-optimal target — no sign-up.</p>
+    </div>
+  </section>
+
+  <section id="mechanism">
+    <h2>Why Inflammation Belongs in a Cardiovascular Picture</h2>
+    <p>Atherosclerosis — the process behind most heart attacks and strokes — isn't just cholesterol accumulating passively in artery walls. Inflammation is part of how plaque forms, how it can become unstable, and how blood vessels respond to injury over time. That's why a marker of systemic inflammation can add information beyond what particle counts like ApoB or LDL-C capture on their own.</p>
+    <p>This is why hs-CRP is often described as a marker of <strong>residual risk</strong>: risk that can remain even after cholesterol particles are well controlled. It doesn't replace ApoB or Lp(a) as measures of atherogenic particle burden — it reflects a different, complementary biological process.</p>
+  </section>
+
+  <section id="evidence">
+    <h2>What the Evidence Shows</h2>
+    <p>The case for hs-CRP as a cardiovascular signal — not just a general inflammation marker — comes largely from large outcome studies. In the JUPITER trial, published in 2008, people with LDL-C already at a commonly used treatment goal but with hs-CRP above 2 mg/L had a meaningfully higher rate of cardiovascular events over the following years than would be expected from their cholesterol numbers alone — demonstrating that hs-CRP carries information beyond LDL-C.</p>
+    <p>On the strength of this and related evidence, the <strong>2025 ESC/EAS Focused Update</strong> (Mach et al., <em>European Heart Journal</em>, 2025) names hs-CRP persistently above 2 mg/L as a risk modifier — a factor that can help refine which risk category a person falls into, used alongside the standard risk tools, not in place of them.</p>
+  </section>
+
+  <section id="modifiers">
+    <h2>What Can Move Your Result — Besides Cardiovascular Risk</h2>
+    <p>Because hs-CRP responds to inflammation of any kind, a single elevated result doesn't automatically point to cardiovascular risk. Before drawing any conclusion, it's worth considering — and ideally re-testing after — factors like:</p>
+    <ul>
+      <li><strong>Recent infection or illness</strong> — even a minor cold can transiently raise CRP well above baseline.</li>
+      <li><strong>Recent injury, surgery, or dental work</strong> — tissue injury triggers the same acute-phase response.</li>
+      <li><strong>Chronic inflammatory or autoimmune conditions</strong> — such as rheumatoid arthritis or inflammatory bowel disease.</li>
+      <li><strong>Smoking and obesity</strong> — both are associated with higher baseline hs-CRP.</li>
+      <li><strong>Pregnancy and hormonal factors</strong> — can shift results independent of cardiovascular risk.</li>
+    </ul>
+    <p>Because of this sensitivity to unrelated causes, a single high result — especially the first time it's measured — is usually a reason to re-test after any acute illness has resolved, not a reason for immediate concern. A result that stays elevated on a repeat test, in the absence of an obvious explanation, is the more meaningful signal.</p>
+  </section>
+
+  <section id="action">
+    <h2>What to Do With Your hs-CRP Result</h2>
+    <p>hs-CRP is a piece of a larger picture, not a stand-alone verdict. A practical way to use it:</p>
+    <ol>
+      <li><strong>Compare your number</strong> against both the standard reference bands and the longevity-optimal target above.</li>
+      <li><strong>Rule out an obvious, temporary cause</strong> — recent illness, injury, or infection — before treating a single high result as meaningful.</li>
+      <li><strong>Bring it to your physician alongside your lipid panel</strong> — ApoB, Lp(a), and hs-CRP together give a fuller picture than any one number alone.</li>
+      <li><strong>Ask what it means for your specific risk category</strong> — this is a clinical judgment that depends on your full history, not something a single test result can answer by itself.</li>
+    </ol>
+    <p class="note">This guide covers measurement and interpretation only. Whether and how to address elevated inflammation is a decision for you and your physician, made in the context of your full clinical picture.</p>
+  </section>
+
+  <section id="faq">
+    <h2>Common Questions</h2>
+    <dl class="faq">
+      <dt>Is hs-CRP the same as regular CRP?</dt>
+      <dd>They measure the same protein, but with different sensitivity. Regular CRP tests are designed to detect the large elevations seen in acute infection or inflammation. The high-sensitivity (hs-CRP) version can detect much smaller, chronic elevations — the range relevant to cardiovascular risk.</dd>
+
+      <dt>Is hs-CRP included in a standard cholesterol panel?</dt>
+      <dd>Not usually. A routine lipid panel measures total cholesterol, LDL-C, HDL-C, and triglycerides — hs-CRP is typically ordered as a separate, inexpensive blood test.</dd>
+
+      <dt>Does a single high hs-CRP result mean I have heart disease?</dt>
+      <dd>No. hs-CRP is a general marker of inflammation, not specific to cardiovascular disease, and can be raised by many temporary or unrelated causes (see above). It's one input among several, best interpreted with your physician alongside your full history and other results.</dd>
+
+      <dt>How often should hs-CRP be re-tested?</dt>
+      <dd>There's no universal schedule. A first elevated result is often re-checked after any acute illness has resolved, to see if it persists. Beyond that, your physician will decide what's useful based on your individual risk picture.</dd>
+
+      <dt>Is hs-CRP the same kind of marker as ApoB or Lp(a)?</dt>
+      <dd>No. ApoB and Lp(a) measure the number of atherogenic particles in your blood. hs-CRP measures a different biological process — systemic inflammation. They're complementary, not interchangeable. See the <a href="https://cardioiq.health/blog/apob-guide/">ApoB guide</a> and <a href="https://cardioiq.health/blog/lpa-guide/">Lp(a) guide</a> for those markers specifically.</dd>
+    </dl>
+  </section>
+
+  <div class="end-cta">
+    <div class="h">Free · no sign-up</div>
+    <p>Want to see where your own numbers sit? The <strong>Optimal&nbsp;vs&nbsp;Normal check</strong> shows any value you already have in two lenses — your lab's standard range and the longevity-optimal target a lipidologist works from.</p>
+    <a class="btn" href="https://cardioiq.health/check/?utm_source=blog&utm_medium=endcta&utm_content=hs-crp-inflammation-guide">See where my numbers sit — free →</a>
+  </div>
+
+  <div class="disclaimer">
+    <span class="icon">⚠️</span><strong>Important Medical Notice.</strong> This article is for education only. It is not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. CardioIQ interprets biomarker data; it does not diagnose or treat disease and does not replace your treating physician. Reference ranges vary by laboratory and assay. Do not start, stop, or change any medication, supplement, or lifestyle program based on this article — discuss your results and any decisions with your physician.
+  </div>
+
+  <div class="refs">
+    <strong style="color:#fff;">References</strong>
+    <ol>
+      <li>Pearson TA, et al. Markers of Inflammation and Cardiovascular Disease: Application to Clinical and Public Health Practice — A Statement for Healthcare Professionals from the CDC and the American Heart Association. <em>Circulation</em>, 2003. doi:<a href="https://doi.org/10.1161/01.CIR.0000148980.87579.5e">10.1161/01.CIR.0000148980.87579.5e</a></li>
+      <li>Mach F, et al. 2025 Focused Update of the 2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>, 2025;46(42):4359–4378. doi:<a href="https://doi.org/10.1093/eurheartj/ehaf190">10.1093/eurheartj/ehaf190</a></li>
+      <li>2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455">10.1093/eurheartj/ehz455</a></li>
+      <li>Ridker PM, et al. Rosuvastatin to Prevent Vascular Events in Men and Women with Elevated C-Reactive Protein (JUPITER trial). <em>New England Journal of Medicine</em>, 2008;359:2195–2207. doi:<a href="https://doi.org/10.1056/NEJMoa0807646">10.1056/NEJMoa0807646</a></li>
+    </ol>
+  </div>
+
+</main>
+
+<footer class="site">
+  <a href="https://cardioiq.health/">CardioIQ</a>·
+  <a href="https://cardioiq.health/about/">About</a>·
+  <a href="https://cardioiq.health/blog/">Blog</a>·
+  <a href="https://cardioiq.health/reports/">Reports</a>
+  <div style="margin-top:10px;">© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</div>
+</footer>
+
+</body>
+</html>
