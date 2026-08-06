@@ -137,6 +137,7 @@
   <a href="/" class="logo">Cardio<span>IQ</span></a>
   <div class="nav-links">
     <a href="/blog/">Blog</a>
+    <a href="/demo-report/">See a sample</a>
     <a href="/science/">Science</a>
     <a href="/reports/#tiers" class="nav-cta">Get my report</a>
   </div>
@@ -198,6 +199,7 @@
       <h3 id="cta-h">See these read against optimal — in full</h3>
       <p id="cta-p">This check shows you where the gaps are. What they mean for <em>you</em> — which target actually applies, how the markers interact, what to do next — is what a lipidologist reads in your report.</p>
       <a class="cta-btn" id="cta-a" href="/reports/#tiers">Get my report — from $29 →</a>
+      <div style="margin-top:10px;font-size:0.86rem"><a href="/demo-report/">Not sure yet? See a full sample report →</a></div>
     </div>
 
     <div class="email-box">
@@ -224,7 +226,7 @@
     </div>
     <div class="author">Reference points calibrated by Dr. Tea Gamezardashvili, MD, PhD, MHA, FACC — preventive cardiologist &amp; lipidologist.</div>
     <div class="foot-links" style="margin-top:14px">
-      <a href="/">CardioIQ</a> · <a href="/reports/#tiers">Reports</a> · <a href="/science/">Science</a> · <a href="/about/">About</a>
+      <a href="/">CardioIQ</a> · <a href="/demo-report/">Sample report</a> · <a href="/reports/#tiers">Reports</a> · <a href="/science/">Science</a> · <a href="/about/">About</a>
     </div>
   </div>
 </footer>
@@ -381,9 +383,9 @@
       document.getElementById("cta-h").textContent="See your ApoB and Lp(a) read against optimal";
       document.getElementById("cta-p").innerHTML="You've entered the markers that matter most. Your report reads them in context — which risk tier is actually yours, how they interact, and what to bring to your doctor. Lp(a) and ApoB are included in the Standard report.";
       document.getElementById("cta-a").textContent="Get my report — Standard, $49 →";
-      document.getElementById("cta-a").href="/reports/#tiers?utm_source=tool&utm_medium=freemium&utm_content=optimal-check-advanced";
+      document.getElementById("cta-a").href="/reports/?utm_source=tool&utm_medium=freemium&utm_content=optimal-check-advanced#tiers";
     } else {
-      document.getElementById("cta-a").href="/reports/#tiers?utm_source=tool&utm_medium=freemium&utm_content=optimal-check-basic";
+      document.getElementById("cta-a").href="/reports/?utm_source=tool&utm_medium=freemium&utm_content=optimal-check-basic#tiers";
     }
 
     var r=document.getElementById("results");
