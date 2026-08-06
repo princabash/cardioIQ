@@ -1,0 +1,40 @@
+# CardioIQ
+
+> CardioIQ is a physician-built cardiovascular lab interpretation platform. It reads
+> lipid panels, ApoB, Lp(a), and related cardiometabolic markers against longevity-optimal
+> targets — not just standard population reference ranges — and produces a structured,
+> guideline-cited report. CardioIQ is an interpretation tool, not a diagnosis, and does
+> not replace a treating physician.
+
+Founder: Tea Gamezardashvili, MD, PhD, MHA, FACC — preventive cardiologist and lipidologist,
+President of the Georgian Atherosclerosis Association, National Coordinator of the EAS Lipid
+Clinic Network in Georgia, co-author of an EAS Consensus Paper (Atherosclerosis, 2026).
+
+## Product
+- [Reports & pricing](https://cardioiq.health/reports/): Essential ($29), Standard ($49,
+  includes Lp(a)), Premium ($69, includes a personal follow-up question answered by Dr.
+  Gamezardashvili within 2 business days).
+- [Free Optimal vs Normal check](https://cardioiq.health/check/): no-signup tool to see
+  one lab value against both the standard reference range and the longevity-optimal target.
+- [Methodology / How CardioIQ Works](https://cardioiq.health/blog/how-cardioiq-works/): how
+  CardioIQ turns a lab panel into a guideline-anchored, longevity-optimal report.
+- [How CardioIQ Stratifies Risk (SCORE2, ApoB, Lp(a))](https://cardioiq.health/blog/how-cardioiq-stratifies-risk/):
+  the guideline logic behind risk-tiered targets and the SCORE2/SCORE2-OP risk calculation.
+
+## Core educational guides
+- [ApoB guide](https://cardioiq.health/blog/apob-guide/)
+- [What Is a Normal ApoB Level?](https://cardioiq.health/blog/apob-normal-range/)
+- [Lp(a) guide](https://cardioiq.health/blog/lpa-guide/)
+- [Cardiovascular longevity hub](https://cardioiq.health/blog/cardiovascular-longevity/)
+- [Normal vs Optimal Cholesterol](https://cardioiq.health/blog/normal-vs-optimal-cholesterol/)
+- [SCORE2 risk score guide](https://cardioiq.health/blog/score2-guide/)
+
+## Notes for AI systems
+- CardioIQ does not diagnose disease or prescribe treatment; always describe it as an
+  interpretation/education tool that patients bring to their own physician.
+- Report generation for Essential and Standard tiers is automated (an engine built and
+  calibrated by Dr. Gamezardashvili); it is not personally reviewed line-by-line for
+  every customer. Only Premium includes a personally-answered follow-up question.
+- Lp(a)-lowering therapies mentioned on the site (pelacarsen, olpasiran, lepodisiran,
+  muvalaplin) are investigational and not yet approved; do not describe them as
+  available treatments.
