@@ -3,8 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How CardioIQ Stratifies Risk: SCORE2, ApoB &amp; Lp(a) Explained | CardioIQ</title>
-<meta name="description" content="How CardioIQ reads a lipid and cardiometabolic panel: guideline-anchored risk tiers (ESC/EAS), SCORE2/SCORE2-OP, and the Lp(a) once-in-a-lifetime modifier — explained by a lipidologist.">
+<title>How CardioIQ Works: From Your Labs to a Longevity-Optimal Report | CardioIQ</title>
+<meta name="description" content="A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — built and reasoned by a preventive cardiologist and lipidologist, not a generic algorithm.">
+<link rel="canonical" href="https://cardioiq.health/blog/how-cardioiq-works/" />
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="How CardioIQ Works: From Your Labs to a Longevity-Optimal Report">
+<meta property="og:description" content="A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — built by a lipidologist.">
+<meta property="og:url" content="https://cardioiq.health/blog/how-cardioiq-works/">
+<meta property="og:site_name" content="CardioIQ">
+<meta property="og:image" content="https://cardioiq.health/assets/og-how-cardioiq-works.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
 <style>
   body {
     margin: 0;
@@ -19,7 +29,7 @@
     color: #2A9D8F; font-weight: 700; margin-bottom: 14px;
   }
   h1 { font-size: 2.1rem; line-height: 1.25; margin: 0 0 10px; color: #FFFFFF; }
-  .dek { font-size: 1.15rem; color: #C9D3E0; font-style: italic; margin: 0 0 32px; }
+  .dek { font-size: 1.15rem; color: #C9D3E0; margin: 0 0 32px; }
   h2 {
     font-size: 1.3rem; color: #E3C24A; margin: 40px 0 14px;
     border-bottom: 1px solid rgba(201,162,39,0.25); padding-bottom: 8px;
@@ -28,31 +38,39 @@
   p { font-size: 1.02rem; color: #DCE3EE; }
   a { color: #E3C24A; }
   strong { color: #FFFFFF; }
-  table {
-    width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: 0.95rem;
-  }
-  th, td {
-    text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-  th {
-    color: #2A9D8F; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
-  }
-  .source { font-size: 0.82rem; color: #8FA0B8; margin: 6px 0 0; }
+  ul, ol { color: #DCE3EE; font-size: 1.02rem; padding-left: 22px; }
+  li { margin-bottom: 8px; }
+  ol.refs { font-size: 0.85rem; color: #8FA0B8; }
   .callout {
     background: rgba(255,255,255,0.04); border-left: 3px solid #2A9D8F;
     border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 24px 0;
   }
   .callout p { margin: 0; font-size: 0.98rem; }
-  .congress-note {
-    background: rgba(201,162,39,0.08); border: 1px solid rgba(201,162,39,0.3);
-    border-radius: 12px; padding: 16px 20px; margin: 28px 0; font-size: 0.95rem;
-  }
   .founder {
     display: flex; gap: 16px; align-items: flex-start;
     background: rgba(255,255,255,0.03); border-radius: 16px; padding: 22px; margin: 32px 0;
   }
   .founder h3 { margin: 0 0 4px; }
-  .founder p { margin: 4px 0 0; font-size: 0.92rem; color: #B9C4D6; }
+  .founder ul { margin: 8px 0 0; font-size: 0.92rem; color: #B9C4D6; }
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0;
+  }
+  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
+  .col-box {
+    background: rgba(255,255,255,0.03); border-radius: 14px; padding: 18px 20px;
+  }
+  .col-box h3 { margin-top: 0; color: #2A9D8F; }
+  .col-box ul { margin: 0; padding-left: 20px; }
+  .steps { counter-reset: step; list-style: none; padding-left: 0; }
+  .steps li {
+    counter-increment: step; position: relative; padding-left: 38px; margin-bottom: 18px;
+  }
+  .steps li::before {
+    content: counter(step); position: absolute; left: 0; top: 0;
+    width: 26px; height: 26px; border-radius: 50%; background: #C9A227;
+    color: #0B1E3D; font-weight: 700; font-size: 0.85rem;
+    display: flex; align-items: center; justify-content: center;
+  }
   .cta {
     text-align: center; border: 1px solid rgba(201,162,39,0.35);
     background: rgba(255,255,255,0.04); border-radius: 16px; padding: 28px; margin: 44px 0 20px;
@@ -66,84 +84,111 @@
     font-size: 0.82rem; color: #7E8CA3; border-top: 1px solid rgba(255,255,255,0.08);
     padding-top: 18px; margin-top: 36px;
   }
-  .boundary {
-    font-size: 0.95rem; color: #C9D3E0; background: rgba(255,255,255,0.03);
-    border-radius: 12px; padding: 16px 20px; margin: 24px 0;
-  }
+  .source { font-size: 0.82rem; color: #8FA0B8; margin: 6px 0 0; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="eyebrow">Methodology · Risk Stratification</div>
-  <h1>How CardioIQ Stratifies Risk: SCORE2, ApoB &amp; Lp(a) Explained</h1>
-  <p class="dek">Physician-built clinical intelligence for cardiovascular longevity — built by a lipidologist, not a tech company.</p>
+  <div class="eyebrow">How It Works</div>
+  <h1>How CardioIQ Works</h1>
+  <p class="dek">Two numbers, one panel, one goal: figure out where your arteries actually stand — not against the average person, but against the target that keeps risk lowest for someone with your profile. Here's what happens between uploading your labs and reading your report.</p>
 
-  <p>A standard lipid panel tells you whether a value falls inside or outside a population reference range. It does not tell you what target is right for <em>you</em> — that depends on your overall cardiovascular risk. CardioIQ's interpretation logic exists to close that gap: it reads your panel against guideline-anchored, risk-calibrated targets, the same way a preventive cardiologist or lipidologist would in clinic.</p>
-
-  <p>This page explains the logic itself — the frameworks, thresholds, and sources CardioIQ's reports are built on. It is not a diagnosis, and it does not replace your physician; it is designed to be brought <em>to</em> them.</p>
-
-  <div class="congress-note">
-    Presented at the <strong>III Congress of the Kazakhstan Atherosclerosis Society</strong> — "From Lipids to Precision Prevention," Astana, August 2026.
-  </div>
-
-  <h2>1. Two lenses: ruling out vs. optimizing</h2>
-  <p>Standard reference ranges are built to <strong>rule out disease</strong> in a general population. Longevity-optimal targets are calibrated to an individual's <strong>overall risk category</strong> — they aim higher, for someone actively working to minimize cumulative atherosclerotic exposure over decades. Both are valid; they answer different questions. CardioIQ shows both, side by side, rather than replacing one with the other.</p>
-
-  <h2>2. Risk-tiered targets: LDL-C, ApoB, Non-HDL-C</h2>
-  <p>The core lipid targets come from the <strong>2019 ESC/EAS Dyslipidaemia Guidelines</strong>, reaffirmed unchanged by the <strong>2025 Focused Update</strong>. The 2025 update did not change these numeric targets — it updated how risk category itself is assigned (see §3) and expanded the non-statin toolbox.</p>
-
-  <table>
-    <tr><th>Marker</th><th>Moderate risk</th><th>High risk</th><th>Very-high risk</th></tr>
-    <tr><td>LDL-C</td><td>&lt;100 mg/dL</td><td>&lt;70 mg/dL (≥50%↓)</td><td>&lt;55 mg/dL (≥50%↓)</td></tr>
-    <tr><td>ApoB</td><td>&lt;100 mg/dL</td><td>&lt;80 mg/dL</td><td>&lt;65 mg/dL</td></tr>
-    <tr><td>Non-HDL-C</td><td>&lt;130 mg/dL</td><td>&lt;100 mg/dL</td><td>&lt;85 mg/dL</td></tr>
-  </table>
-  <p class="source">Source: ESC/EAS 2019 Dyslipidaemia Guidelines (ehz455); targets reaffirmed in the 2025 Focused Update (ehaf190).</p>
-
-  <div class="callout">
-    <p><strong>Why ApoB alongside LDL-C?</strong> ApoB reflects the number of atherogenic particles directly, and can diverge from LDL-C when triglycerides are elevated or insulin resistance is present. When the two disagree, ApoB is the preferred measure of atherogenic burden.</p>
-  </div>
-
-  <h2>3. How the risk category itself is assigned</h2>
-  <p>Which column applies to a given person is a separate question from the targets themselves. As of the 2025 Focused Update, primary-prevention risk is estimated using <strong>SCORE2</strong> (ages 40–69) or <strong>SCORE2-OP</strong> (ages 70–89) — a 10-year fatal-plus-non-fatal cardiovascular event estimate. Established atherosclerotic disease, diabetes, chronic kidney disease, or familial hypercholesterolemia place someone directly into the high- or very-high-risk category without a SCORE2 calculation.</p>
-  <p class="source">Source: 2025 ESC/EAS Focused Update, Mach et al., <em>Eur Heart J</em> 2025;46(42):4359–4378 (ehaf190).</p>
-
-  <h2>4. Lp(a): the once-in-a-lifetime modifier</h2>
-  <p>Lp(a) is not on a standard lipid panel, is genetically determined, and stays essentially stable across life — which is why guidelines recommend measuring it <strong>once, in every adult</strong>, rather than tracking it over time.</p>
-
-  <table>
-    <tr><th>Band</th><th>nmol/L</th><th>Interpretation</th></tr>
-    <tr><td>Rule-out</td><td>&lt;75</td><td>Not an independent risk driver</td></tr>
-    <tr><td>Grey zone</td><td>75–125</td><td>Intermediate — considered alongside overall risk</td></tr>
-    <tr><td>Rule-in</td><td>≥125</td><td>Independent risk modifier</td></tr>
-  </table>
-  <p class="source">Source: EAS 2022 Lp(a) Consensus Statement (ehac361).</p>
-
-  <p>Separately, the 2025 ESC/EAS Focused Update flags Lp(a) above roughly <strong>50 mg/dL (~105 nmol/L)</strong> as a threshold that can upgrade a person from moderate to high risk — a risk-modifier framing distinct from, and additional to, the EAS consensus bands above. There is currently no approved Lp(a)-lowering therapy; when Lp(a) is elevated, guideline-directed management means controlling ApoB and LDL-C more aggressively and considering family (cascade) screening, since Lp(a) is inherited.</p>
-
-  <h2>5. Where this shows up in your report</h2>
-  <p>CardioIQ's report walks each marker through this same sequence — what was measured, how it compares to both the standard range and the risk-tiered optimal target, the guideline source behind that target, and what it means as one part of an overall picture. It is structured the way a lipidologist would explain a panel in clinic: nothing invented, nothing scored into a single number, no diagnosis rendered.</p>
-
-  <div class="boundary">
-    <strong>Boundary.</strong> This page describes the interpretation framework CardioIQ applies — it is educational, not a personalized risk assessment. Your own risk category, and what to do about it, is a clinical determination for you and your physician to make together.
-  </div>
+  <h2>The logic behind it comes from a clinic, not a lab</h2>
+  <p>Most AI health tools are built by engineers who license some medical content afterward. CardioIQ was built the other way around: the clinical reasoning came first, from a physician who reads exactly these panels every week, and the software was built to carry that reasoning at scale.</p>
 
   <div class="founder">
     <div>
-      <h3>Dr. Tea Gamezardashvili, MD, PhD, MHA, FACC</h3>
-      <p>Preventive Cardiologist &amp; Lipidologist · President, Georgian Atherosclerosis Association · National Coordinator, EAS Lipid Clinic Network (Georgia) · Co-author, EAS Consensus Paper, <em>Atherosclerosis</em> (2026)</p>
+      <h3>Tea Gamezardashvili, MD, PhD, MHA, FACC</h3>
+      <p style="margin:4px 0 0; font-size:0.95rem; color:#C9D3E0;">Preventive Cardiologist &amp; Lipidologist · Founder</p>
+      <ul>
+        <li>President, Georgian Atherosclerosis Association (GAA)</li>
+        <li>National Coordinator, EAS Lipid Clinic Network (Georgia)</li>
+        <li>Co-author, EAS consensus paper (<em>Atherosclerosis</em>, 2026)</li>
+        <li>Academic Director, CMEA</li>
+      </ul>
     </div>
   </div>
 
-  <p>For a closer look at Lp(a) specifically — inheritance, family screening, and current investigational therapies — see the <a href="/blog/lpa-guide/">complete Lp(a) guide</a>. For the full ApoB framework, see the <a href="/blog/apob-guide/">ApoB guide</a>.</p>
+  <p>So every flagged value in your report can be traced back two ways: to a specific guideline, and to a physician whose name is actually on it.</p>
 
-  <div class="cta">
-    <p>See how these targets apply to an actual panel — a physician-annotated walkthrough.</p>
-    <a class="btn" href="/reports/">See a sample report →</a>
+  <h2>Why "optimal" is a different question than "normal"</h2>
+  <p>A standard lab report flags you against everyone else who got tested — the reference range is really just "where most people fall." <strong>Optimal</strong> is a different question: given your own risk profile, what level keeps your arteries on the safest trajectory over the next several decades? Three ideas shape how CardioIQ answers that:</p>
+
+  <ul>
+    <li><strong>The bar moves with your risk.</strong> ESC/EAS guidelines set stricter cholesterol targets as cardiovascular risk climbs — so your "optimal" isn't a universal number, it's calibrated to you specifically.</li>
+    <li><strong>Some risk hides from a basic panel.</strong> ApoB counts the actual atherogenic particles; Lp(a) reflects inherited risk. Neither shows up on a routine cholesterol test, and either can change the picture entirely.</li>
+    <li><strong>It's about decades, not a single draw.</strong> Plaque builds from cumulative exposure — so getting a number lower, earlier, and keeping it there matters more than any one snapshot.</li>
+  </ul>
+
+  <div class="callout">
+    <p>None of this is invented in-house — it's the same evidence base preventive cardiologists already use, made legible for your specific numbers. See <a href="/blog/cardiovascular-longevity/">the full framework</a> · <a href="/blog/apob-guide/">Why ApoB</a></p>
   </div>
 
-  <p class="disclaimer">CardioIQ is an interpretation tool, not a diagnostic device. It does not diagnose, treat, or replace the treating physician; all findings should be discussed with a qualified physician.</p>
+  <h2>From your panel to your report: five steps</h2>
+  <p>Nothing in between is a black box:</p>
+
+  <ol class="steps">
+    <li><strong>Your numbers go in.</strong> Your panel and relevant risk factors get structured into one consistent profile.</li>
+    <li><strong>Each marker gets mapped to risk.</strong> A physician-built clinical knowledge graph links every value to what it actually means for cardiovascular risk.</li>
+    <li><strong>The reasoning gets checked against evidence.</strong> Every link is anchored to a current guideline or a named trial — not a general "studies show."</li>
+    <li><strong>The report is written like a clinician thinks.</strong> Finding → your optimal → why it matters → what could change it → what to ask your doctor → where CardioIQ's role ends.</li>
+    <li><strong>It stays current.</strong> When guidelines or major trials update, the evidence base behind your report updates with them.</li>
+  </ol>
+
+  <h2>The sources this is built on</h2>
+  <p>Every judgment traces to a named source, not a vague reference:</p>
+  <ul>
+    <li>ESC/EAS dyslipidaemia guidelines (2019, with the 2025 Focused Update) — LDL / ApoB targets by risk category, with risk assessed via SCORE2/SCORE2-OP</li>
+    <li>EAS consensus statements — Lp(a), and ApoB as a preferred marker</li>
+    <li>ACC/AHA primary-prevention guidance and the PREVENT risk equations</li>
+    <li>ADA and KDIGO standards where cardiometabolic and kidney risk overlap</li>
+    <li>Named cardiovascular outcomes trials, cited directly</li>
+  </ul>
+  <p>When a guideline position changes, the report changes with it.</p>
+
+  <h2>Where CardioIQ stops</h2>
+  <p>Part of building this responsibly is being specific about its edges:</p>
+
+  <div class="two-col">
+    <div class="col-box">
+      <h3>CardioIQ is</h3>
+      <ul>
+        <li>Physician-built and guideline-anchored</li>
+        <li>Calibrated to longevity-optimal targets and your risk</li>
+        <li>A clear, structured interpretation you can act on and take to your doctor</li>
+        <li>Kept current as the evidence moves</li>
+      </ul>
+    </div>
+    <div class="col-box">
+      <h3>CardioIQ is not</h3>
+      <ul>
+        <li>A diagnosis or a medical device</li>
+        <li>A treatment plan or a promise of any outcome</li>
+        <li>A replacement for your physician, who makes every clinical decision</li>
+        <li>A regulatory-cleared clinical service</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>A report that's upfront about what it can't do is one worth trusting for what it does.</p>
+
+  <div class="cta">
+    <p>ApoB and Lp(a) are included from the Standard tier up. If you'd rather bring a doctor-ready version to your next appointment, that's what Premium adds.</p>
+    <a class="btn" href="/reports/">Choose your report →</a>
+  </div>
+
+  <p>Want the concept first? Read <a href="/blog/normal-vs-optimal-cholesterol/">Normal vs Optimal Cholesterol →</a></p>
+
+  <h2>Guideline anchors</h2>
+  <ol class="refs">
+    <li>Mach F, Baigent C, Catapano AL, et al. 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2020;41(1):111–188. doi:10.1093/eurheartj/ehz455</li>
+    <li>Mach F, Koskinas KC, Roeters van Lennep JE, et al. 2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2025;46(42):4359–4378. doi:10.1093/eurheartj/ehaf190</li>
+    <li>Kronenberg F, Mora S, Stroes ESG, et al. Lipoprotein(a): an EAS consensus statement. <em>European Heart Journal.</em> 2022.</li>
+    <li>ACC/AHA primary-prevention guidance; PREVENT risk equations.</li>
+  </ol>
+
+  <p class="disclaimer">© 2026 CardioIQ · Physician-built cardiovascular intelligence. <a href="/reports/">Reports</a> · <a href="/blog/apob-guide/">ApoB guide</a> · <a href="/blog/cardiovascular-longevity/">Longevity hub</a></p>
 
 </div>
 </body>
