@@ -1,1 +1,358 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-512.png">
+<title>უფასო კარდიოვასკულური რეპორტი | CardioIQ</title>
+<meta name="description" content="მიიღეთ თქვენი უფასო, ექიმის მიერ შემუშავებული კარდიოვასკულური ინტერპრეტაციის რეპორტი — არა უბრალოდ ნორმა, არამედ ოპტიმალური მაჩვენებლები." />
+<link rel="canonical" href="https://cardioiq.health/free-report/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="უფასო CardioIQ რეპორტი — ნორმა თუ ოპტიმალური?" />
+<meta property="og:description" content="შეავსეთ მოკლე ფორმა და მიიღეთ თქვენი უფასო კარდიოვასკულური ინტერპრეტაციის რეპორტი." />
+<meta property="og:url" content="https://cardioiq.health/free-report/" />
+<meta property="og:site_name" content="CardioIQ" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Georgian:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#0B1F3A; --navy-mid:#112847; --navy-soft:#173a63;
+  --teal:#0E7C7B; --teal-light:#12A09E; --teal-tint:#E7F3F1;
+  --gold:#C9A84C; --gold-light:#E4C878;
+  --cream:#F8F6F1; --white:#fff;
+  --text:#1A2B3C; --muted:#4A6070; --border:#DCE5EC;
+  --font-display:Georgia,'Times New Roman',serif;
+  --font-body:'Inter','Noto Sans Georgian',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --max:760px; --radius:16px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text);background:var(--white);font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+a{color:var(--teal)}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.2;color:var(--navy);letter-spacing:-.01em}
 
+.nav{background:var(--navy);padding:16px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:center}
+.logo{font-family:var(--font-display);font-size:1.3rem;color:#fff;text-decoration:none;font-weight:700}
+.logo span{color:var(--gold)}
+
+.hero{background:radial-gradient(900px 400px at 80% -10%,rgba(18,160,158,.28),transparent 60%),var(--navy);color:#eaf1f8;padding:56px 0 46px;text-align:center}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);background:rgba(201,168,76,.12);border:1px solid rgba(201,168,76,.35);border-radius:100px;padding:6px 16px;margin-bottom:20px}
+.hero h1{color:#fff;font-size:clamp(1.7rem,5vw,2.5rem);max-width:20ch;margin:0 auto}
+.hero h1 em{font-style:italic;color:var(--gold-light)}
+.hero .sub{font-size:1.08rem;color:#c6d6e6;max-width:48ch;margin:18px auto 0;line-height:1.65}
+
+section{padding:44px 0}
+.gap{background:var(--cream)}
+.gap h2{font-size:1.4rem;text-align:center}
+.gap-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.gap-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:20px}
+.gap-card.optimal{border-color:var(--teal);box-shadow:0 8px 30px rgba(14,124,123,.1)}
+.gap-card h3{font-size:1.02rem;margin-bottom:6px}
+.gap-card.normal h3{color:var(--muted)}
+.gap-card .tagline{font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;font-weight:700;margin-bottom:10px}
+.gap-card.normal .tagline{color:var(--muted)}
+.gap-card.optimal .tagline{color:var(--teal)}
+.gap-card ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.gap-card li{padding-left:20px;position:relative;font-size:.9rem}
+.gap-card li::before{position:absolute;left:0;top:0}
+.gap-card.normal li::before{content:"—";color:var(--muted)}
+.gap-card.optimal li::before{content:"✓";color:var(--teal);font-weight:700}
+
+.form-section .wrap{max-width:600px}
+.form-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px 28px;box-shadow:0 20px 50px rgba(11,31,58,.08)}
+.form-card h2{font-size:1.3rem;text-align:center;margin-bottom:6px}
+.form-card .fnote{text-align:center;color:var(--muted);font-size:.9rem;margin-bottom:22px}
+label{display:block;font-size:.86rem;font-weight:600;color:var(--navy);margin-bottom:5px}
+.field{margin-bottom:14px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+input[type=text],input[type=email],input[type=number],select,textarea{
+  width:100%;padding:.68rem .85rem;border:1px solid var(--border);border-radius:10px;
+  font-family:var(--font-body);font-size:.95rem;color:var(--text);background:#fbfcfd;transition:border-color .15s;
+}
+textarea{resize:vertical;min-height:80px;line-height:1.5}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal)}
+.opt-tag{font-size:.7rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-left:4px}
+.section-title{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin:24px 0 12px;padding-top:16px;border-top:1px dashed var(--border)}
+.section-title:first-of-type{margin-top:6px;padding-top:0;border-top:none}
+.check-row{display:flex;align-items:center;gap:8px;margin:4px 0 14px}
+.check-row input{width:auto}
+.check-row label{margin:0;font-weight:500;font-size:.9rem}
+.upload-box{border:1.5px dashed var(--border);border-radius:12px;padding:16px;text-align:center;background:#fbfcfd}
+.upload-box input[type=file]{width:100%;font-size:.85rem}
+.or-divider{text-align:center;color:var(--muted);font-size:.82rem;margin:14px 0;position:relative}
+.btn-submit{width:100%;background:var(--gold);color:#1b1405;font-weight:800;font-size:1.02rem;padding:.95rem;border:none;border-radius:10px;cursor:pointer;transition:background .2s,transform .15s;margin-top:18px}
+.btn-submit:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-submit:disabled{opacity:.6;cursor:default;transform:none}
+.form-legal{font-size:.76rem;color:var(--muted);text-align:center;margin-top:14px;line-height:1.5}
+.hp-field{position:absolute;left:-9999px}
+
+#successBox{display:none;text-align:center;padding:40px 10px}
+#successBox .check{width:56px;height:56px;border-radius:50%;background:var(--teal-tint);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin:0 auto 18px;font-weight:800}
+#successBox h2{font-size:1.3rem;margin-bottom:10px}
+#successBox p{color:var(--muted);font-size:.96rem;max-width:42ch;margin:0 auto}
+
+.trust-strip{text-align:center;padding:6px 0 40px}
+.trust-strip p{font-size:.86rem;color:var(--muted)}
+.trust-strip strong{color:var(--navy)}
+
+.disclaimer{background:var(--cream);color:var(--muted);font-size:.85rem;line-height:1.65;padding:24px 0}
+.disclaimer .wrap{max-width:640px}
+.disclaimer strong{color:var(--navy)}
+
+footer{background:var(--navy);color:#9fb4c8;padding:24px 0;font-size:.85rem;text-align:center}
+footer a{color:#cdd9e6;text-decoration:none}
+footer a:hover{color:#fff}
+
+@media(max-width:600px){
+  .gap-grid{grid-template-columns:1fr}
+  .field-row,.field-row3{grid-template-columns:1fr}
+  .form-card{padding:24px 18px}
+}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="wrap">
+    <a href="https://cardioiq.health" class="logo">Cardio<span>IQ</span></a>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">უფასოდ • ქართველი მომხმარებლებისთვის</span>
+    <h1>თქვენი ლაბორატორიული ანალიზი <em>ნორმაშია</em> — მაგრამ არის კი <em>ოპტიმალური</em>?</h1>
+    <p class="sub">ატვირთეთ თქვენი ლაბორატორიის შედეგი (ან ჩაწერეთ ხელით) და მიიღეთ უფასო, ექიმის მიერ შემუშავებული კარდიოვასკულური ინტერპრეტაციის რეპორტი — ელფოსტაზე.</p>
+  </div>
+</section>
+
+<section class="gap">
+  <div class="wrap">
+    <h2>ნორმა და ოპტიმალური — სხვადასხვა კითხვაა</h2>
+    <div class="gap-grid">
+      <div class="gap-card normal">
+        <div class="tagline">სტანდარტული დიაპაზონი</div>
+        <h3>„ნორმაშია“</h3>
+        <ul>
+          <li>ეყრდნობა პოპულაციურ საშუალოს</li>
+          <li>აღნიშნავს უკვე განვითარებულ პრობლემას</li>
+          <li>ხშირად არ მოიცავს ApoB-ს ან Lp(a)-ს</li>
+        </ul>
+      </div>
+      <div class="gap-card optimal">
+        <div class="tagline">CardioIQ-ს მიდგომა</div>
+        <h3>„ოპტიმალურია“</h3>
+        <ul>
+          <li>ეყრდნობა გრძელვადიან, დაბალი რისკის მაჩვენებლებს</li>
+          <li>გაიდლაინებზეა დაფუძნებული (ESC/EAS)</li>
+          <li>თქვენი მაჩვენებლების სრულ სურათს იძლევა</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section">
+  <div class="wrap">
+    <div class="form-card">
+
+      <form id="freeReportForm" name="free-report-ka" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data">
+        <input type="hidden" name="form-name" value="free-report-ka" />
+        <input type="hidden" name="selectedPlan" value="essential" />
+        <input type="hidden" name="source" value="free-report-ka" />
+        <p class="hp-field"><label>არ შეავსოთ ეს ველი: <input name="bot-field" /></label></p>
+
+        <h2>მოითხოვეთ თქვენი უფასო რეპორტი</h2>
+        <p class="fnote">დაახლოებით 2 წუთი. რეპორტი ჩამოგივათ <strong style="color:var(--navy)">ინგლისურ ენაზე</strong>.</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fname">სახელი და გვარი</label>
+            <input type="text" id="fname" name="name" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="femail">ელფოსტა</label>
+            <input type="email" id="femail" name="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fage">ასაკი</label>
+            <input type="number" id="fage" name="age" min="18" max="110" required>
+          </div>
+          <div class="field">
+            <label for="fsex">სქესი</label>
+            <select id="fsex" name="sex" required>
+              <option value="" disabled selected>აირჩიეთ</option>
+              <option value="female">მდედრობითი</option>
+              <option value="male">მამრობითი</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-title">თქვენი ლაბორატორიის შედეგი</div>
+
+        <div class="upload-box">
+          <label for="labfile" style="margin-bottom:8px">ატვირთეთ ლაბორატორიის ამონაწერი (ფოტო ან PDF)</label>
+          <input type="file" id="labfile" name="lab_document" accept=".pdf,.jpg,.jpeg,.png">
+        </div>
+        <div class="or-divider">— ან, თუ დოკუმენტი არ გაქვთ ხელთ —</div>
+        <div class="field">
+          <label for="notes">ჩაწერეთ თქვენი მაჩვენებლები ხელით <span class="opt-tag">მაგ. Total Cholesterol, LDL-C, HDL-C, Triglycerides, ApoB, Lp(a)</span></label>
+          <textarea id="notes" name="notes" placeholder="მაგალითად: Total Cholesterol 210, LDL-C 130, HDL-C 48, Triglycerides 140, ApoB 95, Lp(a) 55"></textarea>
+        </div>
+
+        <div class="section-title">სხეულის მაჩვენებლები <span class="opt-tag">არასავალდებულო, აუმჯობესებს სიზუსტეს</span></div>
+        <div class="field-row3">
+          <div class="field">
+            <label for="weight">წონა (კგ)</label>
+            <input type="number" id="weight" name="weightKg" min="0" step="0.1">
+          </div>
+          <div class="field">
+            <label for="height">სიმაღლე (სმ)</label>
+            <input type="number" id="height" name="heightCm" min="0" step="1">
+          </div>
+          <div class="field">
+            <label for="waist">წელის გარშემოწერილობა (სმ)</label>
+            <input type="number" id="waist" name="waistCm" min="0" step="1">
+          </div>
+        </div>
+
+        <div class="section-title">რისკის ფაქტორები <span class="opt-tag">არასავალდებულო</span></div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="smoker">მოწევის სტატუსი</label>
+            <select id="smoker" name="smoker">
+              <option value="">არ მინდა პასუხის გაცემა</option>
+              <option value="never">არასოდეს მიმიწევია</option>
+              <option value="former">ყოფილი მწეველი</option>
+              <option value="current">ამჟამად ვეწევი</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="bp">არტერიული წნევა (სისტოლური)</label>
+            <input type="number" id="bp" name="bp" min="0" step="1" placeholder="მაგ. 120">
+          </div>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="onBpMed" name="onBpMed" value="yes">
+          <label for="onBpMed">ვიღებ წნევის დამწევ მედიკამენტს</label>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="fasting">ანალიზი ჩაბარებული იყო უზმოზე?</label>
+            <select id="fasting" name="fasting">
+              <option value="">არ ვიცი</option>
+              <option value="yes">კი</option>
+              <option value="no">არა</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="dyslipid">აქამდე დაგისვამთ მაღალი ქოლესტერინის დიაგნოზი?</label>
+            <select id="dyslipid" name="dyslipid">
+              <option value="">არ ვიცი</option>
+              <option value="yes">კი</option>
+              <option value="no">არა</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="existingDx">გადატანილი ინფარქტი ან ინსულტი</label>
+            <select id="existingDx" name="existingDx">
+              <option value="no">არა</option>
+              <option value="yes">კი</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="onLipidMed">ამჟამად იღებთ ქოლესტერინის დამწევ მედიკამენტს (მაგ. სტატინი)?</label>
+            <select id="onLipidMed" name="onLipidMed">
+              <option value="">არ ვიცი</option>
+              <option value="yes">კი</option>
+              <option value="no">არა</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="familyHx">ოჯახური ისტორია <span class="opt-tag">მაგ. ადრეული გულის შეტევა ახლო ნათესავში</span></label>
+          <input type="text" id="familyHx" name="familyHx" placeholder="მაგ. მამა — ინფარქტი 52 წლისას">
+        </div>
+        <div class="field">
+          <label for="meds">მიმდინარე მედიკამენტები</label>
+          <input type="text" id="meds" name="meds" placeholder="თუ არ იღებთ, დატოვეთ ცარიელი">
+        </div>
+        <div class="field">
+          <label for="checkedCond">სხვა ცნობილი დაავადებები</label>
+          <input type="text" id="checkedCond" name="checkedCond" placeholder="მაგ. დიაბეტი, ფარისებრი ჯირკვლის დაავადება">
+        </div>
+
+        <div class="check-row" style="margin-top:18px;align-items:flex-start">
+          <input type="checkbox" id="consent" name="consent" value="yes" required style="margin-top:3px">
+          <label for="consent" style="font-weight:500;line-height:1.5">თანახმა ვარ, რომ ჩემი მონაცემები (ლაბორატორიული მაჩვენებლები და ჯანმრთელობის ინფორმაცია) გამოყენებულ იქნას მხოლოდ ამ რეპორტის შესაქმნელად და არ გადაეცემა მესამე მხარეს.</label>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">უფასო რეპორტის მოთხოვნა</button>
+        <p class="form-legal">რეპორტი ჩამოგივათ ინგლისურ ენაზე. ეს არის ინტერპრეტაციის ინსტრუმენტი და არა დიაგნოსტიკური ან სამედიცინო რჩევა — საბოლოო გადაწყვეტილებისთვის მიმართეთ თქვენს მკურნალ ექიმს.</p>
+      </form>
+
+      <div id="successBox">
+        <div class="check">✓</div>
+        <h2>მადლობა!</h2>
+        <p>თქვენი მოთხოვნა მიღებულია. რეპორტი შეგეგზავნებათ მითითებულ ელფოსტაზე უახლოეს დღეებში.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <p><strong>ექიმის მიერ შემუშავებული</strong> — არა გენერული ალგორითმი. ავტორი: თეა გამეზარდაშვილი, MD, PhD, MHA, FACC</p>
+</div>
+
+<div class="disclaimer">
+  <div class="wrap">
+    <p><strong>მნიშვნელოვანი ინფორმაცია:</strong> CardioIQ-ს რეპორტი წარმოადგენს თქვენი არსებული ლაბორატორიული მაჩვენებლების ინტერპრეტაციას გაიდლაინებზე დაფუძნებული ოპტიმალური მაჩვენებლების მიმართ. ეს არ არის დიაგნოზი, მკურნალობის რეკომენდაცია ან თქვენი ექიმის შემცვლელი. ნებისმიერი გადაწყვეტილება მიმართეთ თქვენს მკურნალ ექიმს.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://cardioiq.health">cardioiq.health</a> · <a href="mailto:info@cardioiq.health">info@cardioiq.health</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('freeReportForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'იგზავნება...';
+
+  var data = new FormData(form);
+  fetch('/', { method: 'POST', body: data })
+    .then(function(){
+      form.style.display = 'none';
+      document.getElementById('successBox').style.display = 'block';
+    }).catch(function(){
+      btn.disabled = false;
+      btn.textContent = 'უფასო რეპორტის მოთხოვნა';
+      alert('დაფიქსირდა შეცდომა. გთხოვთ სცადოთ ხელახლა ან მოგვწერეთ info@cardioiq.health-ზე.');
+    });
+});
+</script>
+
+</body>
+</html>
