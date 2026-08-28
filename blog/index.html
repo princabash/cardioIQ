@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png">
-<link rel="apple-touch-icon" href="/favicon-512.png"> 
+<link rel="apple-touch-icon" href="/favicon-512.png">
 <title>Blog — Cardiovascular Longevity, ApoB &amp; Lp(a) | CardioIQ</title>
 <meta name="description" content="Evidence-based guides on ApoB, Lp(a), and reading your lab results against longevity-optimal targets — not just population ranges. Physician-authored by Dr. Tea Gamezardashvili, MD PhD MHA FACC.">
 <link rel="canonical" href="https://cardioiq.health/blog/">
@@ -217,8 +217,9 @@ const SECTIONS = [
   { id:"start",     tag:"Start here",         title:"The two pillars" },
   { id:"apob",      tag:"ApoB",               title:"Understanding ApoB" },
   { id:"lpa",       tag:"Lp(a)",              title:"Understanding Lp(a)" },
-  { id:"metabolic", tag:"Metabolic health",   title:"Insulin, glucose \u0026 metabolic risk" },
-  { id:"optimal",   tag:"Normal vs optimal",  title:"When \u201Cnormal\u201D isn\u2019t the whole picture" }
+  { id:"metabolic", tag:"Metabolic health",   title:"Insulin, glucose & metabolic risk" },
+  { id:"optimal",   tag:"Normal vs optimal",  title:"When “normal” isn’t the whole picture" },
+  { id:"lifestyle", tag:"Lifestyle & nutrition", title:"Diet, exercise & sleep as biomarker levers" }
 ];
 
 /* CONFIRMED LIVE — linked from the live Lp(a) pillar and/or fetched directly. */
@@ -227,19 +228,19 @@ const POSTS = [
     section:"start", feature:true, kicker:"Pillar · ApoB",
     title:"ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk",
     url:"/blog/apob-guide/",
-    blurb:"Why the particle count \u2014 not the cholesterol number \u2014 is the truer measure of atherogenic burden, and what your target should be."
+    blurb:"Why the particle count — not the cholesterol number — is the truer measure of atherogenic burden, and what your target should be."
   },
   {
     section:"start", feature:true, kicker:"Pillar · Lp(a)",
     title:"Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk",
     url:"/blog/lpa-guide/",
-    blurb:"The inherited risk factor most people are never tested for \u2014 what it is, what counts as high, and what to do about it."
+    blurb:"The inherited risk factor most people are never tested for — what it is, what counts as high, and what to do about it."
   },
   {
     section:"lpa", kicker:"Comparison",
     title:"Lp(a) vs LDL: Why a Normal Cholesterol Test Can Miss a Serious Risk Factor",
     url:"/blog/lpa-vs-ldl/",
-    blurb:"Two lookalike particles that call for opposite action \u2014 one you can lower, one you inherit."
+    blurb:"Two lookalike particles that call for opposite action — one you can lower, one you inherit."
   },
   {
     section:"lpa", kicker:"Targets",
@@ -249,19 +250,19 @@ const POSTS = [
   },
   {
     section:"lpa", kicker:"Investigational pipeline",
-    title:"Lp(a) Drug Pipeline 2026: Pelacarsen, Olpasiran, Lepodisiran \u0026 Muvalaplin",
+    title:"Lp(a) Drug Pipeline 2026: Pelacarsen, Olpasiran, Lepodisiran & Muvalaplin",
     url:"/blog/pelacarsen-olpasiran/",
-    blurb:"Four drugs, one open question. Where all four Lp(a)-lowering therapies stand \u2014 and why the trial expected to answer it first is already overdue."
+    blurb:"Four drugs, one open question. Where all four Lp(a)-lowering therapies stand — and why the trial expected to answer it first is already overdue."
   },
   {
     section:"optimal", kicker:"What a standard panel misses",
     title:"Normal Cholesterol, Still at Risk? What a Standard Panel Can Miss",
     url:"/blog/normal-cholesterol-still-at-risk/",
-    blurb:"A \u201Cnormal\u201D result can sit on top of an elevated ApoB \u2014 and a routine panel never measures Lp(a) at all."
+    blurb:"A “normal” result can sit on top of an elevated ApoB — and a routine panel never measures Lp(a) at all."
   },
   {
     section:"optimal", kicker:"Normal vs optimal",
-    title:"Your Cholesterol Is \u201CNormal.\u201D Is It Optimal?",
+    title:"Your Cholesterol Is “Normal.” Is It Optimal?",
     url:"/blog/normal-vs-optimal-cholesterol/",
     blurb:"The gap between the range that rules out disease and the target that aims for the lowest long-term risk."
   },
@@ -269,31 +270,31 @@ const POSTS = [
     section:"optimal", kicker:"Residual risk",
     title:"hs-CRP: What It Measures, and Why It's Part of Your Cardiovascular Picture",
     url:"/blog/hs-crp-inflammation-guide/",
-    blurb:"A simple blood test for low-grade inflammation that most standard panels skip \u2014 what counts as low, average, or high, and how it fits alongside ApoB and Lp(a)."
+    blurb:"A simple blood test for low-grade inflammation that most standard panels skip — what counts as low, average, or high, and how it fits alongside ApoB and Lp(a)."
   },
   {
-    section:"apob", kicker:"Ranges \u0026 targets",
-    title:"What Is a Normal ApoB Level? Ranges, Targets \u0026 When to Test",
+    section:"apob", kicker:"Ranges & targets",
+    title:"What Is a Normal ApoB Level? Ranges, Targets & When to Test",
     url:"/blog/apob-normal-range/",
-    blurb:"The numbers a standard lab flags as normal, the tighter targets longevity-focused care works from, and when it\u2019s worth asking your doctor to order the test."
+    blurb:"The numbers a standard lab flags as normal, the tighter targets longevity-focused care works from, and when it’s worth asking your doctor to order the test."
   },
   {
-    section:"metabolic", feature:true, kicker:"Pillar \u00b7 Cardiometabolic health",
+    section:"metabolic", feature:true, kicker:"Pillar · Cardiometabolic health",
     title:"Cardiometabolic Health: The Reference Frame Behind Your Lipids",
     url:"/blog/cardiometabolic-health/",
-    blurb:"Fasting triglycerides, glucose, and calculated indices like TyG and AIP can flag metabolic strain years before a diagnosis \u2014 read against longevity-optimal targets, not just the standard range."
+    blurb:"Fasting triglycerides, glucose, and calculated indices like TyG and AIP can flag metabolic strain years before a diagnosis — read against longevity-optimal targets, not just the standard range."
   },
   {
     section:"metabolic", kicker:"Metabolic health",
-    title:"Fasting Insulin and Longevity: Why \u201CNormal\u201D Isn\u2019t Always Optimal",
+    title:"Fasting Insulin and Longevity: Why “Normal” Isn’t Always Optimal",
     url:"/blog/fasting-insulin-longevity/",
-    blurb:"A standard panel can call your insulin normal years before a longevity-optimal range would flag it \u2014 here\u2019s the gap, and why it matters."
+    blurb:"A standard panel can call your insulin normal years before a longevity-optimal range would flag it — here’s the gap, and why it matters."
   },
   {
     section:"metabolic", kicker:"Metabolic health",
     title:"The Insulin Resistance Gap: When Normal Glucose Hides Cardiovascular Risk",
     url:"/blog/insulin-resistance-gap/",
-    blurb:"Glucose can look fine while insulin resistance is already driving risk underneath it \u2014 the markers that catch it earlier."
+    blurb:"Glucose can look fine while insulin resistance is already driving risk underneath it — the markers that catch it earlier."
   },
   {
     section:"optimal", kicker:"Decision guide",
@@ -309,15 +310,15 @@ const POSTS = [
   },
   {
     section:"start", kicker:"Methodology",
-    title:"How CardioIQ Stratifies Risk: SCORE2, ApoB \u0026 Lp(a) Explained",
+    title:"How CardioIQ Stratifies Risk: SCORE2, ApoB & Lp(a) Explained",
     url:"/blog/how-cardioiq-stratifies-risk/",
-    blurb:"The guideline logic behind every CardioIQ report \u2014 how SCORE2, ApoB, and Lp(a) combine into your risk category."
+    blurb:"The guideline logic behind every CardioIQ report — how SCORE2, ApoB, and Lp(a) combine into your risk category."
   },
   {
     section:"start", kicker:"How it works",
     title:"How CardioIQ Works: From Your Labs to a Longevity-Optimal Report",
     url:"/blog/how-cardioiq-works/",
-    blurb:"A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report \u2014 five steps, nothing left as a black box."
+    blurb:"A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — five steps, nothing left as a black box."
   },
   {
     section:"apob", kicker:"Testing",
@@ -329,37 +330,37 @@ const POSTS = [
     section:"apob", kicker:"Comparison",
     title:"ApoB vs. LDL-C vs. Non-HDL-C vs. Triglycerides: How the Four Markers Compare",
     url:"/blog/apob-ldl-nonhdl-tg-comparison/",
-    blurb:"A standard panel hands you four numbers that don\u2019t always agree \u2014 what each one measures, what it misses, and the practical hierarchy clinicians use when they disagree."
+    blurb:"A standard panel hands you four numbers that don’t always agree — what each one measures, what it misses, and the practical hierarchy clinicians use when they disagree."
   },
   {
     section:"start", kicker:"Inherited risk",
-    title:"Familial Hypercholesterolemia (FH): Causes, Diagnosis \u0026 Family Screening",
+    title:"Familial Hypercholesterolemia (FH): Causes, Diagnosis & Family Screening",
     url:"/blog/familial-hypercholesterolemia/",
-    blurb:"An inherited condition that drives very high LDL and ApoB from birth \u2014 how it\u2019s recognized, and why screening the whole family matters as much as treating the person in front of you."
+    blurb:"An inherited condition that drives very high LDL and ApoB from birth — how it’s recognized, and why screening the whole family matters as much as treating the person in front of you."
   },
   {
     section:"lpa", kicker:"The 2026 pipeline",
     title:"Can You Lower Lp(a)? What the 2026 Drug Pipeline Means for You",
     url:"/blog/lower-lpa/",
-    blurb:"No approved medication lowers Lp(a) yet. The honest state of the pelacarsen/olpasiran pipeline in 2026, and what\u2019s actually worth doing about a high number today."
+    blurb:"No approved medication lowers Lp(a) yet. The honest state of the pelacarsen/olpasiran pipeline in 2026, and what’s actually worth doing about a high number today."
   },
   {
     section:"lpa", kicker:"Family screening",
     title:"Lp(a) and Family History: Who Should Be Tested?",
     url:"/blog/lpa-family-screening/",
-    blurb:"A high Lp(a) in one family member is a signal, not a coincidence \u2014 how it\u2019s inherited, who else in the family should be tested, and how cascade screening actually works."
+    blurb:"A high Lp(a) in one family member is a signal, not a coincidence — how it’s inherited, who else in the family should be tested, and how cascade screening actually works."
   },
   {
-    section:"lpa", kicker:"Ranges \u0026 units",
+    section:"lpa", kicker:"Ranges & units",
     title:"What Is a High Lp(a) Level? Ranges in nmol/L, Units, and What They Mean",
     url:"/blog/lpa-high-level/",
-    blurb:"What counts as a high Lp(a), why nmol/L and mg/dL don\u2019t convert cleanly, and how to read your own number against both."
+    blurb:"What counts as a high Lp(a), why nmol/L and mg/dL don’t convert cleanly, and how to read your own number against both."
   },
   {
     section:"start", kicker:"Line by line",
     title:"How to Read Your Cholesterol / Lipid Panel Results",
     url:"/blog/read-lipid-panel/",
-    blurb:"A lipidologist walks through a standard panel line by line \u2014 total cholesterol, LDL-C, HDL-C, triglycerides, non-HDL-C \u2014 and the two markers it leaves out entirely."
+    blurb:"A lipidologist walks through a standard panel line by line — total cholesterol, LDL-C, HDL-C, triglycerides, non-HDL-C — and the two markers it leaves out entirely."
   },
   {
     section:"start", kicker:"Risk scoring",
@@ -369,9 +370,15 @@ const POSTS = [
   },
   {
     section:"optimal", kicker:"Treatment",
-    title:"Statins: The Complete Guide to How They Work, Benefits \u0026 Side Effects",
+    title:"Statins: The Complete Guide to How They Work, Benefits & Side Effects",
     url:"/blog/statins-guide/",
-    blurb:"How statins work, who they\u2019re typically considered for, and an honest look at the evidence on side effects \u2014 explained by a lipidologist."
+    blurb:"How statins work, who they’re typically considered for, and an honest look at the evidence on side effects — explained by a lipidologist."
+  },
+  {
+    section:"lifestyle", feature:true, kicker:"Pillar 5 · Lifestyle architecture",
+    title:"Best Diet for High Cholesterol? Why the Answer Isn’t a Food List — It’s a Test",
+    url:"/blog/best-diet-for-high-cholesterol/",
+    blurb:"Mediterranean, low-carb, or plant-based — the right diet depends on your biology. A physician’s framework to test, not guess."
   }
 ];
 
@@ -379,7 +386,7 @@ const POSTS = [
    `section`) only after confirming the page deploys with no 404.
    Candidates referenced across project docs but not yet confirmed live here: */
 const POSTS_UNVERIFIED = [
-  // { section:"optimal", kicker:"Decision", title:"Standard vs Advanced Lipid Panel (ApoB, Lp(a))", url:"/blog/standard-vs-advanced-lipid-panel/", blurb:"Which panel actually answers the question you have \u2014 and how to read the advanced markers." },
+  // { section:"optimal", kicker:"Decision", title:"Standard vs Advanced Lipid Panel (ApoB, Lp(a))", url:"/blog/standard-vs-advanced-lipid-panel/", blurb:"Which panel actually answers the question you have — and how to read the advanced markers." },
   // { section:"start",   kicker:"Testing",  title:"ApoB Testing: How to Order It and What It Costs", url:"/blog/apob-testing/", blurb:"A practical guide to getting ApoB measured and interpreting the result." },
   // { section:"lpa",     kicker:"Metabolic", title:"Insulin Resistance and Cholesterol", url:"/blog/insulin-resistance-cholesterol/", blurb:"The metabolic driver behind ApoB/LDL-C discordance." },
   // { section:"start",   kicker:"Hub",      title:"Cardiovascular Longevity", url:"/blog/cardiovascular-longevity/", blurb:"The organizing picture: prevention measured in decades." }
@@ -407,7 +414,7 @@ const POSTS_UNVERIFIED = [
         '<div class="kicker">' + esc(p.kicker) + '</div>' +
         '<h3><a href="' + esc(p.url) + '">' + esc(p.title) + '</a></h3>' +
         '<p>' + esc(p.blurb) + '</p>' +
-        '<span class="read">Read \u2192</span>' +
+        '<span class="read">Read →</span>' +
         '<a class="stretch" href="' + esc(p.url) + '" aria-label="' + esc(p.title) + '" tabindex="-1"></a>';
       grid.appendChild(card);
     });
