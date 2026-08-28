@@ -204,7 +204,7 @@
   </url>
   <url>
     <loc>https://cardioiq.health/blog/cardiovascular-longevity/</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -226,4 +226,12 @@
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
 </url>
+
+  <!-- Blog: Lifestyle cluster -->
+  <url>
+    <loc>https://cardioiq.health/blog/best-diet-for-high-cholesterol/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
