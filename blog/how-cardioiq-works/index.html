@@ -3,207 +3,288 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How CardioIQ Works: From Your Labs to a Longevity-Optimal Report | CardioIQ</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-512.png">
+<!-- ===== Blog post: How CardioIQ Works. Own identity — was wrongly canonicalizing to /methodology/, causing "Crawled - currently not indexed" in GSC. Fixed 2026-08-03. ===== -->
+<title>How CardioIQ Works: From Your Labs to a Longevity-Optimal Report</title>
 <meta name="description" content="A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — built and reasoned by a preventive cardiologist and lipidologist, not a generic algorithm.">
-<link rel="canonical" href="https://cardioiq.health/blog/how-cardioiq-works/" />
+<link rel="canonical" href="https://cardioiq.health/blog/how-cardioiq-works/">
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="How CardioIQ Works: From Your Labs to a Longevity-Optimal Report">
-<meta property="og:description" content="A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — built by a lipidologist.">
+<meta property="og:description" content="A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — built and reasoned by a lipidologist.">
 <meta property="og:url" content="https://cardioiq.health/blog/how-cardioiq-works/">
 <meta property="og:site_name" content="CardioIQ">
+<!-- og:image asset generated 2026-08-31 (branded navy/gold/teal card, 1200x630, matches this page's
+     own CSS palette) — delivered separately; upload it to /assets/og-how-cardioiq-works.jpg via
+     GitHub's "Upload files" (NOT "Create new file" — that corrupts binary assets, per the
+     hs-crp-inflammation-guide upload on 2026-08-18). URL below already points to the right path. -->
 <meta property="og:image" content="https://cardioiq.health/assets/og-how-cardioiq-works.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
 <style>
-  body {
-    margin: 0;
-    background: #0B1E3D;
-    color: #E8EDF5;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.65;
+  :root{
+    --navy:#0b1a2b; --navy-2:#0f2438; --navy-3:#16324b;
+    --gold:#d4a94a; --gold-soft:#e7c877;
+    --teal:#3fb6a8; --teal-soft:#7ad4c9;
+    --ink:#e9eef4; --ink-2:#b7c4d1; --ink-3:#8496a6;
+    --green:#5fc89a; --red:#e08a6b;
+    --line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.035);
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --maxw:760px;
   }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 64px; }
-  .eyebrow {
-    font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: #2A9D8F; font-weight: 700; margin-bottom: 14px;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.7; -webkit-font-smoothing:antialiased}
+  a{color:var(--teal-soft); text-decoration:none; border-bottom:1px solid rgba(122,212,201,.3); transition:.2s}
+  a:hover{color:#fff; border-color:var(--teal-soft)}
+
+  .topbar{border-bottom:1px solid var(--line); background:rgba(11,26,43,.85); backdrop-filter:blur(8px); position:sticky; top:0; z-index:10}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between}
+  .brand{font-family:var(--sans); font-weight:700; letter-spacing:.02em; color:#fff; font-size:18px; border:none}
+  .brand span{color:var(--gold)}
+  .topbar-inner a{border:none; font-family:var(--sans); font-size:14px; color:var(--ink-2)}
+  .topbar-inner nav a{margin-left:20px}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+
+  header.post{padding:54px 0 28px}
+  .eyebrow{font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  h1{font-family:var(--sans); font-weight:700; font-size:clamp(30px,5.4vw,44px); line-height:1.14; letter-spacing:-.015em; color:#fff; margin:16px 0 20px}
+  .sub-deck{font-family:var(--serif); font-size:21px; line-height:1.55; color:var(--ink-2); margin:0}
+
+  section{padding:6px 0}
+  h2{font-family:var(--sans); font-weight:700; font-size:clamp(23px,3.6vw,29px); line-height:1.22; letter-spacing:-.01em; color:#fff; margin:44px 0 16px}
+  p{margin:0 0 22px; color:var(--ink)}
+  strong{color:#fff; font-weight:600}
+  em{color:var(--ink)}
+
+  /* founder authority card */
+  .founder{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid rgba(212,169,74,.28); border-radius:16px; padding:26px 26px; margin:26px 0 8px; display:flex; gap:20px; align-items:flex-start}
+  .founder .av{flex:0 0 66px; height:66px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--teal)); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-weight:700; color:var(--navy); font-size:23px}
+  .founder .nm{font-family:var(--sans); font-weight:700; color:#fff; font-size:18px; margin-bottom:2px}
+  .founder .role{font-family:var(--sans); font-size:14px; color:var(--gold-soft); margin-bottom:12px}
+  .founder ul{list-style:none; padding:0; margin:0; font-family:var(--sans); font-size:14px; color:var(--ink-2); line-height:1.55}
+  .founder li{padding-left:18px; position:relative; margin-bottom:5px}
+  .founder li::before{content:""; position:absolute; left:2px; top:9px; width:6px; height:6px; border-radius:50%; background:var(--teal)}
+
+  /* anchored logic list */
+  ul.reasons{list-style:none; padding:0; margin:20px 0 22px}
+  ul.reasons li{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px 20px; margin-bottom:12px}
+  ul.reasons li b{color:var(--gold-soft); font-family:var(--sans); font-size:15px; display:block; margin-bottom:4px}
+  ul.reasons li span{font-size:16.5px; color:var(--ink-2)}
+
+  /* pipeline */
+  ol.pipeline{margin:22px 0; padding-left:0; list-style:none; counter-reset:s}
+  ol.pipeline li{position:relative; padding:2px 0 20px 46px; counter-increment:s; color:var(--ink)}
+  ol.pipeline li::before{content:counter(s); position:absolute; left:0; top:0; width:30px; height:30px; border-radius:50%; background:var(--teal); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:14px; display:flex; align-items:center; justify-content:center}
+  ol.pipeline li b{color:#fff; font-family:var(--sans); font-weight:600}
+
+  ul.anchor{list-style:none; padding:0; margin:18px 0 22px; font-family:var(--sans); font-size:15.5px}
+  ul.anchor li{position:relative; padding:10px 0 10px 26px; border-top:1px solid var(--line); color:var(--ink-2)}
+  ul.anchor li:first-child{border-top:none}
+  ul.anchor li::before{content:""; position:absolute; left:4px; top:17px; width:7px; height:7px; border-radius:2px; background:var(--gold)}
+
+  /* is / is not */
+  .isnot{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:24px 0 8px; font-family:var(--sans)}
+  .col{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 20px 16px}
+  .col.is{border-color:rgba(95,200,154,.35)}
+  .col.isnt{border-color:rgba(224,138,107,.32)}
+  .col h4{font-size:13px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:12px}
+  .col.is h4{color:var(--green)} .col.isnt h4{color:var(--red)}
+  .col ul{list-style:none; padding:0; margin:0}
+  .col li{font-size:15px; color:var(--ink); padding:8px 0 8px 24px; position:relative; border-top:1px solid var(--line); line-height:1.5}
+  .col li:first-child{border-top:none}
+  .col.is li::before{content:"✓"; position:absolute; left:2px; top:8px; color:var(--green); font-weight:700}
+  .col.isnt li::before{content:"✕"; position:absolute; left:2px; top:8px; color:var(--red); font-weight:700}
+
+  .pull{font-family:var(--serif); font-style:italic; font-size:19px; color:var(--ink); border-left:3px solid var(--gold); padding:4px 0 4px 20px; margin:22px 0}
+
+  .cta{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid var(--line); border-radius:16px; padding:34px 30px; margin:44px 0 12px; text-align:center}
+  .cta h3{font-family:var(--sans); color:#fff; font-size:22px; margin:0 0 10px}
+  .cta p{color:var(--ink-2); font-size:16px; margin:0 auto 22px; max-width:500px}
+  .cta a.btn{display:inline-block; background:var(--gold); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:15px; padding:13px 30px; border-radius:10px; border:none}
+  .cta a.btn:hover{background:var(--gold-soft); color:var(--navy)}
+  .cta .sub{display:block; margin-top:14px; font-family:var(--sans); font-size:13px; color:var(--ink-3)}
+  .cta .sub a{color:var(--teal-soft); border:none}
+
+  .refs{border-top:1px solid var(--line); margin-top:44px; padding-top:22px; font-family:var(--sans); font-size:13px; color:var(--ink-3); line-height:1.6}
+  .refs h4{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:12px}
+  .refs ol{padding-left:18px} .refs li{margin-bottom:8px}
+
+  footer{border-top:1px solid var(--line); margin-top:30px; padding:28px 0 60px}
+  footer .wrap{font-family:var(--sans); font-size:13px; color:var(--ink-3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  footer a{color:var(--ink-3); border:none}
+  footer a:hover{color:var(--teal-soft)}
+
+  @media(max-width:560px){
+    body{font-size:18px}
+    .isnot{grid-template-columns:1fr}
+    .founder{flex-direction:column; gap:14px}
+    .topbar-inner nav a:first-child{display:none}
   }
-  h1 { font-size: 2.1rem; line-height: 1.25; margin: 0 0 10px; color: #FFFFFF; }
-  .dek { font-size: 1.15rem; color: #C9D3E0; margin: 0 0 32px; }
-  h2 {
-    font-size: 1.3rem; color: #E3C24A; margin: 40px 0 14px;
-    border-bottom: 1px solid rgba(201,162,39,0.25); padding-bottom: 8px;
-  }
-  h3 { font-size: 1.05rem; color: #FFFFFF; margin: 24px 0 8px; }
-  p { font-size: 1.02rem; color: #DCE3EE; }
-  a { color: #E3C24A; }
-  strong { color: #FFFFFF; }
-  ul, ol { color: #DCE3EE; font-size: 1.02rem; padding-left: 22px; }
-  li { margin-bottom: 8px; }
-  ol.refs { font-size: 0.85rem; color: #8FA0B8; }
-  .callout {
-    background: rgba(255,255,255,0.04); border-left: 3px solid #2A9D8F;
-    border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 24px 0;
-  }
-  .callout p { margin: 0; font-size: 0.98rem; }
-  .founder {
-    display: flex; gap: 16px; align-items: flex-start;
-    background: rgba(255,255,255,0.03); border-radius: 16px; padding: 22px; margin: 32px 0;
-  }
-  .founder h3 { margin: 0 0 4px; }
-  .founder ul { margin: 8px 0 0; font-size: 0.92rem; color: #B9C4D6; }
-  .two-col {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 24px 0;
-  }
-  @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; } }
-  .col-box {
-    background: rgba(255,255,255,0.03); border-radius: 14px; padding: 18px 20px;
-  }
-  .col-box h3 { margin-top: 0; color: #2A9D8F; }
-  .col-box ul { margin: 0; padding-left: 20px; }
-  .steps { counter-reset: step; list-style: none; padding-left: 0; }
-  .steps li {
-    counter-increment: step; position: relative; padding-left: 38px; margin-bottom: 18px;
-  }
-  .steps li::before {
-    content: counter(step); position: absolute; left: 0; top: 0;
-    width: 26px; height: 26px; border-radius: 50%; background: #C9A227;
-    color: #0B1E3D; font-weight: 700; font-size: 0.85rem;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .cta {
-    text-align: center; border: 1px solid rgba(201,162,39,0.35);
-    background: rgba(255,255,255,0.04); border-radius: 16px; padding: 28px; margin: 44px 0 20px;
-  }
-  .cta p { margin: 0 0 16px; font-size: 1.05rem; }
-  .cta a.btn {
-    display: inline-block; color: #0B1E3D; background: #C9A227; text-decoration: none;
-    font-weight: 700; padding: 13px 28px; border-radius: 11px; font-size: 1rem;
-  }
-  .disclaimer {
-    font-size: 0.82rem; color: #7E8CA3; border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 18px; margin-top: 36px;
-  }
-  .source { font-size: 0.82rem; color: #8FA0B8; margin: 6px 0 0; }
 </style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">Cardio<span>IQ</span></a>
+    <nav>
+      <a href="/blog/">Blog</a>
+      <a href="/reports/">Reports</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="post">
+    <div class="eyebrow">How it works</div>
+    <h1>How CardioIQ Works</h1>
+    <p class="sub-deck">Two numbers, one panel, one goal: figure out where your arteries actually stand — not against the average person, but against the target that keeps risk lowest for someone with your profile. Here's what happens between uploading your labs and reading your report.</p>
+  </header>
+
+  <section>
+    <h2>The logic behind it comes from a clinic, not a lab</h2>
+    <p>Most AI health tools are built by engineers who license some medical content afterward. CardioIQ was built the other way around: the clinical reasoning came first, from a physician who reads exactly these panels every week, and the software was built to carry that reasoning at scale.</p>
+
+    <div class="founder">
+      <div class="av">TG</div>
+      <div>
+        <div class="nm">Tea Gamezardashvili, MD, PhD, MHA, FACC</div>
+        <div class="role">Preventive Cardiologist &amp; Lipidologist · Founder</div>
+        <ul>
+          <li>President, Georgian Atherosclerosis Association (GAA)</li>
+          <li>National Coordinator, EAS Lipid Clinic Network (Georgia)</li>
+          <li>Co-author, EAS consensus paper (<em>Atherosclerosis</em>, 2026)</li>
+          <li>Academic Director, CMEA</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:20px">So every flagged value in your report can be traced back two ways: to a specific guideline, and to a physician whose name is actually on it.</p>
+  </section>
+
+  <section>
+    <h2>Why "optimal" is a different question than "normal"</h2>
+    <p>A standard lab report flags you against everyone else who got tested — the reference range is really just "where most people fall." <strong>Optimal</strong> is a different question: given your own risk profile, what level keeps your arteries on the safest trajectory over the next several decades? Three ideas shape how CardioIQ answers that:</p>
+
+    <ul class="reasons">
+      <li><b>The bar moves with your risk.</b> <span>ESC/EAS guidelines set stricter cholesterol targets as cardiovascular risk climbs — so your "optimal" isn't a universal number, it's calibrated to you specifically.</span></li>
+      <li><b>Some risk hides from a basic panel.</b> <span>ApoB counts the actual atherogenic particles; Lp(a) reflects inherited risk. Neither shows up on a routine cholesterol test, and either can change the picture entirely.</span></li>
+      <li><b>It's about decades, not a single draw.</b> <span>Plaque builds from cumulative exposure — so getting a number lower, earlier, and keeping it there matters more than any one snapshot.</span></li>
+    </ul>
+
+    <p>None of this is invented in-house — it's the same evidence base preventive cardiologists already use, made legible for your specific numbers. <a href="/blog/cardiovascular-longevity/">The full framework →</a> · <a href="/blog/apob-guide/">Why ApoB →</a></p>
+  </section>
+
+  <section>
+    <h2>From your panel to your report: five steps</h2>
+    <p>Nothing in between is a black box:</p>
+    <ol class="pipeline">
+      <li><b>Your numbers go in.</b> Your panel and relevant risk factors get structured into one consistent profile.</li>
+      <li><b>Each marker gets mapped to risk.</b> A physician-built clinical knowledge graph links every value to what it actually means for cardiovascular risk.</li>
+      <li><b>The reasoning gets checked against evidence.</b> Every link is anchored to a current guideline or a named trial — not a general "studies show."</li>
+      <li><b>The report is written like a clinician thinks.</b> Finding → your optimal → why it matters → what could change it → what to ask your doctor → where CardioIQ's role ends.</li>
+      <li><b>It stays current.</b> When guidelines or major trials update, the evidence base behind your report updates with them.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>The sources this is built on</h2>
+    <p>Every judgment traces to a named source, not a vague reference:</p>
+    <ul class="anchor">
+      <li>ESC/EAS dyslipidaemia guidelines (2019, with the 2025 Focused Update) — LDL / ApoB targets by risk category, with risk assessed via SCORE2/SCORE2-OP</li>
+      <li>EAS consensus statements — Lp(a), and ApoB as a preferred marker</li>
+      <li>ACC/AHA primary-prevention guidance and the PREVENT risk equations</li>
+      <li>ADA and KDIGO standards where cardiometabolic and kidney risk overlap</li>
+      <li>Named cardiovascular outcomes trials, cited directly</li>
+    </ul>
+    <p>When a guideline position changes, the report changes with it.</p>
+  </section>
+
+  <section>
+    <h2>Where CardioIQ stops</h2>
+    <p>Part of building this responsibly is being specific about its edges:</p>
+    <div class="isnot">
+      <div class="col is">
+        <h4>CardioIQ is</h4>
+        <ul>
+          <li>Physician-built and guideline-anchored</li>
+          <li>Calibrated to longevity-optimal targets and your risk</li>
+          <li>A clear, structured interpretation you can act on and take to your doctor</li>
+          <li>Kept current as the evidence moves</li>
+        </ul>
+      </div>
+      <div class="col isnt">
+        <h4>CardioIQ is not</h4>
+        <ul>
+          <li>A diagnosis or a medical device</li>
+          <li>A treatment plan or a promise of any outcome</li>
+          <li>A replacement for your physician, who makes every clinical decision</li>
+          <li>A regulatory-cleared clinical service</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pull">A report that's upfront about what it can't do is one worth trusting for what it does.</p>
+  </section>
+
+  <div class="cta">
+    <h3>See your own numbers read this way</h3>
+    <p>ApoB and Lp(a) are included from the Standard tier up. If you'd rather bring a doctor-ready version to your next appointment, that's what Premium adds.</p>
+    <a class="btn" href="/reports/">Choose your report</a>
+    <span class="sub">Want the concept first? Read <a href="/blog/normal-vs-optimal-cholesterol/">Normal vs Optimal Cholesterol →</a></span>
+  </div>
+
+  <div class="refs">
+    <h4>Guideline anchors</h4>
+    <ol>
+      <li>Mach F, Baigent C, Catapano AL, et al. 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2020;41(1):111–188. doi:10.1093/eurheartj/ehz455</li>
+      <li>Mach F, Koskinas KC, Roeters van Lennep JE, et al. 2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2025;46(42):4359–4378. doi:10.1093/eurheartj/ehaf190</li>
+      <li>Kronenberg F, Mora S, Stroes ESG, et al. Lipoprotein(a) in atherosclerotic cardiovascular disease and aortic stenosis: a European Atherosclerosis Society consensus statement. <em>European Heart Journal.</em> 2022;43(39):3925–3946. doi:<a href="https://doi.org/10.1093/eurheartj/ehac361" target="_blank" rel="noopener">10.1093/eurheartj/ehac361</a> <!-- DOI verified 2026-08-31 --></li>
+      <li>Arnett DK, Blumenthal RS, Albert MA, et al. 2019 ACC/AHA Guideline on the Primary Prevention of Cardiovascular Disease. <em>Circulation.</em> 2019;140(11):e596–e646. doi:<a href="https://doi.org/10.1161/CIR.0000000000000678" target="_blank" rel="noopener">10.1161/CIR.0000000000000678</a></li>
+      <li>Khan SS, Coresh J, Pencina MJ, et al. Development and Validation of the American Heart Association's PREVENT Equations. <em>Circulation.</em> 2024;149(6):430–449. doi:<a href="https://doi.org/10.1161/CIRCULATIONAHA.123.067626" target="_blank" rel="noopener">10.1161/CIRCULATIONAHA.123.067626</a> <!-- Both DOIs verified 2026-08-31, resolved per Tea's go-ahead --></li>
+    </ol>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 CardioIQ · Physician-built cardiovascular intelligence</span>
+    <span><a href="/reports/">Reports</a> · <a href="/blog/apob-guide/">ApoB guide</a> · <a href="/blog/cardiovascular-longevity/">Longevity hub</a></span>
+  </div>
+</footer>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["MedicalWebPage", "Article"],
+  "@type": "Article",
+  "name": "How CardioIQ Works: From Your Labs to a Longevity-Optimal Report",
   "headline": "How CardioIQ Works: From Your Labs to a Longevity-Optimal Report",
-  "description": "A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — built and reasoned by a preventive cardiologist and lipidologist, not a generic algorithm.",
+  "description": "A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — built and reasoned by a preventive cardiologist and lipidologist.",
   "url": "https://cardioiq.health/blog/how-cardioiq-works/",
-  "author": { "@id": "https://cardioiq.health/#founder" },
-  "publisher": { "@id": "https://cardioiq.health/#organization" },
-  "medicalAudience": { "@type": "Patient" },
-  "specialty": "https://schema.org/Cardiovascular",
-  "isPartOf": { "@id": "https://cardioiq.health/#website" }
+  "inLanguage": "en",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CardioIQ",
+    "url": "https://cardioiq.health",
+    "founder": {
+      "@type": "Person",
+      "name": "Tea Gamezardashvili",
+      "honorificSuffix": "MD, PhD, MHA, FACC",
+      "jobTitle": "Preventive Cardiologist & Lipidologist",
+      "url": "https://teagamezardashvili.com"
+    }
+  }
 }
 </script>
-</head>
-<body>
-<div class="wrap">
 
-  <div class="eyebrow">How It Works</div>
-  <h1>How CardioIQ Works</h1>
-  <p class="dek">Two numbers, one panel, one goal: figure out where your arteries actually stand — not against the average person, but against the target that keeps risk lowest for someone with your profile. Here's what happens between uploading your labs and reading your report.</p>
-
-  <h2>The logic behind it comes from a clinic, not a lab</h2>
-  <p>Most AI health tools are built by engineers who license some medical content afterward. CardioIQ was built the other way around: the clinical reasoning came first, from a physician who reads exactly these panels every week, and the software was built to carry that reasoning at scale.</p>
-
-  <div class="founder">
-    <div>
-      <h3>Tea Gamezardashvili, MD, PhD, MHA, FACC</h3>
-      <p style="margin:4px 0 0; font-size:0.95rem; color:#C9D3E0;">Preventive Cardiologist &amp; Lipidologist · Founder</p>
-      <ul>
-        <li>President, Georgian Atherosclerosis Association (GAA)</li>
-        <li>National Coordinator, EAS Lipid Clinic Network (Georgia)</li>
-        <li>Co-author, EAS consensus paper (<em>Atherosclerosis</em>, 2026)</li>
-        <li>Academic Director, CMEA</li>
-      </ul>
-    </div>
-  </div>
-
-  <p>So every flagged value in your report can be traced back two ways: to a specific guideline, and to a physician whose name is actually on it.</p>
-
-  <h2>Why "optimal" is a different question than "normal"</h2>
-  <p>A standard lab report flags you against everyone else who got tested — the reference range is really just "where most people fall." <strong>Optimal</strong> is a different question: given your own risk profile, what level keeps your arteries on the safest trajectory over the next several decades? Three ideas shape how CardioIQ answers that:</p>
-
-  <ul>
-    <li><strong>The bar moves with your risk.</strong> ESC/EAS guidelines set stricter cholesterol targets as cardiovascular risk climbs — so your "optimal" isn't a universal number, it's calibrated to you specifically.</li>
-    <li><strong>Some risk hides from a basic panel.</strong> ApoB counts the actual atherogenic particles; Lp(a) reflects inherited risk. Neither shows up on a routine cholesterol test, and either can change the picture entirely.</li>
-    <li><strong>It's about decades, not a single draw.</strong> Plaque builds from cumulative exposure — so getting a number lower, earlier, and keeping it there matters more than any one snapshot.</li>
-  </ul>
-
-  <div class="callout">
-    <p>None of this is invented in-house — it's the same evidence base preventive cardiologists already use, made legible for your specific numbers. See <a href="/blog/cardiovascular-longevity/">the full framework</a> · <a href="/blog/apob-guide/">Why ApoB</a></p>
-  </div>
-
-  <h2>From your panel to your report: five steps</h2>
-  <p>Nothing in between is a black box:</p>
-
-  <ol class="steps">
-    <li><strong>Your numbers go in.</strong> Your panel and relevant risk factors get structured into one consistent profile.</li>
-    <li><strong>Each marker gets mapped to risk.</strong> A physician-built clinical knowledge graph links every value to what it actually means for cardiovascular risk.</li>
-    <li><strong>The reasoning gets checked against evidence.</strong> Every link is anchored to a current guideline or a named trial — not a general "studies show."</li>
-    <li><strong>The report is written like a clinician thinks.</strong> Finding → your optimal → why it matters → what could change it → what to ask your doctor → where CardioIQ's role ends.</li>
-    <li><strong>It stays current.</strong> When guidelines or major trials update, the evidence base behind your report updates with them.</li>
-  </ol>
-
-  <h2>The sources this is built on</h2>
-  <p>Every judgment traces to a named source, not a vague reference:</p>
-  <ul>
-    <li>ESC/EAS dyslipidaemia guidelines (2019, with the 2025 Focused Update) — LDL / ApoB targets by risk category, with risk assessed via SCORE2/SCORE2-OP</li>
-    <li>EAS consensus statements — Lp(a), and ApoB as a preferred marker</li>
-    <li>ACC/AHA primary-prevention guidance and the PREVENT risk equations</li>
-    <li>ADA and KDIGO standards where cardiometabolic and kidney risk overlap</li>
-    <li>Named cardiovascular outcomes trials, cited directly</li>
-  </ul>
-  <p>When a guideline position changes, the report changes with it.</p>
-
-  <h2>Where CardioIQ stops</h2>
-  <p>Part of building this responsibly is being specific about its edges:</p>
-
-  <div class="two-col">
-    <div class="col-box">
-      <h3>CardioIQ is</h3>
-      <ul>
-        <li>Physician-built and guideline-anchored</li>
-        <li>Calibrated to longevity-optimal targets and your risk</li>
-        <li>A clear, structured interpretation you can act on and take to your doctor</li>
-        <li>Kept current as the evidence moves</li>
-      </ul>
-    </div>
-    <div class="col-box">
-      <h3>CardioIQ is not</h3>
-      <ul>
-        <li>A diagnosis or a medical device</li>
-        <li>A treatment plan or a promise of any outcome</li>
-        <li>A replacement for your physician, who makes every clinical decision</li>
-        <li>A regulatory-cleared clinical service</li>
-      </ul>
-    </div>
-  </div>
-
-  <p>A report that's upfront about what it can't do is one worth trusting for what it does.</p>
-
-  <div class="cta">
-    <p>ApoB and Lp(a) are included from the Standard tier up. If you'd rather bring a doctor-ready version to your next appointment, that's what Premium adds.</p>
-    <a class="btn" href="/reports/">Choose your report →</a>
-  </div>
-
-  <p>Want the concept first? Read <a href="/blog/normal-vs-optimal-cholesterol/">Normal vs Optimal Cholesterol →</a></p>
-
-  <h2>Guideline anchors</h2>
-  <ol class="refs">
-    <li>Mach F, Baigent C, Catapano AL, et al. 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2020;41(1):111–188. doi:10.1093/eurheartj/ehz455</li>
-    <li>Mach F, Koskinas KC, Roeters van Lennep JE, et al. 2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2025;46(42):4359–4378. doi:10.1093/eurheartj/ehaf190</li>
-    <li>Kronenberg F, Mora S, Stroes ESG, et al. Lipoprotein(a): an EAS consensus statement. <em>European Heart Journal.</em> 2022.</li>
-    <li>ACC/AHA primary-prevention guidance; PREVENT risk equations.</li>
-  </ol>
-
-  <p class="disclaimer">© 2026 CardioIQ · Physician-built cardiovascular intelligence. <a href="/reports/">Reports</a> · <a href="/blog/apob-guide/">ApoB guide</a> · <a href="/blog/cardiovascular-longevity/">Longevity hub</a></p>
-
-</div>
 </body>
 </html>
