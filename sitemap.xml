@@ -110,6 +110,17 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- ADDED 2026-08-31: /blog/lower-lpa/ was missing from this sitemap even though it's a
+       real, live, indexed page in your own Lp(a) cluster — confirmed via GSC (2 clicks,
+       26 impressions, 7.69% CTR, position 4.65 as of the Aug 31 export), one of your
+       better-performing articles. lastmod below is an estimate matching its sibling
+       cluster pages (all dated 2026-07-07) — replace with the real date if you have it. -->
+  <url>
+    <loc>https://cardioiq.health/blog/lower-lpa/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://cardioiq.health/blog/standard-vs-advanced-lipid-panel/</loc>
     <lastmod>2026-07-10</lastmod>
@@ -228,6 +239,11 @@
 </url>
 
   <!-- Blog: Lifestyle cluster -->
+  <!-- FLAG for Tea, 2026-08-31: this page (lastmod 2026-08-28, only a few days old) doesn't
+       appear anywhere in 14-content-index.md yet — per your own Phase-0 discipline, every
+       new page needs a content-index entry + reciprocal inbound links in the same deploy,
+       or it risks the same orphan-page problem how-cardioiq-works had. Not fixed here since
+       I don't have the article's own HTML or the current content-index file to update. -->
   <url>
     <loc>https://cardioiq.health/blog/best-diet-for-high-cholesterol/</loc>
     <lastmod>2026-08-28</lastmod>
