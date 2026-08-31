@@ -18,45 +18,18 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://cardioiq.health/blog/apob-guide/" />
  
-  <!-- Schema: MedicalWebPage + Article -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["MedicalWebPage", "Article"],
-    "headline": "ApoB Explained: What It Is, Optimal Range, and Why It Beats LDL",
-    "description": "Evidence-based clinical guide to ApoB testing, interpretation, and cardiovascular risk — medically reviewed by a board-certified cardiologist and lipidologist.",
-    "url": "https://cardioiq.health/blog/apob-guide/",
-    "datePublished": "2026-07-01",
-    "dateModified": "2026-07-01",
-    "author": {
-      "@type": "Person",
-      "name": "Tea Gamezardashvili",
-      "honorificPrefix": "Dr.",
-      "honorificSuffix": "MD, PhD, MHA, FACC",
-      "jobTitle": "Preventive Cardiologist and Lipidologist",
-      "url": "https://cardioiq.health/about/"
-    },
-    "reviewedBy": {
-      "@type": "Person",
-      "name": "Tea Gamezardashvili",
-      "honorificSuffix": "MD, PhD, MHA, FACC"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "CardioIQ",
-      "url": "https://cardioiq.health"
-    },
-    "medicalAudience": {
-      "@type": "MedicalAudience",
-      "audienceType": "Patient"
-    },
-    "about": {
-      "@type": "MedicalCondition",
-      "name": "Cardiovascular Disease Risk Assessment"
-    }
-  }
-  </script>
- 
+  <!-- Schema: MedicalWebPage + Article
+       NOTE (fixed 2026-08-31): this page previously carried TWO separate ld+json blocks —
+       this one (headline "ApoB Explained...") and a second one further down (headline
+       "ApoB: The Complete Guide..."), which matches the actual live H1. Two Article/
+       MedicalWebPage schemas describing the same URL with different headlines is invalid/
+       conflicting structured data. Removed this duplicate; the surviving block below has
+       been fixed to be self-contained (see note there) rather than removing the one that
+       actually matches the page's H1. Flag for Tea: the <title>/meta on this page ("ApoB
+       Explained... Why It Beats LDL") still doesn't match the H1 ("ApoB: The Complete
+       Guide..." per line ~509) — worth deciding which framing should win and aligning both,
+       not changed here since it's a copy/positioning call, not a technical bug. -->
+
   <style>
     /* ── Design tokens ── */
     :root {
@@ -475,18 +448,32 @@
       * { transition: none !important; animation: none !important; }
     }
   </style>
+<!-- Fixed 2026-08-31: was using {"@id": "https://cardioiq.health/#founder"} etc. to reference
+     entities defined only in the homepage's JSON-LD @graph. Structured-data parsers evaluate
+     each page's ld+json independently, so those references didn't resolve to anything on this
+     page — replaced with the same inline objects the homepage/other articles use, so this
+     block is self-contained. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": ["MedicalWebPage", "Article"],
-  "headline": "ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk",
-  "description": "ApoB measures atherogenic particle number — not cholesterol mass. Learn what ApoB is, how it differs from LDL, normal ranges, guidelines, and how to lower it. Medically reviewed by a board-certified cardiologist.",
+  "headline": "ApoB Explained: What It Is, Optimal Range, and Why It Beats LDL",
+  "description": "ApoB counts your artery-clogging particles directly, catching cardiovascular risk a standard LDL cholesterol number can miss. What it is, what counts as optimal, and how it differs from LDL-C. Medically reviewed by a board-certified cardiologist.",
   "url": "https://cardioiq.health/blog/apob-guide/",
-  "author": { "@id": "https://cardioiq.health/#founder" },
-  "publisher": { "@id": "https://cardioiq.health/#organization" },
+  "author": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC",
+    "jobTitle": "Preventive Cardiologist & Lipidologist",
+    "url": "https://teagamezardashvili.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CardioIQ",
+    "url": "https://cardioiq.health"
+  },
   "medicalAudience": { "@type": "Patient" },
-  "specialty": "https://schema.org/Cardiovascular",
-  "isPartOf": { "@id": "https://cardioiq.health/#website" }
+  "specialty": "https://schema.org/Cardiovascular"
 }
 </script>
 </head>
@@ -504,9 +491,18 @@
 </nav>
  
 <!-- ── Hero ── -->
+<!-- Fixed 2026-08-31, per Tea's go-ahead to resolve the title/H1 mismatch flagged earlier:
+     kept the <title>/meta framing ("ApoB Explained... Why It Beats LDL") over "Complete
+     Guide" because (a) it's the version already indexed and ranking (pos ~11, 133
+     impressions per GSC) — changing the title risked losing that equity, not the H1;
+     (b) 14-content-index.md already rejected a separate "Complete Guide to ApoB" article
+     as too generic/cannibalizing this pillar's own positioning, so keeping that framing
+     as this page's H1 runs against your own team's stated preference. Updated the H1 and
+     JSON-LD headline to match the title tag; left the lead paragraph and body copy as-is
+     since neither referenced the old H1 wording directly. -->
 <header class="article-hero">
   <div class="article-tag">Lipid Science · Evidence-Based Guide</div>
-  <h1>ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk</h1>
+  <h1>ApoB Explained: What It Is, Optimal Range, and Why It Beats LDL</h1>
   <p class="lead">What ApoB measures, how it differs from LDL cholesterol, how to interpret your results, and what international clinical guidelines actually recommend.</p>
   <p>ApoB (apolipoprotein B) is the structural protein carried on every LDL, VLDL, IDL, and Lp(a) particle — one molecule per particle, with no exceptions. Because of this fixed ratio, an ApoB blood test measures how many atherogenic particles are circulating, not just how much cholesterol they're carrying — which is why it can catch risk a standard LDL-C reading misses.</p>
   <div class="byline">
@@ -526,6 +522,9 @@
     </a>
     <a href="/blog/apob-normal-range/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:#0B1F3A;font-weight:600;font-size:0.95rem;">
       <span style="color:#0E7C7B;font-size:1.1rem;">→</span> What Is a Normal ApoB Level? Ranges, Targets &amp; When to Test
+    </a>
+    <a href="/blog/how-cardioiq-works/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:#0B1F3A;font-weight:600;font-size:0.95rem;">
+      <span style="color:#0E7C7B;font-size:1.1rem;">→</span> How CardioIQ Works: From Your Labs to a Longevity-Optimal Report
     </a>
     <a href="/blog/lpa-vs-ldl/" style="display:flex;align-items:center;gap:0.75rem;text-decoration:none;color:#0B1F3A;font-weight:600;font-size:0.95rem;">
       <span style="color:#0E7C7B;font-size:1.1rem;">→</span> Lp(a) vs LDL: Why a Normal Cholesterol Test Can Miss a Serious Risk Factor
