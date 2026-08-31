@@ -125,20 +125,18 @@
     .topbar-inner nav a:first-child{display:none}
   }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": ["MedicalWebPage", "Article"],
-  "headline": "Cardiovascular Longevity: The Biggest Lever Your Standard Labs Miss",
-  "description": "How ApoB, Lp(a), and metabolic health fit together into one long-horizon view of cardiovascular risk — read against longevity-optimal targets, decades before disease shows up.",
-  "url": "https://cardioiq.health/blog/cardiovascular-longevity/",
-  "author": { "@id": "https://cardioiq.health/#founder" },
-  "publisher": { "@id": "https://cardioiq.health/#organization" },
-  "medicalAudience": { "@type": "Patient" },
-  "specialty": "https://schema.org/Cardiovascular",
-  "isPartOf": { "@id": "https://cardioiq.health/#website" }
-}
-</script>
+<!-- FIXED 2026-08-31: this page carried two separate JSON-LD blocks describing the same URL —
+     the one that was here, and a fuller one at the end of <body> (MedicalWebPage, with inline
+     author/publisher, reviewedBy, about[], and the full hasPart pillar list). This one's
+     author/publisher used {"@id": "https://cardioiq.health/#founder"} / "#organization" —
+     entities that only exist inside the *homepage's* own JSON-LD @graph. Structured-data
+     parsers evaluate each page independently, so those references resolved to nothing here —
+     same class of dangling-@id bug found and fixed on apob-guide 2026-08-31. Removed this
+     duplicate/broken block entirely rather than fixing it in place, since the body block is
+     already complete, self-contained, and more current (dateModified 2026-08-28, includes the
+     full pillar hasPart list). Two conflicting Article/MedicalWebPage definitions for one URL
+     is invalid structured data regardless of which one is "more right." -->
+
 </head>
 <body>
 
@@ -296,7 +294,7 @@
         <li>Mach F, Koskinas KC, Roeters van Lennep JE, et al. 2025 Focused Update of the 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>European Heart Journal.</em> 2025;46(42):4359–4378. doi:10.1093/eurheartj/ehaf190</li>
         <li>Zhong Q, Hu MJ, Cui YJ, et al. Carotid-Femoral Pulse Wave Velocity in the Prediction of Cardiovascular Events and Mortality: An Updated Systematic Review and Meta-Analysis. <em>Angiology.</em> 2018;69(7):617–629. doi:10.1177/0003319717742544</li>
         <li>Pavey H, Wood A, McEniery CM, et al. Association between carotid-femoral pulse wave velocity and cardiovascular disease in individuals with moderate blood pressure: a systematic review and individual participant meta-analysis. <em>BMJ Open.</em> 2025. doi:10.1136/bmjopen-2025-101368</li>
-        <li>American Diabetes Association. Standards of Care in Diabetes — cardiovascular disease and risk management. <!-- TODO(Tea): add current year + citation/DOI for ADA Standards of Care before publish --></li>
+        <li>American Diabetes Association Professional Practice Committee. 10. Cardiovascular Disease and Risk Management: Standards of Care in Diabetes—2026. <em>Diabetes Care.</em> 2026;49(Supplement_1):S216. doi:<a href="https://doi.org/10.2337/dc26-S010" target="_blank" rel="noopener">10.2337/dc26-S010</a> <!-- DOI verified 2026-08-31; end page of the chapter not independently confirmed, start page cited --></li>
       </ol>
     </div>
   </article>
