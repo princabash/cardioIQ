@@ -124,7 +124,8 @@
     .cmp .row>div{border-left:none; border-top:1px solid var(--line)}
     .cmp .row:first-child{display:none}
     .cmp .row>div::before{content:attr(data-label); font-family:var(--sans); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:3px}
-    .topbar-inner nav a:first-child{display:none}
+    .topbar-inner{flex-wrap:wrap;row-gap:8px}
+    .topbar-inner nav{display:flex;flex-wrap:wrap;gap:14px}
   }
 </style>
 </head>
