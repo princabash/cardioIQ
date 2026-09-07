@@ -3,13 +3,280 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biological Age vs. Chronological Age: Epigenetic Clocks in Cardiovascular Prevention</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-512.png">
+
+<!-- ===== SEO: Pillar 6 (Biological age / long-horizon prevention) — deep dive on epigenetic clocks ===== -->
+<title>Biological Age vs. Chronological Age: Epigenetic Clocks in Cardiovascular Prevention | CardioIQ</title>
 <meta name="description" content="Two people can share a birth year and not a cardiovascular future. What GrimAge and DunedinPACE actually measure — and what they don't yet change.">
 <link rel="canonical" href="https://cardioiq.health/blog/biological-age-vs-chronological-age/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
 <meta property="og:title" content="Biological Age vs. Chronological Age: Epigenetic Clocks in Cardiovascular Prevention">
 <meta property="og:description" content="Two people can share a birth year and not a cardiovascular future. What GrimAge and DunedinPACE actually measure — and what they don't yet change.">
-<meta property="og:type" content="article">
 <meta property="og:url" content="https://cardioiq.health/blog/biological-age-vs-chronological-age/">
+<meta property="og:site_name" content="CardioIQ">
+<meta name="twitter:card" content="summary_large_image">
+<!-- NOTE for Tea: no og:image set yet — add /assets/og-biological-age-vs-chronological-age.jpg (1200x630) when available, matching the other pillar pages' og:image convention. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#0b1a2b; --navy-2:#0f2438; --navy-3:#16324b;
+    --gold:#d4a94a; --gold-soft:#e7c877;
+    --teal:#3fb6a8; --teal-soft:#7ad4c9;
+    --ink:#e9eef4; --ink-2:#b7c4d1; --ink-3:#8496a6;
+    --line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.035);
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --serif:'Newsreader',Georgia,serif;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--navy); color:var(--ink); font-family:var(--serif); font-size:19px; line-height:1.72; -webkit-font-smoothing:antialiased}
+  a{color:var(--teal-soft); text-decoration:none; border-bottom:1px solid rgba(122,212,201,.3); transition:.2s}
+  a:hover{color:#fff; border-color:var(--teal-soft)}
+
+  .topbar{border-bottom:1px solid var(--line); background:rgba(11,26,43,.85); backdrop-filter:blur(8px); position:sticky; top:0; z-index:10}
+  .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:14px 22px; display:flex; align-items:center; justify-content:space-between}
+  .brand{font-family:var(--sans); font-weight:700; letter-spacing:.02em; color:#fff; font-size:18px; border:none}
+  .brand span{color:var(--gold)}
+  .topbar-inner a{border:none; font-family:var(--sans); font-size:14px; color:var(--ink-2)}
+  .topbar-inner nav a{margin-left:20px}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+
+  header.post{padding:56px 0 34px}
+  .eyebrow{font-family:var(--sans); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  h1{font-family:var(--sans); font-weight:700; font-size:clamp(30px,5.4vw,44px); line-height:1.14; letter-spacing:-.015em; color:#fff; margin:16px 0 22px}
+  .byline{display:flex; gap:14px; align-items:center; font-family:var(--sans); font-size:14px; color:var(--ink-3); border-top:1px solid var(--line); padding-top:18px}
+  .byline b{color:var(--ink); font-weight:600}
+  .byline .cred{color:var(--gold-soft)}
+
+  article{padding:8px 0 20px}
+  article p{margin:0 0 24px; color:var(--ink)}
+  article h2{font-family:var(--sans); font-weight:700; font-size:clamp(23px,3.6vw,29px); line-height:1.22; letter-spacing:-.01em; color:#fff; margin:46px 0 18px}
+  article h3{font-family:var(--sans); font-weight:600; font-size:20px; color:var(--gold-soft); margin:32px 0 12px}
+  article strong{color:#fff; font-weight:600}
+  article em{color:var(--ink)}
+  .lead{font-size:22px; line-height:1.62; color:var(--ink); margin-bottom:30px}
+
+  .box{background:var(--card); border:1px solid var(--line); border-left:3px solid var(--teal); border-radius:12px; padding:22px 24px; margin:30px 0; font-size:18px}
+  .box.gold{border-left-color:var(--gold)}
+  .box .k{font-family:var(--sans); font-size:12px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-soft); display:block; margin-bottom:8px}
+  .box.gold .k{color:var(--gold)}
+  .box p:last-child{margin-bottom:0}
+  .box .src{font-family:var(--sans); font-size:12.5px; color:var(--ink-3); margin-top:12px}
+
+  ul.clean{margin:0 0 24px; padding-left:0; list-style:none}
+  ul.clean li{position:relative; padding-left:26px; margin-bottom:12px; color:var(--ink)}
+  ul.clean li::before{content:""; position:absolute; left:4px; top:13px; width:7px; height:7px; border-radius:50%; background:var(--gold)}
+
+  .clock-table{width:100%; border-collapse:collapse; margin:26px 0; font-family:var(--sans); font-size:15px}
+  .clock-table th,.clock-table td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--line); vertical-align:top; color:var(--ink-2)}
+  .clock-table th{color:var(--gold-soft); font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; font-weight:700; border-bottom:1px solid var(--line)}
+  .clock-table td strong{color:#fff}
+  .clock-table tr:last-child td{border-bottom:none}
+
+  .faq-item{margin:0 0 26px}
+  .faq-item h3{margin:0 0 8px}
+  .faq-item p{margin:0; color:var(--ink-2); font-size:17px}
+
+  .disclaimer{background:rgba(212,169,74,.06); border:1px solid rgba(212,169,74,.22); border-radius:12px; padding:20px 22px; margin:40px 0 10px; font-family:var(--sans); font-size:14.5px; line-height:1.62; color:var(--ink-2)}
+  .disclaimer b{color:var(--gold-soft)}
+
+  .cta{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); border:1px solid var(--line); border-radius:16px; padding:34px 30px; margin:44px 0 12px; text-align:center}
+  .cta h3{font-family:var(--sans); color:#fff; font-size:22px; margin:0 0 10px}
+  .cta p{color:var(--ink-2); font-size:16px; margin:0 auto 22px; max-width:480px}
+  .cta a.btn{display:inline-block; background:var(--gold); color:var(--navy); font-family:var(--sans); font-weight:700; font-size:15px; padding:13px 30px; border-radius:10px; border:none}
+  .cta a.btn:hover{background:var(--gold-soft); color:var(--navy)}
+  .cta .sub{display:block; margin-top:14px; font-family:var(--sans); font-size:13px; color:var(--ink-3)}
+  .cta .sub a{color:var(--teal-soft); border:none}
+
+  .related{font-family:var(--sans); font-size:14.5px; margin:36px 0; padding:20px 22px; background:var(--card); border:1px solid var(--line); border-radius:12px}
+  .related h4{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); margin-bottom:10px; font-weight:700}
+  .related a{color:var(--teal-soft); font-weight:600}
+
+  .author{display:flex; gap:18px; align-items:flex-start; border-top:1px solid var(--line); margin-top:48px; padding-top:28px}
+  .author .av{flex:0 0 56px; height:56px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--teal)); display:flex; align-items:center; justify-content:center; font-family:var(--sans); font-weight:700; color:var(--navy); font-size:20px}
+  .author .meta{font-family:var(--sans); font-size:14.5px; color:var(--ink-2); line-height:1.6}
+  .author .meta b{color:#fff; font-size:16px; display:block; margin-bottom:2px}
+  .author .meta .cred{color:var(--gold-soft)}
+
+  .refs{border-top:1px solid var(--line); margin-top:40px; padding-top:22px; font-family:var(--sans); font-size:13px; color:var(--ink-3); line-height:1.6}
+  .refs h4{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2); margin-bottom:12px}
+  .refs ol{padding-left:18px} .refs li{margin-bottom:8px}
+  .refs a{color:var(--ink-3); border:none} .refs a:hover{color:var(--teal-soft)}
+
+  footer{border-top:1px solid var(--line); margin-top:30px; padding:28px 0 60px}
+  footer .wrap{font-family:var(--sans); font-size:13px; color:var(--ink-3); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px}
+  footer a{color:var(--ink-3); border:none}
+  footer a:hover{color:var(--teal-soft)}
+
+  @media(max-width:560px){
+    body{font-size:18px}
+    .topbar-inner nav a:first-child{display:none}
+    .clock-table{font-size:13.5px}
+    .clock-table th,.clock-table td{padding:10px 8px}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">Cardio<span>IQ</span></a>
+    <nav>
+      <a href="/blog/">Blog</a>
+      <a href="/reports/">Reports</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="post">
+    <div class="eyebrow">Pillar 6 · Long-Horizon Prevention</div>
+    <h1>Biological Age vs. Chronological Age: What Epigenetic Clocks Actually Mean for Cardiovascular Prevention</h1>
+    <div class="byline">
+      <span>Reviewed by <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b><br>
+      <span class="cred">Preventive Cardiologist &amp; Lipidologist · President, Georgian Atherosclerosis Association</span></span>
+    </div>
+  </header>
+
+  <article>
+    <p class="lead">A 55-year-old marathon runner and a 55-year-old with diabetes, hypertension, and a two-decade smoking history are the same chronological age. Almost no clinician would treat their cardiovascular risk the same way — and yet the tools most risk calculators are built on (SCORE2, the ASCVD Risk Estimator) start from the same input for both of them: age in years since birth.</p>
+
+    <p>Chronological age is a convenient proxy for biological wear — the actual, cumulative decline in arteries, immune function, and metabolic regulation that drives atherosclerosis. It's a proxy, not the thing itself. Over the past decade, a different way of estimating that underlying biological state has moved from research cohorts into early clinical use: epigenetic clocks.</p>
+
+    <h2>Why chronological age falls short</h2>
+    <p>SCORE2 and similar tools work well at a population level — they're guideline-anchored and validated across large cohorts. But within any given age band, cardiovascular trajectories fan out widely. Smoking, diabetes duration, inflammatory burden, and inherited lipid risk (like elevated <strong>Lp(a)</strong>) all push two people of identical age onto very different curves. Chronological age can't see any of that directly — it only sees the calendar.</p>
+    <p>Biological aging is the attempt to measure the wear itself, rather than infer it from birth year. Epigenetic clocks — built on patterns of DNA methylation, chemical marks that accumulate on DNA over a lifetime and shift with cellular aging — are currently the most extensively validated way to do that.</p>
+
+    <div class="box gold">
+      <span class="k">The core reframe</span>
+      <p>Chronological age answers "how many years since you were born." Biological age asks "how much wear has actually accumulated." For cardiovascular risk, the second question is the one that matters — and for most people, nobody has ever measured it directly.</p>
+    </div>
+
+    <h2>Three clocks, three different jobs</h2>
+    <p>"Epigenetic clock" isn't one test — it's a family of algorithms trained on different targets. For cardiovascular prevention, three are worth knowing apart:</p>
+
+    <table class="clock-table">
+      <tr><th>Clock</th><th>What it's trained to predict</th><th>What it needs</th></tr>
+      <tr><td><strong>GrimAge</strong></td><td>Time-to-death and healthspan, via methylation surrogates of plasma proteins (including PAI-1 and GDF-15) plus smoking history</td><td>DNA methylation assay</td></tr>
+      <tr><td><strong>DunedinPACE</strong></td><td>Current <em>pace</em> of aging — how fast multiple organ systems are declining right now, not a fixed age</td><td>DNA methylation assay</td></tr>
+      <tr><td><strong>PhenoAge</strong></td><td>A "phenotypic age" built from a composite of routine clinical chemistry (including albumin, creatinine, glucose, CRP, and white-cell indices) plus chronological age</td><td>Standard bloodwork — no methylation test</td></tr>
+    </table>
+
+    <p>GrimAge and DunedinPACE come from the same broad family of DNA methylation-based clocks (Lu et al., <em>Aging</em>, 2019; Belsky et al., <em>eLife</em>, 2022), refined from an earlier "phenotypic age" concept (Levine et al., <em>Aging</em>, 2018) that could be estimated from bloodwork alone. That distinction matters more than it looks: it's the difference between a test that needs a specialized methylation assay sent to a dedicated lab, and one that could, in principle, be estimated from labs a patient may already have.</p>
+
+    <h2>What the cardiovascular evidence actually shows</h2>
+
+    <div class="box">
+      <span class="k">MESA — epigenetic aging and incident cardiovascular disease</span>
+      <p>In the Multi-Ethnic Study of Atherosclerosis, GrimAge acceleration was independently associated with incident composite cardiovascular disease (HR 1.05, 95% CI 1.02–1.08) and stroke (HR 1.08, 95% CI 1.04–1.13), after adjustment for standard risk factors. The association with heart failure was strongest for the mildly-reduced-ejection-fraction subtype specifically (HR 1.31, 95% CI 1.13–1.53). Notably, the link to incident myocardial infarction weakened in participants with a coronary artery calcium (CAC) score of zero, but remained significant in those with CAC &gt;0 (HR 1.09, 95% CI 1.03–1.16) — GrimAge's signal looks most informative once some plaque already exists, not as a stand-alone substitute for CAC in a CAC-zero patient.</p>
+      <div class="src">Srivatsa S, et al. Epigenetic Aging Clocks and Incident Cardiovascular Outcomes: Results From the MESA. <em>J Am Heart Assoc.</em> 2025;14(24):e044946.</div>
+    </div>
+
+    <div class="box">
+      <span class="k">DunedinPACE responds faster than GrimAge</span>
+      <p>Because DunedinPACE is trained to detect change over a matter of years rather than a lifetime, it can move within months of an intervention — where GrimAge typically shifts more slowly. In a 32-week randomized, placebo-controlled trial of semaglutide in adults with HIV-associated lipohypertrophy, the treatment group showed a significantly slower pace of aging on DunedinPACE than placebo (roughly 9% slower, p=0.010) — and GrimAge2 also moved significantly in this particular trial (p=0.009), which is notable given how slowly it usually changes.</p>
+      <div class="src">Corley MJ, et al. Semaglutide slows epigenetic aging in a randomized trial of HIV-associated lipohypertrophy. <em>Nat Commun.</em> 2026;17:6606.</div>
+    </div>
+
+    <p>Read together, these two studies point in the same direction as the rest of the cardiometabolic evidence base: biological aging is measurable, it correlates with real cardiovascular outcomes, and — at least on DunedinPACE — it appears responsive to the same metabolic interventions (GLP-1 receptor agonists, weight optimization, lifestyle change) already discussed elsewhere in this longevity framework.</p>
+
+    <h2>Where this fits next to ApoB, Lp(a), and inflammation</h2>
+    <p>Epigenetic clocks don't replace the markers a cardiovascular prevention panel already reads — they sit alongside them, and arguably explain part of <em>why</em> those markers matter as much as they do:</p>
+    <ul class="clean">
+      <li><strong>ApoB and LDL-C</strong> capture cumulative atherogenic particle exposure — the driver, not the aging process itself.</li>
+      <li><strong>Lp(a)</strong> is an inherited, largely fixed risk that doesn't change with lifestyle — a genuinely separate axis from biological aging.</li>
+      <li><strong>hs-CRP and metabolic markers</strong> (TyG Index, AIP) track residual inflammation and insulin resistance — both are proposed mechanistic contributors to epigenetic age acceleration itself.</li>
+    </ul>
+    <p>A patient with elevated Lp(a) <em>and</em> signs of accelerated biological aging is not necessarily the same risk as a patient with elevated Lp(a) alone — though this specific combination is still an emerging research question, not yet a validated clinical decision rule. It's a reason to take the whole picture to a physician, not a reason to draw conclusions from any single number.</p>
+
+    <div class="box gold">
+      <span class="k">Where the Lp(a)-lowering pipeline stands</span>
+      <p>Investigational RNA-targeted therapies for Lp(a) — pelacarsen and olpasiran among them — are in ongoing outcomes trials, with no completed outcome data yet. They are not approved treatments today. See our <a href="/blog/pelacarsen-olpasiran/">guide to the Lp(a) drug pipeline</a> for where each trial actually stands.</p>
+    </div>
+
+    <h2>What CardioIQ measures today — and what this isn't, yet</h2>
+    <p>To be direct about scope: CardioIQ's report interprets <strong>routine lipid and cardiometabolic labs</strong> — full lipid panel, ApoB, Lp(a), glucose/insulin, hs-CRP, and related markers most people can already order — against longevity-optimal targets. It does not currently include DNA methylation testing, so GrimAge and DunedinPACE are not part of a CardioIQ report today. This article exists because the science is moving there, and because the pillar it belongs to — <a href="/blog/cardiovascular-longevity/">long-horizon, biological-age-aware prevention</a> — is the frame the rest of a longevity-optimal panel already serves.</p>
+    <p>In the meantime, the practical takeaway holds up even without a methylation test: the interventions shown so far to slow measured biological aging — GLP-1 receptor agonists where indicated, weight and metabolic optimization, exercise, sleep, and getting <strong>ApoB</strong>, <strong>Lp(a)</strong>, and inflammatory markers to target — are the same actions a longevity-optimal cardiometabolic reading already points toward. You don't need to wait for a biological-age test to start on the part that's already actionable.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Can I get my epigenetic age tested through CardioIQ today?</h3>
+      <p>Not yet. CardioIQ interprets routine lipid and cardiometabolic labs against longevity-optimal targets. GrimAge and DunedinPACE need a separate DNA methylation assay, which isn't part of the current panel.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is biological age the same thing as an epigenetic clock?</h3>
+      <p>Epigenetic clocks are the best-validated way to estimate biological age right now, but not the only one. Composite clinical measures like PhenoAge estimate a related concept from routine bloodwork, without a methylation test.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does a faster epigenetic clock mean I'll have a heart attack?</h3>
+      <p>No. It's a population-level risk marker studied in cohorts like MESA — it shifts probabilities, it doesn't predict an individual outcome. Treat it as a reference-frame data point for a conversation with your physician, not a verdict.</p>
+    </div>
+    <div class="faq-item">
+      <h3>If I can't test this yet, what can I actually do?</h3>
+      <p>Focus on what's already measurable: ApoB, Lp(a), hs-CRP, and metabolic health. The same levers shown to slow biological aging in early trials — metabolic optimization, exercise, sleep, and appropriate pharmacologic therapy — are the ones a longevity-optimal panel already surfaces.</p>
+    </div>
+
+    <div class="disclaimer">
+      <b>Medical disclaimer.</b> This article is educational and reflects an active, evolving area of research — it is not a diagnosis, a treatment recommendation, or a claim about any individual's cardiovascular risk, and it does not describe a test CardioIQ currently offers. Epigenetic clock findings referenced here are research results, not clinical decision thresholds endorsed by ESC/EAS or ACC/AHA guidelines. Always discuss your results and any testing decisions with your treating physician.
+    </div>
+
+    <div class="cta">
+      <h3>Read your current labs against longevity-optimal targets</h3>
+      <p>CardioIQ interprets your lipid panel, ApoB, and Lp(a) against targets calibrated to your risk category — not just population "normal."</p>
+      <a class="btn" href="/reports/">Choose your report →</a>
+      <span class="sub">Or try the free <a href="/check/">Optimal vs Normal check</a> — no sign-up required.</span>
+    </div>
+
+    <div class="related">
+      <h4>Related reading</h4>
+      <a href="/blog/cardiovascular-longevity/">Cardiovascular Longevity: The Biggest Lever Your Standard Labs Miss</a> ·
+      <a href="/blog/cardiometabolic-health/">Cardiometabolic Health: The Reference Frame Behind Your Lipids</a> ·
+      <a href="/blog/hs-crp-inflammation-guide/">hs-CRP: What It Measures, and Why It's Part of Your Cardiovascular Picture</a> ·
+      <a href="/blog/pelacarsen-olpasiran/">Lp(a) Drug Pipeline 2026: Pelacarsen, Olpasiran, Lepodisiran &amp; Muvalaplin</a> ·
+      <a href="/blog/how-cardioiq-works/">How CardioIQ Works</a>
+    </div>
+
+    <div class="author">
+      <div class="av">TG</div>
+      <div class="meta">
+        <b>Tea Gamezardashvili, MD, PhD, MHA, FACC</b>
+        <span class="cred">Preventive Cardiologist &amp; Lipidologist</span><br>
+        President, Georgian Atherosclerosis Association · National Coordinator, EAS Lipid Clinic Network (Georgia) · Academic Director, CMEA. CardioIQ is built by a lipidologist, not a tech company.
+      </div>
+    </div>
+
+    <div class="refs">
+      <h4>References</h4>
+      <ol>
+        <li>Srivatsa S, Rice N, Pike JR, Smith JA, Ding J, Liu Y, Budoff M, Bey GS. Epigenetic Aging Clocks and Incident Cardiovascular Outcomes: Results From the MESA. <em>J Am Heart Assoc.</em> 2025;14(24):e044946. doi:10.1161/JAHA.125.044946</li>
+        <li>Belsky DW, Caspi A, Corcoran DL, et al. DunedinPACE, a DNA methylation biomarker of the pace of aging. <em>eLife.</em> 2022;11:e73420. doi:10.7554/eLife.73420</li>
+        <li>Lu AT, Quach A, Wilson JG, et al. DNA methylation GrimAge strongly predicts lifespan and healthspan. <em>Aging (Albany NY).</em> 2019;11(2):303–327. doi:10.18632/aging.101684</li>
+        <li>Levine ME, Lu AT, Quach A, et al. An epigenetic biomarker of aging for lifespan and healthspan. <em>Aging (Albany NY).</em> 2018;10(4):573–591. doi:10.18632/aging.101414</li>
+        <li>Corley MJ, et al. Semaglutide slows epigenetic aging in a randomized trial of HIV-associated lipohypertrophy. <em>Nat Commun.</em> 2026;17:6606. doi:10.1038/s41467-026-72861-3</li>
+      </ol>
+    </div>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 CardioIQ · Physician-built cardiovascular intelligence</span>
+    <span><a href="/blog/">All articles</a> · <a href="/reports/">Reports</a></span>
+  </div>
+</footer>
+
+<!-- ===== Schema.org: MedicalWebPage + FAQPage ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -17,15 +284,24 @@
   "headline": "Biological Age vs. Chronological Age: Epigenetic Clocks in Cardiovascular Prevention",
   "description": "Two people can share a birth year and not a cardiovascular future. What GrimAge and DunedinPACE actually measure — and what they don't yet change.",
   "url": "https://cardioiq.health/blog/biological-age-vs-chronological-age/",
-  "isPartOf": { "@type": "WebPage", "name": "Cardiovascular Longevity: The Biggest Lever Your Standard Labs Miss", "url": "https://cardioiq.health/blog/cardiovascular-longevity/" },
-  "medicalAudience": [ { "@type": "MedicalAudience", "audienceType": "Patient" }, { "@type": "MedicalAudience", "audienceType": "Physician" } ],
+  "inLanguage": "en",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
   "author": {
     "@type": "Person",
-    "name": "Tea Gamezardashvili, MD, PhD, MHA, FACC",
-    "url": "https://teagamezardashvili.com",
-    "jobTitle": "Preventive Cardiologist & Lipidologist"
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC",
+    "jobTitle": "Preventive Cardiologist & Lipidologist",
+    "url": "https://teagamezardashvili.com"
   },
-  "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health" }
+  "reviewedBy": {
+    "@type": "Person",
+    "name": "Tea Gamezardashvili",
+    "honorificSuffix": "MD, PhD, MHA, FACC"
+  },
+  "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health" },
+  "about": ["biological age","epigenetic clocks","GrimAge","DunedinPACE","PhenoAge","cardiovascular longevity","Lp(a)"],
+  "isPartOf": { "@type": "WebPage", "name": "Cardiovascular Longevity: The Biggest Lever Your Standard Labs Miss", "url": "https://cardioiq.health/blog/cardiovascular-longevity/" }
 }
 </script>
 <script type="application/ld+json">
@@ -57,302 +333,5 @@
 }
 </script>
 
-<style>
-:root{
-  --navy:#0a2540;
-  --navy-deep:#071b30;
-  --gold:#c9a227;
-  --teal:#0f8a7a;
-  --teal-soft:#e6f4f1;
-  --gold-soft:#faf3e0;
-  --ink:#1c2b3a;
-  --paper:#faf9f6;
-  --line:#e3ddd0;
-}
-*{box-sizing:border-box;}
-body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:Georgia,'Iowan Old Style','Palatino Linotype',Palatino,serif;
-  line-height:1.7;
-  font-size:18px;
-}
-.wrap{max-width:760px;margin:0 auto;padding:0 24px 80px;}
-header.hero{
-  background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);
-  color:#f4f1e8;
-  padding:56px 24px 48px;
-}
-header.hero .wrap{padding:0;}
-.eyebrow{
-  text-transform:uppercase;
-  letter-spacing:.14em;
-  font-size:12px;
-  color:var(--gold);
-  font-family:Helvetica,Arial,sans-serif;
-  font-weight:700;
-  margin-bottom:14px;
-}
-h1{
-  font-size:clamp(28px,4vw,40px);
-  line-height:1.25;
-  margin:0 0 16px;
-  color:#fff;
-}
-.dek{
-  font-size:19px;
-  color:#cdd8e3;
-  margin:0;
-  font-family:Helvetica,Arial,sans-serif;
-  font-weight:300;
-}
-.byline{
-  margin-top:28px;
-  font-family:Helvetica,Arial,sans-serif;
-  font-size:14px;
-  color:#9fb0c0;
-}
-.byline a{color:var(--gold);text-decoration:none;}
-main{padding-top:44px;}
-h2{
-  color:var(--navy);
-  font-size:26px;
-  margin:48px 0 16px;
-  border-bottom:2px solid var(--gold);
-  padding-bottom:8px;
-}
-h3{color:var(--navy);font-size:20px;margin:28px 0 10px;}
-p{margin:0 0 18px;}
-.lede{font-size:20px;color:var(--navy);}
-ul,ol{padding-left:22px;margin:0 0 18px;}
-li{margin-bottom:8px;}
-strong{color:var(--navy);}
-.callout{
-  background:var(--teal-soft);
-  border-left:4px solid var(--teal);
-  padding:18px 22px;
-  border-radius:4px;
-  margin:26px 0;
-  font-size:16.5px;
-}
-.callout.gold{background:var(--gold-soft);border-left-color:var(--gold);}
-table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15.5px;font-family:Helvetica,Arial,sans-serif;}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top;}
-th{background:var(--navy);color:#fff;font-weight:600;}
-tr:nth-child(even) td{background:#f3f1ea;}
-.evidence-card{
-  border:1px solid var(--line);
-  border-radius:6px;
-  padding:18px 20px;
-  margin:18px 0;
-  background:#fff;
-}
-.evidence-card .src{
-  font-family:Helvetica,Arial,sans-serif;
-  font-size:13px;
-  color:#6b7a88;
-  margin-top:10px;
-}
-.boundary{
-  background:#f3f1ea;
-  border:1px dashed #b8b0a0;
-  border-radius:6px;
-  padding:20px 22px;
-  margin:36px 0;
-  font-size:15.5px;
-  font-family:Helvetica,Arial,sans-serif;
-}
-.boundary h3{margin-top:0;font-size:16px;text-transform:uppercase;letter-spacing:.06em;}
-.faq-item{margin-bottom:22px;}
-.faq-item h3{margin-bottom:6px;font-size:18px;}
-.cta{
-  background:var(--navy);
-  color:#fff;
-  border-radius:8px;
-  padding:32px 28px;
-  text-align:center;
-  margin:44px 0;
-}
-.cta h3{color:#fff;margin-top:0;font-family:Helvetica,Arial,sans-serif;}
-.cta p{color:#cdd8e3;font-family:Helvetica,Arial,sans-serif;font-size:15.5px;}
-.cta a.btn{
-  display:inline-block;
-  margin-top:10px;
-  background:var(--gold);
-  color:var(--navy-deep);
-  font-family:Helvetica,Arial,sans-serif;
-  font-weight:700;
-  text-decoration:none;
-  padding:13px 28px;
-  border-radius:5px;
-}
-.related{
-  font-family:Helvetica,Arial,sans-serif;
-  font-size:15px;
-  margin:40px 0;
-  padding:22px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:6px;
-}
-.related h3{margin-top:0;font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:#6b7a88;}
-.related a{color:var(--teal);text-decoration:none;font-weight:600;}
-.disclaimer{
-  font-family:Helvetica,Arial,sans-serif;
-  font-size:13px;
-  color:#7a7263;
-  border-top:1px solid var(--line);
-  margin-top:52px;
-  padding-top:20px;
-}
-.author-block{
-  display:flex;
-  gap:16px;
-  align-items:flex-start;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:8px;
-  padding:22px;
-  margin-top:40px;
-  font-family:Helvetica,Arial,sans-serif;
-}
-.author-block .initials{
-  flex:0 0 52px;
-  height:52px;
-  border-radius:50%;
-  background:var(--navy);
-  color:var(--gold);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  font-size:17px;
-}
-.author-block h4{margin:0 0 4px;color:var(--navy);font-size:16px;}
-.author-block p{margin:0;font-size:14px;color:#555;}
-.author-block a{color:var(--teal);}
-sup{color:var(--teal);font-weight:700;}
-</style>
-</head>
-<body>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Longevity &amp; Prevention</div>
-    <h1>Biological Age vs. Chronological Age: What Epigenetic Clocks Actually Mean for Cardiovascular Prevention</h1>
-    <p class="dek">Two patients can share a birth year and not a cardiovascular future. Here's what the evidence on epigenetic aging really shows — and what it doesn't, yet.</p>
-    <div class="byline">By <a href="https://teagamezardashvili.com">Tea Gamezardashvili, MD, PhD, MHA, FACC</a> · Preventive Cardiologist &amp; Lipidologist</div>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <p class="lede">A 55-year-old marathon runner and a 55-year-old with diabetes, hypertension, and a two-decade smoking history are the same chronological age. Almost no clinician would treat their cardiovascular risk the same way — and yet the tools most risk calculators are built on (SCORE2, the ASCVD Risk Estimator) start from the same input for both of them: age in years since birth.</p>
-
-  <p>Chronological age is a convenient proxy for biological wear — the actual, cumulative decline in arteries, immune function, and metabolic regulation that drives atherosclerosis. It's a proxy, not the thing itself. Over the past decade, a different way of estimating that underlying biological state has moved from research cohorts into early clinical use: epigenetic clocks.</p>
-
-  <h2>Why Chronological Age Falls Short</h2>
-  <p>SCORE2 and similar tools work well at a population level — they're guideline-anchored and validated across large cohorts. But within any given age band, cardiovascular trajectories fan out widely. Smoking, diabetes duration, inflammatory burden, and inherited lipid risk (like elevated <strong>Lp(a)</strong>) all push two people of identical age onto very different curves. Chronological age can't see any of that directly — it only sees the calendar.</p>
-  <p>Biological aging is the attempt to measure the wear itself, rather than infer it from birth year. Epigenetic clocks — built on patterns of DNA methylation, chemical marks that accumulate on your DNA over a lifetime and shift with cellular aging — are currently the most extensively validated way to do that.</p>
-
-  <h2>Three Clocks, Three Different Jobs</h2>
-  <p>"Epigenetic clock" isn't one test — it's a family of algorithms trained on different targets. For cardiovascular prevention, three are worth knowing apart:</p>
-
-  <table>
-    <tr><th>Clock</th><th>What it's trained to predict</th><th>What it needs</th></tr>
-    <tr><td><strong>GrimAge</strong></td><td>Time-to-death and healthspan, via methylation surrogates of plasma proteins (including PAI-1 and GDF-15) plus smoking history</td><td>DNA methylation assay</td></tr>
-    <tr><td><strong>DunedinPACE</strong></td><td>Current <em>pace</em> of aging — how fast multiple organ systems are declining right now, not a fixed age</td><td>DNA methylation assay</td></tr>
-    <tr><td><strong>PhenoAge</strong></td><td>A "phenotypic age" built from a composite of routine clinical chemistry (including albumin, creatinine, glucose, CRP, and white-cell indices) plus chronological age</td><td>Standard bloodwork — no methylation test</td></tr>
-  </table>
-
-  <p>GrimAge and DunedinPACE come from the same broad family of DNA methylation-based clocks (Lu et al., <em>Aging</em>, 2019; Belsky et al., <em>eLife</em>, 2022), refined from an earlier "phenotypic age" concept (Levine et al., <em>Aging</em>, 2018) that could be estimated from bloodwork alone. That distinction matters more than it looks: it's the difference between a test that needs a specialized methylation assay sent to a dedicated lab, and one that could, in principle, be estimated from labs a patient may already have.</p>
-
-  <h2>What the Cardiovascular Evidence Actually Shows</h2>
-
-  <div class="evidence-card">
-    <strong>MESA: epigenetic aging and incident cardiovascular disease</strong>
-    <p style="margin:10px 0 0;">In the Multi-Ethnic Study of Atherosclerosis, GrimAge acceleration was independently associated with incident composite cardiovascular disease (HR 1.05, 95% CI 1.02–1.08) and stroke (HR 1.08, 95% CI 1.04–1.13), after adjustment for standard risk factors. The association with heart failure was strongest for the mildly-reduced-ejection-fraction subtype specifically (HR 1.31, 95% CI 1.13–1.53). Notably, the link to incident myocardial infarction weakened in participants with a coronary artery calcium (CAC) score of zero, but remained significant in those with CAC &gt;0 (HR 1.09, 95% CI 1.03–1.16) — suggesting GrimAge's signal is most informative once some plaque already exists, not as a stand-alone substitute for CAC in a CAC-zero patient.</p>
-    <div class="src">Srivatsa S, et al. Epigenetic Aging Clocks and Incident Cardiovascular Outcomes: Results From the MESA. <em>J Am Heart Assoc.</em> 2025;14(24):e044946.</div>
-  </div>
-
-  <div class="evidence-card">
-    <strong>DunedinPACE responds faster than GrimAge</strong>
-    <p style="margin:10px 0 0;">Because DunedinPACE is trained to detect change over a matter of years rather than a lifetime, it can move within months of an intervention — where GrimAge typically shifts more slowly. In a 32-week randomized, placebo-controlled trial of semaglutide in adults with HIV-associated lipohypertrophy, the treatment group showed a significantly slower pace of aging on DunedinPACE than placebo (roughly 9% slower, p=0.010) — and GrimAge2 also moved significantly in this particular trial (p=0.009), which is notable given how slowly it usually changes.</p>
-    <div class="src">Corley MJ, et al. Semaglutide slows epigenetic aging in a randomized trial of HIV-associated lipohypertrophy. <em>Nat Commun.</em> 2026;17:6606.</div>
-  </div>
-
-  <p>Read together, these two studies point in the same direction as the rest of the cardiometabolic evidence base: biological aging is measurable, it correlates with real cardiovascular outcomes, and — at least on DunedinPACE — it appears responsive to the same metabolic interventions (GLP-1 receptor agonists, weight optimization, lifestyle change) already discussed elsewhere in this longevity framework.</p>
-
-  <h2>Where This Fits Next to ApoB, Lp(a), and Inflammation</h2>
-  <p>Epigenetic clocks don't replace the markers a cardiovascular prevention panel already reads — they sit alongside them, and arguably explain part of <em>why</em> those markers matter as much as they do:</p>
-  <ul>
-    <li><strong>ApoB and LDL-C</strong> capture cumulative atherogenic particle exposure — the driver, not the aging process itself.</li>
-    <li><strong>Lp(a)</strong> is an inherited, largely fixed risk that doesn't change with lifestyle — a genuinely separate axis from biological aging.</li>
-    <li><strong>hs-CRP and metabolic markers</strong> (TyG Index, AIP) track residual inflammation and insulin resistance — both are proposed mechanistic contributors to epigenetic age acceleration itself.</li>
-  </ul>
-  <p>A patient with elevated Lp(a) <em>and</em> signs of accelerated biological aging is not necessarily the same risk as a patient with elevated Lp(a) alone — though this specific combination is still an emerging research question, not yet a validated clinical decision rule. It's a reason to take the whole picture to a physician, not a reason to draw conclusions from any single number.</p>
-
-  <div class="callout gold">
-    <strong>Where the Lp(a)-lowering pipeline stands:</strong> Investigational RNA-targeted therapies for Lp(a) — pelacarsen and olpasiran among them — are in ongoing outcomes trials, with no completed outcome data yet. They are not approved treatments today. See our <a href="https://cardioiq.health/blog/pelacarsen-olpasiran/">guide to the Lp(a) drug pipeline</a> for where each trial actually stands.
-  </div>
-
-  <h2>What CardioIQ Measures Today — and What This Isn't, Yet</h2>
-  <p>To be direct about scope: CardioIQ's report interprets <strong>routine lipid and cardiometabolic labs</strong> — full lipid panel, ApoB, Lp(a), glucose/insulin, hs-CRP, and related markers most people can already order — against longevity-optimal targets. It does not currently include DNA methylation testing, so GrimAge and DunedinPACE are not part of a CardioIQ report today. This article exists because the science is moving there, and because the pillar it belongs to — <a href="https://cardioiq.health/blog/cardiovascular-longevity/">long-horizon, biological-age-aware prevention</a> — is the frame the rest of a longevity-optimal panel already serves.</p>
-
-  <p>In the meantime, the practical takeaway holds up even without a methylation test: the interventions shown so far to slow measured biological aging — GLP-1 receptor agonists where indicated, weight and metabolic optimization, exercise, sleep, and getting <strong>ApoB</strong>, <strong>Lp(a)</strong>, and inflammatory markers to target — are the same actions a longevity-optimal cardiometabolic reading already points toward. You don't need to wait for a biological-age test to start on the part that's already actionable.</p>
-
-  <div class="faq-item">
-    <h3>Can I get my epigenetic age tested through CardioIQ today?</h3>
-    <p>Not yet. CardioIQ interprets routine lipid and cardiometabolic labs against longevity-optimal targets. GrimAge and DunedinPACE need a separate DNA methylation assay, which isn't part of the current panel.</p>
-  </div>
-  <div class="faq-item">
-    <h3>Is biological age the same thing as an epigenetic clock?</h3>
-    <p>Epigenetic clocks are the best-validated way to estimate biological age right now, but not the only one. Composite clinical measures like PhenoAge estimate a related concept from routine bloodwork, without a methylation test.</p>
-  </div>
-  <div class="faq-item">
-    <h3>Does a faster epigenetic clock mean I'll have a heart attack?</h3>
-    <p>No. It's a population-level risk marker studied in cohorts like MESA — it shifts probabilities, it doesn't predict an individual outcome. Treat it as a reference-frame data point for a conversation with your physician, not a verdict.</p>
-  </div>
-  <div class="faq-item">
-    <h3>If I can't test this yet, what can I actually do?</h3>
-    <p>Focus on what's already measurable: ApoB, Lp(a), hs-CRP, and metabolic health. The same levers shown to slow biological aging in early trials — metabolic optimization, exercise, sleep, and appropriate pharmacologic therapy — are the ones a longevity-optimal panel already surfaces.</p>
-  </div>
-
-  <div class="boundary">
-    <h3>Boundary</h3>
-    <p>This article is educational and reflects an active, evolving area of research. It is not a diagnosis, a treatment recommendation, or a claim about any individual's cardiovascular risk, and it does not describe a test CardioIQ currently offers. Epigenetic clock cutoffs referenced here are research findings, not clinical decision thresholds endorsed by ESC/EAS or ACC/AHA guidelines. Always discuss your personal risk and any testing decisions with your treating physician.</p>
-  </div>
-
-  <div class="cta">
-    <h3>Read your current labs against longevity-optimal targets</h3>
-    <p>CardioIQ interprets your lipid panel, ApoB, and Lp(a) against targets calibrated to your risk category — not just population "normal."</p>
-    <a class="btn" href="https://cardioiq.health/reports/">Choose your report →</a>
-  </div>
-
-  <div class="related">
-    <h3>Related reading</h3>
-    <p>
-      <a href="https://cardioiq.health/blog/cardiovascular-longevity/">Cardiovascular Longevity: The Biggest Lever Your Standard Labs Miss</a> (pillar) ·
-      <a href="https://cardioiq.health/blog/cardiometabolic-health/">Cardiometabolic Health: The Reference Frame Behind Your Lipids</a> ·
-      <a href="https://cardioiq.health/blog/hs-crp-inflammation-guide/">hs-CRP: What It Measures, and Why It's Part of Your Cardiovascular Picture</a> ·
-      <a href="https://cardioiq.health/blog/pelacarsen-olpasiran/">Pelacarsen &amp; Olpasiran: Where the Lp(a) Drug Pipeline Stands</a> ·
-      <a href="https://cardioiq.health/blog/how-cardioiq-works/">How CardioIQ Works</a>
-    </p>
-  </div>
-
-  <div class="author-block">
-    <div class="initials">TG</div>
-    <div>
-      <h4>Tea Gamezardashvili, MD, PhD, MHA, FACC</h4>
-      <p>Preventive cardiologist and lipidologist. President, Georgian Atherosclerosis Association. National Coordinator, EAS Lipid Clinic Network (Georgia). Co-author, EAS consensus paper, <em>Atherosclerosis</em> (2026). More at <a href="https://teagamezardashvili.com">teagamezardashvili.com</a>.</p>
-    </div>
-  </div>
-
-  <div class="disclaimer">
-    This article is for educational purposes and does not constitute medical advice, diagnosis, or treatment. CardioIQ's reports are an interpretive tool and do not replace evaluation by a licensed physician. Always consult your own doctor about your cardiovascular risk and any testing or treatment decisions.
-  </div>
-
-</main>
 </body>
 </html>
