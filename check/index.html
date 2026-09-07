@@ -34,7 +34,16 @@
   .nav-links{display:flex;gap:18px;align-items:center;font-size:0.92rem}
   .nav-links a{color:var(--text-muted);text-decoration:none}
   .nav-cta{background:var(--gold);color:var(--navy)!important;padding:8px 16px;border-radius:8px;font-weight:600}
-  @media(max-width:560px){.nav-links a:not(.nav-cta){display:none}}
+  .nav-toggle{display:none;background:transparent;border:0;cursor:pointer;padding:8px;margin-left:auto}
+  .nav-toggle span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px;margin:5px 0}
+  @media(max-width:560px){
+    nav.site-nav{flex-wrap:wrap}
+    .nav-toggle{display:block}
+    .nav-links{display:none;flex-direction:column;align-items:flex-start;width:100%;order:3;gap:0}
+    .nav-links.is-open{display:flex}
+    .nav-links.is-open a:not(.nav-cta){display:block;width:100%;padding:0.65rem 0;border-top:1px solid var(--line)}
+    .nav-links a.nav-cta{margin-top:0.6rem;display:inline-block}
+  }
 
   /* Hero */
   header.hero{padding:40px 0 12px}
@@ -135,6 +144,7 @@
 
 <nav class="site-nav">
   <a href="/" class="logo">Cardio<span>IQ</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('is-open'))"><span></span><span></span><span></span></button>
   <div class="nav-links">
     <a href="/blog/">Blog</a>
     <a href="/demo-report/">See a sample</a>
