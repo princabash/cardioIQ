@@ -150,12 +150,26 @@
       .btn-secondary { display: block; margin: 0.75rem auto 0; }
     }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-  </style>
+  
+/* Mobile nav toggle (fix: .nav-links was display:none <=640px with no way to open it) */
+.nav-toggle{display:none;background:transparent;border:0;cursor:pointer;padding:8px;margin-left:auto;}
+.nav-toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;margin:5px 0;}
+@media (max-width:640px){
+  .site-nav{flex-wrap:wrap;height:auto;min-height:64px;}
+  .nav-toggle{display:block;}
+  .nav-links{display:none;flex-direction:column;align-items:flex-start;width:100%;gap:0;order:3;padding:0 0 0.75rem;}
+  .nav-links.is-open{display:flex;}
+  .nav-links li{width:100%;}
+  .nav-links a{display:block;width:100%;margin-left:0!important;padding:0.7rem 0;border-top:1px solid rgba(255,255,255,0.12);}
+  .nav-links .nav-cta{display:inline-block;width:auto;margin-top:0.5rem;border:none!important;}
+}
+</style>
 </head>
 <body>
  
 <nav class="site-nav">
   <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('is-open'))"><span></span><span></span><span></span></button>
   <ul class="nav-links">
     <li><a href="/about/">About</a></li>
     <li><a href="/blog/">Blog</a></li>
