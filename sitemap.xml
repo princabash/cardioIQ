@@ -215,9 +215,16 @@
   </url>
   <url>
     <loc>https://cardioiq.health/blog/cardiovascular-longevity/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <!-- ADDED 2026-09-07: Pillar 6 deep dive, linked from cardiovascular-longevity hub's pillar-6 card. -->
+  <url>
+    <loc>https://cardioiq.health/blog/biological-age-vs-chronological-age/</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 <url>
   <loc>https://cardioiq.health/blog/apob-ldl-nonhdl-tg-comparison/</loc>
