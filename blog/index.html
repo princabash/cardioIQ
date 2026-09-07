@@ -1,335 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/favicon.ico" sizes="any">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32.png" type="image/png">
 <link rel="apple-touch-icon" href="/favicon-512.png">
-  
-  <!--
-    CardioIQ blog article — SUPPORTING (forward-link tier #3)
-    Slug: /blog/statins-guide/  (closes the /blog/statins-guide/ 404 linked from apob-guide)
-    Persona: Optimizer + Newly Worried | THEME: LIGHT (per request)
-    COMPLIANCE (drug content): class-level only; NEVER "you should take"; minimal specific dosing;
-      side effects calm + evidence-first + physician-routed; NEVER discourage needed therapy;
-      Lp(a) myth-buster (statins slightly raise Lp(a) -> do NOT avoid them).
-    CRL: Finding -> Reference frame -> Mechanism -> Evidence -> Modifiers -> Action -> Boundary
-    Internal links (LIVE): apob-guide, apob-normal-range, lpa-guide, /reports/
-    VERIFY BEFORE PUBLISH: reference DOIs (CTT, ESC/EAS, ACC/AHA); any dose examples.
-  -->
-  <title>Statins: The Complete Guide to How They Work, Benefits &amp; Side Effects | CardioIQ</title>
-  <meta name="description" content="How statins work, who they're considered for, what the evidence shows, and an honest look at side effects — explained by a lipidologist. Educational only; treatment decisions belong with your physician. Reviewed by Dr. Tea Gamezardashvili, MD PhD MHA FACC." />
-  <link rel="canonical" href="https://cardioiq.health/blog/statins-guide/" />
-  <meta property="og:type" content="article" />
-  <meta property="og:title" content="Statins: The Complete Guide to How They Work, Benefits & Side Effects" />
-  <meta property="og:description" content="A calm, evidence-first guide to statins — how they lower ApoB and cardiovascular risk, and how to think about side effects." />
-  <meta property="og:url" content="https://cardioiq.health/blog/statins-guide/" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["MedicalWebPage", "Article"],
-    "headline": "Statins: The Complete Guide to How They Work, Benefits and Side Effects",
-    "description": "Educational guide to statin therapy — mechanism, evidence, candidacy, and side effects — with all treatment decisions routed to a physician.",
-    "url": "https://cardioiq.health/blog/statins-guide/",
-    "datePublished": "2026-07-10",
-    "dateModified": "2026-07-10",
-    "author": { "@type": "Person", "name": "Tea Gamezardashvili", "honorificSuffix": "MD, PhD, MHA, FACC" },
-    "reviewedBy": { "@type": "Person", "name": "Tea Gamezardashvili", "honorificSuffix": "MD, PhD, MHA, FACC" },
-    "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health" }
+<title>Blog — Cardiovascular Longevity, ApoB &amp; Lp(a) | CardioIQ</title>
+<meta name="description" content="Evidence-based guides on ApoB, Lp(a), and reading your lab results against longevity-optimal targets — not just population ranges. Physician-authored by Dr. Tea Gamezardashvili, MD PhD MHA FACC.">
+<link rel="canonical" href="https://cardioiq.health/blog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The CardioIQ Blog — ApoB, Lp(a) &amp; Cardiovascular Longevity">
+<meta property="og:description" content="Physician-authored guides that read your labs against optimal, not just normal.">
+<meta property="og:url" content="https://cardioiq.health/blog/">
+<meta property="og:site_name" content="CardioIQ">
+
+<!-- Non-blocking web fonts (avoid the render-blocking @import pattern) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "The CardioIQ Blog",
+  "description": "Physician-authored guides on ApoB, Lp(a), and reading lab results against longevity-optimal targets.",
+  "url": "https://cardioiq.health/blog/",
+  "publisher": { "@type": "Organization", "name": "CardioIQ", "url": "https://cardioiq.health/" }
+}
+</script>
+
+<style>
+  :root{
+    /* Confirmed brand tokens (navy / gold / teal) */
+    --navy-900:#081627;
+    --navy-800:#0B1E3D;
+    --navy-700:#102a4e;
+    --gold:#C9A227;
+    --gold-lite:#E3C24A;
+    --teal:#2A9D8F;
+    --ink:#EAF0F7;
+    --muted:#9FB3C8;
+    --card:rgba(255,255,255,0.04);
+    --card-hover:rgba(255,255,255,0.065);
+    --gold-border:rgba(201,162,39,0.30);
+    --hairline:rgba(255,255,255,0.09);
+    --radius:16px;
+    --maxw:1080px;
   }
-  </script>
-  <style>
-    /* ===== LIGHT THEME ===== */
-    :root{
-      --navy:#0B1F3A; --ink:#22303F; --muted:#5A6B7B;
-      --teal:#0E7C7B; --teal-deep:#0B5F5E; --teal-tint:#EAF5F3;
-      --gold:#B58A2E; --gold-tint:#FBF4E4;
-      --white:#FFFFFF; --paper:#FBFCFD; --cream:#F6F4EE;
-      --border:#E4EAEF; --border-soft:#EEF2F6;
-      --font-display:Georgia,'Times New Roman',serif;
-      --font-body:'Inter','Helvetica Neue',Arial,sans-serif;
-      --max-w:760px;
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--font-body);font-size:17px;line-height:1.75;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
- 
-    /* Light nav */
-    .site-nav{background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
-    .nav-logo{font-family:var(--font-display);font-size:1.35rem;color:var(--navy);text-decoration:none}
-    .nav-logo span{color:var(--gold)}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;transition:color .2s}
-    .nav-links a:hover{color:var(--navy)}
-    .nav-cta{background:var(--teal);color:var(--white)!important;padding:0.45rem 1.1rem;border-radius:6px;font-weight:600}
-    .nav-cta:hover{background:var(--teal-deep)}
- 
-    /* Light hero */
-    .article-hero{background:linear-gradient(160deg,var(--teal-tint) 0%,var(--paper) 55%,var(--white) 100%);border-bottom:1px solid var(--border-soft);padding:4.5rem 2rem 3.5rem;text-align:center}
-    .article-tag{display:inline-block;background:var(--gold-tint);color:var(--gold);font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.9rem;border-radius:100px;margin-bottom:1.5rem;border:1px solid rgba(181,138,46,0.25)}
-    .article-hero h1{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.6rem);color:var(--navy);max-width:800px;margin:0 auto 1.25rem;line-height:1.3}
-    .article-hero p.lead{color:var(--muted);font-size:1.08rem;max-width:600px;margin:0 auto 2.25rem}
-    .byline{display:inline-flex;align-items:center;gap:0.75rem;background:var(--white);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1.25rem;box-shadow:0 1px 4px rgba(11,31,58,0.04)}
-    .byline-avatar{width:42px;height:42px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:1rem;color:var(--white);font-weight:700;flex-shrink:0}
-    .byline-text{text-align:left}
-    .byline-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em}
-    .byline-name{font-size:0.88rem;color:var(--navy);font-weight:600}
-    .byline-creds{font-size:0.78rem;color:var(--gold)}
- 
-    .article-body{max-width:var(--max-w);margin:0 auto;padding:3rem 2rem 4rem}
-    .article-body h2{font-family:var(--font-display);font-size:1.6rem;color:var(--navy);margin:3rem 0 1rem;padding-top:1rem;border-top:2px solid var(--border)}
-    .article-body h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin:2rem 0 0.6rem}
-    .article-body p{margin-bottom:1.1rem}
-    .article-body strong{color:var(--navy)}
-    .article-body em{font-style:italic}
-    .article-body a{color:var(--teal-deep);text-decoration:underline}
-    .article-body a:hover{color:var(--teal)}
-    .article-body ul,.article-body ol{margin:0.75rem 0 1.1rem 1.4rem}
-    .article-body li{margin-bottom:0.4rem}
-    hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
- 
-    .intro-paragraph{font-size:1.05rem;color:var(--muted);border-left:3px solid var(--gold);padding-left:1.25rem;margin-bottom:2rem}
- 
-    /* Light quick-answer */
-    .quick-answer{background:var(--teal-tint);border:1px solid rgba(14,124,123,0.18);border-radius:14px;padding:1.75rem 2rem;margin:2rem 0}
-    .quick-answer-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--teal-deep);margin-bottom:0.75rem}
-    .quick-answer h3{color:var(--navy);font-size:1rem;font-weight:700;margin-bottom:0.5rem}
-    .quick-answer p{color:var(--ink);font-size:0.92rem;margin:0;line-height:1.6}
-    .quick-answer strong{color:var(--teal-deep)}
- 
-    .table-wrap{overflow-x:auto;margin:1.5rem 0 0.6rem;border-radius:10px;border:1px solid var(--border)}
-    table{width:100%;border-collapse:collapse;font-size:0.9rem}
-    thead{background:var(--cream)}
-    thead th{color:var(--navy);text-align:left;padding:0.85rem 1rem;font-weight:700;font-size:0.82rem;letter-spacing:0.02em}
-    tbody tr:nth-child(even){background:var(--paper)}
-    tbody td{padding:0.8rem 1rem;border-top:1px solid var(--border);vertical-align:top}
-    .tnote{font-size:0.82rem;color:var(--muted);margin:0 0 1.5rem}
- 
-    .callout{border-radius:10px;padding:1.25rem 1.5rem;margin:1.75rem 0}
-    .callout-teal{background:var(--teal-tint);border-left:4px solid var(--teal)}
-    .callout-gold{background:var(--gold-tint);border-left:4px solid var(--gold)}
-    .callout p{margin:0;font-size:0.95rem}
-    .callout strong{color:var(--navy)}
- 
-    .keypoints{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
-    .keypoint{background:var(--paper);border:1px solid var(--border);border-radius:10px;padding:1.25rem;border-top:3px solid var(--teal)}
-    .keypoint h4{font-size:0.88rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem}
-    .keypoint p{font-size:0.85rem;color:var(--muted);margin:0;line-height:1.55}
- 
-    .ask{border:1px solid rgba(14,124,123,0.25);background:var(--teal-tint);border-radius:14px;padding:1.5rem 1.75rem;margin:2rem 0}
-    .ask h3{margin:0 0 0.75rem;color:var(--teal-deep);font-size:1.05rem}
-    .ask ul{margin:0;padding-left:1.2rem}
-    .ask li{margin:0.5rem 0;color:var(--ink);font-style:italic}
- 
-    .faq-item{border-bottom:1px solid var(--border);padding:1.25rem 0}
-    .faq-item:last-child{border-bottom:none}
-    .faq-q{font-weight:700;color:var(--navy);margin-bottom:0.5rem;font-size:1rem}
-    .faq-a{color:var(--ink);font-size:0.95rem;margin:0}
- 
-    .medical-notice{background:var(--gold-tint);border:1px solid rgba(181,138,46,0.4);border-radius:10px;padding:1.25rem 1.5rem;margin:3rem 0 2rem;display:flex;gap:1rem;align-items:flex-start}
-    .notice-icon{font-size:1.4rem;flex-shrink:0;margin-top:0.1rem}
-    .medical-notice p{margin:0;font-size:0.9rem;color:var(--muted)}
-    .medical-notice strong{color:var(--navy)}
- 
-    /* Light CTA */
-    .cta-block{background:linear-gradient(160deg,var(--teal-tint),var(--paper));border:1px solid rgba(14,124,123,0.2);border-radius:16px;padding:2.75rem 2.5rem;text-align:center;margin:3.5rem 0 2rem}
-    .cta-block h2{font-family:var(--font-display);font-size:1.5rem;color:var(--navy);margin-bottom:0.75rem;border:none;padding:0}
-    .cta-block p{color:var(--muted);font-size:0.95rem;max-width:520px;margin:0 auto 1.5rem}
-    .btn-primary{display:inline-block;background:var(--teal);color:var(--white);font-weight:700;font-size:1rem;padding:0.9rem 2.2rem;border-radius:8px;text-decoration:none;transition:background .2s;margin-bottom:0.75rem}
-    .btn-primary:hover{background:var(--teal-deep);color:var(--white)}
-    .btn-secondary{display:inline-block;color:var(--teal-deep);font-size:0.88rem;text-decoration:none;padding:0.4rem 0.75rem;border:1px solid rgba(14,124,123,0.35);border-radius:6px;margin-left:0.75rem}
-    .btn-secondary:hover{border-color:var(--teal)}
- 
-    .references{background:var(--cream);border-radius:10px;padding:1.75rem 2rem;margin-top:3rem}
-    .references h2{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:1rem;border:none;padding:0}
-    .references ol{margin:0;padding-left:1.3rem;font-size:0.83rem;color:var(--muted);line-height:1.6}
-    .references li{margin-bottom:0.5rem}
-    .references a{color:var(--teal-deep)}
- 
-    /* Light footer */
-    .site-footer{background:var(--cream);color:var(--muted);text-align:center;padding:2.5rem 2rem;font-size:0.83rem;border-top:1px solid var(--border)}
-    .site-footer a{color:var(--teal-deep);text-decoration:none}
-    .site-footer a:hover{color:var(--teal)}
- 
-    @media (max-width:640px){
-      .nav-links{display:none}
-      .keypoints{grid-template-columns:1fr}
-      .cta-block{padding:2rem 1.25rem}
-      .btn-secondary{display:block;margin:0.75rem auto 0;text-align:center}
-    }
-    @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-  
-/* Mobile nav toggle (fix: .nav-links was display:none <=640px with no way to open it) */
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 78% -8%, rgba(42,157,143,0.10), transparent 60%),
+      radial-gradient(900px 520px at 8% 4%, rgba(201,162,39,0.08), transparent 55%),
+      var(--navy-900);
+    color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--gold-lite);text-decoration:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+  /* Nav */
+  .nav{position:sticky;top:0;z-index:20;background:rgba(8,22,39,0.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--hairline);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;}
+  .brand{font-family:"Newsreader",Georgia,serif;font-weight:600;font-size:1.28rem;letter-spacing:0.01em;color:var(--ink);}
+  .brand b{color:var(--gold);}
+  .navlinks{display:flex;align-items:center;gap:26px;}
+  .navlinks a{color:var(--muted);font-size:0.95rem;font-weight:500;}
+  .navlinks a:hover,.navlinks a:focus-visible{color:var(--ink);}
+  .navlinks .cta{color:var(--navy-900);background:var(--gold);padding:9px 16px;border-radius:10px;font-weight:600;}
+  .navlinks .cta:hover{background:var(--gold-lite);}
+  .menubtn{display:none;}
+
+  /* Hero */
+  .hero{padding:74px 0 30px;}
+  .eyebrow{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);font-weight:700;}
+  .hero h1{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(2.1rem,5vw,3.35rem);line-height:1.1;margin:14px 0 0;letter-spacing:-0.01em;max-width:16ch;}
+  .hero h1 em{font-style:italic;color:var(--gold-lite);}
+  .hero p.lede{color:var(--muted);font-size:1.12rem;max-width:60ch;margin:20px 0 0;}
+  .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;color:var(--muted);font-size:0.86rem;}
+  .trust span{display:inline-flex;align-items:center;gap:8px;}
+  .trust .dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex:none;}
+
+  /* Section */
+  section.group{padding:40px 0 4px;}
+  .grouphead{display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--hairline);padding-top:26px;margin-bottom:22px;}
+  .grouphead h2{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:1.5rem;margin:0;}
+  .grouphead .tag{font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);font-weight:700;white-space:nowrap;}
+
+  /* Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+  .grid.pillars{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));}
+  .card{
+    display:flex;flex-direction:column;
+    background:var(--card);border:1px solid var(--hairline);border-radius:var(--radius);
+    padding:22px 22px 20px;transition:transform .18s ease,border-color .18s ease,background .18s ease;
+    position:relative;
+  }
+  .card:hover{transform:translateY(-3px);border-color:var(--gold-border);background:var(--card-hover);}
+  .card .kicker{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:12px;}
+  .card h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:1.22rem;line-height:1.28;margin:0 0 10px;}
+  .card h3 a{color:var(--ink);}
+  .card h3 a:hover{color:var(--gold-lite);}
+  .card p{color:var(--muted);font-size:0.96rem;margin:0 0 18px;}
+  .card .read{margin-top:auto;font-weight:600;color:var(--gold-lite);font-size:0.92rem;}
+  .card.feature{background:linear-gradient(180deg,rgba(201,162,39,0.06),rgba(255,255,255,0.02));border-color:var(--gold-border);}
+  .card.feature .kicker{color:var(--teal);}
+  /* Whole-card click target */
+  .card .stretch{position:absolute;inset:0;border-radius:var(--radius);}
+  .card:focus-within{border-color:var(--gold-border);}
+
+  /* CTA band */
+  .cta-band{margin:56px 0 10px;border:1px solid var(--gold-border);background:linear-gradient(180deg,rgba(42,157,143,0.08),rgba(255,255,255,0.02));border-radius:var(--radius);padding:34px 30px;text-align:center;}
+  .cta-band .eyebrow{color:var(--teal);}
+  .cta-band h2{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:1.7rem;margin:12px 0 8px;}
+  .cta-band p{color:var(--muted);max-width:56ch;margin:0 auto 22px;}
+  .cta-band a.btn{display:inline-block;color:var(--navy-900);background:var(--gold);font-weight:700;padding:13px 26px;border-radius:11px;}
+  .cta-band a.btn:hover{background:var(--gold-lite);}
+  .cta-band small{display:block;margin-top:14px;color:var(--muted);font-size:0.8rem;}
+
+  /* Footer */
+  footer{margin-top:64px;border-top:1px solid var(--hairline);padding:34px 0 46px;}
+  footer .wrap{display:flex;flex-direction:column;gap:16px;}
+  .flinks{display:flex;flex-wrap:wrap;gap:18px;}
+  .flinks a{color:var(--muted);font-size:0.92rem;}
+  .flinks a:hover{color:var(--ink);}
+  .disclaimer{color:var(--muted);font-size:0.8rem;max-width:78ch;opacity:0.85;}
+  .copy{color:var(--muted);font-size:0.8rem;opacity:0.7;}
+
+  @media (max-width:720px){
+    .navlinks{display:none;}
+    .hero{padding:52px 0 20px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important;}
+    .card:hover{transform:none;}
+  }
+  a:focus-visible,.card:focus-within{outline:2px solid var(--gold-lite);outline-offset:3px;}
+
+/* Mobile nav toggle (fix: .navlinks was display:none with no way to open it) */
 .nav-toggle{display:none;background:transparent;border:0;cursor:pointer;padding:8px;margin-left:auto;}
 .nav-toggle span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;margin:5px 0;}
-@media (max-width:640px){
-  .site-nav{flex-wrap:wrap;height:auto;min-height:64px;}
+@media (max-width:720px){
+  .nav .wrap{flex-wrap:wrap;}
   .nav-toggle{display:block;}
-  .nav-links{display:none;flex-direction:column;align-items:flex-start;width:100%;gap:0;order:3;padding:0 0 0.75rem;}
-  .nav-links.is-open{display:flex;}
-  .nav-links li{width:100%;}
-  .nav-links a{display:block;width:100%;margin-left:0!important;padding:0.7rem 0;border-top:1px solid rgba(255,255,255,0.12);}
-  .nav-links .nav-cta{display:inline-block;width:auto;margin-top:0.5rem;border:none!important;}
+  .navlinks{display:none;flex-direction:column;align-items:flex-start;width:100%;gap:0;}
+  .navlinks.is-open{display:flex;}
+  .navlinks a{display:block;width:100%;padding:0.7rem 0;border-top:1px solid rgba(255,255,255,0.12);}
 }
 </style>
 </head>
 <body>
- 
-<nav class="site-nav">
-  <a href="/" class="nav-logo">Cardio<span>IQ</span></a>
-  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('is-open'))"><span></span><span></span><span></span></button>
-  <ul class="nav-links">
-    <li><a href="/about/">About</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/reports/">Reports</a></li>
-    <li><a href="/reports/" class="nav-cta">Get my report</a></li>
-  </ul>
+
+<nav class="nav" aria-label="Primary">
+  <div class="wrap">
+    <a class="brand" href="/">Cardio<b>IQ</b></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.classList.toggle('is-open'))"><span></span><span></span><span></span></button>
+    <div class="navlinks">
+      <a href="/about/">About</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/demo-report/">See a sample</a>
+      <a href="/reports/">Reports</a>
+      <a href="/physicians/">For Physicians</a>
+      <a class="cta" href="/reports/">Get my report</a>
+    </div>
+  </div>
 </nav>
- 
-<header class="article-hero">
-  <div class="article-tag">Treatment · Evidence-Based Guide</div>
-  <h1>Statins: How They Work, What They Do, and What to Know About Side Effects</h1>
-  <p class="lead">The most-studied cardiovascular medicine — and one of the most misunderstood. A calm, evidence-first look, with every treatment decision left where it belongs: with your physician.</p>
-  <div class="byline">
-    <div class="byline-avatar">TG</div>
-    <div class="byline-text">
-      <div class="byline-label">Medically Reviewed By</div>
-      <div class="byline-name"><a href="/about/" style="color:inherit;text-decoration:none;">Dr. Tea Gamezardashvili</a></div>
-      <div class="byline-creds">MD, PhD, MHA, FACC · Cardiologist &amp; Lipidologist</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">The CardioIQ Blog</div>
+    <h1>Cardiovascular longevity, read against <em>optimal</em> — not just normal.</h1>
+    <p class="lede">Physician-authored guides on the markers that actually drive risk — ApoB, Lp(a), and the metabolic picture a standard panel leaves out. Written by a lipidologist, anchored to guidelines, calibrated to longevity-optimal targets.</p>
+    <div class="trust">
+      <span><span class="dot"></span>Physician-built by a preventive cardiologist &amp; lipidologist</span>
+      <span><span class="dot"></span>Guideline-anchored — ESC/EAS, ACC/AHA</span>
+      <span><span class="dot"></span>Interpretation, not diagnosis</span>
     </div>
   </div>
 </header>
- 
-<main class="article-body">
- 
-  <p class="intro-paragraph">Few medicines carry as much evidence — or as much anxiety — as statins. They are the best-studied drugs in cardiovascular medicine, with decades of large trials behind them, yet many people approach them with real hesitation. This guide is not here to tell you whether to take a statin. It's here to explain, calmly and accurately, what they do and how to think about them — so that the conversation with your own doctor is an informed one.</p>
- 
-  <div class="quick-answer">
-    <div class="quick-answer-label">Quick Answer</div>
-    <h3>What do statins do?</h3>
-    <p>Statins lower the number of atherogenic (ApoB-containing) particles in your blood — chiefly LDL — by helping the liver clear them faster. Across decades of trials, that translates into <strong>fewer heart attacks and strokes</strong>. Whether a statin is right for a given person, and at what intensity, is a clinical decision that depends on their overall risk — one made with a physician, not from an article.</p>
-  </div>
- 
-  <h2>How statins work</h2>
-  <p>Statins block an enzyme in the liver called HMG-CoA reductase, a key step in cholesterol production. In response, liver cells display more <strong>LDL receptors</strong> on their surface, which pull LDL particles out of the bloodstream more efficiently. The result is a lower circulating <strong>ApoB and LDL-C</strong> — fewer of the particles that drive <a href="/blog/apob-guide/">atherosclerosis</a>.</p>
-  <p>This is why statins are described as treating the <em>cause</em> of atherosclerotic risk rather than a symptom: they reduce the particle burden that physically builds arterial plaque over time.</p>
- 
-  <h2>Who statins are considered for</h2>
-  <p>This is a decision for a clinician, based on a person's overall cardiovascular risk — not something to self-determine. In general, physicians <em>consider</em> statin therapy for people such as:</p>
-  <ul>
-    <li>Those with <strong>established cardiovascular disease</strong> (a prior heart attack, stroke, or known arterial disease).</li>
-    <li>Those at <strong>high or very-high estimated risk</strong> — see <a href="/blog/score2-guide/">how risk category is determined</a>.</li>
-    <li>People with <strong>familial hypercholesterolemia</strong> or markedly elevated LDL-C / <a href="/blog/apob-normal-range/">ApoB</a>.</li>
-    <li>Many people with diabetes, depending on age and other factors.</li>
-  </ul>
-  <p>Being in one of these groups doesn't mean a statin is automatically the answer — it means it's a reasonable conversation to have. The decision weighs the size of the expected benefit against the individual's preferences and circumstances.</p>
- 
-  <h2>Intensity, not just "on or off"</h2>
-  <p>Statins are often grouped by how much they lower LDL-C — broadly <strong>moderate-intensity</strong> and <strong>high-intensity</strong>. Higher-intensity regimens lower ApoB and LDL-C more, and are typically reserved for higher-risk situations. The specific agent and dose are matched to the person's risk, targets, and tolerability by their physician; there is no single "right" statin or dose that applies to everyone.</p>
- 
-  <div class="callout callout-teal">
-    <p><strong>The target behind the dose:</strong> the point of a statin isn't a number on the bottle — it's reaching an <a href="/blog/apob-normal-range/">ApoB / LDL target</a> appropriate for your risk. That's why two people can be on very different regimens and both be treated correctly.</p>
-  </div>
- 
-  <h2>What the evidence shows</h2>
-  <p>Statins are supported by one of the largest bodies of randomized evidence in all of medicine. Pooled analyses of many trials — most notably by the Cholesterol Treatment Trialists' (CTT) Collaboration — show a consistent finding: <strong>lowering LDL-C with a statin reduces the risk of major cardiovascular events</strong>, and the benefit is proportional to how much the particle burden falls and how long it stays low. The relationship holds across a wide range of starting risk levels.</p>
-  <p>This is the same principle that runs through the rest of cardiovascular prevention: it's the cumulative exposure to atherogenic particles that drives disease, so reducing that exposure — earlier and for longer — is what changes outcomes.</p>
- 
-  <h2>Side effects: an honest, calm picture</h2>
-  <p>Concern about side effects is the single most common reason people hesitate, so it deserves a straight answer rather than either dismissal or alarm.</p>
- 
-  <h3>Muscle symptoms</h3>
-  <p>Muscle aches are the most talked-about statin concern. The reality from blinded trials is reassuring: <strong>the large majority of people tolerate statins well</strong>, and in carefully designed studies, most muscle symptoms occurred just as often on placebo as on the active drug — a pattern known as the nocebo effect. Genuine statin-associated muscle symptoms do occur in a minority, and they are almost always manageable — by adjusting the dose, switching agents, or other strategies your physician can offer. Serious muscle injury is rare.</p>
- 
-  <h3>Blood sugar and other effects</h3>
-  <p>Statins are associated with a small increase in the risk of developing type 2 diabetes, mostly in people already close to that threshold. Importantly, across the evidence, the cardiovascular benefit for those who need a statin outweighs this small risk. Effects on the liver are usually minor; your physician monitors what needs monitoring.</p>
- 
-  <div class="callout callout-gold">
-    <p><strong>Important:</strong> if you're already taking a statin and experience symptoms, the safest step is to <strong>speak with your physician before changing anything</strong> — not to stop on your own. Stopping a needed medication carries its own risk, and most side-effect problems have a solution that keeps you protected.</p>
-  </div>
- 
-  <h2>Statins and Lp(a): clearing up a common worry</h2>
-  <p>You may read that statins can slightly <em>raise</em> Lp(a). This is true — but it is <strong>not a reason to avoid statins</strong>. The effect on Lp(a) is small, while the reduction in ApoB and overall cardiovascular risk is large and well-proven. For someone with high <a href="/blog/lpa-guide/">Lp(a)</a>, controlling every other risk factor — which is exactly what a statin does by lowering ApoB — is a cornerstone of management, precisely because Lp(a) itself can't yet be lowered with an approved drug.</p>
- 
-  <h2>If a statin isn't enough — or isn't tolerated</h2>
-  <p>When a statin alone doesn't bring ApoB and LDL-C to target, or when someone genuinely can't tolerate one, other options exist. Additional <strong>classes of lipid-lowering therapy</strong> — such as ezetimibe, PCSK9 inhibitors, and bempedoic acid — can be added or substituted. Which, if any, is appropriate is a decision for you and your physician, guided by your targets and your full risk picture. CardioIQ does not recommend specific drugs; that judgement belongs in the clinic.</p>
- 
-  <div class="keypoints">
-    <div class="keypoint"><h4>They treat the cause</h4><p>Statins lower the ApoB particle burden that drives plaque — not just a lab number.</p></div>
-    <div class="keypoint"><h4>Strongest evidence base</h4><p>Decades of large randomized trials link statin LDL-lowering to fewer events.</p></div>
-    <div class="keypoint"><h4>Mostly well tolerated</h4><p>Blinded trials show most muscle symptoms occur as often on placebo — manageable when real.</p></div>
-    <div class="keypoint"><h4>Never stop solo</h4><p>If side effects arise, your physician has solutions — changing things alone carries risk.</p></div>
-  </div>
- 
-  <div class="ask">
-    <h3>Questions to bring to your doctor</h3>
-    <ul>
-      <li>"Given my risk category and my ApoB, would you consider a statin — and what would it be aiming to achieve?"</li>
-      <li>"What ApoB or LDL target are we treating toward, and how will we check that I've reached it?"</li>
-      <li>"If I get muscle symptoms, what are our options before stopping?"</li>
-      <li>"My Lp(a) is high — how does that change your thinking about lowering everything else?"</li>
-    </ul>
-  </div>
- 
-  <!-- FAQ -->
-  <h2>Common Questions</h2>
- 
-  <div class="faq-item">
-    <div class="faq-q">Do statins actually prevent heart attacks?</div>
-    <p class="faq-a">The evidence strongly supports that, in people for whom they're indicated, lowering LDL-C with a statin reduces the risk of heart attacks and strokes — with benefit proportional to how much the particle burden falls. Whether that benefit applies meaningfully to a given person depends on their baseline risk, which is a clinical judgement.</p>
-  </div>
- 
-  <div class="faq-item">
-    <div class="faq-q">Will I have to take a statin for life?</div>
-    <p class="faq-a">Because atherosclerotic risk relates to long-term particle exposure, statins are usually intended as a long-term therapy rather than a short course. That said, the plan is individual and is something to revisit with your physician over time, not a fixed sentence.</p>
-  </div>
- 
-  <div class="faq-item">
-    <div class="faq-q">Can I lower my cholesterol enough with diet instead?</div>
-    <p class="faq-a">Lifestyle genuinely helps and is worthwhile for everyone — but how far it moves ApoB and LDL-C varies a lot from person to person, and for some (especially those with familial hypercholesterolemia or high baseline risk) it isn't sufficient on its own. Whether lifestyle alone is a reasonable strategy for you is a conversation to have with your doctor, ideally with your numbers in front of you.</p>
-  </div>
- 
-  <div class="faq-item">
-    <div class="faq-q">Are statins safe for older adults?</div>
-    <p class="faq-a">Statins are widely used across a broad range of ages, and the decision in older adults weighs expected benefit against overall health and preferences — exactly the kind of individualized judgement a physician is there to make. Age alone neither rules a statin in nor out.</p>
-  </div>
- 
-  <!-- CTA -->
-  <div class="cta-block">
-    <h2>Know Your Numbers Before the Conversation</h2>
-    <p>CardioIQ reads your ApoB, LDL, Lp(a), and full risk profile against longevity-optimal targets — so you walk into that discussion with your physician already understanding where you stand.</p>
-    <a href="/reports/" class="btn-primary">See how CardioIQ reads your panel</a>
-    <a href="/demo-report/" class="btn-secondary">View a sample report →</a>
-  </div>
- 
-  <!-- Medical notice -->
-  <div class="medical-notice">
-    <div class="notice-icon">⚠️</div>
-    <p><strong>Important Medical Notice.</strong> This article is educational only. It is not medical advice, not a recommendation to start, stop, or change any medication, and not a substitute for care from a qualified clinician. CardioIQ does not prescribe treatment. Decisions about statins or any other therapy — including dose and duration — must be made with your physician, who knows your full history. If you are taking a statin and have concerns, speak with your doctor before making any change.</p>
-  </div>
- 
-  <!-- References -->
-  <div class="references">
-    <h2>References</h2>
-    <ol>
-      <li>Cholesterol Treatment Trialists' (CTT) Collaboration. Efficacy and safety of LDL-lowering therapy: meta-analyses of randomized trials. <em>The Lancet</em> (multiple analyses).</li>
-      <li>2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>European Heart Journal</em>. doi:<a href="https://doi.org/10.1093/eurheartj/ehz455" target="_blank" rel="noopener">10.1093/eurheartj/ehz455</a></li>
-      <li>2018 AHA/ACC/Multisociety Guideline on the Management of Blood Cholesterol. <em>Journal of the American College of Cardiology</em>. doi:<a href="https://doi.org/10.1016/j.jacc.2018.11.003" target="_blank" rel="noopener">10.1016/j.jacc.2018.11.003</a></li>
-    </ol>
-  </div>
- 
+
+<main class="wrap" id="posts">
+  <!-- Sections render here from the POSTS data below -->
 </main>
- 
-<footer class="site-footer">
-  <p style="margin-bottom:0.5rem;">
-    <a href="/">CardioIQ</a> &nbsp;·&nbsp;
-    <a href="/about/">About</a> &nbsp;·&nbsp;
-    <a href="/blog/">Blog</a> &nbsp;·&nbsp;
-    <a href="/reports/">Reports</a>
-  </p>
-  <p>© 2026 CardioIQ. For educational and informational purposes only. Not medical advice.</p>
+
+<div class="wrap">
+  <div class="cta-band">
+    <div class="eyebrow">Free · no sign-up</div>
+    <h2>See where your own numbers sit</h2>
+    <p>The Optimal vs Normal check shows any value you already have in two lenses — your lab's standard range and the longevity-optimal target a lipidologist works from. Everything stays in your browser.</p>
+    <a class="btn" href="/check/?utm_source=blog-index&amp;utm_medium=hub&amp;utm_content=blog-hub-cta">See where my numbers sit — free →</a>
+    <small>Not a diagnosis. A reference-frame starting point to discuss with your physician.</small>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="flinks">
+      <a href="/">CardioIQ</a>
+      <a href="/about/">About</a>
+      <a href="/blog/">Blog</a>
+      <a href="/demo-report/">Sample report</a>
+      <a href="/reports/">Reports</a>
+      <a href="/methodology/">Methodology</a>
+      <a href="/check/">Free check</a>
+    </div>
+    <p class="disclaimer"><strong>Medical disclaimer.</strong> These articles are for education only — not medical advice, not a diagnosis, and not a substitute for care from a qualified clinician. CardioIQ interprets biomarker data; it does not diagnose or treat disease and does not replace your treating physician. Reference ranges and units vary by laboratory and assay. Discuss your results and any decisions with your physician.</p>
+    <p class="copy">© 2026 CardioIQ · Physician-built cardiovascular longevity intelligence. For educational and informational purposes only. Not medical advice.</p>
+  </div>
 </footer>
- 
+
+<script>
+/* ────────────────────────────────────────────────────────────────
+   MAINTENANCE: to add an article, add one object to POSTS below and
+   deploy. Group it with a `section` value that matches a SECTIONS row.
+   Only add a post here once its page is LIVE (avoids re-introducing
+   404s / orphan links). Uncertain slugs live in POSTS_UNVERIFIED and
+   do NOT render until you confirm them and move them up.
+   ──────────────────────────────────────────────────────────────── */
+
+const SECTIONS = [
+  { id:"start",     tag:"Start here",         title:"The two pillars" },
+  { id:"apob",      tag:"ApoB",               title:"Understanding ApoB" },
+  { id:"lpa",       tag:"Lp(a)",              title:"Understanding Lp(a)" },
+  { id:"metabolic", tag:"Metabolic health",   title:"Insulin, glucose & metabolic risk" },
+  { id:"optimal",   tag:"Normal vs optimal",  title:"When “normal” isn’t the whole picture" },
+  { id:"lifestyle", tag:"Lifestyle & nutrition", title:"Diet, exercise & sleep as biomarker levers" }
+];
+
+/* CONFIRMED LIVE — linked from the live Lp(a) pillar and/or fetched directly. */
+const POSTS = [
+  {
+    section:"start", feature:true, kicker:"Pillar · ApoB",
+    title:"ApoB: The Complete Guide to Apolipoprotein B Testing and Heart Disease Risk",
+    url:"/blog/apob-guide/",
+    blurb:"Why the particle count — not the cholesterol number — is the truer measure of atherogenic burden, and what your target should be."
+  },
+  {
+    section:"start", feature:true, kicker:"Pillar · Lp(a)",
+    title:"Lp(a): The Complete Guide to Lipoprotein(a) and Your Cardiovascular Risk",
+    url:"/blog/lpa-guide/",
+    blurb:"The inherited risk factor most people are never tested for — what it is, what counts as high, and what to do about it."
+  },
+  {
+    section:"lpa", kicker:"Comparison",
+    title:"Lp(a) vs LDL: Why a Normal Cholesterol Test Can Miss a Serious Risk Factor",
+    url:"/blog/lpa-vs-ldl/",
+    blurb:"Two lookalike particles that call for opposite action — one you can lower, one you inherit."
+  },
+  {
+    section:"lpa", kicker:"Targets",
+    title:"High Lp(a) and ApoB Targets: Why Standard Thresholds May Not Be Enough",
+    url:"/blog/apob-lpa-targets/",
+    blurb:"When Lp(a) is high, how deliberately should you drive ApoB and LDL-C? A look at the targets that follow."
+  },
+  {
+    section:"lpa", kicker:"Investigational pipeline",
+    title:"Lp(a) Drug Pipeline 2026: Pelacarsen, Olpasiran, Lepodisiran & Muvalaplin",
+    url:"/blog/pelacarsen-olpasiran/",
+    blurb:"Four drugs, one open question. Where all four Lp(a)-lowering therapies stand — and why the trial expected to answer it first is already overdue."
+  },
+  {
+    section:"optimal", kicker:"What a standard panel misses",
+    title:"Normal Cholesterol, Still at Risk? What a Standard Panel Can Miss",
+    url:"/blog/normal-cholesterol-still-at-risk/",
+    blurb:"A “normal” result can sit on top of an elevated ApoB — and a routine panel never measures Lp(a) at all."
+  },
+  {
+    section:"optimal", kicker:"Normal vs optimal",
+    title:"Your Cholesterol Is “Normal.” Is It Optimal?",
+    url:"/blog/normal-vs-optimal-cholesterol/",
+    blurb:"The gap between the range that rules out disease and the target that aims for the lowest long-term risk."
+  },
+  {
+    section:"optimal", kicker:"Residual risk",
+    title:"hs-CRP: What It Measures, and Why It's Part of Your Cardiovascular Picture",
+    url:"/blog/hs-crp-inflammation-guide/",
+    blurb:"A simple blood test for low-grade inflammation that most standard panels skip — what counts as low, average, or high, and how it fits alongside ApoB and Lp(a)."
+  },
+  {
+    section:"apob", kicker:"Ranges & targets",
+    title:"What Is a Normal ApoB Level? Ranges, Targets & When to Test",
+    url:"/blog/apob-normal-range/",
+    blurb:"The numbers a standard lab flags as normal, the tighter targets longevity-focused care works from, and when it’s worth asking your doctor to order the test."
+  },
+  {
+    section:"metabolic", feature:true, kicker:"Pillar · Cardiometabolic health",
+    title:"Cardiometabolic Health: The Reference Frame Behind Your Lipids",
+    url:"/blog/cardiometabolic-health/",
+    blurb:"Fasting triglycerides, glucose, and calculated indices like TyG and AIP can flag metabolic strain years before a diagnosis — read against longevity-optimal targets, not just the standard range."
+  },
+  {
+    section:"metabolic", kicker:"Metabolic health",
+    title:"Fasting Insulin and Longevity: Why “Normal” Isn’t Always Optimal",
+    url:"/blog/fasting-insulin-longevity/",
+    blurb:"A standard panel can call your insulin normal years before a longevity-optimal range would flag it — here’s the gap, and why it matters."
+  },
+  {
+    section:"metabolic", kicker:"Metabolic health",
+    title:"The Insulin Resistance Gap: When Normal Glucose Hides Cardiovascular Risk",
+    url:"/blog/insulin-resistance-gap/",
+    blurb:"Glucose can look fine while insulin resistance is already driving risk underneath it — the markers that catch it earlier."
+  },
+  {
+    section:"optimal", kicker:"Decision guide",
+    title:"Standard vs Advanced Lipid Panel: Which Do You Actually Need?",
+    url:"/blog/standard-vs-advanced-lipid-panel/",
+    blurb:"What a basic panel tells you, what ApoB and Lp(a) add on top, and how to decide which one is actually worth ordering."
+  },
+  {
+    section:"start", kicker:"The big picture",
+    title:"Cardiovascular Longevity: The Biggest Lever Your Standard Labs Miss",
+    url:"/blog/cardiovascular-longevity/",
+    blurb:"How ApoB, Lp(a), and metabolic health fit together into one long-horizon view of cardiovascular risk."
+  },
+  {
+    section:"start", kicker:"Pillar 6 · Biological age",
+    title:"Biological Age vs. Chronological Age: What Epigenetic Clocks Mean for Cardiovascular Prevention",
+    url:"/blog/biological-age-vs-chronological-age/",
+    blurb:"Two people can share a birth year and not a cardiovascular future — what GrimAge and DunedinPACE actually measure, and what they don't change yet."
+  },
+  {
+    section:"start", kicker:"Methodology",
+    title:"How CardioIQ Stratifies Risk: SCORE2, ApoB & Lp(a) Explained",
+    url:"/blog/how-cardioiq-stratifies-risk/",
+    blurb:"The guideline logic behind every CardioIQ report — how SCORE2, ApoB, and Lp(a) combine into your risk category."
+  },
+  {
+    section:"start", kicker:"How it works",
+    title:"How CardioIQ Works: From Your Labs to a Longevity-Optimal Report",
+    url:"/blog/how-cardioiq-works/",
+    blurb:"A walkthrough of how CardioIQ turns your lipid panel into a guideline-anchored, longevity-optimal report — five steps, nothing left as a black box."
+  },
+  {
+    section:"apob", kicker:"Testing",
+    title:"ApoB Test: What It Measures and Who Should Get One",
+    url:"/blog/apob-testing/",
+    blurb:"What the ApoB blood test actually measures, why it catches risk a standard panel misses in roughly 1 in 5 people, and who should ask their doctor to order it."
+  },
+  {
+    section:"apob", kicker:"Comparison",
+    title:"ApoB vs. LDL-C vs. Non-HDL-C vs. Triglycerides: How the Four Markers Compare",
+    url:"/blog/apob-ldl-nonhdl-tg-comparison/",
+    blurb:"A standard panel hands you four numbers that don’t always agree — what each one measures, what it misses, and the practical hierarchy clinicians use when they disagree."
+  },
+  {
+    section:"start", kicker:"Inherited risk",
+    title:"Familial Hypercholesterolemia (FH): Causes, Diagnosis & Family Screening",
+    url:"/blog/familial-hypercholesterolemia/",
+    blurb:"An inherited condition that drives very high LDL and ApoB from birth — how it’s recognized, and why screening the whole family matters as much as treating the person in front of you."
+  },
+  {
+    section:"lpa", kicker:"The 2026 pipeline",
+    title:"Can You Lower Lp(a)? What the 2026 Drug Pipeline Means for You",
+    url:"/blog/lower-lpa/",
+    blurb:"No approved medication lowers Lp(a) yet. The honest state of the pelacarsen/olpasiran pipeline in 2026, and what’s actually worth doing about a high number today."
+  },
+  {
+    section:"lpa", kicker:"Family screening",
+    title:"Lp(a) and Family History: Who Should Be Tested?",
+    url:"/blog/lpa-family-screening/",
+    blurb:"A high Lp(a) in one family member is a signal, not a coincidence — how it’s inherited, who else in the family should be tested, and how cascade screening actually works."
+  },
+  {
+    section:"lpa", kicker:"Ranges & units",
+    title:"What Is a High Lp(a) Level? Ranges in nmol/L, Units, and What They Mean",
+    url:"/blog/lpa-high-level/",
+    blurb:"What counts as a high Lp(a), why nmol/L and mg/dL don’t convert cleanly, and how to read your own number against both."
+  },
+  {
+    section:"start", kicker:"Line by line",
+    title:"How to Read Your Cholesterol / Lipid Panel Results",
+    url:"/blog/read-lipid-panel/",
+    blurb:"A lipidologist walks through a standard panel line by line — total cholesterol, LDL-C, HDL-C, triglycerides, non-HDL-C — and the two markers it leaves out entirely."
+  },
+  {
+    section:"start", kicker:"Risk scoring",
+    title:"SCORE2: Understanding Your Cardiovascular Risk Score",
+    url:"/blog/score2-guide/",
+    blurb:"What goes into your 10-year cardiovascular risk estimate, why it sets your ApoB and LDL targets, and where a risk score like this can fall short."
+  },
+  {
+    section:"optimal", kicker:"Treatment",
+    title:"Statins: The Complete Guide to How They Work, Benefits & Side Effects",
+    url:"/blog/statins-guide/",
+    blurb:"How statins work, who they’re typically considered for, and an honest look at the evidence on side effects — explained by a lipidologist."
+  },
+  {
+    section:"lifestyle", feature:true, kicker:"Pillar 5 · Lifestyle architecture",
+    title:"Best Diet for High Cholesterol? Why the Answer Isn’t a Food List — It’s a Test",
+    url:"/blog/best-diet-for-high-cholesterol/",
+    blurb:"Mediterranean, low-carb, or plant-based — the right diet depends on your biology. A physician’s framework to test, not guess."
+  }
+];
+
+/* VERIFY LIVE BEFORE ENABLING — move an entry into POSTS (with a valid
+   `section`) only after confirming the page deploys with no 404.
+   Candidates referenced across project docs but not yet confirmed live here: */
+const POSTS_UNVERIFIED = [
+  // { section:"optimal", kicker:"Decision", title:"Standard vs Advanced Lipid Panel (ApoB, Lp(a))", url:"/blog/standard-vs-advanced-lipid-panel/", blurb:"Which panel actually answers the question you have — and how to read the advanced markers." },
+  // { section:"start",   kicker:"Testing",  title:"ApoB Testing: How to Order It and What It Costs", url:"/blog/apob-testing/", blurb:"A practical guide to getting ApoB measured and interpreting the result." },
+  // { section:"lpa",     kicker:"Metabolic", title:"Insulin Resistance and Cholesterol", url:"/blog/insulin-resistance-cholesterol/", blurb:"The metabolic driver behind ApoB/LDL-C discordance." },
+  // { section:"start",   kicker:"Hub",      title:"Cardiovascular Longevity", url:"/blog/cardiovascular-longevity/", blurb:"The organizing picture: prevention measured in decades." }
+];
+
+/* ── Render ── */
+(function renderPosts(){
+  const mount = document.getElementById("posts");
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  SECTIONS.forEach(sec => {
+    const items = POSTS.filter(p => p.section === sec.id);
+    if (!items.length) return;
+    const section = document.createElement("section");
+    section.className = "group";
+    section.setAttribute("aria-labelledby", "h-" + sec.id);
+    section.innerHTML =
+      '<div class="grouphead"><span class="tag">' + esc(sec.tag) + '</span>' +
+      '<h2 id="h-' + sec.id + '">' + esc(sec.title) + '</h2></div>';
+    const grid = document.createElement("div");
+    grid.className = "grid" + (sec.id === "start" ? " pillars" : "");
+    items.forEach(p => {
+      const card = document.createElement("article");
+      card.className = "card" + (p.feature ? " feature" : "");
+      card.innerHTML =
+        '<div class="kicker">' + esc(p.kicker) + '</div>' +
+        '<h3><a href="' + esc(p.url) + '">' + esc(p.title) + '</a></h3>' +
+        '<p>' + esc(p.blurb) + '</p>' +
+        '<span class="read">Read →</span>' +
+        '<a class="stretch" href="' + esc(p.url) + '" aria-label="' + esc(p.title) + '" tabindex="-1"></a>';
+      grid.appendChild(card);
+    });
+    section.appendChild(grid);
+    mount.appendChild(section);
+  });
+})();
+</script>
 </body>
 </html>
